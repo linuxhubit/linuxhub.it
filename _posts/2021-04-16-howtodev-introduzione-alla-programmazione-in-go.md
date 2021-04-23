@@ -52,7 +52,7 @@ Scaricare l'implementazione ufficiale di Go tramite la [nostra guida](https://li
 
 #### Debian/Ubuntu
 
-Si può installare tramite Go tramite apt con:
+Si può installare Go tramite apt con:
 
 ```bash
 apt install go
