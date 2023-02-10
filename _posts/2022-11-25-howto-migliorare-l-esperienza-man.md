@@ -124,22 +124,28 @@ che ci mostrerà una breve descrizione del comando.
 Un alternativa esterna a `whatis` è `tealdeer` che ci mostrerà una descrizione del programma e alcuni esempi di utilizzo.
 Installiamolo sulla nostra distribuzione:
 
-**Ubuntu:**
+### Ubuntu
+
 ```bash
 apt install tealdeer
 ```
 
-**Fedora:**
+### Fedora
+
 ```bash
 dnf install tealdeer
 ```
 
-**Archlinux:**
+### ArchLinux
+
 ```bash
 pacman -S tealdeer
 ```
 
+### Utilizzo 
+
 Adesso possiamo eseguire il comando: 
+
 ```bash
 tldr <comando>
 ``` 
