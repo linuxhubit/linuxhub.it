@@ -13,7 +13,7 @@ tags:
 ---
 Quando si parla di *software di versioning*, `git` è sicuramente il primo programma che ci viene in mente. È l'alternativa più popolare a sistemi come `svn`, utilizzata anche in ambito enterprise.
 
-Per chi non lo sapesse, un software di versioning consente di conservare "**la storia**" delle <u>modifiche</u> di una determinata *cartella con tutti i suoi file e le sue sottocartelle* opuure, più comunemente, di un **progetto**. Questo approccio, particolarmente adottato nei progetti di programmazione, consente di tenere traccia degli autori delle modifiche, modificare su più fronti i contenuti di quelle cartelle senza intralciarsi l'un l'altro o, eventualmente, di annullare delle modifiche specifiche.  
+Per chi non lo sapesse, un software di versioning consente di conservare "**la storia**" delle <u>modifiche</u> di una determinata *cartella con tutti i suoi file e le sue sottocartelle* oppure, più comunemente, di un **progetto**. Questo approccio, particolarmente adottato nei progetti di programmazione, consente di tenere traccia degli autori delle modifiche, modificare su più fronti i contenuti di quelle cartelle senza intralciarsi l'un l'altro o, eventualmente, di annullare delle modifiche specifiche.  
 *Git è esattamente tutto questo*. Ma, soprattutto, è stato creato da **Linus Torvalds**. Sì, proprio lui, quello di Linux. *FUCK YOU NVIDIA!*
 
 ## Piccole precisazioni
