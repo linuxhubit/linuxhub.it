@@ -31,20 +31,25 @@ Andremo a sfruttare alcuni plugin di `oh-my-zsh` perciò, se ancora non lo avete
 
 Prima di tutto, verifichiamo di aver installato man sulla nostra distribuzione; in molte è già preinstallato, ma se così non fosse:
 
-**Ubuntu:**
+### Ubuntu
+
 ```bash
 apt install man-db manpages-posix manpages-posix-dev manpages-dev
 ```
 
-**Fedora**:
+### Fedora
+
 ```bash
 dnf install man-db man-pages
 ```
 
-**Archlinux:**
+### ArchLinux 
+
 ```bash
 pacman -S man-db man-pages
 ```
+
+### Utilizzo 
 
 Dopo averlo installato possiamo iniziare quindi ad utilizzarlo, la sintassi base è:
 
