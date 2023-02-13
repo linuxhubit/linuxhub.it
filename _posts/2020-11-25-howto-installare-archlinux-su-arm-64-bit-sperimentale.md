@@ -239,7 +239,7 @@ Esistono in realtà delle patch che potete scaricare e inserire nella partizione
 - [start4x.elf](https://github.com/raspberrypi/firmware/blob/master/boot/start4x.elf)
 
 Quindi sostituiteli ai corrispettivi della vostra cartella di boot.
-Ora dovrebbe funzionare tutto, se così non dovesse essere, attuate la [prima soluzione](####limitare-la-ram)!
+Ora dovrebbe funzionare tutto, se così non dovesse essere, attuate la [prima soluzione](#limitare-la-ram)!
 
 ### Fine configurazione
 

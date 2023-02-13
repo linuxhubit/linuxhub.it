@@ -15,7 +15,7 @@ tags:
 In genere è comune per molti archiviare la propria musica e film preferiti su un disco. In questa guida vediamo come sfruttare questi dati archiviati tramite **Kodi**, una piattaforma che ci permette di gestire quei contenuti su più dispositivi e sistemi.
 
 > In questa guida ci sarà innanzitutto un breve tour di Kodi per i neofiti.
-> Per i piccoli impazienti, potete saltare direttamente alla sezione [impostare un server remoto](##impostare-un-server-remoto)
+> Per i piccoli impazienti, potete saltare direttamente alla sezione [impostare un server remoto](#impostare-un-server-remoto)
 
 ## Cos'è Kodi
 
@@ -141,7 +141,7 @@ Selezioniamo anche l'opzione `permetti controllo remoto da applicazioni su quest
 
 ![impostazioni server](/uploads/kodi-server/kodi_server_settings.png)
 
-Notare che è disponibile anche la personalizzazione dell'interfaccia. Similmente a quanto spiegato nella sezione [nuove skin](##nuove-skin), è possibile infatti scaricare e usare delle skin per l'interfaccia web.
+Notare che è disponibile anche la personalizzazione dell'interfaccia. Similmente a quanto spiegato nella sezione [nuove skin](#nuove-skin), è possibile infatti scaricare e usare delle skin per l'interfaccia web.
 
 Una volta personalizzati i valori, assicurarsi di avere <u>l'indirizzo IP</u> del dispositivo, trovabile anche in `impostazioni` > `info sistema` > `sommario`.
 

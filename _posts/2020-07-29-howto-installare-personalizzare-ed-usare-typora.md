@@ -186,7 +186,7 @@ L'opzione più interessante della tab "Generali" è invece sicuramente l'*autosa
 
 Selezionando la prima opzione, la seconda è abilitata di conseguenza. Se selezionate il salvataggio automatico rimarrete sicuramente perplessi dalla mancanza di selezione del **timer**. L'auto salvataggio di Typora ha infatti un timer predefinito non modificabile di **tre minuti**, ma ad ogni cambio di focus del sistema (cioè quando selezionate un'altra finestra) il file sarà salvato in automatico.
 
-Nella stessa pagina noterete l'impostazione per le shortcut, ne parleremo [più avanti](##impostazioni-delle-shortcut).
+Nella stessa pagina noterete l'impostazione per le shortcut, ne parleremo [più avanti](#impostazioni-delle-shortcut).
 
 ### Personalizzazione con tema
 
@@ -230,9 +230,9 @@ Però questo complica terribilmente la scrittura, e se volevamo la scrittura com
 
 - evidenziare (scrivendo == prima e dopo il testo)
 
-- Diagrammi, se ne discuterà [più avanti](##blocchi-di-codice-e-diagrammi)
+- Diagrammi, se ne discuterà [più avanti](#blocchi-di-codice-e-diagrammi)
 
-- Math inline, discusso nella [math block](##math-block)
+- Math inline, discusso nella [math block](#math-block)
   
 ## Math block
 
@@ -456,7 +456,7 @@ Ci sono diversi modi per cambiare font su Typora, più o meno complessi. Una vol
 
 Aprite `File`&rarr;`Impostazioni`&rarr;`Generali`&rarr; `Impostazioni avanzate`.
 
-Qui vi si aprirà l'editor di testo con il JSON modificabile come già spiegato nella sezione delle [scorciatorie](##impostazioni-delle-shortcut).
+Qui vi si aprirà l'editor di testo con il JSON modificabile come già spiegato nella sezione delle [scorciatorie](#impostazioni-delle-shortcut).
 
 La prima sezione del file dovrebbe essere simile a:
 
@@ -510,7 +510,7 @@ Se conosciamo CSS, possiamo modificare il font a livello di body, headers vari o
 
 > **Nota**: Un tema custom potrebbe rendere del tutto inefficace i passaggi di questa parte della guida. Se utilizzate temi scaricati, modificate il CSS di quel tema per rendere efficaci le modifiche! 
 
-Se state scrivendo una sorta di documento più scientifico, potreste volere che ogni capitolo sia numerato. La guida di Typora descrive una soluzione (che ho leggermete modificato a mio gusto) molto semplice. Come nel capitolo [sul cambio di font tramite css](###dal-file-css-generico), modifichiamo il CSS per tutti i temi, cioè `$HOME/.config/Typora/themes/base.user.css`, inserendo al suo interno:
+Se state scrivendo una sorta di documento più scientifico, potreste volere che ogni capitolo sia numerato. La guida di Typora descrive una soluzione (che ho leggermete modificato a mio gusto) molto semplice. Come nel capitolo [sul cambio di font tramite css](#dal-file-css-generico), modifichiamo il CSS per tutti i temi, cioè `$HOME/.config/Typora/themes/base.user.css`, inserendo al suo interno:
 
 ```css
 #write {

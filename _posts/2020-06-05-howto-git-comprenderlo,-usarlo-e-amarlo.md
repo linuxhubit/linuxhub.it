@@ -168,7 +168,7 @@ Ecco alcuni chiarimenti:
 - `.project?` : si escludono i file che iniziano con .project ma che hanno un altro carattere dopo, ad esempio **.projects**, oppure le cartelle che si chiamano **.project** (poichè corrisponde a **.project/**);
 - `src/*/esempi/` : esclude la cartella **esempi** presente in **src**;
 
-**<u>ATTENZIONE:</u>** i file **.gitignore** non sono retroattivi, se si aggiunge un file da ignorare a posteriori e questo è già stato registrato, non sarà eliminato, ma, semplicemente, non verranno più registrate le sue modifiche. Per correggere questo comportamento, bisogna [rimuovere il file dalla cache](####Situazione-inversa:-dalla-staging-area-alla-working-area).
+**<u>ATTENZIONE:</u>** i file **.gitignore** non sono retroattivi, se si aggiunge un file da ignorare a posteriori e questo è già stato registrato, non sarà eliminato, ma, semplicemente, non verranno più registrate le sue modifiche. Per correggere questo comportamento, bisogna [rimuovere il file dalla cache](#Situazione-inversa:-dalla-staging-area-alla-working-area).
 
 ## Uso base di git
 
@@ -235,7 +235,7 @@ Nel caso di rimozione di tutti i file o di un'intera cartella, dovete indicare i
 git rm --cached -r [percorso cartella o .]
 ```
 
-Questo comando può *correggere* la retroattività del [gitignore](###File-da-ignorare) già enunciata.
+Questo comando può *correggere* la retroattività del [gitignore](#File-da-ignorare) già enunciata.
 
 Se nel processo sono eliminati erroneamente dei file, bisogna seguire un altro procedimento. In quel caso, potrebbe essere necessario intervenire, invece, con questi due comandi:
 
@@ -262,7 +262,7 @@ La prossima fase è quella di registrare i cambiamenti sul repository locale. Qu
 
 La commit deve essere accompagnata da <u>un breve messaggio che spiega il contenuto delle modifiche</u>. Questi messaggi potranno poi essere letti in un momento successivo, perciò è importante che abbiano un senso e che aiutino a capire come si è evoluta la storia di un progetto.
 
-Durante questa fase è importante aver configurato il nome e l'email dell'utente (sezione [Configurazione utente](###Configurazione-utente)).
+Durante questa fase è importante aver configurato il nome e l'email dell'utente (sezione [Configurazione utente](#Configurazione-utente)).
 
 Per creare un commit la struttura del comando deve essere simile alla seguente:
 
@@ -370,7 +370,7 @@ Una soluzione più drastica, invece, consiste nell'utilizzare il **reset** che, 
 git reset [codice commit]
 ```
 
-Se, nel processo, ssi sono eliminati erroneamente dei file, per ripristinare tutto è necessario fare come nel caso dell'[add](####Situazione-inversa:-dalla-staging-area-alla-working-area):
+Se, nel processo, ssi sono eliminati erroneamente dei file, per ripristinare tutto è necessario fare come nel caso dell'[add](#Situazione-inversa:-dalla-staging-area-alla-working-area):
 
 ```bash
 git checkout -- .
@@ -410,7 +410,7 @@ Le operazioni per comunicare con la repository sono:
 - **push**: per <u>inviare</u> il codice
   `git push [nomerepository] [nomebranch]`
 
-Il nome del branch ([spiegato in questa sezione](###I-branch)) non è obbligatorio e nemmeno il nome della repository, se ve ne è solo una.
+Il nome del branch ([spiegato in questa sezione](#I-branch)) non è obbligatorio e nemmeno il nome della repository, se ve ne è solo una.
 
 Se si hanno più repository è consigliato anche inserire un "upstream" principale:
 
