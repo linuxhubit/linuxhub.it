@@ -59,7 +59,7 @@ Eseguiremo la nostra applicazione.
 ## Vantaggi e Svantaggi
 Il vantaggio principale delle Appimage è che ci permette di avere la stessa applicazione con le stesse dipendenze su distribuzioni differenti senza incorrere in conflitti di alcun genere in quanto il filesystem del nostro sistema non viene intaccato, inoltre possiamo usufruire dell'estrema portabilità e facilità di installazione/disinstallazione dell'applicazione. Infatti basterà aggiungere e rimuovere il file ed il gioco è fatto.
 
-Abbiamo però alcuni svantaggi, uno di questo è il fatto di non poter aggiornare automaticamente l'Appimage (qui entrerebbe in gioco l'utilità di zap, [il package manager di cui sopra](#Repository-e-package-manager-non-ufficiali)) a meno che chi distribuisce il software non inserisca nel immagine un modulo per cercare, verificare ed installare una nuova versione del programma.
+Abbiamo però alcuni svantaggi, uno di questo è il fatto di non poter aggiornare automaticamente l'Appimage (qui entrerebbe in gioco l'utilità di zap, [il package manager di cui sopra](#title2)) a meno che chi distribuisce il software non inserisca nel immagine un modulo per cercare, verificare ed installare una nuova versione del programma.
 
 Inoltre al momento dell'installazione non viene creata nessuna entry nel nostro menù delle app obbligandovi a crearle manualmente. 
 

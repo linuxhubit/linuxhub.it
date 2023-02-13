@@ -226,7 +226,7 @@ Messe insieme le tante regole delle regex, bisogna saperle sfruttare nei vari li
 - nello stesso linguaggio possono esistere più framework o moduli che sfruttano le regex. Ognuno potrebbe essere diverso dall'altro
 
 > **Nota**:
-> Si procederà con esempi pratici, ma ovviamente gli esempi di regex usati sono sostituibili con qualsiasi regola [vista in precedenza](#Le-regole-più-comuni).
+> Si procederà con esempi pratici, ma ovviamente gli esempi di regex usati sono sostituibili con qualsiasi regola [vista in precedenza](#title1).
 
 ### Bash
 
@@ -523,7 +523,7 @@ Matcher mtc=ptt.matcher("ajejebrazorf@patate.com linuhub@mir.kom patate@ciao gh#
 
 A questo punto c'è solo l'imbarazzo della scelta: basta infatti sapere cosa offre la classe Matcher e come richiamarlo.
 
-- `mtc.matches()` controllerà se l'intera stringa è validata dalla regex, come nel caso del *match delle stringhe* o [il fullmatch di Python](#pattern-e-matcher,-il-fullmatch). Nel caso in esempio restituirà **false**
+- `mtc.matches()` controllerà se l'intera stringa è validata dalla regex, come nel caso del *match delle stringhe* o [il fullmatch di Python](#title10). Nel caso in esempio restituirà **false**
 -  `mtc.lookingAt()` controllerà se l'inizio della stringa è validato dalla regex, come il match di Python. Nel caso in esempio restituirà **true**
 
 Esistono inoltre i metodi per rendere iterativo il processo di ricerca delle regex:
