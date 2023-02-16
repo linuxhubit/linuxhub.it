@@ -1,6 +1,6 @@
 ---
 class: post
-title: '#howtodev - JavaScript parte 1' 
+title: '#howtodev - JavaScript parte 1 - Introduzione e variabili' 
 date: 2023-02-03 07:00
 layout: post 
 author: Davide Galati (in arte PsykeDady)
@@ -16,6 +16,7 @@ tags:
 - fedora
 ---
 
+[&rarr; Articolo successivo: variabili complesse e blocchi](https://linuxhub.it/articles/howtodev-javascript-pt2)
 
 Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e anche ormai molte applicazioni lato desktop.  
 Vediamo quindi cosa sono e come si sviluppa utilizzando JavaScript, Node.JS e NPM.
