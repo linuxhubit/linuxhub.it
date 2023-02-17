@@ -147,6 +147,22 @@ Risultato:
 Ciao Mondo
 ```
 
+## Il punto e virgola 
+
+Ogni istruzione in JavaScript finisce con un "*a capo*" oppure con un "*punto e virgola*".
+
+```javascript
+console.log("questa linea finisce senza punto e virgola")
+
+console.log("questa linea finisce senza con e virgola");
+```
+
+Il punto e virgola non è obbligatorio come in altri linguaggi, ma lo diventa nel momento in cui, in una riga, si vogliono scrivere più istruzioni: 
+
+```javascript
+console.log("istruzione 1"); console.log("istruzione 2");
+```
+
 ## I commenti 
 
 I commenti sono porzioni di testo che vengono ignorati dall'interprete. Ci si può scrivere quello che si vuole, ma generalmente si utilizzano per "*documentare*" il codice o scrivere brevi descrizioni di sequenze che normalmente son difficilmente comprensibili. 
