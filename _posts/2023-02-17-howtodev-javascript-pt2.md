@@ -42,7 +42,7 @@ Inoltre è consigliata una conoscenza di:
 
 ## Oggetti JavaScript
 
-Un tipo particolare di variabile è l'oggetto. In JavaScript per "oggetto" (differente dal concetto di classe degli altri linguaggi) è un insieme (che può anche assumere un ordine gerarchico) di variabili.
+Un tipo particolare di variabile è l'oggetto. In JavaScript per "oggetto" (differente dal concetto di classe degli altri linguaggi) si intende un insieme (che può anche assumere un ordine gerarchico) di variabili.
 
 Un oggetto si crea ed inizializza racchiudendo le sue "variabili" tra parentesi graffe (`{` e `}`) e separandole da virgola.
 
