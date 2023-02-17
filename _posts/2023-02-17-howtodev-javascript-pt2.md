@@ -7,7 +7,7 @@ author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: linuxhubit
 coauthor_github: linuxhubit
-published: false
+published: true
 tags: 
 - javascript
 - nodejs
@@ -16,7 +16,6 @@ tags:
 [&rarr; Articolo precedente: introduzione e variabili](https://linuxhub.it/articles/howtodev-javascript-pt1)  
 
 Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e anche ormai molte applicazioni lato desktop.  
-Vediamo quindi cosa sono e come si sviluppa utilizzando JavaScript, Node.JS e NPM.  
 
 Vediamo ora altre tipologie di variabili creabili in JavaScript e come funzionano i blocchi di codice.  
 
@@ -45,7 +44,7 @@ Inoltre è consigliata una conoscenza di:
 
 Un tipo particolare di variabile è l'oggetto. In JavaScript per "oggetto" (differente dal concetto di classe degli altri linguaggi) è un insieme (che può anche assumere un ordine gerarchico) di variabili.
 
-Un oggetto si crea ed inizializza racchiudendo le sue "variabili" tra parentesi graffe e separandole da virgola.
+Un oggetto si crea ed inizializza racchiudendo le sue "variabili" tra parentesi graffe (`{` e `}`) e separandole da virgola.
 
 Ogni variabile al suo interno a sua volta viene inizializzato utilizzando il carattere "`:`" per separare l'etichetta dal suo valore.
 
@@ -92,7 +91,7 @@ console.log("valore della i="+i)
 
 > NOTA BENE:
 >  
-> Se non ci fosse il blocco, ci sarebbero due "let i" una dopo l'altra, uscirebbe perciò un errore del genere `SyntaxError: Identifier` seguito da `'i' has already been declared`.
+> Se non ci fosse il blocco, ci sarebbero due "let i" una dopo l'altra, uscirebbe perciò un errore del genere `SyntaxError:` seguito da `Identifier 'i' has already been declared`.
 
 Questo nuovo approccio ci introduce quindi un importante novità: **la visibilità delle variabili**, ovvero una volta che sono dichiarate, *fino a dove una variabile può essere utilizzata* e dove invece, *non esiste più*: dovrebbe quindi essere chiaro che, **in presenza di un blocco di istruzioni**, le variabili dichiarate al suo interno, **sono visibili solo fintanto che le si richiamano al suo interno**. 
 
@@ -178,8 +177,8 @@ Questo perché, per amor di semplicità, non è stata ancora introdotta alcuna m
 
 Per collegare più condizioni si hanno fondamentalmente due casi:
 
-- l'unione delle due condizioni (detto or).
-- l'intersezione delle due condizioni (detta and).
+- l'unione delle due condizioni (detto **or**).
+- l'intersezione delle due condizioni (detta **and**).
 
 Vi è poi il modo di "negare" una determinata condizioni apponendo il carattere "*not*" prima di essa.
 
@@ -482,7 +481,7 @@ In questo caso l'output sarà:
 la tua carta vale 11 punti
 ```
 
-Si possono raggruppare più case nel caso si voglia lo stesso risultato. L'esempio più semplice è sicuramente quello di scegliere *i giorni in base al mese*: 
+Si possono raggruppare più *case* nel caso si voglia lo stesso risultato. L'esempio più semplice è sicuramente quello di scegliere *i giorni in base al mese*: 
 
 ```javascript
 let mese = 7; 
