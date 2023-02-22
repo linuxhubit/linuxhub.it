@@ -436,7 +436,7 @@ console.log(numero1 % numero2)
 
 Risultato 
 
-```
+```plain
 7
 3
 10
@@ -444,6 +444,92 @@ Risultato
 1
 ```
 
+
+### Incremento e decremento
+
+L'incremento è un operazione che aumenta e assegna contemporaneamente una variabile numerica. Per utilizzarlo si scrive il simbolo della somma e quindi il numero di cui si vuole aumentare il valore:
+
+```javascript
+let i=3; 
+
+let a=i+=2; 
+
+console.log(i)
+console.log(a)
+```
+
+Stamperà:
+
+```plain
+5
+5
+```
+
+Quello che è successo è che la scrittura `i+=2` ha prima aumentato la variabile `i` di 2, quindi l'ha assegnata ad `a`. 
+
+Analogamente si può parlare di decremento se si usa il simbolo della differenza anziché quello della somma:
+
+```javascript
+
+let i=3; 
+
+let a=i-=2; 
+
+console.log(i)
+console.log(a)
+```
+
+Stamperà: 
+
+```plain
+1
+1
+```
+
+#### Incremento e decremento ad 1
+
+Un caso particolare di incremento e decremento è quello di quando si vuole aumentare o sottrarre di 1 il valore. In questo caso si hanno ben due versioni dedicate, l'incremento (o decremento) a posteriori e l'incremento a priori.
+
+L'**incremento a posteriori** si scrive con due simboli `+` dopo il nome della variabile, serve ad assegnare il valore e **solo in seguito** aumentarlo:
+
+```javascript
+let i=3
+
+let a=i++; 
+
+console.log(i)
+console.log(a)
+```
+
+Stamperà:
+
+```plain
+4
+3
+```
+
+Analogamente si possono utilizzare due caratteri `-`.  
+Al contrario, l'**incremento a priori** assegna **solo dopo aver già aumentato** il valore della variabile, e si scrive mettendo i due simboli `+` prima del nome della variabile: 
+
+```javascript
+let i=3
+
+let a=++i; 
+
+console.log(i)
+console.log(a)
+```
+
+Stamperà:
+
+```plain
+4
+4
+```
+
+> **Attenzione:**
+>
+> Non sottovalutare l'operazione dell'incremento a posteriori, è infatti utilizzatissima nella programmazione e si vedrà spessissimo nei codici. La motivazione è sia pratica ma anche a livello prestazionale: è infatti un operazione che viene nativamnete supportata dai processori e trattata in modo diverso dalla somma.
 
 
 ### Operazioni logiche con interi
@@ -838,3 +924,30 @@ Si ottiene in stampa:
 ```javascript
 Il valore booleano false corrisponde al valore numerico 0
 ```
+
+
+#### Interpolazione di stringhe
+
+L'interpolazione di stringhe è un operazione particolare che consente di inserire delle variabili direttamente all'interno della stringa, senza doverla interrompere e quindi usare la concatenazione. Per utilizzarla bisogna però creare la stringa utilizzando gli "*apici inversi*" anziché quelli normali o doppi. Ovvero il carattere &#96;.
+
+> **Nota Bene:**
+>
+> Il carattere *&#96;* non è purtroppo presente nelle tastiere italiane.  
+> Su distribuzioni linux può essere facilmente scritto con la shortcut `ALTGT+'`, su MacOS con `Option+9`, mentre su Windows il discorso si fa più complicato, a meno di installare un layout diverso bisogna copiare ed incollare il carattere dal programma "Caratteri speciali" oppure usare il tasto ALT con il tastierino numerico (ALT+96).
+
+Ecco come utilizzare l'interpolazione delle stringhe per inserire delle variabili nella stringa: 
+
+```javascript
+let numero=0
+let booleano=false
+
+console.log(`Il valore booleano ${booleano} corrisponde al valore numerico ${numero}`)
+```
+
+Si ottiene in stampa: 
+
+```javascript
+Il valore booleano false corrisponde al valore numerico 0
+```
+
+Come si può notare non viene mai interrotta la stringa ma la presenza di una variabile è introdotta dalle parentesi graffe `{` e `}` precedute dal simbolo del dollaro `$`.
