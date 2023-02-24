@@ -5,8 +5,8 @@ date: 2023-02-24 08:00
 layout: post
 author: Midblyte
 author_github: Midblyte
-coauthor: 
-coauthor_github: 
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: false
 tags:
 - android
