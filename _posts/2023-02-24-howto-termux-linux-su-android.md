@@ -7,7 +7,7 @@ author: Midblyte
 author_github: Midblyte
 coauthor: Michael Messaggi
 coauthor_github: MichaelMessaggi
-published: false
+published: true
 tags:
 - android
 - termux
