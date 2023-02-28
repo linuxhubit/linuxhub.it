@@ -951,3 +951,27 @@ Il valore booleano false corrisponde al valore numerico 0
 ```
 
 Come si può notare non viene mai interrotta la stringa ma la presenza di una variabile è introdotta dalle parentesi graffe `{` e `}` precedute dal simbolo del dollaro `$`.
+
+## Tornando sull'incremento ad 1
+
+L'incremento e il decremento ad 1 son utilizzatissimi anche all'interno delle più svariate operazioni grazie alla loro malleabilità, ad esempio per "stampare e incrementare", o "confronti e incrementi":
+
+```javascript
+let i=3
+
+console.log("la i vale " + i++)
+
+let confronto = i++ ==4; 
+
+console.log("Dopo  il primo incremento vale 4? " + confronto)
+
+console.log("Ma adesso il suo valore è "+i)
+```
+
+Stamperà:
+
+```plain
+la i vale 3
+Dopo  il primo incremento vale 4? true
+Ma adesso il suo valore è 5
+```
