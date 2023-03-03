@@ -496,8 +496,8 @@ switch(mese){
 	case  2: 	
 		giorni= 29; //diamo per scontato che sia bisestile
 		// ora bisogna verificare che non lo sia
-		// un anno non è bisestile se non è divisibile per 4 o se, essendolo, è divisibile per 400 ed anche per 100
-		if( anno%4!=0 || anno%400==0 && anno%100==0) {
+		// un anno non è bisestile se non è divisibile per 4 o se, essendolo, è divisibile per 100 ma non per 400
+		if( anno%4!=0 || anno%100==0 && anno%400!=0 ) {
 			giorni=28
 		}
 	break;
