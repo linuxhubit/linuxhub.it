@@ -1,12 +1,12 @@
 ---
 class: post
 title: '#howtodev - JavaScript parte 3 - indentazione e cicli' 
-date: 2023-02-17 08:00
+date: 2023-03-03 08:00
 layout: post 
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: Midblyte
+coauthor_github: Midblyte
 published: true
 tags: 
 - javascript
@@ -15,7 +15,7 @@ tags:
 
 [&rarr; Articolo precedente: variabili complesse e blocchi](https://linuxhub.it/articles/howtodev-javascript-pt2)  
 
-Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e anche ormai molte applicazioni lato desktop.  
+Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e anche ormai di molte applicazioni lato desktop.  
 
 Vediamo ora come funzionano i cicli e come si indenta il codice.  
 
@@ -62,7 +62,7 @@ Si sarà sicuramente notato che l'esempio fatto con il blocco di istruzione:
 	console.log("qui la i esiste e vale i="+i)
 }
 
-//qui la i ancora non esiste, va re-inizializzata: 
+// qui la i ancora non esiste, va re-inizializzata: 
 let i=1
 console.log("valore della i="+i)
 
@@ -72,13 +72,13 @@ Aveva una particolarità: la riga dopo la parentesi graffa ha degli spazi prima 
 
 > **Nota Bene:**
 >
-> Molti editor di testo per il codice sono configurati per auto-indentare il codice. Per cui normalmente non si scrivono manualmente gli spazi.
+> Molti editor di testo adatti a programmare sono configurati per auto-indentare il codice. Per cui normalmente non si inseriscono manualmente gli spazi.
 
 ### Spazi e tab
 
-Quando si parla di indentazione in realtà si fa riferimento ad una porzione di codice rientrato ma non necessariamente a caratteri "spazio". Infatti si utilizzano spesso anche i caratteri "tab", ovvero quel tasto sulla sinistra delle nostre tastiere sopra il CAPS-LOCK con due frecce in direzione inversa come simbolo: **&#8644;**.
+Quando si parla di indentazione si fa riferimento ad una porzione di codice rientrato ma, in realtà, non necessariamente a caratteri "spazio". Infatti si utilizzano spesso anche i caratteri "tab", ovvero quelli inseribili premendo il tasto sulla sinistra delle nostre tastiere, sopra il CAPS-LOCK, con due frecce in direzione inversa come il simbolo: **&#8644;**.
 
-In realtà su questo ci son diverse correnti di pensiero, ma generalmente si può affermare che di norma il codice si indenta con il carattere **tab** più che con lo **spazio**, e che quando si usa lo spazio comunque se *ne scrivono 4 di seguito*.
+In realtà su questa scelta ci son diverse correnti di pensiero, ma generalmente si può affermare che di norma il codice si indenta con il carattere **tab** più che con lo **spazio**, e che quando si usa lo spazio comunque se *ne scrivono 4 di seguito*.
 
 Ma su questo non vi è una regola ben precisa.
 
@@ -86,11 +86,11 @@ Ma su questo non vi è una regola ben precisa.
 >
 > Il sottoscritto ad esempio utilizza il carattere tab.
 
-### inizializzazione su più righe
+### Inizializzazione su più righe
 
-Anche una variabile inizializzata su più righe, come può essere *un oggetto* oppure tramite *if ternario*, si utilizza indentarla per fare capire quando inizia e quando finisce quella costruzione. Anche in questo caso si saranno notati i due esempi dell'articolo precedente.
+Anche una variabile inizializzata su più righe, come può essere *un oggetto*, oppure tramite l'uso dell'*if ternario*, è pratica comune indentarla per fare capire quando inizia e quando finisce quella costruzione. Anche in questo caso si saranno notati i due esempi dell'articolo precedente.
 
-Ad esempio per l'oggetto: 
+Ad esempio, per l'oggetto: 
 
 ```javascript
 let oggetto={
@@ -100,9 +100,9 @@ let oggetto={
 }
 ```
 
-ha le sue etichette spostate di un livello a destra.
+Ha le sue etichette spostate di un livello a destra.
 
-Oppure ancora l'if ternario:
+Oppure ancora usando l'if ternario:
 
 ```javascript
 let frase=carte>1?"Hai "+carte+" carte":
@@ -154,7 +154,7 @@ I cicli son 3:
 
 Per una corretta interpretazione di questo ciclo, potrebbe essere utile tradurlo con il termine "*fintanto che*". Infatti il while ripete l'istruzione o il blocco di istruzioni al suo interno "*fintanto che*" la sua condizione è true.
 
-Per essere chiari la dinamica di esecuzione di un ciclo di while è rappresentata dai seguenti passi: 
+Per essere chiari, la dinamica di esecuzione di un ciclo di while è rappresentata dai seguenti passi: 
 
 1. Valutazione della condizione.
 2. condizione vera:
@@ -189,24 +189,24 @@ Le istruzioni all'interno del while (che siano 1 o più) *vanno indentate* per c
 
 #### while: esempio d'uso
 
-Chiediamo a JavaScript di calcolare per noi la sommatoria di *n numeri*. Prima di farlo seguiamo un filo logico (come lista puntata) che possa poi essere trasformato facilmente in codice: 
+Chiediamo a JavaScript di calcolare per noi la sommatoria dei primi *n numeri*. Prima di farlo seguiamo un filo logico (come lista puntata) che possa poi essere trasformato facilmente in codice: 
 
 - Serve una variabile dove memorizzare la sommatoria.
-- Essendo poi sommata ad ogni n, serve inizializzare tale variabile con un valore "*neutro* rispetto la somma, ovvero con lo 0. 
-- Serve una variabile che tenga conto quale è la "n" corrente, ovvero assuma il valore prima di 0, poi di 1, di 2 etc... fino ad n. Chiameremo questa variabile "indice di iterazione".
+- Essendo poi sommata ad ogni n, serve inizializzare tale variabile con il valore "*neutro*" rispetto la somma, ovvero con lo 0. 
+- Serve una variabile che tenga conto di quale è la "n" corrente, ovvero assuma il valore prima di 0, poi di 1, di 2 etc... fino ad n. Chiameremo questa variabile "indice di iterazione".
 - La condizione del nostro while riguarda appunto l'indice di iterazione, che sarà vera *fintanto che* l'indice non raggiunge e supera n.
 
 Ora che abbiamo le idee chiare, possiamo proseguire con il codice:
 
 ```javascript
-let risultato=0 //memorizza il risultato
-let iterazione=0 //per scorrere i vari n
-let n= 10 // il massimo a cui deve arrivare l'iterazione
+let risultato=0  // memorizza il risultato
+let iterazione=0 // per scorrere i vari n
+let n=10         // il massimo a cui deve arrivare l'iterazione
 
-while(iterazione <= n){
+while(iterazione <= n) {
 	risultato=risultato+iterazione; // aggiorniamo il risultato
 
-	iterazione++; //aggiorniamo l'iterazione tramite l'incremento, così che il risultato della nostra condizione cambi quando viene rivalutata
+	iterazione++; // aggiorniamo l'iterazione tramite l'incremento, così che il risultato della nostra condizione cambi quando viene rivalutata
 }
 
 // Se siamo qui, iterazione = n+1. Il ciclo è finito
@@ -219,7 +219,7 @@ Il risultato in questo caso sarà:
 55
 ```
 
-Che è la sommatoria di n numeri.
+Che è la sommatoria dei primi n numeri, per n=10.
 
 ### do while
 
@@ -232,7 +232,7 @@ Per essere chiari rispetta questo flusso di operazioni:
    - 2.1 se vera ritorna a punto 1
    - 2.2 se falsa esce
 
-La costruzione di un do-while è introdotta dalla parola chiave e *subito dopo* l'istruzione, segue la parola `while`  e la condizione tra parentesi tonde `(` e `)`:
+La costruzione di un do-while è introdotta dalla parola chiave e *subito dopo* l'istruzione, segue la parola `while` e la condizione tra parentesi tonde `(` e `)`:
 
 ```javascript
 do 
@@ -308,7 +308,7 @@ numero=~~(numero/2)
 
 Applicandola due volte su un numero intero il risultato non cambia (la negazione di una negazione non altera il risultato), ma applicata ad un numero decimale *toglie la parte decimale* perché tutte le operazione binarie di javascript si applicano *solo alle cifre intere*.  
 
-Un' altra versione quindi dell'algoritmo più "elegante" sarebbe stata:
+Un'altra versione dell'algoritmo più "elegante" sarebbe quindi stata:
 
 ```javascript
 let risultato=""
@@ -334,14 +334,14 @@ console.log(risultato)
 
 Il for è il ciclo più completo. È infatti un costrutto che si compone di più parti:
 
-1. Un operazione di inizializzazione.
+1. Un'operazione di inizializzazione.
 2. Valutazione della condizione.
    - se false esci dal ciclo
 3. Istruzione interna.
 4. Istruzione di aggiornamento.
 5. Torna a punto 2.
 
-Come si può notare ci son due cose che, negli altri cicli, non erano presenti:
+Come si può notare ci son due fasi che, negli altri cicli, non erano presenti:
 
 - inizializzazione.
 - aggiornamento.
@@ -355,7 +355,7 @@ for(istruzione inizializzazione; condizione; istruzione aggiornamento)
 istruzione fuori for
 ```
 
-Ad esempio si può pensare di eseguire un istruzione per 10 volte inizializzando una variabile con 0, facendola aumentare di uno alla volta e mettendo la condizione a true solo fintanto che il valore è minore di 10: 
+Ad esempio si può pensare di eseguire un istruzione per 10 volte inizializzando una variabile con 0, facendola aumentare di uno alla volta e impostando la condizione a true solo fintanto che il valore è minore di 10: 
 
 ```javascript
 for(let i=0; i<10; i++)
@@ -393,8 +393,8 @@ istruzione fuori for
 Per l'esempio con il for, riscriviamo la sommatoria già vista nell'esempio del while:
 
 ```javascript 
-let risultato=0 //memorizza il risultato
-let n= 10 // il massimo a cui deve arrivare l'iterazione
+let risultato=0 // memorizza il risultato
+let n=10 // il massimo a cui deve arrivare l'iterazione
 
 for(let iterazione=0; iterazione<=n; iterazione++ ){
 	risultato=risultato+iterazione; // aggiorniamo il risultato
@@ -414,7 +414,7 @@ Normalmente, la variabile inizializzata nel for, se un numero, è chiamata "**in
 
 ## Visibilità delle variabili nei blocchi
 
-che siano if, switch, while, do-while o for bisogna sempre ricorda che *la creazione di una variabile all'interno* di un ciclo *ha visibilità solo all'interno* del ciclo stesso, come accadeva per *i blocchi di istruzioni*.
+Che siano if, switch, while, do-while o for bisogna sempre ricorda che *la creazione di una variabile all'interno* di un ciclo *ha visibilità solo all'interno* del ciclo stesso, come accadeva per *i blocchi di istruzioni*.
 
 Ad esempio se si vogliono utilizzare due `for`, **uno di seguito** all'altro (**non uno all'interno dell'altro**, importante) si può reinizializzare la stessa variabile d'indice:
 
