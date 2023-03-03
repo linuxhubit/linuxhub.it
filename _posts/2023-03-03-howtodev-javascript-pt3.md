@@ -1,13 +1,13 @@
 ---
 class: post
 title: '#howtodev - JavaScript parte 3 - indentazione e cicli' 
-date: 2023-02-17 07:00
+date: 2023-02-17 08:00
 layout: post 
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: linuxhubit
 coauthor_github: linuxhubit
-published: false
+published: true
 tags: 
 - javascript
 - nodejs
@@ -17,7 +17,7 @@ tags:
 
 Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e anche ormai molte applicazioni lato desktop.  
 
-Vediamo ora altre tipologie di variabili creabili in JavaScript e come funzionano i blocchi di codice.  
+Vediamo ora come funzionano i cicli e come si indenta il codice.  
 
 ## Obiettivi
 
@@ -30,13 +30,13 @@ Lista degli obiettivi che a fine articolo il lettore consegue:
 
 ## Prerequisiti
 
-Per la comprensione di questo articolo è necessaria la lettura del precedente articolo su JavaScript:
+Per la comprensione di questo articolo è necessaria la lettura del precedente articolo:
 
 - [variabili complesse e blocchi](https://linuxhub.it/articles/howtodev-javascript-pt2)
 
 E tutti quelli precedenti. Se non sai nulla di JavaScript puoi iniziare dall'inizio:
 
-- [introduzione e variabili](https://linuxhub.it/articles/howtodev-javascript-pt2)
+- [introduzione e variabili](https://linuxhub.it/articles/howtodev-javascript-pt1)
 
 Inoltre è consigliata una conoscenza di:
 
@@ -48,11 +48,11 @@ Anche l'occhio vuole la sua parte, e non solo per una questione estetica.
 
 Saper organizzare il codice "visivamente" è importante per la leggibilità e quindi per poter riprendere sempre il suo sviluppo comprendendo già a colpo d'occhio le varie parti che lo compongono.
 
-Per cui esistono alcune convenzioni che gli sviluppatori devono seguire per evitare diverse bestemmie e maledizioni da parte dei colleghi che leggeranno il suo codice dopo di lui. 
+Per cui esistono alcune convenzioni che gli sviluppatori devono seguire per evitare diverse ingiurie e maledizioni da parte dei colleghi che leggeranno il suo codice dopo di lui.
 
 ### Indentazione
 
-La più importante regola è sicuramente l'indentazione, ovvero quella pratica che raggruppa dei "*blocchi di codice*" utilizzando la stessa spaziatura iniziale. 
+La più importante regola è sicuramente l'indentazione, ovvero quella pratica che raggruppa dei "*blocchi di codice*" utilizzando la stessa spaziatura iniziale.
 
 Si sarà sicuramente notato che l'esempio fatto con il blocco di istruzione:
 
@@ -68,15 +68,15 @@ console.log("valore della i="+i)
 
 ```
 
-Aveva una particolarità: la riga dopo la parentesi graffa ha degli spazi prima di ogni istruzione. Non è un caso, ne una svista, infatti i blocchi di istruzioni vanno raggruppati tramite *indentazione*. Ovviamente vale anche per quei blocchi che vengono dopo le direttive **if**, **else** e **switch** (ed anche quelle che *si vedranno a seguire*).
+Aveva una particolarità: la riga dopo la parentesi graffa ha degli spazi prima di ogni istruzione. Non è un caso, né una svista, infatti i blocchi di istruzioni vanno raggruppati tramite *indentazione*. Ovviamente vale anche per quei blocchi che vengono dopo le direttive **if**, **else** e **switch** (ed anche quelle che *si vedranno a seguire*).
 
 > **Nota Bene:**
 >
-> Molti editor di testo per il codice sono configurati per auto-indentare il codice. Per cui normalmente non si scrivono manualmente gli spazi. 
+> Molti editor di testo per il codice sono configurati per auto-indentare il codice. Per cui normalmente non si scrivono manualmente gli spazi.
 
 ### Spazi e tab
 
-Quando si parla di indentazione in realtà si fa riferimento ad una zona di codice rientrato ma non necessariamente a caratteri "spazio". Infatti si utilizzano spesso anche i caratteri "tab", ovvero quel tasto sulla sinistra delle nostre tastiere sopra il CAPS-LOCK con due frecce in direzione inversa come simbolo: **&#8644;**.
+Quando si parla di indentazione in realtà si fa riferimento ad una porzione di codice rientrato ma non necessariamente a caratteri "spazio". Infatti si utilizzano spesso anche i caratteri "tab", ovvero quel tasto sulla sinistra delle nostre tastiere sopra il CAPS-LOCK con due frecce in direzione inversa come simbolo: **&#8644;**.
 
 In realtà su questo ci son diverse correnti di pensiero, ma generalmente si può affermare che di norma il codice si indenta con il carattere **tab** più che con lo **spazio**, e che quando si usa lo spazio comunque se *ne scrivono 4 di seguito*.
 
@@ -88,7 +88,7 @@ Ma su questo non vi è una regola ben precisa.
 
 ### inizializzazione su più righe
 
-Anche una variabile inizializzata su più righe, come può essere *un oggetto* oppure una variabile inizializzata tramite *if ternario*, si utilizza indentare quel codice per fare capire quando inizia e quando finisce quella inizializzazione. Anche in questo caso si saranno notati i due esempi di cui sopra. 
+Anche una variabile inizializzata su più righe, come può essere *un oggetto* oppure tramite *if ternario*, si utilizza indentarla per fare capire quando inizia e quando finisce quella costruzione. Anche in questo caso si saranno notati i due esempi dell'articolo precedente.
 
 Ad esempio per l'oggetto: 
 
@@ -100,9 +100,9 @@ let oggetto={
 }
 ```
 
-ha le sue etichette spostate di un livello a destra. 
+ha le sue etichette spostate di un livello a destra.
 
-Oppure ancora l'if ternario: 
+Oppure ancora l'if ternario:
 
 ```javascript
 let frase=carte>1?"Hai "+carte+" carte":
@@ -120,8 +120,25 @@ Anche nell'informatica ci sono le guerre "religiose" o tra "fan". Quella della p
 
 Esistono infatti due diverse filosofie:
 
-- Chi pensa che dopo il nome di un costrutto ci vada la parentesi graffa (*ovvero la versione giusta, :D*)
+- Chi pensa che dopo il nome di un costrutto ci vada la parentesi graffa (*ovvero la versione giusta, :D*).
 - Chi pensa che la parentesi vada alla riga successiva (*ovvero come scrivono le bestie di satana*).
+
+Nel primo caso:
+
+```javascript
+if(condizione){
+	istruzioni;
+}
+```
+
+Nel secondo caso:
+
+```javascript
+if(condizione)
+{
+	istruzioni; 
+}
+```
 
 ## Cicli di istruzioni
 
@@ -155,11 +172,11 @@ while(condizione)
 istruzione fuori il while
 ```
 
-La criticità nello scrivere un ciclo di while è quella di inserire al suo interno delle istruzioni che aggiornino lo stato della condizione che viene valutata, altrimenti si finisce in quello che in gergo si chiama: "loop infinito", ovvero non si esce più dal ciclo.
+La criticità nello scrivere un ciclo di while è quella di inserire al suo interno delle istruzioni che aggiornino lo stato della condizione che viene valutata, altrimenti si finisce in quello che in gergo si chiama: "*loop infinito*", ovvero **non si esce più dal ciclo**.
 
-Ovviamente l'istruzione di un while, si sarà già intuito, può benissimo essere un blocco di istruzioni: 
+Ovviamente l'istruzione di un while, si sarà già intuito, può benissimo essere un blocco di istruzioni:
 
-```javascript 
+```javascript
 while(condizione) {
 	istruzione dentro il while; 
 	altra istruzione dentro il while; 
@@ -172,11 +189,11 @@ Le istruzioni all'interno del while (che siano 1 o più) *vanno indentate* per c
 
 #### while: esempio d'uso
 
-Chiediamo a javascript di calcolare per noi la sommatoria di *n numeri*. Prima di farlo seguiamo un filo logico (come lista puntata) che possa poi essere trasformato facilmente in codice: 
+Chiediamo a JavaScript di calcolare per noi la sommatoria di *n numeri*. Prima di farlo seguiamo un filo logico (come lista puntata) che possa poi essere trasformato facilmente in codice: 
 
 - Serve una variabile dove memorizzare la sommatoria.
 - Essendo poi sommata ad ogni n, serve inizializzare tale variabile con un valore "*neutro* rispetto la somma, ovvero con lo 0. 
-- Serve una variabile che tenga conto quale è la "n" corrente, ovvero assuma il valore prima di 0, poi di 1, di 2 etc... fino ad n. Chiameremo questa variabile "indice di iterazione". 
+- Serve una variabile che tenga conto quale è la "n" corrente, ovvero assuma il valore prima di 0, poi di 1, di 2 etc... fino ad n. Chiameremo questa variabile "indice di iterazione".
 - La condizione del nostro while riguarda appunto l'indice di iterazione, che sarà vera *fintanto che* l'indice non raggiunge e supera n.
 
 Ora che abbiamo le idee chiare, possiamo proseguire con il codice:
@@ -204,17 +221,16 @@ Il risultato in questo caso sarà:
 
 Che è la sommatoria di n numeri.
 
-### do while 
+### do while
 
-Il **do-while** è una variante del while che *esegue prima di valutare la condizione*, utile (ma non indispensabile) quando la valutazione di una condizione dipende strettamente dal valore che assumerebbe la variabile dopo aver eseguito *almeno una volta* le istruzioni all'interno del while. 
+Il **do-while** è una variante del while che *esegue prima di valutare la condizione*, utile (ma non indispensabile) quando la valutazione di una condizione dipende strettamente dal valore che assumerebbe la variabile dopo aver eseguito *almeno una volta* le istruzioni all'interno del while.
 
-Per essere chiari rispetta questo flusso di operazioni: 
+Per essere chiari rispetta questo flusso di operazioni:
 
 1. esegue istruzione while 
 2. controlla la condizione
    - 2.1 se vera ritorna a punto 1
    - 2.2 se falsa esce
-
 
 La costruzione di un do-while è introdotta dalla parola chiave e *subito dopo* l'istruzione, segue la parola `while`  e la condizione tra parentesi tonde `(` e `)`:
 
@@ -226,7 +242,7 @@ while(condizione)
 istruzione fuori il do-while
 ```
 
-Anche in questo caso si può usare un blocco di istruzioni: 
+Anche in questo caso si può usare un blocco di istruzioni:
 
 ```javascript 
 do {
@@ -240,12 +256,11 @@ istruzione fuori il do-while
 
 Le istruzioni all'interno del do-while (che siano 1 o più) *vanno indentate* per convenzione.
 
-
 #### do while: esempio d'uso
 
 Un buon esempio di uso è la trasformazione di un numero in binario.
 
-Ricordiamo che per rappresentare un numero decimale in binario: 
+Ricordiamo che per rappresentare un numero decimale in binario:
 
 1. Si divide per 2.
 2. Si conserva il resto intero.
@@ -263,11 +278,11 @@ Anche qui, prima di iniziare, stiliamo un ragionamento sotto forma di elenco pun
   - Aggiorna "numero" con il risultato della divisione tra "numero" stesso e due. In questo punto vi è una criticità, evitare le divisioni *non intere*.
   - Aggiorniamo "risultato" con il resto. Siccome deve essere rappresentato all'inverso, *concateniamo il risultato al resto* e non viceversa.
 
-Quanto riguarda la divisione "non intera" bisogna fare un ragionamento laterale: 
+Quanto riguarda la divisione "non intera" bisogna fare un ragionamento laterale:
 
 Il resto della divisione è letteralmente quel numero che, *se tolto dal numero originale*, ti permette di avere *una divisione senza resto*. Ad esempio tutti i numeri non divisibili per due, ovvero i numeri dispari, danno per resto 1. *Se si toglie 1 dai numeri dispari* si ottiene lo stesso risultato *della divisione per 2*, ma senza decimali (ad esempio `3/2` è uguale 1 con resto 1, e `2/2` è uguale a 1).
 
-Vediamo l'algoritmo per intero: 
+Vediamo l'algoritmo per intero:
 
 ```javascript 
 let risultato=""
@@ -285,14 +300,15 @@ do {
 console.log(risultato)
 ```
 
-Per prelevare la parte intera di un numero decimale si sarebbe potuto anche utilizzare la conversione in complemento a due di un numero: 
+Per prelevare la parte intera di un numero decimale si sarebbe potuto anche utilizzare la conversione in complemento a due di un numero:
 
 ```javascript
 numero=~~(numero/2)
 ```
 
-Applicandola due volte su un numero intero il risultato non cambia (la negazione di una negazione non altera il risultato), ma applicata ad un numero decimale *toglie la parte decimale* perché tutte le operazione binarie di javascript si applicano *solo alle cifre intere*.   
-Un' altra versione quindi dell'algoritmo più "elegante" sarebbe stata: 
+Applicandola due volte su un numero intero il risultato non cambia (la negazione di una negazione non altera il risultato), ma applicata ad un numero decimale *toglie la parte decimale* perché tutte le operazione binarie di javascript si applicano *solo alle cifre intere*.  
+
+Un' altra versione quindi dell'algoritmo più "elegante" sarebbe stata:
 
 ```javascript
 let risultato=""
@@ -312,7 +328,7 @@ console.log(risultato)
 
 > **Nota Bene:**
 >
-> Esistono altri metodi per avere la parte intera di un numero decimale, ma a questo punto del corso introdurrebbero degli elementi non facilmente comprensibili per il lettore. 
+> Esistono altri metodi per avere la parte intera di un numero decimale, ma a questo punto del corso introdurrebbero degli elementi non facilmente comprensibili per il lettore.
 
 ### for
 
@@ -321,8 +337,8 @@ Il for è il ciclo più completo. È infatti un costrutto che si compone di più
 1. Un operazione di inizializzazione.
 2. Valutazione della condizione.
    - se false esci dal ciclo
-3. Istruzione interna. 
-4. Istruzione di aggiornamento. 
+3. Istruzione interna.
+4. Istruzione di aggiornamento.
 5. Torna a punto 2.
 
 Come si può notare ci son due cose che, negli altri cicli, non erano presenti:
@@ -348,7 +364,7 @@ for(let i=0; i<10; i++)
 istruzione fuori for
 ```
 
-Una specifica importante è che in realtà l'istruzione di inizializzazione, la condizione e l'aggiornamento non devono essere per forza collegate tra di loro. Ovviamente bisogna stare attenti a tirare fuori cose coerenti, altrimenti l'utilizzo di questo costrutto perde senso. Ecco un esempio "*incoerente*": 
+Una specifica importante è che in realtà l'istruzione di inizializzazione, la condizione e l'aggiornamento *non devono essere per forza collegate tra di loro*. Ovviamente bisogna stare attenti a tirare fuori cose coerenti, altrimenti l'utilizzo di questo costrutto perde senso. Ecco un esempio "*incoerente*":
 
 ```javascript
 let i=0; 
@@ -360,9 +376,9 @@ istruzione fuori for
 
 Sia chiaro, questo for non darà errore, **ma non ha alcun senso** (o se lo ha, non è chiaro).
 
-Ovviamente, anche in questo caso, sottolineo come il blocco di istruzioni sia possibile per includere più istruzioni in un for: 
+Ovviamente, anche in questo caso, sottolineo come il blocco di istruzioni sia possibile per includere più istruzioni in un for:
 
-```javascript 
+```javascript
 for(istruzione inizializzazione; condizione; istruzione aggiornamento){
 	istruzione interna 1; 
 	istruzione interna 2; 
@@ -374,7 +390,7 @@ istruzione fuori for
 
 #### for: esempio d'uso
 
-Per l'esempio con il for, riscriviamo la sommatoria già vista [nell'esempio del while](#while-esempio-duso):
+Per l'esempio con il for, riscriviamo la sommatoria già vista nell'esempio del while:
 
 ```javascript 
 let risultato=0 //memorizza il risultato
@@ -388,7 +404,7 @@ for(let iterazione=0; iterazione<=n; iterazione++ ){
 console.log("La sommatoria di "+n+" numeri è " + risultato)
 ```
 
-Come si può notare, il codice è notevolmente ridotto. La variabile `iteratore` viene sia creata che aggiornata già nell'intestazione del for. Questo rende molto più facile da leggere oltre che molto più elegante.
+Come si può notare, *il codice è notevolmente ridotto*. La variabile `iteratore` viene sia creata che aggiornata già nell'intestazione del for. Questo rende molto più facile da leggere oltre che molto più elegante.
 
 Normalmente, la variabile inizializzata nel for, se un numero, è chiamata "**indice di iterazione**", o più brevemente **indice**.
 
@@ -400,7 +416,7 @@ Normalmente, la variabile inizializzata nel for, se un numero, è chiamata "**in
 
 che siano if, switch, while, do-while o for bisogna sempre ricorda che *la creazione di una variabile all'interno* di un ciclo *ha visibilità solo all'interno* del ciclo stesso, come accadeva per *i blocchi di istruzioni*.
 
-Ad esempio se si vogliono utilizzare due `for`, **uno di seguito** all'altro (**non uno all'interno dell'altro**, importante) si può reinizializzare la stessa variabile d'indice: 
+Ad esempio se si vogliono utilizzare due `for`, **uno di seguito** all'altro (**non uno all'interno dell'altro**, importante) si può reinizializzare la stessa variabile d'indice:
 
 ```javascript
 console.log("contiamo fino a 10")
@@ -442,14 +458,13 @@ ora contiamo da 10 a 0!
 
 ```
 
-
 ## Strutture innestate
 
-Non deve spaventare l'idea di combinare if, switch, while, do-while e for tra di loro. 
+Non deve spaventare l'idea di combinare if, switch, while, do-while e for tra di loro.
 
-A dirla tutta è più che frequente trovare almeno due cicli innestati in alcuni tipi di applicativi, qualora sia il caso, bisogna ricordarsi che le variabili hanno visibilità interna, quindi al contrario del caso in cui si scrivevano due for uno dopo l'altro, **non si può usare più volte la stessa variabile di indice**. 
+A dirla tutta è più che frequente trovare almeno due cicli innestati in alcuni tipi di applicativi, qualora sia il caso, bisogna ricordarsi che le variabili hanno visibilità interna, quindi al contrario del caso in cui si scrivevano due for uno dopo l'altro, **non si può usare più volte la stessa variabile di indice**.
 
-Scriviamo ad esempio le tabelline fino a 10: 
+Scriviamo ad esempio le tabelline fino a 10:
 
 ```javascript
 for(let i=1; i<=10; i++){
@@ -461,7 +476,7 @@ for(let i=1; i<=10; i++){
 }
 ```
 
-L'output sarà: 
+L'output sarà:
 
 ```plain
 1|2|3|4|5|6|7|8|9|10|

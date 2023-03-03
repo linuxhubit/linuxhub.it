@@ -517,3 +517,4 @@ Il mese scelto ha 29 giorni
 Tralasciando il calcolo del bisestile che potrebbe essere complicato (è quello matematicamente parlando), dovrebbe quindi essere chiaro qual'è il vantaggio di aver scritto uno switch al posto di una lunghissima lista di if-else-if in questo caso. 
 
 
+[&rarr; Articolo successivo: indentazione e cicli](https://linuxhub.it/articles/howtodev-javascript-pt3)  

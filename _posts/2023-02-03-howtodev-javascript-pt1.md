@@ -975,3 +975,5 @@ la i vale 3
 Dopo  il primo incremento vale 4? true
 Ma adesso il suo valore è 5
 ```
+
+[&rarr; Articolo successivo: variabili complesse e blocchi](https://linuxhub.it/articles/howtodev-javascript-pt2)
