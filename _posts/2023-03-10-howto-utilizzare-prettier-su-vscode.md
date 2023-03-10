@@ -7,7 +7,7 @@ author: Floppy
 author_github: raspFloppy
 coauthor: Davide Galati (in arte PsykeDady)
 coauthor_github: PsykeDady
-published: false
+published: true
 tags: 
 - json
 - vscode
