@@ -5,8 +5,8 @@ date: 2023-03-03 08:00
 layout: post 
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhub
-coauthor_github: linuxhubit
+coauthor: gaetanovirg
+coauthor_github: gaetanovirg
 published: false
 tags: 
 - bash
@@ -17,19 +17,18 @@ tags:
 - macosx
 ---
 
-`dd` è un ottimo strumento ma che usato male può provocare molti danni. Vediamo quali sono i suoi principali utilizzi, come migliorarne l'esperienza d'uso e qualche esempio d'uso.
-
+`dd` è un ottimo strumento ma che, se utilizzato scorrettamente può provocare molti danni. Spieghiamo quali sono i suoi  utilizzi e come migliorarne l'esperienza d'uso. 
 ## Curiosità: origini e nome
 
-Il tool chiamato `dd` proviene da una serie di strumenti facente parte dei così detti "*coreutils*", ovvero quegli strumenti che fanno parte della fornitura di base delle shell POSIX standard. Si può trovare [a questo link](https://github.com/coreutils/coreutils/blob/master/src/dd.c) il codice sorgente.
+Il tool chiamato `dd` proviene da una serie di strumenti facente parte dei  "*coreutils*", ovvero quegli strumenti appartenenti alla fornitura di base delle shell POSIX standard. E' reperibile [a questo link](https://github.com/coreutils/coreutils/blob/master/src/dd.c) il codice sorgente.
 
-Ci son due fazioni che si *contengono* il significato del nome `dd`. Chi infatti sostiene che stia per "**Disk/Data Duplicator**" e chi per "**Disk Destroy**". Sia chiaro, né nel codice sorgente né tantomento nel manuale [vengono citate nessuna delle due nomenclature](https://man7.org/linux/man-pages/man1/dd.1.html), ufficialmente il comando si chiama **solo dd**, nient'altro. 
+Ci sono due scuole di pensiero che *sostengono* il significato del nome `dd`. C'é chi sostiene che l'acronimo stia per "**Disk/Data Duplicator**" e chi per "**Disk Destroy**". Né nel codice sorgente né tantomento nel manuale [vengono citate nessuna delle due nomenclature](https://man7.org/linux/man-pages/man1/dd.1.html), ufficialmente il comando é chiamato **solo dd**, nient'altro. 
 
 Si può trovare la documentazione completa [sul sito GNU](https://www.gnu.org/software/coreutils/manual/html_node/dd-invocation.html#dd-invocation).
 
 ## A che serve
 
-`dd` è un comando che serve a copiare "blocchi di dati" grezzi da una sorgente verso una destinazione. Il concetto è molto differente dalla semplice copia, infatti agisce direttamente a basso livello, la così detta copia "bit-a-bit".
+`dd` è un comando che serve a copiare "blocchi di dati" grezzi da una sorgente verso una destinazione. Il concetto è molto differente dalla semplice copia, infatti agisce direttamente a basso livello, cioé la copia "Bit per bit"
 
 Normalmente questo strumento è utilizzato per le seguenti motivazioni:
 
@@ -37,7 +36,7 @@ Normalmente questo strumento è utilizzato per le seguenti motivazioni:
 - Backup di intere partizioni.
 - Creazione dei dischi di avvio.
 
-Ma esistono anche altri usi minori, come ad esempio la sovrascrittura dell' MBR.
+Ma esistono anche altri usi meno importanti, come ad esempio la sovrascrittura dell' MBR.
 
 ## Sintassi base
 
@@ -75,25 +74,25 @@ O al contrario leggere un file e mandarlo in output:
 dd if=nomefile
 ```
 
-Potretbe essere sempre utile *ricordarsi che* verrà mostrato anche lo standard error.
+Potrebbe  sempre essere utile *ricordarsi che* verrà mostrato anche lo standard error.
 
 ### Specifica la dimensione dei blocchi
 
-Quando si scrive a basso livello è bene ricordarsi che i byte scritti vengono sempre inviati nel file di uscita a blocchi, questo piccolo particolare è in realtà anche il principale fattore che regola la velocità di scrittura.
+Quando si scrive a basso livello è bene ricordarsi che i byte scritti vengono sempre inviati nel file di uscita a blocchi, questo piccolo particolare è in realtà , il principale fattore che regola la velocità di scrittura.
 
-Per specificare la dimensione di questi blocchi ci son essenzialmente tre possibili parametri: 
+Per specificare la dimensione di questi blocchi vi sono essenzialmente tre possibili parametri: 
 
 - ibs=numerobyte per la dimensione del blocco in ingresso
 - obs=numerobyte per la dimensione del blocco in uscita
 - bs=numerobyte per la dimensione di entrambi i blocchi
 
-Ad esempio per creare un flusso che trasferisce 8 byte alla volta scriviamo: 
+Per creare un flusso che trasferisce 8 byte alla volta scriviamo: 
 
 ```bash
 dd if=nomefile of=nomefile bs=8
 ```
 
-Il valore di *default* di questi parametri è `512`.
+Il valore *default* di questi parametri è `512`.
 
 Si possono specificare delle unità di misura, Kilo (K), Mega (M), Giga (G) e così via...
 
@@ -125,7 +124,7 @@ Ad esempio trasferiamo `2GiB` dell'output di `yes` (comando che scrive sullo sta
 >
 > Il Gibibyte corrisponde dunque a 2^30 per misura base, ma ci si può arrivare anche moltiplicando 1024 alla misura precedente (il MiB).
 
-Per farlo è necessario calcolare prima quanti blocchi servono, 2 Gibibyte son 2048 Megabyte, quindi `2048` da dividere in blocchi da 8, ovvero: `2048/8=256`: 
+Per farlo è necessario calcolare prima i blocchi necessari, 2 Gibibyte sono 2048 Megabyte, quindi `2048` da dividere in blocchi da 8, ovvero: `2048/8=256`: 
 
 ```bash
 yes | dd of=ciao bs=8M count=256 iflag=fullblock
@@ -140,7 +139,7 @@ L'output ci dirà:
 
 ### Visualizzare lo stato del comando
 
-L'output di dd viene mostrato solo alla fine del comando. Questo mette l'utente in una crisi mistica che normalmente lo induce a non capire a che punto sia il trasferimento, visto il silenzio di un comando che mostrerà il nulla per tutto il tempo della sua esecuzione. 
+L'output di dd viene mostrato solo alla fine del comando. Questo porta all'utente una crisi mistica che normalmente lo induce a non capire a che punto sia il trasferimento, visto il silenzio di un comando che mostrerà il nulla per tutto il tempo della sua esecuzione. 
 
 Interviene dunque il flag `status`, che consente di impostare il livello di verbosità dell'operazione: basta infatti impostare questo flag al valore `progress` per vedere di pari passo i risultati:
 
@@ -180,7 +179,7 @@ gdd if=FILEINPUT of=FILEOUTPUT status=progress
 
 ## Esempi d'uso
 
-Si è già discusso di come questo tool abbia diversi utilizzi, potrebbe essere utile ora vedere qualche esempio concreto.
+Si è già discusso di come questo tool abbia molteplici utilizzi, potrebbe essere utile ora vedere qualche esempio concreto.
 
 ### blkid 
 
@@ -222,7 +221,7 @@ A fine processo avremo il nostro supporto di installazione
 
 ### Azzerare un dispositivo
 
-Normalmente un dispositivo quando si eliminano i file cancella solo le informazioni su dove questi file risiedano, non vengono realmente sovrascritti su disco. Per formattare realmente un dispositivo bisogna farlo bit-a-bit, quest'operazione è possibile con `dd`.
+Normalmente un dispositivo quando si eliminano i file, elimina solo le informazioni su dove questi file risiedano, non vengono realmente sovrascritti su disco. Per formattare realmente un dispositivo bisogna usare il bit-a-bit, quest'operazione è possibile con `dd`.
 
 Questo metodo è anche ottimo per formattare una pennina che è stata utilizzata come supporto di installazione (vedi sezione precedente).
 
