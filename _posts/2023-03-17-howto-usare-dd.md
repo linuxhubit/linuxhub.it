@@ -182,11 +182,13 @@ gdd if=FILEINPUT of=FILEOUTPUT status=progress
 
 Si è già discusso di come questo tool abbia diversi utilizzi, potrebbe essere utile ora vedere qualche esempio concreto.
 
-### Scrittura di un immagine iso in un usb
+### blkid 
 
-L'utilizzo più famoso è forse quello di scrittura di un immagine iso in una pen drive per la creazione di un supporto per l'installazione del sistema operativo.
+Prima di iniziare, per alcuni esempi è necessario sapere come prelevare il file che, sul nostro pc, rappresenta un disco esterno.
 
-Scaricato e individuato il file iso (ad esempio `/percorso/file/immagine.iso`) bisogna prima individuare il supporto d'uscita, per farlo possiamo utilizzare il tool `blkid`: 
+Nel nostro sistema esiste una cartella particolare chiamata `/dev`, questa cartella contiene i così detti **special device files**, ovvero i file dei dispositivi speciali, che è un po' un parolone per dire che si trovano tutti quei file che rappresentano qualunque cosa sia attaccabile e staccabile dal pc (webcam, usb, microfoni, etc...). Ovviamente questi file non sono utilizzabili direttamente poiché contengono file grezzi, in genere vanno interpretati o montati con programmi appositi. 
+
+Per individuare una periferica di archiviazione attaccata utilizziamo il tool `blkid`: 
 
 ```bash
 blkid
@@ -204,7 +206,13 @@ Quello sull'estrema sinistra è un identificativo che rappresenta una particolar
 
 Nel caso di **nvme** e di **supporti sd** potrebbe cambiare la nomenclatura, ma il concetto è sempre simile, c'è un parametro che varia in base al disco ed uno che varia in base alla partizione. 
 
-Identificato il disco da trasformare in supporto di installazione, eliminiamo l'informazione sulla partizione (ad esempio teniamo conto del disco `/dev/sda`, senza portarci dietro il numero) e scriviamo il comando `dd` utilizzando come file di INPUT l'immagine iso, come file di output il disco. Per sicurezza impostiamo il parametro **status** per vedere i *progressi* e il **bs** a `8M` (il block size dovrebbe essere allineato alla capacità di scrittura della pen drive e della porta usb del pc) per sfruttare più buffer: 
+### Scrittura di un immagine iso in un usb
+
+L'utilizzo più famoso è forse quello di scrittura di un immagine iso in una pen drive per la creazione di un supporto per l'installazione del sistema operativo.
+
+Scaricato e individuato il file iso (ad esempio `/percorso/file/immagine.iso`) bisogna prima individuare il supporto d'uscita, per farlo possiamo utilizzare `blkid` come spiegato precedentemente, supponiamo il disco `/dev/sda` (l'informazione sulla partizione non ci serve, scartiamo il numero).
+
+Quindi scriviamo il comando `dd` utilizzando come file di INPUT l'immagine iso, come file di OUTPUT il disco. Per sicurezza impostiamo il parametro **status** per vedere i *progressi* e il **bs** a `8M` (il block size dovrebbe essere allineato alla capacità di scrittura della pen drive e della porta usb del pc) per sfruttare più buffer: 
 
 ```bash
 dd if=/percorso/file/immagine.iso of=/dev/sda status=progress bs=8M
@@ -214,7 +222,7 @@ A fine processo avremo il nostro supporto di installazione
 
 ### Azzerare un dispositivo
 
-Normalmente un dispositivo quando si eliminano i file cancella solo le informazioni su dove questi file risiedano, non vengono realmente sovrascritti su disco. Per formattare realmente un dispositivo bisogna farlo bit-a-bit, quest'operazione è possibile con dd.
+Normalmente un dispositivo quando si eliminano i file cancella solo le informazioni su dove questi file risiedano, non vengono realmente sovrascritti su disco. Per formattare realmente un dispositivo bisogna farlo bit-a-bit, quest'operazione è possibile con `dd`.
 
 Questo metodo è anche ottimo per formattare una pennina che è stata utilizzata come supporto di installazione (vedi sezione precedente).
 
@@ -222,4 +230,36 @@ Questo metodo è anche ottimo per formattare una pennina che è stata utilizzata
 >
 > Questa operazione è altamente invasiva, non abusatene perché potreste rovinare il dispositivo.
 
-Per azzerare un dispositivo viene utilizzato un file virtuale creato da linux contenente tutti e soli zeri, che si trova nel percorso: `/dev/zero`. Come dispositivo di output basta estrarre il percorso del dispositivo che 
+Per azzerare un dispositivo viene utilizzato un file virtuale creato da linux contenente tutti e soli zeri, che si trova nel percorso: `/dev/zero`. Come dispositivo di output basta estrarre il percorso del dispositivo che bisogna azzerare, per farlo possiamo utilizzare `blkid` come spiegato precedentemente, supponiamo il disco `/dev/sda` (l'informazione sulla partizione non ci serve, scartiamo il numero). 
+
+Quindi scriviamo il comando `dd` utilizzando come file di INPUT `/dev/null`, come file di OUTPUT il disco. Per sicurezza impostiamo il parametro **status** per vedere i *progressi* e il **bs** a `8M` (il block size dovrebbe essere allineato alla capacità di scrittura della pen drive e della porta usb del pc) per sfruttare più buffer:
+
+```bash
+dd if=/dev/zero of=/dev/sda status=progress bs=8M
+```
+
+### Backup
+
+> Il backup è quella cosa che dovevi fare prima...
+
+Con dd si può effettuare il backup di interi dischi. Per farlo bisogna prima avere il file associato al nostro disco, possiamo utilizzare `blkid` come spiegato precedentemente per elencare i dischi. Supponiamo il disco `/dev/sda` (l'informazione sulla partizione non ci serve, scartiamo il numero). 
+
+Quindi utilizziamo il disco come parametro di INPUT e un file come parametro di OUTPUT. Il file sarà necessariamente un file IMG (immagine disco) Per sicurezza impostiamo il parametro **status** per vedere i *progressi* e il **bs** a `8M` (il block size dovrebbe essere allineato alla capacità di scrittura della pen drive e della porta usb del pc) per sfruttare più buffer:
+
+```bash
+dd if=/dev/sda of=/percorso/backup.img status=progress bs=8M
+```
+
+Si può poi ripristinare invertendo gli operandi. Si può applicare il concetto anche alle partizioni: 
+
+```bash
+dd if=/dev/sda1 of=/percorso/backupp1.img status=progress bs=8M
+```
+
+### Backup e compressione
+
+Si è già detto che, se non specificato alcun file di output, viene utilizzato lo standard output del sistema. Questo permette di concatenare con altri comandi, ad esempio `gzip`, in modo da poter fare un backup che viene compresso al volo:
+
+```bash
+dd if=/dev/sda | gzip > /percorso/backup.gz"
+```
