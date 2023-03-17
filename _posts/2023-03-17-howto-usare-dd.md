@@ -1,7 +1,7 @@
 ---
 class: post
 title: '#howto - Usare dd' 
-date: 2023-03-03 08:00
+date: 2023-03-17 08:00
 layout: post 
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
