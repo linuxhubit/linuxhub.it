@@ -5,8 +5,8 @@ date: 2023-04-24 08:00
 layout: post
 author: Midblyte
 author_github: Midblyte
-coauthor: 
-coauthor_github: 
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: false
 tags:
 - ubuntu
@@ -15,7 +15,9 @@ tags:
 ---
 
 
-**Ottimizzare** è un procedimento che consiste principalmente nella riduzione dello spazio cromatico (il totale dei diversi colori presenti in un'immagine) e, quando possibile, nella variazione dell'algoritmo di compressione con uno più efficiente; il tutto al fine di diminuire il tempo di decodifica e il peso finale del file senza che la qualità ne sia eccessivamente compromessa.
+**Ottimizzare** è un procedimento che consiste principalmente nella riduzione dello spazio cromatico (il totale dei diversi colori presenti in un'immagine) e, quando possibile, nella variazione dell'algoritmo di compressione con uno più efficiente: il tutto, al fine di diminuire il tempo di decodifica e il peso finale del file senza che la qualità ne sia eccessivamente compromessa.
+
+In questo articolo vedremo come ottimizzare le dimensioni di immagini in alcuni formati.
 
 
 ## JPEG
