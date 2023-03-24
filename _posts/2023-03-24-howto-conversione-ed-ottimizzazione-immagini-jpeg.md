@@ -1,7 +1,7 @@
 ---
 class: post
 title: '#howto - Conversione ed ottimizzazione immagini: JPEG'
-date: 2023-04-24 08:00
+date: 2023-03-24 08:00
 layout: post
 author: Midblyte
 author_github: Midblyte
