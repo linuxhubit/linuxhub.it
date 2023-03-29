@@ -5,8 +5,8 @@ date: 2023-03-31 08:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: gaetanovirg
+coauthor_github: gaetanovirg
 published: false
 tags:
 - Google
@@ -16,20 +16,20 @@ tags:
 - archlinux
 ---
 
-Ma voi, lo sapete davvero usare Google Chrome?  
-In questa guida si vedrà come installare ed usare Chrome con le sue opzioni a linea di comando, aprire l'applicazione in incognito o creare profili interamente localizzati in una cartella del nostro sistema.
+Ma voi,  sapete davvero usare Google Chrome?  
+In questa guida si mosterá  come installare ed utilizzare Google Chrome con le sue opzioni a linea di comando, apertura di finestre di navigazione in incognito o creazione di profili interamente localizzati in una cartella del nostro sistema.
 
 ## Differenza tra le versioni
 
-Prima vi è da specificare che di Google Chrome non *ne esiste uno solo*. Sono infatti disponibili varianti basate in genere sulla versione open source, ovvero **chromium**.
+Vi è da specificare che di variante dei browser Google non *c'é n'é soltanto una*. Sono infatti disponibili varianti basate sulla versione open source, ovvero **chromium**.
 
-Innanzitutto quindi bisogna fare la differenza tra: 
+Bisogna differenziare : 
 
 - Google Chrome, che è possibile scaricare [sul sito di riferimento](https://www.google.com/intl/it_it/chrome/). 
 - Chromium, la versione [open source del browser](https://www.chromium.org/chromium-projects/).
-- [Un-googled chromium](https://github.com/ungoogled-software/ungoogled-chromium), una versione di Chrome non solo open source ma anche *de-googlizzata*, ovvero senza software e servizi di Google.
+- [Un-googled chromium](https://github.com/ungoogled-software/ungoogled-chromium), una versione di Chrome non solo open source ma anche *de-googlizzata*, priva di software e servizi di Google.
 
-Quindi, sulla base del secondo, son nati diversi fork, ne cito alcuni: 
+Quindi, sulla base del secondo, sono nati diversi fork, alcuni: 
 
 - Vivaldi browser
 - Brave
@@ -52,19 +52,19 @@ Scaricare il formato `.deb` dal sito di download di [Google Chrome](https://www.
 cd Scaricati
 ```
 
-Quindi spacchettare il browser con il comando `dpkg`:
+Quindi estrarre il pacchetto con il comando `dpkg`:
 
 ```bash
 dpkg -i google-chrome-stable_current_amd64.deb
 ```
 
-Se dovesse restituire degli errori, provare a risolvere scrivendo:
+Se si dovessero presentare degli errori, provare a scrivere:
 
 ```bash
 apt install -f
 ```
 
-Ora dovreste avere installato correttamente il software.
+Adesso dovreste avere installato correttamente il software.
 
 #### Fedora
 
@@ -84,13 +84,12 @@ Ora dovreste avere installato correttamente il **software**.
 
 #### ArchLinux
 
-Diverso è il caso di ArchLinux, bisogna infatti installare il software via AUR. Se è installato un aur-helper farà lui il lavoro, ad esempio con paru: 
+Differente è il caso di ArchLinux,  infatti bisogna installare il software via AUR. Se è installato un aur-helper svolgerá lui il lavoro, ad esempio con paru: 
 
 ```bash
 paru google-chrome
 ```
-
-Altrimenti si può installare manualmente scaricando il pacchetto da aur:
+Si può altrimenti installare manualmente il pacchetto da aur:
 
 ```bash
 git clone https://aur.archlinux.org/google-chrome.git
@@ -100,15 +99,15 @@ cd google-chrome
 makepkg -si
 ```
 
-A conti fatti lo script di AUR scaricherà per voi la versione *deb* di Google Chrome e lo scompatterà.
+A conti fatti lo script di AUR scaricherà per voi la versione *deb* di Google Chrome e la scompatterà.
 
 ### Chromium
 
-Normalmente chromium è già disponibile nei repository ufficiali delle distribuzioni
+Generalmente Chromium è già disponibile nei repository ufficiali delle distribuzioni
 
 #### Ubuntu e derivate 
 
-Per installare su Ubuntu aprire il terminale e scrivere:
+Per installare su Ubuntu basta aprire il terminale e digitare:
 
 ```bash
 apt install chromium
@@ -116,7 +115,7 @@ apt install chromium
 
 #### Fedora 
 
-Per installare su Fedora aprire il terminale e scrivere:
+Per installare su Fedora basta aprire il terminale e digitare:
 
 ```bash
 dnf install chromium
@@ -124,7 +123,7 @@ dnf install chromium
 
 #### ArchLinux
 
-Per installare su ArchLinux aprire il terminale e scrivere:
+Per installare su ArchLinux basta aprire il terminale e digitare:
 
 ```bash
 pacman -S chromium
@@ -132,9 +131,9 @@ pacman -S chromium
 
 ## Chrome e terminale
 
-Come ogni altro programma, anche Chrome (così come chromium) è avviabile da terminale. Ovviamente son richiamabili anche diversi parametri che, a differenza dei casi, potrebbero anche tornare molto utili.
+Come ogni altro programma, anche Chrome (così come chromium) è avviabile da terminale. Ovviamente sono richiamabili anche diversi parametri che, a differenza dei casi, potrebbero  tornare molto utili.
 
-Innanzitutto il comando di base per avviare il software da linea di comando è:
+Il comando di base per avviare il software da linea di comando è:
 
 ```bash
 google-Chrome-stable
@@ -152,7 +151,7 @@ Per aprire un URL specifico basta passarlo come stringa al programma:
 google-Chrome-stable "www.google.com"
 ```
 
-Ovviamente la sintassi non cambia per chromium.
+La sintassi non cambia per chromium.
 
 > **NOTA**:
 >
@@ -160,17 +159,16 @@ Ovviamente la sintassi non cambia per chromium.
 
 ### Evitare che il prompt si sospenda
 
-Aprire Chrome da terminale comporta che il prompt si blocca in attesa della chiusura della finestra. Per evitare questo comportamento possiamo utilizzare alcuni meccanismi di bash come i task in background, la sub shell e il redirezionamento: 
+Aprire Chrome da terminale provoca un blocco del prompt  in attesa della chiusura della finestra. Per evitare questo comportamento possiamo utilizzare alcuni meccanismi di bash come i task in background, la sub shell e il redirezionamento: 
 
 ```bash
 (google-chrome-stable >/dev/null 2>/dev/null "www.google.com" &); 
 ```
-
-Ovviamente se stiamo utilizzando il terminale per monitorare gli errori del programma, potrebbe non essere una scelta saggia quella redirezionare gli errori.
+Se stessimo utilizzando il terminale per monitorare gli errori del programma, potrebbe non essere una scelta saggia quella redirezionare gli errori.
 
 ### Aprire più tab
 
-Per aprire più tab è possibile semplicemente eseguire più volte il comando che apre una pagina web, potrebbe essere utile eseguire in background Chrome per evitare che il prompt si blocchi, come spiegato prima: 
+Per aprire più tab è possibile  eseguire più volte il comando che apre una pagina web, potrebbe essere utile eseguire in background Chrome per evitare che il prompt si blocchi, come descritto prima: 
 
 ```bash
 (google-chrome-stable >/dev/null 2>/dev/null "www.google.com" &); 
@@ -181,7 +179,7 @@ In questo modo si aprirà Google Chrome in una finestra con due tab diverse, una
 
 ### Aprire una nuova finestra
 
-Per aprire una nuova tab bisogna utilizzare un opzione che, banalmente, si chiama `--new-window`: 
+Per aprire una nuova tab bisogna utilizzare un opzione che, si chiama `--new-window`: 
 
 ```bash
 google-chrome-stable --new-window 
@@ -203,9 +201,9 @@ Si può aprire una finestra anonima con l'opzione `--incognito`:
 google-chrome-stable --incognito
 ```
 
-È importante ricordarsi che la modalità in incognito non protegge il pc dalla privacy o da virus, ma semplicemente è una sessione di navigazione che non memorizza la cronologia (e su richiesta non utilizza neanche cookies da terze parti).
+È importante ricordare che la modalità in incognito non protegge il pc dalla privacy o da virus, ma  è una sessione di navigazione che non memorizza la cronologia (e su richiesta non utilizza neanche i cookies di terze parti).
 
-### Utilizzare un altra user directory
+### Utilizzare un'altra user directory
 
 Ho sempre trovato questa opzione molto utile personalmente. Si tratta infatti di un opzione che cambia la directory dove vengono salvati i dati di chrome, bookmark, cronologia, estensioni e preferenze.
 
@@ -256,7 +254,7 @@ mkdir /percorso/cartella/.web-security-disabled-chrome
 google-chrome-stable --user-data-dir="/percorso/cartella/.web-security-disabled-chrome" --disable-web-security
 ```
 
-Se il comando è andato a buon fine apparirà un messaggio in alto con scritto:
+Se il comando è corretto apparirà un messaggio in alto con scritto:
 
 ```plain
 Stai utilizzando un opzione della riga di comando non supportata: --disable-web-security. Stabilità e sicurezza ne risentiranno
@@ -264,4 +262,4 @@ Stai utilizzando un opzione della riga di comando non supportata: --disable-web-
 
 ### Altre opzioni avanzate
 
-Son disponibili tramite manuale (`man chromium`) altre opzioni come la gestione del password-store, e l'apertura tramite proxy.
+Sono disponibili tramite manuale (`man chromium`) altre opzioni come la gestione del password-store, e l'apertura tramite proxy.
