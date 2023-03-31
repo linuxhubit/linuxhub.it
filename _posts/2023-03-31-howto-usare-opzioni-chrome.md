@@ -21,7 +21,7 @@ In questa guida si mosterá  come installare ed utilizzare Google Chrome con le 
 
 ## Differenza tra le versioni
 
-Vi è da specificare che di variante dei browser Google non *c'é n'é soltanto una*. Sono infatti disponibili varianti basate sulla versione open source, ovvero **chromium**.
+Vi è da specificare che di variante dei browser Google *non ce n'é soltanto una*. Sono infatti disponibili varianti basate sulla versione open source, ovvero **chromium**.
 
 Bisogna differenziare : 
 
