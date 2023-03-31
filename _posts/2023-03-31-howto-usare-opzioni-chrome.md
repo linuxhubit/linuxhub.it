@@ -7,7 +7,7 @@ author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: gaetanovirg
 coauthor_github: gaetanovirg
-published: false
+published: true
 tags:
 - Google
 - Chrome
@@ -148,7 +148,7 @@ chromium
 Per aprire un URL specifico basta passarlo come stringa al programma: 
 
 ```bash
-google-Chrome-stable "www.google.com"
+google-chrome-stable "www.google.com"
 ```
 
 La sintassi non cambia per chromium.
@@ -176,6 +176,12 @@ Per aprire più tab è possibile  eseguire più volte il comando che apre una pa
 ```
 
 In questo modo si aprirà Google Chrome in una finestra con due tab diverse, una connessa a Google e l'altra a Bing.
+
+Se si ha la necessità di aprire il browser con già più tab aperte, si possono specificare più indirizzi nello stesso comando: 
+
+```bash
+google-chrome-stable "www.google.com" "www.bing.com"
+```
 
 ### Aprire una nuova finestra
 
