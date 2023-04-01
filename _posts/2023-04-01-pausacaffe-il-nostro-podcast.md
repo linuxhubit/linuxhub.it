@@ -13,11 +13,11 @@ tags:
 - podcast
 ---
 
-È tardi? Siamo ancora in tempo? non lo so, ma da tempo uno dei sogni di Linux/Hub è quello di aprire un podcast.
+È tardi? Siamo ancora in tempo? Non lo so, ma da tempo uno dei sogni di Linux/Hub è quello di aprire un podcast.
 
 Un po' la mancanza di tempo, un po' la mancanza di un frontman che si prende le responsabilità, non ci siamo mai riusciti.
 
-Ma sapete cosa succede oggi? Per voi abbiamo deciso che uno sforzo lo facciamo: ecco a voi Linux/Hub il podcast, mettetevi le cuffie, arriva una buona dose di pinguino nelle vostre orecchie....
+Ma sapete cosa succede oggi? Per voi abbiamo deciso che uno sforzo lo facciamo: ecco a voi Linux/Hub il podcast, mettetevi le cuffie, arriva una buona dose di pinguino nelle vostre orecchie...
 
 <audio controls>
   <source src="https://www.myinstants.com/media/sounds/rick-roll-hahahaha_PLz3HtW.mp3" type="audio/ogg">
