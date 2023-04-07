@@ -5,11 +5,12 @@ date: 2023-04-01 12:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: Martin Ligabue
+coauthor_github: MartinLigabue
 published: true
 tags:
 - april
+- fool
 - podcast
 ---
 
