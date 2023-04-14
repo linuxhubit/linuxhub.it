@@ -1,13 +1,13 @@
 ---
 class: post
-title: '#howto - SSH: controllo remoto del desktop da mobile'
-date: 2023-04-14 08:00
+title: '#howto - SSH: controllo remoto del desktop da mobile - Parte 1'
+date: 2023-04-14 07:00
 layout: post
 author: Midblyte
 author_github: Midblyte
-coauthor:
-coauthor_github:
-published: false
+coauthor: Davide Galati (in arte PsykeDady)
+coauthor_github: PsykeDady
+published: true
 tags:
 - ubuntu
 - fedora
@@ -38,17 +38,17 @@ La **chiave privata** è quella che deve essere custodita attentamente da ciascu
 
 ### Ubuntu
 ```bash
-$ apt-get install openssh-client openssh-server
+apt-get install openssh-client openssh-server
 ```
 
 ### Fedora
 ```bash
-$ dnf install openssh-client openssh-server
+dnf install openssh-client openssh-server
 ```
 
 ### Arch Linux
 ```bash
-$ pacman -S openssh-client openssh
+pacman -S openssh-client openssh
 ```
 
 
@@ -63,18 +63,21 @@ Tuttavia, prima di generare le chiavi, è necessario scegliere l'**algoritmo di 
 **Ed25519** offre il medesimo livello di sicurezza crittografica con chiavi ben più brevi, è più performante, e non risulta vulnerabile a particolari tipi di attacchi che possono essere invece usati contro RSA.
 Tuttavia, Ed25519 è stato creato molto dopo RSA, quindi se la compatibilità è un problema (e solitamente non lo è più, almeno non tanto quanto qualche anno fa) allora potrebbe essere necessario ricorrere a RSA.
 
+Per *ed25519*:
+
 ```bash
 # Genera una chiave Ed25519
-$ ssh-keygen -t ed25519
+ssh-keygen -t ed25519
 ```
+
+Per rsa:
 
 ```bash
 # Genera una chiave RSA a 4096 bit (default: 3072 bit)
-$ ssh-keygen -t rsa -b 4096
+ssh-keygen -t rsa -b 4096
 ```
 
 In entrambi i casi, verrà chiesto **dove salvare la coppia di chiavi** e se inserire una **passphrase** (nient'altro che una "password di una password" - nella pratica, la passphrase crittografa la chiave privata, ed è utile a prevenire i rischi di un eventuale accesso non autorizzato ad essa). A meno di specifiche esigenze di sicurezza, la passphrase può essere tranquillamente omessa.
-
 
 ## Configurare la chiave pubblica
 
@@ -94,9 +97,9 @@ cat '~/.ssh/id_ed25519.pub' >> ~/.ssh/authorized_keys
 Usando Systemd:
 ```bash
 # Avvio per la sessione attuale
-sudo systemctl start sshd.service
+systemctl start sshd.service
 # Abilitazione generale (si avvia ad ogni futura accensione)
-sudo systemctl enable sshd.service
+systemctl enable sshd.service
 ```
 
 Senza Systemd, usando Init:
@@ -121,7 +124,7 @@ Resta solo da configurare il dispositivo Android.
 Installato Termux, è necessario usare il package manager, `pkg`, per installare OpenSSH.
 
 ```bash
-$ pkg update && pkg upgrade && pkg install OpenSSH
+pkg update && pkg upgrade && pkg install OpenSSH
 ```
 
 Installato OpenSSH, bisogna spostare la **chiave privata** sulla memoria interna del dispositivo (va trasferita manualmente).
@@ -130,11 +133,11 @@ Installato OpenSSH, bisogna spostare la **chiave privata** sulla memoria interna
 # A partire dalle ultime versioni di Android, le applicazioni non hanno più
 # automaticamente l'accesso alla memoria interna del dispositivo.
 # Qualora non funzionasse, bisogna revocare e ridare i permessi manualmente.
-$ termux-setup-storage
+termux-setup-storage
 
 # Ora, per convenzione, la chiave privata andrebbe spostata sotto ~/.ssh.
 # Il symlink "~/storage/shared" riporta alla memoria interna del dispositivo Android.
-$ mv ~/storage/shared/Download/id_ed25519 ~/.ssh/
+mv ~/storage/shared/Download/id_ed25519 ~/.ssh/
 ```
 
 A meno che non sia stata inserita una passphrase (in tal caso potrebbe essere conveniente usare anche ssh-agent e ssh-add), dovrebbe ora essere possibile connettersi.
@@ -142,14 +145,13 @@ A meno che non sia stata inserita una passphrase (in tal caso potrebbe essere co
 
 ## Connessione
 
-Se i due dispositivi sono connessi alla stessa rete, prima di connettersi, è necessario ottenere sia l'username (usando `whoami`) che l'indirizzo IP locale del server SSH (usando `ip address`; nel caso di IPv4, è solitamente quello che inizia per "192.168"):
+Se i due dispositivi sono connessi alla stessa rete, prima di connettersi, è necessario ottenere sia l'username (usando `whoami`) che l'indirizzo IP locale del server SSH (usando `ip address`; nel caso di IPv4, è solitamente quello che inizia per "`192.168`"):
 
-A questo punto, la connessione può essere finalmente stabilita (sia "22" la porta in ascolto, "~/.ssh/id_ed25519" il percorso alla chiave privata, "username" il nome utente dell'host, "192.168.1.70" l'indirizzo locale):
+A questo punto, la connessione può essere finalmente stabilita (sia "`22`" la porta in ascolto, "`~/.ssh/id_ed25519`" il percorso alla chiave privata, "`username`" il nome utente dell'host, "192.168.1.70" l'indirizzo locale):
 
 ```bash
-$ ssh -p 22 -I ~/.ssh/id_ed25519 username@192.168.1.70
+ssh -p 22 -I ~/.ssh/id_ed25519 username@192.168.1.70
 ```
-
 
 ## Per concludere
 
