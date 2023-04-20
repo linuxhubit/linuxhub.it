@@ -13,7 +13,8 @@ tags:
 - nodejs
 ---
 
-[&rarr; Articolo precedente: variabili complesse e blocchi](https://linuxhub.it/articles/howtodev-javascript-pt2)  
+[&larr; Articolo precedente: variabili complesse e blocchi](https://linuxhub.it/articles/howtodev-javascript-pt2)  
+[&rarr; Articolo successivo: variabili array](https://linuxhub.it/articles/howtodev-javascript-pt4)  
 
 Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e anche ormai di molte applicazioni lato desktop.  
 
