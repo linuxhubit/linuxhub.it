@@ -311,10 +311,130 @@ console.log(array[1])   // stamperà 123
 
 ## Cicli specifici per array e oggetti
 
-In realtà per array ed oggetti esistono delle struttura atte a semplificare di molto l'iterazione degli array. Due di queste sono il for-of e il for-in, che scorrono direttamente il valore o gli indici senza sintassi ripetitiva. 
+In realtà per array ed oggetti esistono delle struttura atte a semplificare di molto l'iterazione degli array. Due di queste sono il for-of e il for-in, che scorrono direttamente il valore o gli indici senza sintassi ripetitiva.
 
 ### for-of
 
+Il **for-of** è una struttura che preleva direttamente i valori del vettore. Si struttura come segue: 
+
+```javascript
+for (let valore of vettore){
+	// utilizzare la variabile valore
+}
+```
+
+Ad esempio si può fare una lista puntata tipo spesa: 
+
+```javascript
+let array = ["Latte","Biscotti","Succo","Pane"]
+
+for (let valore of array){
+	console.log("- "+valore)
+}
+```
+
+Il risultato sarà: 
+
+```plain
+- Latte
+- Biscotti
+- Succo
+- Pane
+```
+
 ### for-in
 
+Il **for-in** scorre automaticamente gli indici del vettore, ottimo da utilizzare quando servono sia indici che valori.
+
+Si struttura come segue:
+
+```javascript
+for (let indice in vettore){
+	// utilizzare la variabile indice per scorrere l'indice
+	// per avere i valori usare vettore[indici]
+}
+```
+
+Ad esempio si può fare una lista numerata tipo spesa: 
+
+```javascript 
+let array = ["Latte","Biscotti","Succo","Pane"]
+
+for (let indice in array){
+	console.log(indice + " ) " + array[indici])
+}
+```
+
 ## Errori
+
+Ci son alcuni errori da evitare quando si opera con gli array che son molto comuni soprattutto nelle fasi iniziali 
+
+### Stiamo attenti allo 0
+
+Come già detto, gli indici di un array partono sempre da zero. Questo pone spesso un dilemma nei novizi che è nello strutturare il for. 
+
+Ad esempio: 
+
+```javascript
+for (let indice = 1; indice < array.length; indice++){
+	console.log(array[indice])
+}
+```
+
+Questo for è **errato**, infatti l'indice inizia da 1, questo farà si che il primo elemento sarà saltato.
+
+Per aggiustarlo basta scrivere 0 anziché 1: 
+
+```javascript
+for (let indice = 0; indice < array.length; indice++){
+	console.log(array[indice])
+}
+```
+
+### L'ultimo elemento non ha indice pari alla lunghezza
+
+Sempre perché il conteggio inizia da zero, bisogna ricordarsi che in un array di N celle, l'elemento con indice N non esiste:
+
+**Gli indici partono da 0 e vanno a N-1**. 
+
+Una scrittura di questo genere: 
+
+
+```javascript
+array[array.length]
+```
+
+Mostrerà un bel `undefined`.
+
+### Minore, non minore uguale
+
+La condizione di uscita dell'indice nei for manuali è sempre "strettamente minore", per lo stesso motivo di prima. 
+
+Quindi una scrittura del genere è errata e produce un undefined: 
+
+```javascript 
+for (let indice = 0; indice <= array.length; indice++){
+	console.log(array[indice])
+}
+```
+
+L'unica scrittura corretta è la seguente: 
+
+```javascript
+for (let indice = 0; indice < array.length; indice++){
+	console.log(array[indice])
+}
+```
+
+### for of o for in
+
+Non scambiare mai il for of con il for in.  
+Se ad esempio si usa il for-of per avere accesso agli indici: 
+
+```javascript
+for (let i of array){
+	console.log(array[i])
+}
+```
+
+Si avranno tanti `undefined`.
