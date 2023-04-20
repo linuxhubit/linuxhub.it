@@ -46,6 +46,8 @@ Normalmente però, se non per necessità specifiche, si creano vettori che conte
 
 ## Usare gli array
 
+Gli array si possono creare, modificare e quindi scorrere e leggere. 
+
 ### Creare un array
 
 Per creare un array esistono diversi modi in realtà, ma quello più semplice ed immediato è racchiudere i suoi elementi tra parentesi quadre (`[` e `]`). Ogni elemento dell'array va separato dall'altro con la virgola.
@@ -88,13 +90,66 @@ console.log(vettore[2])
 
 Stamperà la parola "Mario".
 
+### Modificare un elemento dell'array 
+
+Per modificare un elemento dell'array è sufficiente richiamare la specifica cella e cambiarne il valore, con la seguente sintassi: 
+
+```javascript
+nomearray[indice]=nuovovalore
+```
+
+Ad esempio 
+
+```javascript
+
+let vettore=["mi","chiamo","Mario"]
+
+console.log(vettore[2])
+
+vettore[2]="Davide"
+
+console.log(vettore[2])
+```
+
+Stamperà:
+
+```plain
+Mario
+Davide
+```
+
+### Aggiungere elementi
+
+L'array può essere allungato, per farlo basta "modificare" l'elemento successivo all'ultimo. Per essere chiari se il vettore è di lunghezza `N`, basta modificare l'elemento con indice `N` indicando il nuovo valore: 
+
+```javascript
+vettore[N]=nuovovalore
+```
+
+Ad esempio:
+
+```javascript
+
+let vettore=["mi","chiamo"]
+
+vettore[2]="Davide"
+
+console.log(vettore[0] + " " + vettore[1] + " " + vettore[2])
+```
+
+Il risultato sarà
+
+```plain
+mi chiamo Davide
+```
+
 ### Lunghezza dell'array
 
 Per lunghezza dell'array si intende, in JavaScript, il numero di elementi presenti nel momento in cui la si interroga.
 
 A differenza di altri linguaggi in cui il numero di celle per un array è fisso, qui è dinamico e si allarga e restringe in base al numero di elementi al suo interno.
 
-Per sapere la lunghezza del vettore basta scrivere `.length` dopo il nome del vettore: 
+Per sapere la lunghezza del vettore basta scrivere `.length` dopo il nome del vettore:
 
 ```javascript
 let vettore = [/*elementi,del,vettore*/]
@@ -112,7 +167,39 @@ console.log(vettoreNumeri.length)
 
 Stampa il numero `10`.
 
-### Scorrere gli array 
+### Eliminare un elemento
+
+Per eliminare un elemento dall'array basta ridurre di uno la sua lunghezza
+
+```javascript
+vettore.length--
+```
+
+Ad esempio:
+
+```javascript
+let vettore=["mi","chiamo"]
+
+console.log(vettore.length)
+
+vettore[2]="Davide"
+
+console.log(vettore.length)
+
+vettore.length--
+
+console.log(vettore.length)
+```
+
+L'output sarà:
+
+```plain
+2
+3
+2
+```
+
+### Scorrere gli array
 
 Per scorrere gli array bisogna passare per tre step:
 
@@ -122,7 +209,7 @@ Per scorrere gli array bisogna passare per tre step:
 
 #### while
 
-Ora che si ha il contesto vediamo come unire questi tre passi. Prima con il ciclo `while`: 
+Ora che si ha il contesto vediamo come unire questi tre passi. Prima con il ciclo `while`:
 
 ```javascript
 let array=[/*elementi...*/]
