@@ -1,13 +1,13 @@
 ---
 class: post
-title: '#howtodev - JavaScript parte 3 - indentazione e cicli' 
-date: 2023-03-03 08:00
+title: '#howtodev - JavaScript parte 4 - Array' 
+date: 2023-04-21 08:00
 layout: post 
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: linuxhub
 coauthor_github: linuxhub
-published: false
+published: true
 tags: 
 - javascript
 - nodejs
@@ -17,14 +17,15 @@ tags:
 
 Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e anche ormai di molte applicazioni lato desktop.  
 
-Vediamo cosa sono e come funzionano gli array
+Vediamo cosa sono e come funzionano gli array.
 
 ## Obiettivi
 
 Lista degli obiettivi che a fine articolo il lettore consegue:
 
 - comprendere struttura di un array in JavaScript
-- creare array
+- creare, modificare, scorrere array
+- Similitudini tra array ed oggetti
 
 ## Prerequisiti
 
@@ -120,7 +121,7 @@ Davide
 
 ### Aggiungere elementi
 
-L'array può essere allungato, per farlo basta "modificare" l'elemento successivo all'ultimo. Per essere chiari se il vettore è di lunghezza `N`, basta modificare l'elemento con indice `N` indicando il nuovo valore: 
+L'array può essere allungato, per farlo basta "modificare" l'elemento successivo all'ultimo. Per essere chiari se il vettore è di lunghezza `N`, basta modificare l'elemento con indice `N` (**non** `N+1`) indicando il nuovo valore: 
 
 ```javascript
 vettore[N]=nuovovalore
@@ -129,7 +130,6 @@ vettore[N]=nuovovalore
 Ad esempio:
 
 ```javascript
-
 let vettore=["mi","chiamo"]
 
 vettore[2]="Davide"
@@ -253,7 +253,7 @@ Chiara
 
 #### for
 
-Il for come si è visto nelle precedenti sezioni è un ciclo while che inizializza un valore e lo aggiorna ogni iterazione controllandone il valore nella condizione, è ottimo quindi per scorrere un array e semplifica di molto la scrittura: 
+Il for, come si è visto nelle precedenti sezioni, è un ciclo while che inizializza un valore e lo aggiorna ogni iterazione controllandone il valore nella condizione, è ottimo quindi per scorrere un array e semplifica di molto la scrittura: 
 
 ```javascript
 let array=[/*elementi...*/]
@@ -309,9 +309,9 @@ console.log(oggetto[1]) // stamperà 123
 console.log(array[1])   // stamperà 123
 ```
 
-## Cicli specifici per array e oggetti
+## Cicli specifici per array
 
-In realtà per array ed oggetti esistono delle struttura atte a semplificare di molto l'iterazione degli array. Due di queste sono il for-of e il for-in, che scorrono direttamente il valore o gli indici senza sintassi ripetitiva.
+In realtà per gli array esistono delle struttura atte a semplificare di molto l'iterazione. Due di queste sono il for-of e il for-in, che scorrono direttamente il valore o gli indici senza sintassi ripetitiva.
 
 ### for-of
 
@@ -341,6 +341,7 @@ Il risultato sarà:
 - Succo
 - Pane
 ```
+
 
 ### for-in
 
