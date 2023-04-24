@@ -48,16 +48,22 @@ Procediamo con l'abilitazione del modulo con **modprobe**:
 modprobe ecryptfs
 ```
 
+Vanno create la cartella da cifrare e una cartella in cui montarla, se non presenti. 
+
+```bash
+mkdir /percorsoDaCifrare /percorsoDaMontare
+```
+
 rendiamo privata la nostra cartella di interesse:
 
 ```bash
-chmod 700 -R /percorso
+chmod 700 -R /percorsoDaCifrare
 ```
 
 e procediamo con ecryptfs:
 
 ```bash
-mount -t ecryptfs /percorso /percorso
+mount -t ecryptfs /percorsoDaCifrare /percorsoDaMontare
 ```
 
 questo comando servirà anche a decifrare la cartella ogni qual volta vorrete usarla.
@@ -65,7 +71,7 @@ questo comando servirà anche a decifrare la cartella ogni qual volta vorrete us
 Per cifrare e rendere quindi inaccessibile la locazione, digitiamo:
 
 ```bash
-umount /percorso
+umount /percorsoDaCifrare
 ```
 
 Possiamo rendere più semplice l'operazione prendendo l'ultima riga del file **/etc/mtab**:
