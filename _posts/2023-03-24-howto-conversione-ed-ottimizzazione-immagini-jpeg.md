@@ -147,13 +147,13 @@ I sorgenti disponibili su GitHub vanno compilati:
 
 ```bash
 # Per Ubuntu
-sudo apt install autoconf automake libtool nasm make pkg-config git
+apt install autoconf automake libtool nasm make pkg-config git
 
 # Per Fedora
-sudo pacman -S autoconf automake libtool nasm make pkgconf-pkg-config git
+pacman -S autoconf automake libtool nasm make pkgconf-pkg-config git
 
 # Per Arch Linux
-sudo pacman -S autoconf automake libtool nasm make pkgconf-pkg-config git
+pacman -S autoconf automake libtool nasm make pkgconf-pkg-config git
 
 # Il resto dei passaggi in comune:
 
