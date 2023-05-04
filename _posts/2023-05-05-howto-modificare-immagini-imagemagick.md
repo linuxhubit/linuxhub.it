@@ -1,6 +1,6 @@
 ---
 class: post
-title: '#howto - Modificare le immagini con imagemagick'
+title: '#howto - Modificare le immagini con ImageMagick'
 date: 2023-05-05 08:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
@@ -20,13 +20,13 @@ tags:
 
 Anche il terminale è una buona risorsa per modificare immagini, ridimensionarle, creare scritte o sfocarle.
 
-## installare imagemagick
+## Installare ImageMagick
 
-Imagemagick è disponibile in genere per tutte le distribuzioni tramite package manager. 
+ImageMagick è disponibile in genere per tutte le distribuzioni tramite package manager. 
 
 ### Ubuntu e derivate
 
-Per installare imagemagick su Ubuntu digitare
+Per installare ImageMagick su Ubuntu digitare
 
 ```bash
 apt install imagemagick
@@ -34,7 +34,7 @@ apt install imagemagick
 
 ### Fedora
 
-Per installare imagemagick su Fedora digitare
+Per installare ImageMagick su Fedora digitare
 
 ```bash
 dnf install imagemagick
@@ -42,7 +42,7 @@ dnf install imagemagick
 
 ### ArchLinux
 
-Per installare imagemagick su ArchLinux digitare
+Per installare ImageMagick su ArchLinux digitare
 
 ```bash
 pacman -S imagemagick
@@ -52,7 +52,7 @@ pacman -S imagemagick
 
 In genere i meme hanno quasi tutti la stessa struttura: un immagine di base e delle scritte posizionate in diversi punti: ad esempio in alto e in basso oppure in un determinato punto.
 
-Per aggiungere delle scritte sull'immagine con imagemagick scriviamo:
+Per aggiungere delle scritte sull'immagine con ImageMagick scriviamo:
 
 ```bash
 convert immagine-da-memare.png -font percorso/font/bello.ttf -fill <colorefont> -pointsize <dimensione> -stroke <colorecontorno> -strokewidth <dimensione contorno> -gravity <dove scrivere> -annotate +0+0 'TESTO' immagine-memata.png
@@ -66,7 +66,7 @@ Facendo un esempio concreto:
 - Lo spessore del contorno sarà 2 pixel
 - La scritta sarà posizionata in basso
 
-Ecco un esempio completo: 
+Ecco un comando completo: 
 
 ```bash
 convert immagine-da-memare.png -font /usr/share/fonts/liberation/LiberationSerif-Regular.ttf -fill white -pointsize 30 -stroke black -strokewidth 2 -gravity south -annotate +0+0 'MEME DA TERMINALE YEAH :D' immagine-memata.png 
@@ -92,9 +92,9 @@ Oppure si può unire tutto in un comando solo indicando entrambe le gravità ed 
 convert immagine-da-memare.png -font /usr/share/fonts/liberation/LiberationSerif-Regular.ttf -fill white -pointsize 30 -stroke black -strokewidth 2 -gravity north -annotate +0+0 'QUESTA SCRITTA SARÀ SOPRA' -gravity south -annotate +0+0 'QUESTA SCRITTA SARÀ SOTTO' immagine-memata.png
 ```
 
-## Uno screenshot da terminale
+## Screenshot da terminale
 
-Esistono vari tool per prendere screenshot da terminale, ma anche imagemagick fa il suo lavoro in maniera eccellente. Per farlo si può utilizzare il programma "`import`":
+Esistono vari tool per scattare screenshot da terminale, ma anche ImageMagick fa il suo lavoro in maniera eccellente. Per farlo si può utilizzare il programma "`import`":
 
 ```bash
 import -window root percorso/nomescreenshot.jpg
