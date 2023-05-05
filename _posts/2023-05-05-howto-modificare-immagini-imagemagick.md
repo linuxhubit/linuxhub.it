@@ -5,9 +5,9 @@ date: 2023-05-05 08:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
-published: false
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
+published: true
 tags:
 - imagemagick
 - ubuntu
