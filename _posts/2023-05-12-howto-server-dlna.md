@@ -9,9 +9,13 @@ coauthor: linuxhubit
 coauthor_github: linuxhubit
 published: false
 tags:
-- 
-- 
-- 
+- minidlna
+- dlna
+- streaming
+- multimedia
+- linux
+- windows
+- macos
 ---
 
 Il DLNA (Digital Living Network Alliance) serve a condividere file multimediali all'interno della rete WIFI senza dover ricorrere a pendrive etc.. 
@@ -32,7 +36,13 @@ apt install minidlna
 
 ### Installazione su Fedora
 
-Per installare su Fedora: 
+Per installare su Fedora bisogna prima abilitare i repository "rpmfusion free": 
+
+```bash
+dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
+
+quindi:
 
 ```bash
 dnf install minidlna
@@ -51,8 +61,3 @@ pacman -S minidlna
 Il file di configurazione 
 
 ## Avvio del server 
-
-
-
-
-
