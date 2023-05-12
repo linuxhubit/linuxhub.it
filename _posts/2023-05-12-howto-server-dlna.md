@@ -5,8 +5,8 @@ date: 2023-05-12 08:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: gaetanovirg
+coauthor_github: gaetanovirg
 published: false
 tags:
 - minidlna
@@ -18,13 +18,14 @@ tags:
 - macos
 ---
 
-Il DLNA (Digital Living Network Alliance) serve a condividere file multimediali all'interno della rete WIFI senza dover ricorrere a pendrive etc.. 
+Il DLNA (Digital Living Network Alliance) serve per condividere dei file multimediali all'interno della stessa rete WIFI,  senza necessariamente dover ricorrere a pendrive e dispositivi di archiviazione esterni.
 
-MiniDLNA è una delle sue implementazioni free più diffuse, si può trovare anche con il nome di "ReadyMedia".
+
+MiniDLNA è una delle  implementazioni free più diffuse, si può trovare anche con il nome di "ReadyMedia".
 
 ## Installazione 
 
-Minidlna dovrebbe trovarsi nei repository delle distribuzioni principali. 
+Minidlna solitamente , dovrebbe trovarsi nei repository delle distribuzioni principali. 
 
 ### Installazione su Ubuntu e derivate
 
@@ -62,11 +63,11 @@ Il file di configurazione si trova nel percorso `/etc/minidlna.conf`, il file è
 
 Analizziamo quelle che sono le voci più importanti: 
 
-- `port` indica la porta di esecuzione del server http, meglio lasciare il valore così com'è (`8200`) per una maggiore compatbilità
-- `network_interface` se decommentato e assegnato, questo valore permette di condividere il servizio solo su alcune interfacce. Ad esempio solo sulla ethernet, o una specifica interfaccia wifi.
-- `user` indica l'utente che eseguirà il servizio, meglio lasciare così com'è (`minidlna`) il valore, ma è un informazione utile in quanto è possibile ora abilitare quell'utente ad entrare in alcune cartelle che poi saranno i luoghi dove si memorizzeranno i media.
-- `media_dir` indica dove si possono trovare i media, inserire qui il percorso e ricordarsi che deve essere accessibile all'utente indicato nell'opzione di cui sopra.
-- `friendly_name` rappresenta il nome che verrà visualizzato in rete
+- `port` indica la porta di esecuzione del server http, consigliato lasciare il valore così default (`8200`) per una maggiore compatbilità
+- `network_interface` se decommentato e assegnato, questo valore permette di condividere il servizio solo su alcune interfacce. Ad esempio solo sulla ethernet, o una specifica interfaccia.
+- `user` indica l'utente che eseguirà il servizio, meglio lasciare   il valore (`minidlna`) di default, ma è un informazione utile ,in quanto è possibile  abilitare quell'utente ad entrare in alcune cartelle che poi saranno i luoghi dove si memorizzeranno i media.
+- `media_dir` indica dove si potranno trovare i media, inserire qui il percorso e ricordarsi che deve essere accessibile all'utente indicato nell'opzione di cui sopra.
+- `friendly_name` rappresenta il nome che verrà visualizzato in rete.
 - `enable_subtitles` abilita i sottotitoli se presenti nella cartella dei video e soprattutto se supprotati da client
 
 Alcune di queste voci son commentate, prima di modificarle, togliere il carattere `#` all'inizio della riga.
@@ -101,7 +102,7 @@ media_dir=/percorso/media2
 media_dir=/percorso/media3
 ```
 
-Si può anche specificare esattamente quale tipologia di media si può trovare in uno anziché un altro. Ad esempio una cartella da cui si vogliono pubblicare i soli video si potrebbe scrivere inserire: 
+Si può anche specificare esattamente quale tipologia di media si può trovare in uno anziché un altro. Ad esempio in  una cartella in cui si vogliono pubblicare i soli video si potrebbe scrivere inserire: 
 
 ```properties
 media_dir=V,/percorso/mediaVideo
