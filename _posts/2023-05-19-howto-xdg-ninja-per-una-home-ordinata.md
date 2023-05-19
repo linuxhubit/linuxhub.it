@@ -7,7 +7,7 @@ author: Midblyte
 author_github: Midblyte
 coauthor: Michael Messaggi
 coauthor_github: MichaelMessaggi
-published: false
+published: true
 tags:
 - ubuntu
 - fedora
@@ -19,7 +19,6 @@ Ancora oggi, nonostante siano stati comprovati numerevoli standard, molti svilup
 Nonostante sia una scelta attuata per motivi di retrocompatibilità, o più semplicemente per la maggiore e apparente semplicità, questa soluzione può causare un notevole disordine.
 
 Questo problema è noto come *Dotfiles pollution*, oggi può essere fortunatamente arginato.
-
 
 ## Filosofia e funzionamento
 
