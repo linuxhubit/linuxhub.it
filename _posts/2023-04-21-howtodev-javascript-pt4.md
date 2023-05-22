@@ -14,6 +14,8 @@ tags:
 ---
 
 [&larr; Articolo precedente: variabili complesse e blocchi](https://linuxhub.it/articles/howtodev-javascript-pt3)  
+[&rarr; Articolo successivo: funzioni](https://linuxhub.it/articles/howtodev-javascript-pt5)  
+
 
 Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e anche ormai di molte applicazioni lato desktop.  
 

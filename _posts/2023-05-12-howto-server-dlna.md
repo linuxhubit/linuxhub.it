@@ -29,7 +29,7 @@ Minidlna solitamente , dovrebbe trovarsi nei repository delle distribuzioni prin
 
 ### Installazione su Ubuntu e derivate
 
-Per installare su Ubuntu: 
+Per installare su Ubuntu:
 
 ```bash
 apt install minidlna
