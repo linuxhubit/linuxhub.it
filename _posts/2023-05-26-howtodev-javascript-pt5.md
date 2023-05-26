@@ -5,8 +5,8 @@ date: 2023-05-26 08:00
 layout: post 
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: gaetanovirg
+coauthor_github: gaetanovirg
 published: false
 tags: 
 - javascript
@@ -16,9 +16,9 @@ tags:
 
 [&larr; Articolo precedente: variabili complesse e blocchi](https://linuxhub.it/articles/howtodev-javascript-pt4)  
 
-Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e anche ormai di molte applicazioni lato desktop.  
+Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e di molte applicazioni lato desktop.  
 
-Vediamo ora come si scrivono e cosa sono le funzioni. 
+Vediamo ora cosa sono le funzioni e come si scrivono.
 
 ## Obiettivi
 
@@ -59,7 +59,7 @@ function NOMEFUNZIONE () {
 }
 ```
 
-Le istruzioni all'interno di una funzione son poi anche chiamate "*corpo della funzione*".
+Le istruzioni all'interno di una funzione vengono chiamate "*corpo della funzione*".
 
 ### Richiamare una funzione
 
@@ -100,7 +100,7 @@ if(scelta==="v"){
 
 ```
 
-Questa situazione è nota come "**duplicazione del codice**", ovvero alcune istruzioni son ripetute, e questo causa alcuni problemi di natura logistica al programmatore:
+Questa situazione è nota come "**duplicazione del codice**", ovvero alcune istruzioni vengono ripetute, e questo causa alcuni problemi di natura logistica al programmatore:
 
 - Un codice più lungo da leggere è più stancante.
 - Se le righe duplicate presentano dei problemi o vanno modificate, bisogna correggerle più volte.
