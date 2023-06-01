@@ -13,7 +13,8 @@ tags:
 - nodejs
 ---
 
-[&larr; Articolo precedente: funzioni](https://linuxhub.it/articles/howtodev-javascript-pt5)
+[&larr; Articolo precedente: funzioni](https://linuxhub.it/articles/howtodev-javascript-pt5)  
+
 [&larr; Articolo SPREAD vs REST](https://linuxhub.it/articles/howtodev-javascript-rest-vs-spread/)
 
 Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e di molte applicazioni lato desktop.  

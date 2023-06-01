@@ -14,6 +14,7 @@ tags:
 ---
 
 [&larr; Articolo precedente: introduzione e variabili](https://linuxhub.it/articles/howtodev-javascript-pt1)  
+
 [&rarr; Articolo successivo: indentazione e cicli](https://linuxhub.it/articles/howtodev-javascript-pt3)  
 
 Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e anche ormai molte applicazioni lato desktop.  

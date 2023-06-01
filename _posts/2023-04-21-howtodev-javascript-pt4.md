@@ -14,6 +14,7 @@ tags:
 ---
 
 [&larr; Articolo precedente: variabili complesse e blocchi](https://linuxhub.it/articles/howtodev-javascript-pt3)  
+
 [&rarr; Articolo successivo: funzioni](https://linuxhub.it/articles/howtodev-javascript-pt5)  
 
 
