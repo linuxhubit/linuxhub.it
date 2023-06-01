@@ -1,6 +1,6 @@
 ---
 class: post
-title: '#howtodev - JavaScript parte 6 - SPREAD operator' 
+title: '#howtodev - JavaScript parte 6 - REST parameter' 
 date: 2023-06-02 08:00
 layout: post 
 author: Davide Galati (in arte PsykeDady)
