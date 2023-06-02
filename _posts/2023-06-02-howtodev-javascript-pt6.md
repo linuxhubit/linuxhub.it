@@ -29,15 +29,9 @@ Lista degli obiettivi che a fine articolo il lettore consegue:
 
 ## Prerequisiti
 
-Per la comprensione di questo articolo è necessaria la lettura di uno dei precedenti articoli:
+Per la comprensione di questo articolo è necessaria la lettura del precedente articolo sulle [Funzioni](https://linuxhub.it/articles/howtodev-javascript-pt5)
 
-- [funzioni](https://linuxhub.it/articles/howtodev-javascript-pt5)
-
-Ma si consiglia e ci saranno riferimenti anche agli articoli successivi. É consigliato leggere tutti gli articoli precedenti. Se si è nuovi di JavaScript, è meglio iniziare dal primo: 
-
-- [introduzione e variabili](https://linuxhub.it/articles/howtodev-javascript-pt1)
-
-È consigliato il seguente approfondimento sulla differenza [tra SPREAD e REST operators](https://linuxhub.it/articles/howtodev-javascript-rest-vs-spread/).
+Ma si consiglia e ci saranno riferimenti anche agli articoli successivi. É consigliato leggere i precedenti articoli di cui [la prima parte](https://linuxhub.it/articles/howtodev-javascript-pt1), inoltre si consiglia il seguente approfondimento sulla differenza [tra SPREAD e REST operators](https://linuxhub.it/articles/howtodev-javascript-rest-vs-spread/).
 
 ## I parametri REST
 
