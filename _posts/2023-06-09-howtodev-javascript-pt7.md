@@ -5,8 +5,8 @@ date: 2023-06-09 08:00
 layout: post 
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: false
 tags: 
 - javascript
@@ -38,11 +38,9 @@ Per la comprensione di questo articolo è necessaria la lettura dei seguenti art
 
 ## Parsing
 
-I così detti metodi di parsing trasformano delle stringhe in altre tipologie di oggetti.
+I cosiddetti metodi di parsing trasformano delle stringhe in altre tipologie di oggetti, è ad esempio possibile trasformare una stringa in numero intero.
 
-Ad esempio è possibile trasformare una stringa in numero intero. 
-
-Le funzioni di parsing più famose sono: 
+Le funzioni di parsing più famose sono:
 
 - `parseInt`, trasforma una stringa in numero intero.
 - `parseFloat`, trasforma una strainga in numero con virgola.
@@ -108,7 +106,7 @@ Si noti che:
 
 ### Metodo eval
 
-Il metodo eval è controverso, infatti si utilizza per eseguire altre istruzioni javascript.
+Il metodo eval è controverso, infatti si utilizza per eseguire altre istruzioni JavaScript.
 
 Per chiarire è possibile scrivere:
 
@@ -122,7 +120,7 @@ Ed il risultato sarebbe:
 ciao
 ```
 
-Ovvero la stringa all'interno viene trasformata in istruzione javascript vera e propria e quindi eseguita.
+Ovvero la stringa all'interno viene trasformata in istruzione JavaScript vera e propria e quindi eseguita.
 
 Se l'istruzione eseguita (l'ultima, se sono più istruzioni) crea una variabile che resta inutilizzata, questa può essere poi assegnata dal programma che usa `eval`. Per fare un esempio reale: 
 
