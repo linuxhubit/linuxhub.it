@@ -1,12 +1,12 @@
 ---
 class: post
-title: '#howtodev - JavaScript parte 6 - REST parameter' 
+title: '#howtodev - JavaScript parte 6 - parametri REST' 
 date: 2023-06-02 08:00
 layout: post 
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: true
 tags: 
 - javascript
@@ -15,11 +15,13 @@ tags:
 
 [&larr; Articolo precedente: funzioni](https://linuxhub.it/articles/howtodev-javascript-pt5)  
 
+[&rarr; Articolo successivo: funzioni note](https://linuxhub.it/articles/howtodev-javascript-pt7)  
+
 [&larr; Articolo SPREAD vs REST](https://linuxhub.it/articles/howtodev-javascript-rest-vs-spread/)
 
 Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e di molte applicazioni lato desktop.  
 
-Vediamo ora come funzionano i parametri REST.
+Vediamo ora alcune delle funzioni più utilizzate già messe a disposizione da JavaScript.
 
 ## Obiettivi
 
