@@ -5,8 +5,8 @@ date: 2023-06-09 08:00
 layout: post 
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: gaetanovirg	
+coauthor_github: gaetanovirg
 published: false
 tags: 
 - javascript
@@ -17,28 +17,26 @@ tags:
 
 Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e di molte applicazioni lato desktop.  
 
-Vediamo ora cosa sono i parametri opzionali e di default.
+In questo articolo tratteremo l'argomento dei parametri opzionali e di default.
 
 ## Obiettivi
 
-Lista degli obiettivi che a fine articolo il lettore consegue:
-
+A fine guida il lettore conseguirá la conoscenza sui seguenti argomenti : 
 - Parametri opzionali.
 - Parametri di default.
 
 ## Prerequisiti
 
-Per la comprensione di questo articolo è necessaria la lettura dei seguenti articoli: 
-
+Per la comprensione di questo articolo é consigliata una conoscenza sulle funzioni : 
 - [Funzioni](https://linuxhub.it/articles/howtodev-javascript-pt5)
 
-É consigliato leggere i precedenti articoli e successivi, di cui [la prima parte](https://linuxhub.it/articles/howtodev-javascript-pt1).
+é sempre consigliato rileggere gli articoli precenti, di cui [la prima parte](https://linuxhub.it/articles/howtodev-javascript-pt1).
 
 ## Parametri opzionali
 
-I parametri di una funzione in Javascript sono "**opzionali**", ovvero non è necessaria la loro presenza, se non inseriti valgono `undefined`. Ovviamente i parametri son considerati in "ordine", ovvero non inserendo un parametro, sarà l'ultimo in ordine da sinistra a destra ad essere assegnato con il valore `undefined`.
+I parametri di una funzione in Javascript sono "**opzionali**" ,  non è necessaria la loro presenza, se non inseriti valgono `undefined`. Ovviamente i parametri sono considerati in "ordine", ovvero non inserendo un parametro, sarà l'ultimo in ordine da sinistra a destra ad essere assegnato con il valore `undefined`.
 
-Per testare questa proprietà basta fare un metodo che preleva più parmaetri, ad esempio qualcosa che stampi a schermo delle informazioni su nome, cognome e soprannome: 
+Per testare questa proprietà basta adottare un metodo che preleva più parametri, ad esempio qualcosa che stampi a schermo delle informazioni su nome, cognome e soprannome: 
 
 ```javascript
 function info(nome, cognome, soprannome) {
@@ -57,12 +55,12 @@ Il risultato sarà:
 
 ```plain
 mi chiamo Davide Galati
-mi chiamo Davide Galati detto detto PsykeDady
+mi chiamo Davide Galati detto PsykeDady
 ```
 
 ## Parametri di default
 
-I parametri di default servono a sostituire la mancanza di valori nel caso in cui non ne sia stato specificato qualcuno, ovviamente l'assenza è sempre calcolata a partire dall'ultimo parametro.
+I parametri di default servono a sostituire la mancanza di valori nel caso in cui non ne sia stato specificato qualcuno,  l'assenza è sempre calcolata a partire dall'ultimo parametro.
 
 Per specificare il valore di default di un parametro, basta assegnarlo nell'intestazione del metodo: 
 
