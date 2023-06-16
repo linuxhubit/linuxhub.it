@@ -7,7 +7,7 @@ author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: gaetanovirg	
 coauthor_github: gaetanovirg
-published: false
+published: true
 tags: 
 - javascript
 - nodejs
@@ -21,13 +21,15 @@ In questo articolo tratteremo l'argomento dei parametri opzionali e di default.
 
 ## Obiettivi
 
-A fine guida il lettore conseguirá la conoscenza sui seguenti argomenti : 
+A fine guida il lettore conseguirá la conoscenza sui seguenti argomenti :
+
 - Parametri opzionali.
 - Parametri di default.
 
 ## Prerequisiti
 
-Per la comprensione di questo articolo é consigliata una conoscenza sulle funzioni : 
+Per la comprensione di questo articolo é consigliata una conoscenza sulle funzioni :
+
 - [Funzioni](https://linuxhub.it/articles/howtodev-javascript-pt5)
 
 é sempre consigliato rileggere gli articoli precenti, di cui [la prima parte](https://linuxhub.it/articles/howtodev-javascript-pt1).
@@ -36,7 +38,7 @@ Per la comprensione di questo articolo é consigliata una conoscenza sulle funzi
 
 I parametri di una funzione in Javascript sono "**opzionali**" ,  non è necessaria la loro presenza, se non inseriti valgono `undefined`. Ovviamente i parametri sono considerati in "ordine", ovvero non inserendo un parametro, sarà l'ultimo in ordine da sinistra a destra ad essere assegnato con il valore `undefined`.
 
-Per testare questa proprietà basta adottare un metodo che preleva più parametri, ad esempio qualcosa che stampi a schermo delle informazioni su nome, cognome e soprannome: 
+Per testare questa proprietà basta adottare un metodo che preleva più parametri, ad esempio qualcosa che stampi a schermo delle informazioni su nome, cognome e soprannome:
 
 ```javascript
 function info(nome, cognome, soprannome) {
@@ -88,7 +90,7 @@ function sommatoria(fine=0, inizio=0 ) {
 }
 ```
 
-Testandolo nei tre casi richisti: 
+Testandolo nei tre casi richisti:
 
 ```javascript
 console.log(sommatoria())
