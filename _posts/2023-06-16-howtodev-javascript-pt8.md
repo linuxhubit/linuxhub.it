@@ -1,7 +1,7 @@
 ---
 class: post
 title: '#howtodev - JavaScript parte 8 - Parametri opzionali e di default' 
-date: 2023-06-09 08:00
+date: 2023-06-16 08:00
 layout: post 
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
