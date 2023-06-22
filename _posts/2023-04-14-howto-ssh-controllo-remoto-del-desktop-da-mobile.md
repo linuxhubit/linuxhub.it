@@ -15,7 +15,7 @@ tags:
 - android
 ---
 
-Qualche volta risulta necessario usare il computer mentre si è fisicamente altrove, ad esempio per controllare lo stato di un download, oppure per verificare a che punto è arrivato [Photorec nel recuperare i file persi](https://github.com/linuxhubit/linuxhub.it/blob/main/_posts/2023-04-07-howto-recupero-file-persi-photorec.md), mentre si è in un'altra stanza.
+Qualche volta risulta necessario usare il computer mentre si è fisicamente altrove, ad esempio per controllare lo stato di un download, oppure per verificare a che punto è arrivato [Photorec nel recuperare i file persi](https://linuxhub.it/articles/howto-recupero-file-persi-photorec/), mentre si è in un'altra stanza.
 
 In questi casi è conveniente instaurare un **collegamento** tra due dispositivi - l'host, a cui ci si vuole connettere, e il client, ossia il dispositivo a cui si ha accesso, come ad esempio uno smartphone Android su cui è installato Termux.
 
@@ -63,14 +63,14 @@ Tuttavia, prima di generare le chiavi, è necessario scegliere l'**algoritmo di 
 **Ed25519** offre il medesimo livello di sicurezza crittografica con chiavi ben più brevi, è più performante, e non risulta vulnerabile a particolari tipi di attacchi che possono essere invece usati contro RSA.
 Tuttavia, Ed25519 è stato creato molto dopo RSA, quindi se la compatibilità è un problema (e solitamente non lo è più, almeno non tanto quanto qualche anno fa) allora potrebbe essere necessario ricorrere a RSA.
 
-Per *ed25519*:
+Per *Ed25519*:
 
 ```bash
 # Genera una chiave Ed25519
 ssh-keygen -t ed25519
 ```
 
-Per rsa:
+Per *RSA*:
 
 ```bash
 # Genera una chiave RSA a 4096 bit (default: 3072 bit)
@@ -104,7 +104,6 @@ systemctl enable sshd.service
 
 Senza Systemd, usando Init:
 ```bash
-# --- Senza Systemd
 # Avvio per la sessione attuale
 /etc/init.d/sshd start
 # Abilitazione generale (si avvia ad ogni futura accensione)
@@ -145,9 +144,9 @@ A meno che non sia stata inserita una passphrase (in tal caso potrebbe essere co
 
 ## Connessione
 
-Se i due dispositivi sono connessi alla stessa rete, prima di connettersi, è necessario ottenere sia l'username (usando `whoami`) che l'indirizzo IP locale del server SSH (usando `ip address`; nel caso di IPv4, è solitamente quello che inizia per "`192.168`"):
+Se i due dispositivi sono connessi alla stessa rete, prima di connettersi, è necessario ottenere sia l'username (usando `whoami`) che l'indirizzo IP locale del server SSH (usando `ip address`; nel caso di IPv4, è solitamente quello che inizia per `192.168`):
 
-A questo punto, la connessione può essere finalmente stabilita (sia "`22`" la porta in ascolto, "`~/.ssh/id_ed25519`" il percorso alla chiave privata, "`username`" il nome utente dell'host, "192.168.1.70" l'indirizzo locale):
+A questo punto, la connessione può essere finalmente stabilita (sia `22` la porta in ascolto, `~/.ssh/id_ed25519` il percorso alla chiave privata, `username` il nome utente dell'host, `192.168.1.70` l'indirizzo locale):
 
 ```bash
 ssh -p 22 -I ~/.ssh/id_ed25519 username@192.168.1.70
@@ -155,4 +154,5 @@ ssh -p 22 -I ~/.ssh/id_ed25519 username@192.168.1.70
 
 ## Per concludere
 
-Per ora è tutto: analizzeremo la parte sul controllo remoto dello schermo del desktop prossimamente, nella seconda parte di questa guida.
+Per ora è tutto: analizzeremo la parte sul controllo remoto dello schermo del desktop prossimamente, nella [seconda parte](https://linuxhub.it/articles/howto-vnc-controllo-remoto-del-desktop-da-mobile/)
+ di questa guida.
