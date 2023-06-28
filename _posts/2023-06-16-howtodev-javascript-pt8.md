@@ -14,6 +14,8 @@ tags:
 ---
 
 [&larr; Articolo precedente: Funzioni note](https://linuxhub.it/articles/howtodev-javascript-pt7)  
+[&rarr; Articolo successivo: Classi](https://linuxhub.it/articles/howtodev-javascript-pt9)  
+
 
 Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e di molte applicazioni lato desktop.  
 
