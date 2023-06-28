@@ -17,15 +17,13 @@ tags:
 
 Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e di molte applicazioni lato desktop.  
 
-Vediamo ora cosa sono le classi e come differiscono dagli oggetti.
+Vediamo ora cosa sono le classi.
 
 ## Obiettivi
 
 Lista degli obiettivi che a fine articolo il lettore consegue:
 
 - Comprensione ed utilizzo delle classi.
-- Classi ed oggetti.
-- Riferimenti in memoria.
 
 ## Prerequisiti
 
