@@ -27,21 +27,22 @@ Lista degli obiettivi che a fine articolo il lettore consegue:
 
 ## Prerequisiti
 
-Per la comprensione di questo articolo è necessaria la lettura dei seguenti articoli: 
+Per la comprensione di questo articolo è necessaria la lettura dei seguenti e dei precedenti articoli: 
 
 - [Funzioni](https://linuxhub.it/articles/howtodev-javascript-pt5)
 - [Parametri opzionali e di default](https://linuxhub.it/articles/howtodev-javascript-pt8)
 
-É consigliato leggere i precedenti articoli e successivi, di cui [la prima parte](https://linuxhub.it/articles/howtodev-javascript-pt1).
+di cui [la prima parte](https://linuxhub.it/articles/howtodev-javascript-pt1).
 
 ## Classi
 
-Se la classe non è acqua, l'acqua può essere una classe. Qualunque cose in programmazione può essere una classe. Infatti il concetto di "*classe*" nient'altro non è che **la costruzione di un nuovo tipo di variabile in maniera totalmente personalizzata**.
+Se la classe non è acqua, l'acqua può essere una classe. Qualunque cosa nella programmazione può essere vista come una classe. Il concetto di "*classe*"  non è altro che **la costruzione di un nuovo tipo di variabile in maniera totalmente personalizzata**.
 
 La costruzione di una classe è preceduta, per l'appunto, dalla parolina chiave `class`, segue il nome della classe e quindi le parentesi graffe.  
-Generalmente ha anche una o più variabili al suo interno, lo scopo di creare una classe coincide normalmente con quello di **raggruppare alcune variabili primitive** per poi *creare un nuovo "concetto"* che prima non era presente tra le risorse del linguaggio.
+Generalmente ha anche una o più variabili al suo interno.
+Lo scopo di creare una classe coincide normalmente con quello di **raggruppare alcune variabili primitive** per poi *creare un nuovo "concetto"* che prima non era presente tra le risorse del linguaggio.
 
-L'esempio più semplice e spesso più riportato in letteratura è quello della classe **Punto**, infatti nei vari linguaggi spesso non esiste un vero riferimento a questa famosa entità matematica che posa notoriamente su un piano cartesiano e ha:
+L'esempio più semplice e spesso riportato in letteratura è quello della classe **Punto**, infatti nei vari linguaggi spesso non esiste un vero riferimento a questa famosa entità matematica che posa notoriamente su un piano cartesiano e ha:
 
 - Una coordinata X.
 - Una coordinata Y.
@@ -58,7 +59,7 @@ class Punto {
 Notare come l'inizializzazione delle due "variabili" all'interno del Punto non vada preceduta dalla parolina `let` come solitamente si vede nei vari codici. Questa è una sintassi peculiare della creazione delle classi.
 
 
-Per creare una variabile ti questo nuovo tipo bisogna ora utilizzare la parolina `new` seguita dal nome della classe e dalle parentesi tonde, come se fosse una funzione:
+Per creare una variabile di questo nuovo tipo bisogna ora utilizzare la parolina `new` seguita dal nome della classe e dalle parentesi tonde, come se fosse una funzione:
 
 ```javascript
 let punto=new Punto()
@@ -66,7 +67,7 @@ let punto=new Punto()
 
 ### Attributi
 
-Le variabili all'interno di una classe son chiamati anche `attributi`, e possono essere usati in lettura e scrittura. Questi si possono richiamare semplicemente utilizzando il "`.`" dopo il nome della variabile che rappresenta la classe, quindi inserire il nome della variabile all'interno della classe:
+Le variabili all'interno di una classe sono chiamate anche `attributi`, e possono essere usati sia in lettura che in scrittura. Si possono richiamare semplicemente utilizzando il "`.`" dopo il nome della variabile che rappresenta la classe, quindi inserire il nome della variabile all'interno della classe:
 
 ```javascript
 class NomeClasse {
@@ -99,7 +100,7 @@ console.log(punto.y)
 
 ### Costruttori
 
-I costruttori son come delle funzioni speciali, che servono a costruire gli oggetti. Son letteralmente quei blocchi di codice che vengono richiamati quando si usa la direttiva `new`, al suo interno possono ospitare diversi parametri che possono servire a costruire poi i vari attributi.
+I costruttori sono equiparabili a delle funzioni speciali, che servono a costruire gli oggetti. Sono quei blocchi di codice che vengono richiamati quando si usa la direttiva `new`, al suo interno possono ospitare diversi parametri che possono poi servire a costruire i vari attributi.
 
 Un costruttore è introdotto dalla parolina `constructor`, Richiamando il caso del Punto, si può creare un costruttore che prende come parametri in ingresso le coordinate:  
 
@@ -117,7 +118,7 @@ class Punto {
 
 Si sarà notata la parolina `this`. Questa parolina è **necessaria** (in JavaScript è un obbligo a tutti gli effetti) per specificare che ci si sta riferendo non ad una *variabile qualsiasi* con quel nome, ma quella dell'oggetto in quell'istanza precisa. Va anteposta quindi ai nomi degli attributi quando si richiamano all'interno della classe stessa.
 
-Ora per utilizzarlo è possibile scrivere: 
+Per utilizzarlo è possibile scrivere: 
 
 ```javascript
 let p=new Punto(2,3)
@@ -143,7 +144,7 @@ console.log(p.x)
 console.log(p.y)
 ```
 
-Ma ci permette di evitare di specificare parametro per parametro la costruzione della classe (relegandolo al costruttore).
+Ma evita di specificare parametro per parametro la costruzione della classe (relegandolo al costruttore).
 
 #### Un costruttore flessibile
 
@@ -180,7 +181,7 @@ L'output che ne uscirà fuori sarà:
 2
 ```
 
-È altresì una combinazione valida la seguente: 
+una combinazione valida é anche la seguente: 
 
 ```javascript
 let p=new Punto(3)
@@ -282,7 +283,7 @@ undefined
 undefined
 ```
 
-Il motivo è in realtà semplice, avendo richiamato un costruttore **vuoto**, automaticamente i parametri al suo ingresso è come se fossero stati passato come "`undefined`", questo comportamento induce al **riassegnamento** di x ed y ma in maniera errata. Per evitarlo vanno inseriti dei controlli: 
+Il motivo è in realtà semplice, avendo richiamato un costruttore **vuoto**, automaticamente i parametri al suo ingresso è come se fossero stati passati come "`undefined`", questo comportamento induce al **riassegnamento** di x ed yma in maniera errata. Per evitarlo vanno inseriti dei controlli: 
 
 ```javascript
 class Punto {
@@ -310,7 +311,7 @@ Aggiungendo il controllo `if(nomeattributo)` è possibile verificare che sia div
 
 #### Il valore di default nel metodo
 
-Si può pensare di creare un costruttore con parametri di default. Per chi non avesse letto l'articolo precedente, un metodo con parametri di default è tale se i parametri son assegnati nella sua intestazione. Nel caso del costruttore ad esempio si avrà: 
+Si può pensare di creare un costruttore con parametri di default. Per chi non avesse letto l'articolo precedente, un metodo con parametri di default è tale se i parametri sono assegnati nella sua intestazione. Nel caso del costruttore ad esempio si avrà: 
 
 ```javascript
 class Punto {
@@ -463,7 +464,7 @@ let p=new Punto(2,3)
 console.log("p:",p)
 ```
 
-Ma se si vuole utilizzare una forma "personalizzata" oppure in concatenazione con una stringa il discorso cambia. 
+Ma se si volesse utilizzare una forma "personalizzata" oppure in concatenazione con una stringa il discorso cambia. 
 
 ### Il metodo toString
 
@@ -491,9 +492,9 @@ Il risultato sarà:
 p:[object Object]
 ```
 
-Un po' criptico, ma a conti fatti il sistema ci sta informando che non avendo informazioni su come trasformare quell'oggetto in una stringa, restituisce semplicemente il suo "*essere un oggetto*".
+Un po' criptico, ma a conti fatti il sistema ci sta informando che non avendo piú informazioni su come trasformare quell'oggetto in una stringa, restituisce semplicemente il suo "*essere un oggetto*".
 
-Per dargli l'informazione su come fare questa trasformazione si può creare un metodo al suo interno che si chiama `toString` e che restituisce, per l'appunto, una stringa:
+Per dargli l'informazione su come fare questa trasformazione si può creare un metodo al suo interno che si chiama `toString` e che restituisce una stringa:
 
 ```javascript
 toString(){
