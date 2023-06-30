@@ -13,7 +13,7 @@ tags:
 - nodejs
 ---
 
-[&larr; Articolo precedente: Parametri opzionali e di default](https://linuxhub.it/articles/howtodev-javascript-pt8)  
+[&larr; Articolo precedente: Parametri opzionali e di default](https://linuxhub.it/articles/howtodev-javascript-pt8)
 
 Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e di molte applicazioni lato desktop.  
 
