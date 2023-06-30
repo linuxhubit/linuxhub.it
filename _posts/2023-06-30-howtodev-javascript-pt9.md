@@ -5,9 +5,9 @@ date: 2023-06-30 08:00
 layout: post 
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
-published: false
+coauthor: gaetanovirg
+coauthor_github: gaetanovirg
+published: true
 tags: 
 - javascript
 - nodejs
