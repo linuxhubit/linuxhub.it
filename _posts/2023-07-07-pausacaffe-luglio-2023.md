@@ -50,6 +50,6 @@ Non ci crediamo che avete letto tutti i nostri articoli, quindi perché non appr
 
 ### Conclusioni
 
-Abbiamo una vastissima lista di articoli, se vi interessa qualcosa connettetevi sul nostro sito, [linuxhub.it](https://linuxhub.it) e usate la nostra barra di ricerca per cercare l'argomento di vostro interesse. 
+La normale programmazione dovrebbe riprendere ad Agosto, nel frattempo abbiamo una vastissima lista di articoli, se vi interessa qualcosa connettetevi sul nostro sito, [linuxhub.it](https://linuxhub.it) e usate la nostra barra di ricerca per cercare l'argomento di vostro interesse. 
 
 Volete dare un occhiata al nostro repository github? Il nostro è un progetto open source, chiunque può partecipare facendo una Pull Request e aggiungendo un articolo secondo quelle che sono [le nostre linee guida](https://linuxhub.it/articles/howto-scrivere-un-articolo-per-linuxhub/). Vi aspettiamo!
