@@ -1,6 +1,6 @@
 ---
 class: post
-title: '#howto - Gestire cache su Linux'
+title: '#howto - Gestire la cache su Linux'
 date: 2023-08-04 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
