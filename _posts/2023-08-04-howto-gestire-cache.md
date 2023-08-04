@@ -5,8 +5,8 @@ date: 2023-08-04 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: gaetanovirg
+coauthor_github:  gaetanovirg
 published: false
 tags:
 - ubuntu
@@ -15,15 +15,15 @@ tags:
 - cache
 ---
 
-Arriva quel momento in cui non si capisce come, risulta occupata tutta l'archiviazione ma non per documenti, né immagini e pur avendo qualche applicazione di troppo, i conti non tornano. È giunto il momento di controllare la cache.
+Arriva quel momento in cui non si capisce come, risulta occupata tutta l'archiviazione ma non per causa dei nostri documenti,  immagini. E pur avendo qualche applicazione di troppo, i nostri conti non tornano. È giunto il momento di controllare la cache.
 
 ## Cos'è la cache
 
-La cache è data dall'archiviazione temporanea di alcuni file allo scopo di elaborarli o garantirne l'accesso in maniera veloce e facilitata.
+La cache è data dall'archiviazione temporanea di alcuni file, allo scopo di elaborarli e per garantirne l'accesso in maniera veloce e facilitata.
 
 Nel caso dei sistemi Linux si parla di cache quando i gestori di pacchetti scaricano nuove versioni dei software ed hanno bisogno di una memoria di appoggio per scompattare i vari archivi, ma anche nel caso di alcuni programmi che la utilizzano per scaricare dipendenze o altri file necessari per il giusto funzionamento.
 
-C'è purtroppo da sottolineare che non tutti i programmi utilizzano percorsi standard per memorizzare questi file, in questo articolo si cercherà di raccogliere quelli più comuni, ma la possibilità che dei software utilizzino altri percorsi è comunque presente.
+C'è  da sottolineare che non tutti i programmi utilizzano percorsi standard per memorizzare questi file, in questo articolo si cercherà di raccogliere i percorsi più comuni, ma la possibilità che dei software utilizzino altri percorsi è comunque presente.
 
 ### Pulire la cache
 
@@ -39,7 +39,7 @@ ls -a
 
 Oppure abilitare la visualizzazione dei file nascosti dal proprio file manager.
 
-Le cartelle da tenere d'occhio son sicuramente:
+Le cartelle da tenere d'occhio sono sicuramente:
 
 - .cache
 - .var
@@ -180,7 +180,7 @@ La differenza tra i due è molto semplice, mentre il primo rimuove la cache di p
 
 Si è discusso dell'utilità dei Makefile di C nell'articolo su [come velocizzarsi nell'uso del terminale pt. 3](https://linuxhub.it/articles/howto-velocizzarsi-terminale-pt3/), facendo un breve riepilogo: è possibile utilizzare questi meccanismi per riprodurre più operazioni con un solo comando.
 
-Si supponga di voler creare un comando per pulire tutta la cache locale (sconsigliato) in un colpo solo: 
+Si supponga di voler creare un comando per pulire tutta la cache locale (sconsigliato) in un comando unico: 
 
 
 ```bash
@@ -219,7 +219,7 @@ Esistono alcune applicazioni che aiutano a gestire questo genere di file, eccone
 
 #### Stacer
 
-Tutte le informazioni per installare Stacer sui vari sistemi son presenti nel readme del [repository github](https://github.com/oguzhaninan/Stacer), ad esempio per Ubuntu avremo le seguenti istruzioni: 
+Tutte le informazioni per installare Stacer sui vari sistemi sono presenti nel readme del [repository github](https://github.com/oguzhaninan/Stacer), ad esempio per Ubuntu avremo le seguenti istruzioni: 
 
 ```bash
 add-apt-repository ppa:oguzhaninan/stacer -y
