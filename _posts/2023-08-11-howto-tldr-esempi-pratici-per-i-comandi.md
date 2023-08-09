@@ -144,7 +144,7 @@ Permette inoltre di filtrare le pagine in base a lingua e piattaforma.
 
 #### DuckDuckGo
 
-Cercare `tldr <comando>` su [DuckDuckGo](duckduckgo.com) consente di visualizzare, senza installazione alcuna, la schermata di aiuto di alcuni dei comandi più usati (ma non tutti).
+Cercare `tldr <comando>` su [DuckDuckGo](https://duckduckgo.com) consente di visualizzare, senza installazione alcuna, la schermata di aiuto di alcuni dei comandi più usati (ma non tutti).
 
 
 ### PDF
