@@ -5,8 +5,8 @@ date: 2023-08-11 07:00
 layout: post
 author: Midblyte
 author_github: Midblyte
-coauthor:
-coauthor_github:
+coauthor: Davide Galati (in arte PsykeDady)
+coauthor_github: PsykeDady
 published: false
 tags:
 - ubuntu
@@ -28,23 +28,21 @@ In più, alcune shell in particolare dispongono di documentazioni speciali acces
 
 Va detto, però, che la documentazione è prettamente teorica, e quindi potrebbe non essere sempre immediato estrapolare i parametri e le informazioni cercate.
 
-L'approccio di `tldr` (qui la [pagina del progetto](https://github.com/tldr-pages/tldr) su GitHub) si rivela complementare alla classica documentazione: è quello di fornire **esempi pratici**, annessi a una breve descrizione su cosa faccia ciascuno di essi.
+In passato è stato già trattato TLDR [in questo articolo](https://linuxhub.it/articles/howto-migliorare-l-esperienza-man/), l'approccio di questo software (qui la [pagina del progetto](https://github.com/tldr-pages/tldr) su GitHub) si rivela complementare alla classica documentazione: è quello di fornire **esempi pratici**, annessi a una breve descrizione su cosa faccia ciascuno di essi.
 
 È degno di nota osservare che il progetto non si limita solamente all'ambiente Linux, ma si focalizza anche su Android, Windows, MacOS e SunOS.
 
+## Installazione ed utilizzo
 
-## Installazione e utilizzo
-
-`tldr` è un progetto comunitario che mira primariamente a raccogliere le pagine di esempio.
+`tldr` è un progetto comunitario che mira principalmente a raccogliere le pagine d' esempio.
 
 Per questo, esistono numerosi [client](https://github.com/tldr-pages/tldr/wiki/tldr-pages-clients) che ne consentono la visualizzazione - e non unicamente da console.
 
 In altre parole, si può usare `tldr` anche senza installarlo (ad esempio, via browser o PDF).
 
-
 ### Console
 
-Di seguito, un elenco non esaustivo dei [client per console](https://github.com/tldr-pages/tldr/wiki/tldr-pages-clients#console-clients), filtrati (sono stati esclusi quelli aggiornati molto di rado e/o archiviati) ed elencati in base al numero di stelle su GitHub e di sistemi supportati.
+Di seguito, un elenco *non* esaustivo dei [client per console](https://github.com/tldr-pages/tldr/wiki/tldr-pages-clients#console-clients), filtrati (sono stati esclusi quelli aggiornati molto di rado e/o archiviati) ed elencati in base al numero di stelle su GitHub e di sistemi supportati.
 
 I client, tra di loro, non hanno rilevanti differenze di funzionamento siccome sono solitamente conformi alla [specifica riguardante i client tldr](https://github.com/tldr-pages/tldr/blob/main/CLIENT-SPECIFICATION.md).
 
@@ -131,7 +129,6 @@ Per gli utenti Arch Linux, in alternativa:
 yay -S tldr-git
 ```
 
-
 ### Browser
 
 Se non si vuole installare alcun software, le pagine `tldr` si possono anche consultare da browser (mediante i [client per il web](https://github.com/tldr-pages/tldr/wiki/tldr-pages-clients#web-clients)).
@@ -145,7 +142,6 @@ Permette inoltre di filtrare le pagine in base a lingua e piattaforma.
 #### DuckDuckGo
 
 Cercare `tldr <comando>` su [DuckDuckGo](https://duckduckgo.com) consente di visualizzare, senza installazione alcuna, la schermata di aiuto di alcuni dei comandi più usati (ma non tutti).
-
 
 ### PDF
 
