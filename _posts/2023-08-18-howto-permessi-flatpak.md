@@ -5,8 +5,8 @@ date: 2023-08-18 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: Michael Messaggi 
+coauthor_github: MichaelMessaggi
 published: false
 tags:
 - ubuntu
@@ -15,19 +15,17 @@ tags:
 - flatpak
 ---
 
-Apri un applicazione flatpak che accede al tuo file system e... non trovi nessuno dei tuoi file. Ti è mai capitato? questo perché flatpak ha una gestione dei permessi separata dal tuo utente.
-
+Apri un applicazione Flatpak che accede al tuo file system e... non trovi nessuno dei tuoi file. Ti è mai capitato? questo perché Flatpak ha una gestione dei permessi separata dal tuo utente.
 Vediamo ora come gestire questi permessi.
 
 ## I permessi di Flatpak
 
-A livello concettuale si può pensare alla gestione dei permessi di Flatpak in maniera molto simile a quello che avviene su Android, infatti ogni applicazione è quasi completamente isolata fino a che non vengono concessi i permessi per ogni aspetto del sistema:
+A livello concettuale si può pensare alla gestione dei permessi di Flatpak in maniera molto simile a quello che avviene su Android, infatti ogni applicazione è quasi completamente isolata fino a che non vengono concessi i permessi per ogni aspetto del sistema, come:
 
 - Le cartelle che si possono leggere (tranne la cartella dell'app stessa sotto `~/.var/app/`).
 - La connessione ad internet.
 - Le chiamate di sistema.
 - Servizi di sistema quali audio, grafica o meccanismi di input.
-- etc...
 
 Tutto ciò avviene tramite un concetto base di Flatpak, ovvero i portali, ed è molto ben descritto (sicuramente meglio di come potrei fare io ora) [sulla documentazione ufficiale](https://docs.flatpak.org/en/latest/sandbox-permissions.html).
 
@@ -63,7 +61,7 @@ org.gtk.vfs.*=talk
 
 ### Sovrascrivere i permessi
 
-I permessi sono organizzati in sezioni, le sezioni possono essere di diversa natura, Context, DBus, Socket, File System etc...
+I permessi sono organizzati in sezioni, le sezioni possono essere di diversa natura, Context, DBus, Socket, FileSystem etc...
 
 Per cambiare i permessi si utilizza il comando "`override`":
 
