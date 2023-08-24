@@ -5,8 +5,8 @@ date: 2023-08-25 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit 
-coauthor_github: linuxhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: false
 tags:
 - steam
@@ -16,7 +16,7 @@ tags:
 - vram
 ---
 
-Da possessore della Steam Deck posso tranquillamente dire che son pochi i problemi di performance che fin ora ho incontrato, generalmente il sistema si adatta molto facilmente alla situazione offrendo sempre il miglior bilanciamento tra prestazioni e durata della batteria. Tuttavia non sempre è così, vediamo se ci sono modi di risolvere.
+Da possessore della Steam Deck posso tranquillamente dire che son pochi i problemi di performance che fin ora ho incontrato, generalmente il sistema si adatta molto facilmente alla situazione offrendo sempre il miglior bilanciamento tra prestazioni e durata della batteria. Per le volte in cui non è così, vediamo come risolvere.
 
 ## Cosa ne penso di Steam Deck
 
@@ -28,24 +28,23 @@ Se invece avete una Steam Deck e siete interessati ad avere una maggiore libert�
 
 Per fare un quadro della situazione si vedano prima le specifiche di Steam Deck, la Steam Deck ha un APU AMD custom con CPU Zen 2 e GPU integrata. Ha inoltre 16 GB di RAM LPDDR5.
 
-E la vram? È di tipo UMA (Unified Memory Architecture), ovvero ha una memoria unificata alla RAM, [qui la documentazione uffiale](https://www.amd.com/en/support/kb/faq/pa-280).
+E la vRAM? È di tipo UMA (Unified Memory Architecture), ovvero ha una memoria unificata alla RAM, [qui la documentazione uffiale](https://www.amd.com/en/support/kb/faq/pa-280).
 
-Tale meccanismo *dovrebbe* automaticamente adattarsi al contesto diminuendo ed aumentando in base al carico richiesto. Il punto è che non sempre lo fa perfettamente, e potrebbe essere necessario impostare un minimo automatico nel caso in cui dei giochi lo richiedessero.
+Tale meccanismo *dovrebbe* automaticamente adattarsi al contesto diminuendo ed aumentando in base al carico richiesto. Il punto è che non sempre lo fa perfettamente, e potrebbe essere necessario impostare un valore minimo per evitare cali di prestazioni.
 
 ### Modificare il Frame Buffer UMA
 
 > **ATTENZIONE**:
 >
-> Un maggiore valore allocato in vram potrebbe causare sia un autonomia minore della console sia il malfunzionamento di alcuni giochi.
+> Un maggiore valore allocato in vram potrebbe causare sia un autonomia minore della console che il malfunzionamento di alcuni giochi.
 
-Per modificare questo valore, spegnere la steam deck e *riaccenderla* tenendo premuto il **pulsante del volume &plus;**. Questo permetterà di entrare nel BIOS.
+Per modificare questo valore, spegnere la Steam Deck e *riaccenderla* tenendo premuto il **pulsante del volume &plus;**. Questo permetterà di entrare nel BIOS.
 
 Si aprirà l'interfaccia BIOS, il touch non funzionerà, per navigare bisognerà utilizzare o le frecce direzionali o il mouse (tramite il pannello del touch destro).
 
 Andare in "Setup Utility", premere il tasto `A` oppure se si sta usando il mouse il tasto `ZR`.
 
-Da qui andare in *Advanced*, selezionare l'opzione *UMA Frame buffer Size*, di norma questo valore è `1G`, e non si può andare oltre i `4G`. Per giochi particolarmente pesanti si può pensare di impostare proprio il massimo, ma una pratica più corretta potrebbe essere quella di allocare piano piano sempre di più.
-
+Da qui andare in *Advanced*, selezionare l'opzione *UMA Frame buffer Size*, di norma questo valore è `1G`, e non si può andare oltre i `4G`. Per giochi particolarmente pesanti si può pensare di impostare proprio il massimo, ma una pratica più corretta potrebbe essere quella di allocare progressivamente fino ad ottenere delle buone performance.
 Una volta impostato uscire dal menù "*Advanced*" ed andare in *EXIT*. Selezionare l'opzione **Exit Saving Changes**.
 
 ## CryoUtils
