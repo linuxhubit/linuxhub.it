@@ -5,8 +5,8 @@ date: 2023-09-01 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit 
-coauthor_github: linuxhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: false
 tags:
 - ubuntu
@@ -15,13 +15,13 @@ tags:
 - archivio
 ---
 
-La maggioranza dei software disponibili nel panorama GNU/Linux sono disponibili attraverso il package manager, sotto forma di pacchetti facilmente installabili tramite esso oppure ancora attraverso i nuovi formati Flatpak e AppImage.
+La maggioranza del software disponibile nel panorama GNU/Linux è reso disponibile attraverso i package manager, sotto forma di pacchetti facilmente installabili oppure ancora attraverso i nuovi formati Flatpak e AppImage.
 
-Ma spesso ancora nei nostri gruppi molti utenti chiedono supporto su come installare archivi tar.gz o archivi di altro genere. Vediamo come ci si può approcciare a tale problema
+Ma spesso, ancora, nei nostri gruppi molti utenti chiedono supporto su come installare applicativi da archivi tar.gz o di altro genere. Vediamo come ci si può approcciare a tale necessità.
 
 ## Il problema della mancanza di uno standard
 
-Il problema fondamentale di questo genere di installazioni è **la mancanza di uno standard**. Spesso i siti stessi (che siano siti web veri e propri o che siano dei repository git) rilasciano delle istruzioni per installare i loro software, **il primo approccio** sicuramente **è quello di informarsi tramite canali ufficiali** e seguire le guide scritte dagli sviluppatori stessi.
+Il problema fondamentale di questo genere di installazioni è **la mancanza di uno standard**. Spesso i siti stessi (che siano siti web veri e propri o che siano dei repository git) rilasciano delle istruzioni per installare i loro pacchetti, pertanto **il primo approccio** sicuramente resta **quello di informarsi tramite canali ufficiali** e seguire le guide scritte dagli sviluppatori stessi.
 
 ## Un concetto prerequisito: il PATH di sistema
 
@@ -103,7 +103,11 @@ Categories=categoriasoftware
 Keywords=parole;chiave
 ```
 
-Sostituendo i vari valori, dovreste poter poi "cliccare" questo file da gestore dei file e si dovrebbe quindi avviare il software. Per essere visto nel menù da  tutti gli utenti il file deve essere copiato nella cartella `/usr/share/applications`:
+Per rendere eseguibile il file, e non solo dentro un menù:
+```bash
+chmod +x NomeSoftware.desktop
+```
+Sostituendo i vari valori, dovreste poter poi "cliccare" questo file da gestore dei file e si dovrebbe quindi avviare il software. Per essere visto nel menù da tutti gli utenti il file deve essere copiato nella cartella `/usr/share/applications`:
 
 ```bash
 mv NomeSoftware.desktop /usr/share/applications
