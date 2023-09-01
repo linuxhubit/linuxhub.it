@@ -7,7 +7,7 @@ author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: Michael Messaggi
 coauthor_github: MichaelMessaggi
-published: false
+published: true
 tags:
 - ubuntu
 - fedora
@@ -33,7 +33,7 @@ Si può interrogare in qualunque momento il proprio PATH tramite l'istruzione:
 echo $PATH
 ```
 
-L'output dovrebbe essere di questo tipo: 
+L'output dovrebbe essere di questo tipo:
 
 ```bash
 /usr/local/sbin:/usr/local/bin:/usr/bin
@@ -65,12 +65,12 @@ Si supporrà anche che il suo nome sia `NomeSoftware`.
 
 ### Installare il software per il sistema
 
-Installare un software per tutto il sistema significa sostanzialmente non inserirlo nella propria Home, generalmente i due path usati per software da terze parti sono: 
+Installare un software per tutto il sistema significa sostanzialmente non inserirlo nella propria Home, generalmente i due path usati per software da terze parti sono:
 
 - `/usr/share`: normalmente utilizzata per le applicazioni installate dal package manager o da software di cui si ha a disposizione il codice sorgente
 - `/opt`: per i software di qualunque tipo
 
-Il software scompattato va copiato sotto una delle cartelle descritte sopra, ad esempio `opt`: 
+Il software scompattato va copiato sotto una delle cartelle descritte sopra, ad esempio `opt`:
 
 ```bash
 mv CartellaSoftware /opt
@@ -86,7 +86,7 @@ Manca però il launcher, ovvero l'icona che appare da menù start...
 
 ### Creare un launcher per il sistema
 
-Esiste un articolo sul sito che descrive la [creazione del file di launcher qui](https://linuxhub.it/articles/howto-desktop-entry/), sostanzialmente si tratta di un file, con estensione `.desktop`, con questa forma: 
+Esiste un articolo sul sito che descrive la [creazione del file di launcher qui](https://linuxhub.it/articles/howto-desktop-entry/), sostanzialmente si tratta di un file, con estensione `.desktop`, con questa forma:
 
 ```properties
 [Desktop Entry]
@@ -104,9 +104,11 @@ Keywords=parole;chiave
 ```
 
 Per rendere eseguibile il file, e non solo dentro un menù:
+
 ```bash
 chmod +x NomeSoftware.desktop
 ```
+
 Sostituendo i vari valori, dovreste poter poi "cliccare" questo file da gestore dei file e si dovrebbe quindi avviare il software. Per essere visto nel menù da tutti gli utenti il file deve essere copiato nella cartella `/usr/share/applications`:
 
 ```bash
@@ -177,6 +179,12 @@ Icon=/home/nomeutente/.CartellaSoftware/icone/icona
 
 Categories=categoriasoftware
 Keywords=parole;chiave
+```
+
+Per rendere eseguibile il file, e non solo dentro un menù:
+
+```bash
+chmod +x NomeSoftware.desktop
 ```
 
 Sostituendo adeguatamente nomi e percorsi.
