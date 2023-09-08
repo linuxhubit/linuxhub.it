@@ -191,7 +191,7 @@ sudo pacman -S procs
 
 Se si volesse utilizzare questi tools al posto degli originali ma non si vuole imparare una nuova sintassi basta crearsi degli `alias` ovvero assegnare
 ad una parola un comando.
-Per farlo andiamo a modificare con il nostro editor preferito il file `~/.bashrc` se si usa bash oppure `~/.zshrc` se si usa zsh:
+Per farlo andiamo a modificare con il nostro editor preferito [il file di avvio della shell](https://linuxhub.it/articles/howto-file-avvio-shell):
 
 ```bash
 alias ls='exa'

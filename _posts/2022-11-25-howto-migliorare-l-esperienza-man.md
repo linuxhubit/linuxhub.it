@@ -43,13 +43,13 @@ apt install man-db manpages-posix manpages-posix-dev manpages-dev
 dnf install man-db man-pages
 ```
 
-### ArchLinux 
+### ArchLinux
 
 ```bash
 pacman -S man-db man-pages
 ```
 
-### Utilizzo 
+### Utilizzo
 
 Dopo averlo installato possiamo iniziare quindi ad utilizzarlo, la sintassi base è:
 
@@ -58,6 +58,7 @@ man [opzione] [sezione] <comando>
 ```
 
 dove:
+
 - *opzione* è la flag che diamo al comando man per esempio `-a` per cercare anche in altre sezioni, e può essere lasciato vuoto.
 - *sezione* è la sezione del manuale che vogliamo consultare, possono esistere fino a **9 sezioni del manuale**, anche questo argomento può essere lasciato vuoto in questo caso il comando `man` cercherà nella prima sezione disponibile (un comando infatti potrebbe non avere la prima sezione ma solo la seconda o la terza).
 - *comando* è il comando che vogliamo consultare, può essere un comando interno della shell o un comando esterno.
@@ -99,9 +100,9 @@ Se volete approfondire ancora di più il man, il consiglio è utilizzare il coma
 Tra le miriadi di plugin di **oh-my-zsh** non potevano mancare quelli per il man.
 
 Rispettivamente abbiamo:
+
 - `man`, che ci permette di consultare i vari comandi presenti nelle man pages direttamente da zsh.
 - `colored-man-pages`, che colora la sintassi delle man pages.
-
 
 Aggiungiamo i plugin al nostro file di configurazione `~/.zshrc`:
 

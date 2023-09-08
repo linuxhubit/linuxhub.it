@@ -231,7 +231,7 @@ Per abilitare una shell option basta scrivere:
 shopt -s nomeopzione
 ```
 
-Tuttavia l'abilitazione *è relativa solo alla sessione corrente* del terminale, quindi per abilitare una shell option in maniera "**definitiva**" va aggiunta l'istruzione nel file *bashrc* o nel file *bash profile* (supponendo l'utilizzo di bash come interprete; altrimenti nel file *zshrc* o nel *fish.config*).  
+Tuttavia l'abilitazione *è relativa solo alla sessione corrente* del terminale, quindi per abilitare una shell option in maniera "**definitiva**" va aggiunta l'istruzione nel file *bashrc* o nel file *bash profile* (supponendo l'utilizzo di bash come interprete; altrimenti nel file *zshrc* o nel *fish.config*). Leggere l'articolo sui [file di avvio per maggiori informazioni](https://linuxhub.it/articles/howto-file-avvio-shell).
 
 ### Disabilitare una shell option
 

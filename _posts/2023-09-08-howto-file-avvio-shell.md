@@ -7,7 +7,7 @@ author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: linuxhubit
 coauthor_github: linuxhubit
-published: false
+published: true
 tags:
 - ubuntu
 - fedora
@@ -19,7 +19,8 @@ tags:
 - fish
 ---
 
-Quando aprite un terminale vengono sempre eseguite alcune istruzioni prima che vi venga realmente dato il comando. Queste operazioni sono descritte e distribuite in vari file, che fanno da "file di avvio" delle shell.
+Quando aprite un terminale vengono sempre eseguite alcune istruzioni prima che vi venga data la possibilità di scrivere.  
+Queste operazioni sono descritte e distribuite in vari file, che fanno da "file di avvio" delle shell.
 
 Vediamo quali sono e come modificarli.
 
@@ -59,7 +60,7 @@ Come si può notare, vengono ricercati all'interno della cartella `/etc/profile.
 
 ### File profile locale
 
-In realtà questo file dipende strettamente dalla shell in uso. Normalmente è memorizzato con il percorso `/home/nomeutente/.profile`, è possibile anche trovarlo come: 
+In realtà questo file dipende strettamente dalla shell in uso. Normalmente è memorizzato con il percorso `/home/nomeutente/.profile`, è possibile anche trovarlo come:
 
 - `/home/nomeutente/.profile`
 - `/home/nomeutente/.bash_login`
@@ -70,7 +71,8 @@ Come descritto nella [wiki di archlinux](https://wiki.archlinux.org/title/bash) 
 - `.bash_login`
 - `.profile`
 
-Cambiando shell è possibile che questo file venga sostituito, è meglio sempre leggere la documentazione. Nel caso di ZSH è probabile sia rappresentato da `/home/nomeutente/.zprofile`
+Cambiando shell *è possibile che questo file venga sostituito*, è meglio sempre leggere la documentazione. 
+Nel caso di ZSH è probabile sia rappresentato da `/home/nomeutente/.zprofile`.
 
 ## Bash
 
@@ -174,8 +176,7 @@ fish -l
 
 ### Bass
 
-[Bass](https://github.com/edc/bass) è un interessante tool open source per utilizzare script bash dentro la shell fish. È utile soprattutto se si pensa di dover riscrivere file di configurazione importanti come quelli presenti nella cartella `/etc/profile.d`. Fondamentalmente si tratta di un plugin per FISH che si può installare come segue: 
-
+[Bass](https://github.com/edc/bass) è un interessante tool open source per utilizzare script bash dentro la shell fish. È utile soprattutto se si pensa di dover riscrivere file di configurazione importanti come quelli presenti nella cartella `/etc/profile.d`. Fondamentalmente si tratta di un plugin per FISH che si può installare come segue:
 
 ```bash
 git clone https://github.com/edc/bass

@@ -148,7 +148,7 @@ Solo **la prima volta**, è necessario anche **aggiornare il PATH**.
 
 ### Aggiornare la variabile di PATH
 
-Apriamo il file di startup della shell, in base alla shell questo file è differente:
+Apriamo il file di [startup della shell](https://linuxhub.it/articles/howto-file-avvio-shell), in base alla shell questo file è differente:
 
 - Per bash si trova in `$HOME/.bashrc`
 - Per zsh si trova in `$HOME/.zshrc`

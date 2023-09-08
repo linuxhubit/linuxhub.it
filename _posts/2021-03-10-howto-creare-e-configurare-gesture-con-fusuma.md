@@ -232,7 +232,7 @@ Sulla pagina GitHub di fusuma troverete altre configurazioni interessanti con de
 
 Digitando semplicemente `fusuma` sul vostro terminale avvierete una sessione di Fusuma in cui potrete testare le gesture con un riscontro direttamente da linea di comando.
 
-Se vi viene fornito in output un errore, probabilmente non avete nel vostro path il percorso delle *gems* di Ruby. Per inserirlo, scrivete in un qualsiasi file di configurazione della shell (`bashrc`, `zshrc` o `fish.config`) l'export della variabile PATH: `export PATH=PATH:/home/vostronome/.gem/ruby/2.7.0/bin/fusuma `.
+Se vi viene fornito in output un errore, probabilmente non avete nel vostro path il percorso delle *gems* di Ruby. Per inserirlo, scrivete in un qualsiasi [file di configurazione della shell](https://linuxhub.it/articles/howto-file-avvio-shell) (`bashrc`, `zshrc` o `fish.config`) l'export della variabile PATH: `export PATH=PATH:/home/vostronome/.gem/ruby/2.7.0/bin/fusuma `.
 
 Avendo cura di sostituire il *vostro username* in *vostronome*. Per aggiornare le vostre variabili, eseguire `source` sul file:
 `source $HOME/.bashrc ` 

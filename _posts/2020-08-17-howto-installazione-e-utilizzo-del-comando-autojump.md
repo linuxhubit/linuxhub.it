@@ -24,7 +24,7 @@ Per installare `autojump` su **Ubuntu, Debian** e derivate possiamo utilizzare `
 apt install autojump
 ```
 
-su distribuzioni derivate da Debian (come Ubuntu) dobbiamo aggiungere una riga di testo al file *.bashrc* (o *.zshrc*):
+su distribuzioni derivate da Debian (come Ubuntu) dobbiamo aggiungere una riga di testo [al file di avvio della shell](https://linuxhub.it/articles/howto-file-avvio-shell):
 
 ```bash
 . /usr/share/autojump/autojump.sh

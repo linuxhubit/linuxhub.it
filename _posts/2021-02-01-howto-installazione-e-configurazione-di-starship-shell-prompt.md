@@ -65,6 +65,7 @@ eval "$(starship init bash)"
 questo avvierà starship all'apertura di una nuova shell Bash. Possiamo testare subito le modifiche riavviando il terminale in uso o entrando in una nuova shell con `bash`.
 
 ### Zsh
+
 Nel caso di Zsh, il file che dobbiamo modificare è `.zshrc`, presente nella home del nostro utente, volendo proseguire con `nano`:
 
 ```bash

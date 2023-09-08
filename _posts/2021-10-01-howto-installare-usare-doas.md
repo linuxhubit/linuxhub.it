@@ -182,12 +182,13 @@ ciao da doas
 
 Abbiamo impostato tutto correttamente (potete eliminare il file di test con: `doas rm /etc/ciao`)
 
-## Trick 
+## Trick
+
 Ecco a voi qualche consiglio per un utilizzo quotidiano di `doas`
 
 ### sudo alias
 
-Siete sicuramente ancora troppo abituati ad utilizzare `sudo`, potrebbe aiutarvi impostare un alias [nel vostro file rc](https://feed.linuxpeople.org/posts/bashrc-zshrc-fishconfig/) : 
+Siete sicuramente ancora troppo abituati ad utilizzare `sudo`, potrebbe aiutarvi impostare un alias [nel vostro file rc](https://linuxhub.it/articles/howto-file-avvio-shell):
 
 ```bash
 alias sudo="doas "

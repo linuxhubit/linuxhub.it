@@ -19,13 +19,11 @@ Molto famosa e ormai largamente usata è la powerline nei nostri terminali, ques
 
 Questa funzione si può facilmente ottenere attraverso diversi procedimenti e comunque facilmente.
 
-
-
 ## Prerequisiti
 
-Bisogna avere nel proprio sistema operativo il supporto a tutti i font unicode con carattere mono, consiglio l'installazione di un [nerdfont](https://www.nerdfonts.com). Inoltre è necessario avere `python-pip`, il package manager di python. 
+Bisogna avere nel proprio sistema operativo il supporto a tutti i font unicode con carattere mono, consiglio l'installazione di un [nerdfont](https://www.nerdfonts.com). Inoltre è necessario avere `python-pip`, il package manager di python.
 
-
+Potrebbe essere anche interessante una lettura sul nostro articolo [dei file di avvio delle shell](https://linuxhub.it/articles/howto-file-avvio-shell).
 
 ### nerdfont fura code
 
@@ -44,21 +42,13 @@ mv Fura\ Code\ Regular\ Nerd\ Font\ Complete.ttf /usr/share/fonts/TTF
 fc-cache -vf
 ```
 
-
-
 Ricordiamoci di selezionare il font scaricato nelle preferenze del nostro emulatore di terminale preferito
-
-
 
 ### python-pip 
 
 Un'installazione di python a mio dire, non è mai completa se non avete anche installato **[pip](https://github.com/pypa/pip)**, ovvero **Python Installer Package**
 
-
-
 Generalmente disponibile direttamente nei propri repository 
-
-
 
 #### Ubuntu 
 
@@ -66,23 +56,17 @@ Generalmente disponibile direttamente nei propri repository
 apt install python3-pip
 ```
 
-
-
 #### Fedora 
 
 ```bash
 yum -y install python-pip
 ```
 
-
-
 #### Archlinux 
 
 ```bash
 pacman -S python-pip
 ```
-
-
 
 #### tutto il resto 
 
@@ -93,8 +77,6 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 
 python get-pip.py
 ```
-
-
 
 Ricordate di aggiornarlo ogni tanto così
 
@@ -114,13 +96,9 @@ Il metodo più universale è sicuramente quello di [powerline-shell](https://git
 
 Installiamolo tramite `python-pip`.
 
-
-
 ```bash
 pip install powerline-shell
 ```
-
-
 
 ### bash 
 
@@ -140,9 +118,9 @@ fi
 
 
 
-### zsh 
+### zsh
 
-Non consiglio di installare powerline-shell su zsh, esistendo alternative di gran lunga migliori come **powerlevel**. 
+Non consiglio di installare powerline-shell su zsh, esistendo alternative di gran lunga migliori come **powerlevel**.
 
 In ogni caso per installarlo aggiungete al file `$HOME/.zshrc`: 
 

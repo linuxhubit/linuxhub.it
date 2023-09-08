@@ -67,7 +67,7 @@ pip install thefuck
 
 ### Post installazione
 
-Dopo l'installazione è consigliato inserire gli alias suggeriti da thefuck nel proprio file di avvio (bashrc, zshrc o fish.config). Per farlo scrivere nel file:
+Dopo l'installazione è consigliato inserire gli alias suggeriti da thefuck nel proprio [file di avvio](https://linuxhub.it/articles/howto-file-avvio-shell) (bashrc, zshrc o fish.config). Per farlo scrivere nel file:
 
 ```bash
 eval $(thefuck --alias)
