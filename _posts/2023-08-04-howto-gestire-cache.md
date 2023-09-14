@@ -54,7 +54,7 @@ In realtà questa cartella può essere interamente eliminata, i software più or
 Per vedere quali software stanno utilizzando questa cartella per memorizzare i loro file basta digitare: 
 
 ```bash
-ls $HOME/cache
+ls $HOME/.cache
 ```
 
 Per eliminare interamente il contenuto di questa cartella si può scrivere:
