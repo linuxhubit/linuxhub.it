@@ -7,7 +7,7 @@ author: Midblyte
 author_github: Midblyte
 coauthor:
 coauthor_github:
-published: false
+published: true
 tags:
 - ubuntu
 - fedora
@@ -17,7 +17,7 @@ tags:
 
 Il formato PDF è lo standard di condivisione di documenti pensati per essere letti, stampati ma non più modificati nel contenuto una volta distribuiti.
 
-Tuttavia, in determinati casi l'apparenza di uno (o più) PDF può non soddisfare: `qpdf` è uno strumento, disponibile da riga di comando, pensato per trasformare i documenti preservandone però i contenuti (ad esempio: unire, tagliare e ruotare pagine).
+Tuttavia, in determinati casi il risultato può non soddisfare: `qpdf` è uno strumento, disponibile da riga di comando, pensato per trasformare i documenti preservandone però i contenuti (ad esempio: unire, tagliare e ruotare pagine).
 
 In questo articolo verranno presentati alcuni esempi di utilizzo, particolarmente utili a chiunque abbia spesso a che fare con i PDF.
 
@@ -58,10 +58,10 @@ qpdf --empty --pages primo.pdf secondo.pdf terzo.pdf -- completo.pdf
 ## Unione di solo alcune pagine
 
 È possibile unire più PDF anche solo selezionando alcune delle pagine, usando la seguente notazione:
-- N-M per selezionare le pagine da N a M (1-3 seleziona le pagine 1, 2 e 3);
-- N,M per selezionare solo le pagine N e M (1,3 seleziona le pagine 1 e 3);
-- rN seleziona la N-esima pagina partendo dalla fine (in un pdf da 10 pagine, r2 è la nona);
-- z seleziona l'ultima pagina.
+- `N-M` per selezionare le pagine da N a M (`1-3` seleziona le pagine 1, 2 e 3);
+- `N,M` per selezionare solo le pagine N e M (`1,3` seleziona le pagine 1 e 3);
+- `rN` seleziona la N-esima pagina partendo dalla fine (in un pdf da 10 pagine, `r2` è la nona);
+- `z` seleziona l'ultima pagina.
 
 Nel seguente esempio, i due PDF `primo.pdf` (pagine 1, 3, 4, 5) e `secondo.pdf` (pagine 2, 3, 4, 6, 7, 8) vengono uniti in `completo.pdf`:
 
