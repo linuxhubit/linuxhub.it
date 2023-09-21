@@ -5,8 +5,8 @@ date: 2023-09-22 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github:  linuxhubit
+coauthor: Michael Messaggi
+coauthor_github:  MichaelMessaggi
 published: false
 tags:
 - ubuntu
@@ -15,9 +15,9 @@ tags:
 - config
 ---
 
-Una volta disinstallati i programmi, le configurazioni vengono eliminate? La risposta è no. Questo significa che disinstallare e reinstallare i programmi per risolvere un problema in realtà, potrebbe non avere alcun effetto. 
+Quando si intende eseguire la reinstallazione "pulita" di un programma, per risolvere eventuali problemi di conflitto con precedenti configurazioni o simili, è necessario rimuovere i file delle configurazioni precedenti e pulire la cache.
 
-Vediamo quindi in quali cartelle i programmi tendono a salvare le loro configurazioni.
+Vediamo quindi in quali cartelle i programmi, solitamente, salvano le loro configurazioni.
 
 > *NOTA BENE*:
 >  
@@ -25,13 +25,13 @@ Vediamo quindi in quali cartelle i programmi tendono a salvare le loro configura
 
 ## Pulire la cache
 
-La prima cosa da fare potrebbe essere proprio quella di controllare i file di cache, per questo motivo si rimanda alla lettura dell'articolo [#howto - Gestire la cache su Linux](https://linuxhub.it/articles/howto-gestire-cache/).
+La prima cosa da fare dovrebbe essere proprio quella di controllare i file di cache, per questo motivo si rimanda alla lettura dell'articolo [#howto - Gestire la cache su Linux](https://linuxhub.it/articles/howto-gestire-cache/).
 
 Alcuni dei programmi citati che automatizzano i processi di pulizia potrebbero già fare il lavoro descritto in questo articolo in totale autonomia.
 
 ## Le cartelle locali
 
-Iniziando dalle cartelle locali, la prima cosa da fare è sicuramente analizzare la cartella **home**, incluse le cartelle nascoste.
+Iniziando dalle cartelle locali, la prima cosa da fare è sicuramente analizzare la cartella **Home**, incluse le cartelle nascoste.
 
 Da terminale è possibile dare il comando:
 
