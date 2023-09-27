@@ -154,11 +154,9 @@ Nel caso di FiraCode dopo aver scaricato il pacchetto zip e scompattato digitare
 mv FiraCode $HOME/.local/share/fonts/ttf
 ```
 
-
 > **NOTA BENE**:
 >
 > Nel caso di FiraCode si è creata in antecedenza la cartella contenente tutti i font con il nome della famiglia, ma in altri casi potrebbe essere necessario crearla a parte
-
 
 Quindi dare il comando di aggiornamento della cache
 
@@ -185,7 +183,7 @@ Si può fare la lista dei caratteri installati scrivendo:
 fc-list
 ```
 
-La lista completa però potrebbe non essere d'aiuto nella ricerca della famiglia o dello stile che si sta cercando. Si può iniziare con fare la lista di tutte le famiglie: 
+La lista completa però potrebbe non essere d'aiuto nella ricerca della famiglia o dello stile che si sta cercando. Si può iniziare con fare la lista di tutte le famiglie:
 
 ```bash
 fc-list : family
@@ -211,7 +209,7 @@ Esistono software che gestiscono l'installazione di font tramite GUI:
 
 Altri software invece possono servire alla visualizzazione dei fonts installati:
 
-- [Opcion Font Viewer](https://opcion.sourceforge.net) Scritto in Java
+- [Opcion Font Viewer](https://opcion.sourceforge.net) Scritto in Java (l'ultimo aggiornamento risale al 2007)
 
 ## Installazione tramite package manager (i.e. Noto Font Emoji)
 
@@ -221,7 +219,7 @@ Ad esempio si può installare le emoji di Google (**Noto-emoji-font**) sulle var
 
 ### Ubuntu e derivate
 
-Su Ubuntu e derivate, cercando il pacchetto tramite: 
+Su Ubuntu e derivate, cercando il pacchetto tramite:
 
 ```bash
 apt search noto
@@ -263,7 +261,9 @@ pacman -Ss noto-fonts-emoji
 
 ## Modificare da UI un font con linux
 
-Alcuni tools permettono anche la modifica o la creazione di font. Eccone alcuni: 
+Alcuni tools permettono anche la modifica o la creazione di font. Ovviamente bisogna anche saperli utilizzare.
+
+Eccone alcuni:
 
 - [BirdFont](https://birdfont.org)
-- [FontMatrix](https://github.com/fontmatrix/fontmatrix)
+- [FontMatrix](https://github.com/fontmatrix/fontmatrix) (Installabile tramite Flatpak)
