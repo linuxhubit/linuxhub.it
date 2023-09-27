@@ -205,7 +205,9 @@ Esistono software che gestiscono l'installazione di font tramite GUI:
 
 - Se è installato Gnome come DE probabilmente sarà disponibile `gnome-font-viewer`
 - Se è installato Plasma (KDE) come DE sarà disponibile **Font Managment**, un modulo di `systemsettings` ovvero le impostazioni di Plasma.
-- Il progetto [Font Manager](https://github.com/FontManager/font-manager) disponibile anche su flatpak.
+- Il progetto [Font Manager](https://github.com/FontManager/font-manager) (Installabile tramite Flatpak).
+- Il progetto [FontMatrix](https://github.com/fontmatrix/fontmatrix) (Installabile tramite Flatpak).
+
 
 Altri software invece possono servire alla visualizzazione dei fonts installati:
 
@@ -265,5 +267,6 @@ Alcuni tools permettono anche la modifica o la creazione di font. Ovviamente bis
 
 Eccone alcuni:
 
-- [BirdFont](https://birdfont.org)
-- [FontMatrix](https://github.com/fontmatrix/fontmatrix) (Installabile tramite Flatpak)
+- [BirdFont](https://birdfont.org) Disponibile il flatpak da scaricare dal sito oppure disponibile su Steam.
+- [Font Forge](https://fontforge.org/en-US/) normalmente disponibile nei repository del sistema.
+- [Glyph Tracer](https://github.com/jpakkane/glyphtracer)  (Installabile tramite Flatpak).
