@@ -6,7 +6,7 @@ layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: Michael Messaggi
-coauthor_github:  michaelmessaggi
+coauthor_github:  MichaelMessaggi
 published: false
 tags:
 - ubuntu
