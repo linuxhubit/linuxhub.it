@@ -5,8 +5,8 @@ date: 2023-09-29 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github:  linuxhubit
+coauthor: Michael Messaggi
+coauthor_github:  michaelmessaggi
 published: false
 tags:
 - ubuntu
@@ -25,9 +25,9 @@ I font son nient'altro che file, le estensioni possono variare tra queste:
 - TTF (True Type Font)
 - PS (Post Script), formato ormai obsoleto.
 
-## I nerd font
+## I Nerd Font
 
-Per fare qualche esempio, si può dare un occhiata alla pagina dei [NerdFont](https://www.nerdfonts.com/font-downloads), che son particolarmente consigliati in detereminati casi quali:
+Per fare qualche esempio, si può dare un occhiata alla pagina dei [Nerd Font](https://www.nerdfonts.com/font-downloads), che son particolarmente consigliati in detereminati casi quali:
 
 - [powerline](https://linuxhub.it/articles/howto-installare-la-powerline/)
 - utilizzo delle ligatures (ovvero particolari sequenze di caratteri che vengono poi mostrare con un simbolo solo)
@@ -53,7 +53,7 @@ Ora si può notare che al suo interno ci sono tutti e soli file TTF. Normalmente
 
 ## I permessi dei font
 
-Normalmente i font hanno i permessi di Lettura ed esecuzione per tutti i permessi, in notazione ottale significa avere i permessi `444`, perciò in una cartella di font appena scaricata sarebbe bene dare: 
+Normalmente i font hanno i permessi di lettura ed esecuzione per tutti i permessi, in notazione ottale significa avere i permessi `444`, perciò in una cartella di font appena scaricata sarebbe bene dare: 
 
 ```bash
 chmod 444 -r NomeCartellaFont/
@@ -62,11 +62,11 @@ chmod 444 -r NomeCartellaFont/
 
 ## Le cartelle dei font
 
-Nelle distribuzioni linux son presenti delle cartella all'interno delle quali son presenti tutti i font del sistema, i percorsi predisposti son generalmente:
+Nelle distribuzioni Linux son presenti delle cartella all'interno delle quali son presenti tutti i font del sistema, i percorsi predisposti sono generalmente:
 
-- `/usr/share/fonts` dove normalmente si trovano i font di sistema, non dovrebbe essere toccata manualmente poiché gestita dai package manager.
+- `/usr/share/fonts` dove normalmente si trovano i font di sistema, non dovrebbe essere toccata manualmente poiché gestita dai Package Manager.
 - `/usr/local/share/fonts` questa cartella è quella dove normalmente bisognerebbe inserire i propri font per un installazione globale manuale.
-- `$HOME/.local/share/fonts` questa cartella è quella utilizzata per un installazione locale.
+- `$HOME/.local/share/fonts` questa cartella è quella utilizzata per le installazione locali.
 
 Mentre le prime normalmente vengono utilizzate come *configurazioni globali*, l'ultima *ha una funzione locale*.
 
@@ -82,7 +82,7 @@ Per convenzione le cartelle dei font son gerarchiche in base all'estensione e qu
 ...
 ```
 
-Essendo una convenzione, il sistema funziona anche se non la si rispetta, però si avrà una struttura meno ordinata.
+Essendo una convenzione, il sistema funzionerà anche qualora non fosse rispettata, si avrà però una struttura meno ordinata.
 
 ## Installare manualmente i font
 
