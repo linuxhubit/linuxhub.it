@@ -7,7 +7,7 @@ author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: Michael Messaggi
 coauthor_github:  MichaelMessaggi
-published: false
+published: true
 tags:
 - ubuntu
 - fedora
@@ -53,7 +53,7 @@ Ora si può notare che al suo interno ci sono tutti e soli file TTF. Normalmente
 
 ## I permessi dei font
 
-Normalmente i font hanno i permessi di lettura ed esecuzione per tutti i permessi, in notazione ottale significa avere i permessi `444`, perciò in una cartella di font appena scaricata sarebbe bene dare: 
+Normalmente i font hanno i permessi di lettura ed esecuzione per tutti i permessi, in notazione ottale significa avere i permessi `444`, perciò in una cartella di font appena scaricata sarebbe bene dare:
 
 ```bash
 chmod 444 -r NomeCartellaFont/
@@ -65,8 +65,8 @@ chmod 444 -r NomeCartellaFont/
 Nelle distribuzioni Linux son presenti delle cartella all'interno delle quali son presenti tutti i font del sistema, i percorsi predisposti sono generalmente:
 
 - `/usr/share/fonts` dove normalmente si trovano i font di sistema, non dovrebbe essere toccata manualmente poiché gestita dai Package Manager.
-- `/usr/local/share/fonts` questa cartella è quella dove normalmente bisognerebbe inserire i propri font per un installazione globale manuale.
-- `$HOME/.local/share/fonts` questa cartella è quella utilizzata per le installazione locali.
+- `/usr/local/share/fonts` in cartella normalmente bisognerebbe inserire i propri font per un installazione globale manuale.
+- `$HOME/.local/share/fonts` questa cartella è utilizzata per le installazioni locali.
 
 Mentre le prime normalmente vengono utilizzate come *configurazioni globali*, l'ultima *ha una funzione locale*.
 
@@ -92,7 +92,7 @@ Normalmente basta inserire in una delle cartelle di sopra i file dei font e aggi
 fc-cache
 ```
 
-Per un output "verboso" (ovvero che faccia la lista delle cartelle analizzate) aggiungere il parametro `-v`
+Per un output "prolisso" (ovvero che faccia la lista delle cartelle analizzate) aggiungere il parametro `-v`
 
 ```bash
 fc-cache -v
