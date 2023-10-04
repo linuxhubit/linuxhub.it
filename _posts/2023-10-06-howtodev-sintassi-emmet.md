@@ -1,6 +1,6 @@
 ---
 class: post
-title: '#howtodev - Sintassi EMMET' 
+title: '#howtodev - Sintassi EMMET parte 1 : elementi HTML' 
 date: 2023-09-06 08:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
@@ -17,11 +17,13 @@ tags:
 
 Spesso la scrittura di pagine o template HTML è inutile, ripetitiva e ci si perde tra i mille tag e le indentazioni. Per scrivere rapidamente tag innestati, concatenati già completi di body, id e classi è stata creata la sintassi [EMMET](https://emmet.io)
 
+In questo articolo si vedrà cos'è EMMET e come creare elementi facilmente con i loro attributi, se necessari.
+
 ## Obiettivi
 
 Lista degli obiettivi che a fine articolo il lettore consegue:
 
-- Utilizzo della sintassi EMMET
+- Utilizzo della sintassi **base** per EMMET
 
 ## Prerequisiti
 
@@ -243,6 +245,24 @@ Si ottiene:
 <div class="col-4 offset-2" id="colonna1"></div>
 ```
 
+Nel taso però siano tag vuoti *di una tabella* vanno a generare `tr` e `td`. Scrivendo:
+
+```html
+table>.riga>.dato
+```
+
+Si espande in: 
+
+```html
+<table>
+	<tr class="riga">
+		<td class="dato"></td>
+	</tr>
+</table>
+```
+
+La stessa cosa accade con `ul` (che espande i tag vuoti al suo interno con `li`) ed `em` che al suo interno crea degli `span`.
+
 ## Attributi custom
 
 Si può specificare qualsiasi tipo di attributo utilizzando la parentesi quadra dopo un tag. Ad esempio per specificare il colore blu del testo come attributo style di un div si può usare:
@@ -271,7 +291,7 @@ Il risultato sarà:
 
 ## Tag e body
 
-È eventualmente possibile impostare anche il contenuto (testuale) di un body di un elemento tramite sintassi abbreviata. Utilizzando le parentesi graffe (`{` e `}`). Ad esempio: 
+È eventualmente possibile impostare anche il contenuto (testuale) di un body di un elemento tramite sintassi abbreviata. Utilizzando le parentesi graffe (`{` e `}`). Ad esempio:
 
 ```html
 p{blocco di testo o paragrafo}
@@ -282,21 +302,3 @@ Diventa:
 ```html
 <p>blocco di testo o paragrafo</p>
 ```
-
-## Moltiplicare un tag
-
-## Concatenare più tag
-
-## Innestare più tag
-
-## Risalire un tag
-
-## Raggruppare un tag
-
-## La numerazione
-
-## Alcuni esempi completi
-
-## Cheat Sheet
-
-https://docs.emmet.io/cheat-sheet/
