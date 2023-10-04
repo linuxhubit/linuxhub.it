@@ -5,8 +5,8 @@ date: 2023-09-06 08:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhub.it
-coauthor_github: linuxhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: false
 tags: 
 - css
@@ -34,9 +34,10 @@ Per la comprensione di questo articolo è necessaria la lettura dei seguenti e d
 
 ## Cos'è
 
-Emmet, anche  chiamato Zen Coding, è un toolkit che mira a semplificare lo sviluppo web tramite una serie di abbreviazioni che creano interi blocchi di codice HTML con poche lettere.
+EMMET, anche chiamato Zen Coding, è un toolkit che mira a semplificare lo sviluppo web tramite una serie di abbreviazioni che creano interi blocchi di codice HTML con poche lettere.
 
-Lo sviluppo del plugin si può trovare su [Github](https://github.com/emmetio/emmet), e comprende dei moduli Javascript che semplificano poi la creazione del plugin da sviluppare per il proprio editor. Tuttavia, in questo articolo, non ne verrà spiegato l'uso come toolkit, ma solo la sintassi.
+Lo sviluppo del plugin si può trovare su [Github](https://github.com/emmetio/emmet), e comprende dei moduli JavaScript che semplificano poi la creazione del plugin per il proprio editor.
+Tuttavia, in questo articolo, non ne verrà spiegato l'uso come toolkit, ma solo la sintassi.
 
 ### JSX Support
 
@@ -48,11 +49,11 @@ Il supporto alle abbreviazioni EMMET non è una caratteristica base di tutti gli
 
 Per gli altri potrebbe essere necessario un plugin, [in questa pagina](https://emmet.io/download/) se ne possono trovare alcuni.
 
-Quello che resta capire è *come si attiva* poi l'autocompletamento, infatti questo **può variare da editor in editor**, ad esempio con *Visual Studio Code* basta premere `CTRL + Spazio` e quindi selezionare nel menu a comparsa l'autocompletamento emmet.
+Quello che resta capire è *come si attiva* poi l'autocompletamento, infatti questo **può variare da editor in editor**, ad esempio con *Visual Studio Code* basta premere `CTRL + Spazio` e quindi selezionare nel menu a comparsa l'autocompletamento EMMET.
 
 ### Attenzione agli spazi
 
-Lo spazio funziona da "*terminatore*" per la sintassi emmet, quindi a meno che non sia esplicitamente consentito in qualche particolare caso, meglio evitare gli spazi durante l'uso delle abbreviazioni.
+Lo spazio funziona da "*terminatore*" per la sintassi EMMET, quindi a meno che non sia esplicitamente consentito in qualche particolare caso, meglio evitare gli spazi durante l'uso delle abbreviazioni.
 
 ## Scrivere un tag
 
@@ -74,13 +75,12 @@ Alcuni elementi HTML ricevono anche un ulteriore abbreviazione, Eccone alcuni:
 - `bq` si trasforma nel tag `blockquote`
 - `pic` si trasforma nel tag `picture`
 - `ifr` si trasforma nel tag `iframe`
-- etc...
 
-Ovviamente è possibile comunque scriverli per intero, funzioneranno comunque.
+Ovviamente è possibile comunque scriverli per intero, funzioneranno ugualmente.
 
 ### Intestazioni
 
-È possibile generare l'intestazione HTML per intero. Scrivendo solo: 
+È possibile generare l'intestazione HTML per intero, scrivendo: 
 
 ```html
 doc
@@ -121,7 +121,9 @@ Il risultato sarà:
 <!--  -->
 ```
 
-È possibile anche generare alcuni **commenti condizionali**, ovvero dei commenti che son generati appositamente per controllare le versioni di Microsoft Internet Explorer (e di Microsoft). Ad esempio si può verificare di essere su IE scrivendo:
+È possibile anche generare alcuni **commenti condizionali**, ovvero dei commenti che sono generati appositamente per controllare le versioni di Microsoft Internet Explorer (e di Microsoft ??? ). 
+
+Ad esempio, si può verificare di essere su IE scrivendo:
 
 ```html
 cc:ie
@@ -139,7 +141,7 @@ Al contrario:
 cc:noie
 ```
 
-genererà:
+Genererà:
 
 ```html
 <!--[if !IE]><!--><!--<![endif]-->
@@ -161,7 +163,11 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam explicabo, recusa
 
 ## Attributi
 
-Alcuni possiedono degli attributi necessari alla loro configurazione. Questo si può fare scrivendo dopo il carattere `:` alcune parole chiave (spesso coincidenti con il valore degli attributi). Elencandone qualcuno:
+Alcune abbreviazioni possiedono degli attributi necessari alla loro configurazione. 
+
+Questo si può fare scrivendo dopo il carattere `:` alcune parole chiave (spesso coincidenti con il valore degli attributi). 
+
+Di seguito alcuni esempi:
 
 - È possibile configurare l'attributo `type` del tag `input` scrivendo il suo valore dopo i `:`, ad esempio `input:email` creerà:
 
@@ -181,23 +187,24 @@ Alcuni possiedono degli attributi necessari alla loro configurazione. Questo si 
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 ```
 
-- Il `type` di un button scrivendo `button:submit` o `button:reset` (attenzione, **non si può usare** la sintassi accorciata `btn` in questo caso) oppure se lo si vuole disabilitato con `button:disabled`. In tal caso la shortcut si espande in:
+- Il `type` di un button scrivendo `button:submit` o `button:reset` (attenzione, **non si può usare** la sintassi accorciata `btn` in questo caso) oppure se lo si vuole disabilitato con `button:disabled`: in tal caso, la shortcut si espande in:
 
 ```html
 button:disabled
 ```
 
-- e tanto altro...
 
 ## Tag e ID
 
-Gli ID sono indispensabili per selezionare tramite Javascript degli elementi e quindi poterli manipolare tramite script, oltre che per lo styling. Per accoppiare velocemente degli id basta scriverli dopo il nome del tag e dopo un carattere `#`. Ad esempio:
+Gli ID sono indispensabili per selezionare tramite Javascript degli elementi e quindi poterli manipolare tramite script, oltre che per lo styling. 
+
+Per accoppiare velocemente degli ID basta scriverli dopo il nome del tag e dopo un carattere `#`. Ad esempio:
 
 ```html
 btn#conferma
 ```
 
-Si trasforma in
+Si trasforma in:
 
 ```html
 <button id="conferma"></button>
@@ -205,7 +212,9 @@ Si trasforma in
 
 ## Tag e classi
 
-Le classi son utili ad applicare lo styling ad una serie di elementi che hanno qualcosa in comune. Per utilizzare le classi con EMMET basta scrivere il nome della classe dopo un tag, preceduta da un punto. Ad esempio:
+Le classi sono utili ad applicare lo styling ad una serie di elementi che hanno qualcosa in comune. 
+
+Per utilizzare le classi con EMMET basta scrivere il nome della classe dopo un tag, preceduta da un punto. Ad esempio:
 
 ```html
 div.container
@@ -219,13 +228,15 @@ Si trasforma in
 
 ### Concatenare più classi
 
-A differenza dell'id, si possono avere per un singolo tag più classi. Per specificare più classi tramite abbreviazione basta scrivere, dopo il nome di una classe, un punto quindi un nuovo nome di classe. Ad esempio:
+A differenza dell'ID, si possono avere per un singolo tag più classi.
+
+Per specificare più classi tramite abbreviazione basta scrivere, dopo il nome di una classe, un punto quindi un nuovo nome di classe. Ad esempio:
 
 ```html
 div.col-4.offset-2
 ```
 
-Si espande in :
+Si espande in:
 
 ```html
 <div class="col-4 offset-2"></div>
@@ -233,7 +244,7 @@ Si espande in :
 
 ## Tag vuoto
 
-Se non si specifica alcun tag ma si applicano lo stesso le regole di cui sopra, automaticamente verrà creato un tag `div`. Ad esempio scrivendo:
+Se non si specifica alcun tag ma si applicano le stesse regole di cui sopra, automaticamente verrà creato un tag `div`. Ad esempio, scrivendo:
 
 ```html
 .col-4.offset-2#colonna1
@@ -265,7 +276,9 @@ La stessa cosa accade con `ul` (che espande i tag vuoti al suo interno con `li`)
 
 ## Attributi custom
 
-Si può specificare qualsiasi tipo di attributo utilizzando la parentesi quadra dopo un tag. Ad esempio per specificare il colore blu del testo come attributo style di un div si può usare:
+Si può specificare qualsiasi tipo di attributo utilizzando la parentesi quadra dopo un tag. 
+
+Ad esempio per specificare il colore blu del testo come attributo style di un div si può usare:
 
 ```html
 div[style="color:blue"]
@@ -277,7 +290,9 @@ Il risultato sarà:
 <div style="color:blue"></div>
 ```
 
-Questo è uno dei pochi casi in cui è consentito usare il carattere *spazio*, infatti si possono specificare **più attributi** separandoli tra di loro tramite spazio. Ad esempio per impostare sia lo *stile* che il testo *alternativo* di un'immagine si può scrivere:
+Questo è uno dei pochi casi in cui è consentito usare il carattere *spazio*, infatti si possono specificare **più attributi** separandoli tra di loro tramite spazio. 
+
+Ad esempio, per impostare sia lo *stile* che il testo *alternativo* di un'immagine si può scrivere:
 
 ```html
 img[alt="quest'immagine contiene un cobra" style="border-radius: 8px"]
@@ -291,7 +306,7 @@ Il risultato sarà:
 
 ## Tag e body
 
-È eventualmente possibile impostare anche il contenuto (testuale) di un body di un elemento tramite sintassi abbreviata. Utilizzando le parentesi graffe (`{` e `}`). Ad esempio:
+È eventualmente possibile impostare anche il contenuto (testuale) di un body di un elemento tramite sintassi abbreviata, utilizzando le parentesi graffe (`{` e `}`). Ad esempio:
 
 ```html
 p{blocco di testo o paragrafo}
