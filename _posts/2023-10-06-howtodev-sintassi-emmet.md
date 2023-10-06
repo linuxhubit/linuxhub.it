@@ -7,7 +7,7 @@ author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: Michael Messaggi
 coauthor_github: MichaelMessaggi
-published: false
+published: true
 tags: 
 - css
 - html
@@ -121,7 +121,7 @@ Il risultato sarà:
 <!--  -->
 ```
 
-È possibile anche generare alcuni **commenti condizionali**, ovvero dei commenti che sono generati appositamente per controllare le versioni di Microsoft Internet Explorer (e di Microsoft ??? ). 
+È possibile anche generare alcuni **commenti condizionali**, ovvero dei commenti che sono generati appositamente per controllare le versioni di Microsoft Internet Explorer (e di Microsoft Windows).
 
 Ad esempio, si può verificare di essere su IE scrivendo:
 
