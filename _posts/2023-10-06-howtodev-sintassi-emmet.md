@@ -187,10 +187,10 @@ Di seguito alcuni esempi:
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 ```
 
-- Il `type` di un button scrivendo `button:submit` o `button:reset` (attenzione, **non si può usare** la sintassi accorciata `btn` in questo caso) oppure se lo si vuole disabilitato con `button:disabled`: in tal caso, la shortcut si espande in:
+- Il `type` di un button scrivendo `button:submit` o `button:reset` (attenzione, **non si può usare** la sintassi accorciata `btn` in questo caso) oppure se lo si vuole disabilitato con `button:disabled`. In tal caso, la shortcut si espande in:
 
 ```html
-button:disabled
+<button disabled="disabled"></button>
 ```
 
 
