@@ -1,7 +1,7 @@
 ---
 class: post
 title: '#howtodev - Sintassi EMMET parte 1 : elementi HTML' 
-date: 2023-09-06 08:00
+date: 2023-10-06 08:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
