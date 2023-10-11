@@ -36,7 +36,7 @@ Per la comprensione di questo articolo è necessaria la lettura dei seguenti e d
 
 EMMET, anche chiamato Zen Coding, è un toolkit che mira a semplificare lo sviluppo web tramite una serie di abbreviazioni che creano interi blocchi di codice HTML con poche lettere.
 
-Lo sviluppo del plugin si può trovare su [Github](https://github.com/emmetio/emmet), e comprende dei moduli JavaScript che semplificano poi la creazione del plugin per il proprio editor.
+Lo sviluppo del plugin si può trovare su [GitHub](https://github.com/emmetio/emmet), e comprende dei moduli JavaScript che semplificano poi la creazione del plugin per il proprio editor.
 Tuttavia, in questo articolo, non ne verrà spiegato l'uso come toolkit, ma solo la sintassi.
 
 ### JSX Support
