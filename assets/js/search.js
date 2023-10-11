@@ -34,19 +34,25 @@ function fetchSearchResults(term, maxResults) {
     var terms = term.trim().split(" ");
     var regex_string = "";
 
-    terms.forEach(t => {
+    terms.forEach((t,i) => {
         if(t != " ") {
-            regex_string += `(?=.*${t})`
+            regex_string += `\\b${t}\\b${i<terms.length-1?'|':''}`
         }
     });
 
-    regex_string = `${regex_string}.*`;
+    regex_string = new RegExp(regex_string,"i")
 
     for (var i=0 ; i < posts.length ; i++)
     {
-        let matches = posts[i]["title"].toLowerCase().match(regex_string);
-        if (matches != null)
-        {
+        let matchesTitle = posts[i]["title"].match(regex_string);
+		let matchesTags = posts[i]["title"].match(regex_string);
+        let matchesExcerpt = posts[i]["title"].match(regex_string);
+        let matchesUrl = posts[i]["title"].match(regex_string);
+		
+        if (matchesTitle ||
+			matchesTags ||
+			matchesExcerpt ||
+			matchesUrl ) {
             results.push(posts[i]);
         }
     }
