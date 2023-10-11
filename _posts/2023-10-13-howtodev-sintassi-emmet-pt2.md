@@ -5,8 +5,8 @@ date: 2023-10-13 08:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhub.it
-coauthor_github: linuxhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: false
 tags: 
 - css
@@ -16,7 +16,7 @@ tags:
 ---
 
 
-[Articolo precedente: elementi HTML &larr;](https://linuxhub.it/posts/articles/howtodev-sintassi-emmet)
+[Articolo precedente: elementi HTML &larr;](https://linuxhub.it/articles/howtodev-sintassi-emmet)
 
 
 
@@ -32,17 +32,19 @@ Lista degli obiettivi che a fine articolo il lettore consegue:
 
 ## Prerequisiti
 
-Per la comprensione di questo articolo è necessaria la lettura degli articoli precendenti:
+Per la comprensione di questo articolo è necessaria la lettura dell'articolo precendente:
 
 - [#howtodev - Sintassi EMMET parte 1 : elementi HTML](https://linuxhub.it/posts/articles/howtodev-sintassi-emmet)
 
-Inoltre è necesaria la conoscenza di
+Inoltre è necessaria la conoscenza di
 
 - HTML
 
 ## Moltiplicare un tag
 
-Tramite l'uso del carattere `*` si può "moltiplicare" un tag. Ovvero creare più ripetizioni dello stesso elemento.
+Tramite l'uso del carattere `*` si può "moltiplicare" un tag. 
+
+Ovvero creare più ripetizioni dello stesso elemento.
 
 Ad esempio scrivendo:
 
@@ -58,7 +60,9 @@ Il plugin sostituirà il seguente codice:
 
 ## Concatenare più tag
 
-Si possono mettere più tag uno dopo l'altro senza innestarli usando il carattere `+`. Ad esempio scrivendo: 
+Si possono mettere più tag uno dopo l'altro senza innestarli usando il carattere `+`. 
+
+Ad esempio, scrivendo: 
 
 ```html
 br+img+br
@@ -92,7 +96,9 @@ Si ottiene:
 
 ## Risalire un tag
 
-Al contrario, si può "risalire" attraverso i tag utilizzando il carattere `^`. Ovviamente per poter "risalire" è necessario che prima si sia "sceso" all'interno di un altro componente, per cui questa shortcut ha senso solo se usata dopo aver aver innestato alcuni elementi tra di loro.
+Al contrario, si può "risalire" attraverso i tag utilizzando il carattere `^`. 
+
+Ovviamente per poter "risalire" è necessario che prima si sia "sceso" all'interno di un altro componente, per cui questa shortcut ha senso solo se usata dopo aver aver innestato alcuni elementi tra di loro.
 
 Si veda meglio con un esempio:
 
@@ -137,7 +143,9 @@ br+img+br
 
 ## Raggruppare le shortcut
 
-Si possono raggruppare le shortcut. Questo può servire ad applicare un ulteriore shortcut ma su un gruppo e non un solo elemento. Ad esempio si può applicare la moltiplicazione di un gruppo di elementi che possono poi essere innestati o concatenati. 
+Si possono raggruppare le shortcut. Questo può servire ad applicare un ulteriore shortcut ma su un gruppo e non un solo elemento. 
+
+Ad esempio si può applicare la moltiplicazione di un gruppo di elementi che possono poi essere innestati o concatenati. 
 
 Scrivendo infatti: 
 
@@ -170,7 +178,9 @@ Si espande in:
 
 ## La numerazione
 
-A volte potrebbe essere necessario autogenerare degli elementi in serie che però siano numerati a loro volta. Utilizzando il carattere `$` questo sarà sostituito con il numero ordinale corrispondente all'elemento.
+A volte potrebbe essere necessario autogenerare degli elementi in serie che però siano numerati a loro volta. 
+
+Utilizzando il carattere `$` questo sarà sostituito con il numero ordinale corrispondente all'elemento.
 
 Prendendo l'esempio precedente potrebbe essere necessario scrivere il numero del punto della lista; scrivendo: 
 
@@ -201,7 +211,9 @@ Si espanderà in:
 </ul>
 ```
 
-Ovviamente funziona anche utilizzato in attributi, id o nomi di classe. Inoltre Si possono utilizzare più `$` per creare padding di zeri. Ad esempio:
+Ovviamente funziona anche utilizzato in attributi, id o nomi di classe. 
+
+Inoltre Si possono utilizzare più `$` per creare padding di zeri. Ad esempio:
 
 ```html
 p#p$$*10
@@ -224,8 +236,9 @@ Si estenderà in:
 
 ### Ordine inverso
 
-Per ottenere l'ordine inverso basta aggiungere `@-` dopo il carattere `$`. Riproponendo l'ultimo esempio:
+Per ottenere l'ordine inverso basta aggiungere `@-` dopo il carattere `$`. 
 
+Riproponendo l'ultimo esempio:
 
 ```html
 p#p$$@-*10
@@ -248,7 +261,7 @@ Si estenderà in:
 
 ## Alcuni esempi completi
 
-Volendo un po' racchiudere quello che è stato descritto in due articoli si possono proporre degli esempi completi.
+Volendo un po' racchiudere quello che è stato descritto in questi due articoli, vi proponiamo degli esempi completi.
 
 ### Bootstrap grid
 
@@ -278,7 +291,11 @@ Il risultato sarà:
 
 ### Tabella
 
-Si può creare molto facilmente una tabella. Ad esempio si pensi una tabella con tre colonne, header e 5 righe. Ogni cella deve avere un template che indica a che colonna si riferisce con il numero. Scrivendo:
+Si può creare molto facilmente una tabella. 
+
+Ad esempio si pensi una tabella con tre colonne, header e 5 righe.
+
+Ogni cella deve avere un template che indica a che colonna si riferisce con il numero. Scrivendo:
 
 ```html
 table>tr.riga$>th{campo $}*3^(.righe#riga$>.dati{valoren.$}*3)*5
@@ -323,7 +340,9 @@ Si espande in:
 
 ### Un sito intero in una linea
 
-Si può creare un intero sito in una sola linea di codice. Immaginando una struttura NAV+BODY+FOOTER con la dichiarazione dell'ahtml si può scrivere: 
+Si può creare un intero sito in una sola linea di codice. 
+
+Immaginando una struttura NAV+BODY+FOOTER con la dichiarazione dell'ahtml si può scrivere: 
 
 ```html
 html:5>nav>(ul>li*3>a:link{link navigazione $})^h1{Titolo Della Pagina}+p{descrizione}+footer{footer e link abouts}>ul>li.small*5>a:link{link about $}
