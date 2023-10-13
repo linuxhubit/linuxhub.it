@@ -7,7 +7,7 @@ author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: Michael Messaggi
 coauthor_github: MichaelMessaggi
-published: false
+published: true
 tags: 
 - css
 - html
@@ -16,7 +16,7 @@ tags:
 ---
 
 
-[Articolo precedente: elementi HTML &larr;](https://linuxhub.it/articles/howtodev-sintassi-emmet)
+[Articolo precedente: elementi HTML &larr;](https://linuxhub.it/articles/howtodev-sintassi-emmet)  
 
 
 
