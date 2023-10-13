@@ -16,7 +16,7 @@ tags:
 ---
 
 
-[Articolo precedente: elementi HTML &larr;](https://linuxhub.it/articles/howtodev-sintassi-emmet)  
+[Articolo precedente: elementi HTML &larr;](https://linuxhub.it/articles/howtodev-sintassi-emmet/)  
 
 
 
@@ -34,7 +34,7 @@ Lista degli obiettivi che a fine articolo il lettore consegue:
 
 Per la comprensione di questo articolo è necessaria la lettura dell'articolo precendente:
 
-- [#howtodev - Sintassi EMMET parte 1 : elementi HTML](https://linuxhub.it/posts/articles/howtodev-sintassi-emmet)
+- [#howtodev - Sintassi EMMET parte 1 : elementi HTML](https://linuxhub.it/articles/howtodev-sintassi-emmet/)
 
 Inoltre è necessaria la conoscenza di
 
@@ -96,7 +96,7 @@ Si ottiene:
 
 ## Risalire un tag
 
-Al contrario, si può "risalire" attraverso i tag utilizzando il carattere `^`. 
+Al contrario, si può "risalire" attraverso i tag utilizzando il carattere `^`.
 
 Ovviamente per poter "risalire" è necessario che prima si sia "sceso" all'interno di un altro componente, per cui questa shortcut ha senso solo se usata dopo aver aver innestato alcuni elementi tra di loro.
 
