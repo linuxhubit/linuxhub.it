@@ -5,37 +5,44 @@ date: 2023-10-20 07:00
 layout: post
 author: Midblyte
 author_github: Midblyte
-coauthor:
-coauthor_github:
-published: false
+coauthor: Davide Galati (in arte PsykeDady)
+coauthor_github: PsykeDady
+published: true
 tags:
 - ubuntu
 - fedora
 - archlinux
 - windows
 - macos
+- android
 ---
 
-Un computer può essere controllato da Android mediante l'utilizzo di principalmente due protocolli, principalmente, ossia [SSH](https://linuxhub.it/articles/howto-ssh-controllo-remoto-del-desktop-da-mobile/) e [VNC](https://linuxhub.it/articles/howto-vnc-controllo-remoto-del-desktop-da-mobile/).
+
+> NOTA:
+>
+> Un articolo precedente su SCRCPY è disponibile [a questo indirizzo](https://linuxhub.it/articles/howto-usare-il-proprio-smartphone-su-linux) con informazioni meno aggiornate. Questo articolo ne aggiorna le informazioni sul precedente.
+
+Un computer può essere controllato da Android mediante l'utilizzo di due protocolli, [SSH](https://linuxhub.it/articles/howto-ssh-controllo-remoto-del-desktop-da-mobile/) e [VNC](https://linuxhub.it/articles/howto-vnc-controllo-remoto-del-desktop-da-mobile/).
 
 Anche l'inverso è possibile, come dimostra Scrcpy (contrazione di "screen copy").
 
 Scrcpy permette di trasferire l'audio in uscita dello smartphone al computer, di inviare file via drag & drop, di condividere e registrare lo schermo, di utilizzare il telefono come webcam, di simulare il collegamento di mouse e tastiera, di condividere la clipboard (copia-incolla), e molto altro.
 
-Scrcpy funziona senza permessi di root, essendo uno strumento che si affida ad [ADB](https://developer.android.com/tools/adb) (Android Debug Bridge).
-
+Funziona senza permessi di root, essendo uno strumento che si affida ad [ADB](https://developer.android.com/tools/adb) (Android Debug Bridge).
 
 ## Prerequisiti
 
 Per utilizzare Scrcpy è fondamentale abilitare sia le opzioni sviluppatore che il debug USB.
 
-I pochi passaggi necessari dipendono non solo da dispositivo a dispositivo ma anche da versione a versione, e [la pagina dedicata su android.com](https://developer.android.com/studio/debug/dev-options?hl=it) spiega come attivare entrambe.
+I pochi passaggi necessari dipendono non solo dal dispositivo e dalla versione, a tal proposito [la pagina dedicata su android.com](https://developer.android.com/studio/debug/dev-options?hl=it) spiega come attivare entrambe.
 
 Per altri dispositivi, è solitamente sufficiente effettuare una ricerca in rete.
 
 L'altro requisito fondamentale è `ADB`, che in ambienti Linux è solitamente una dipendenza già prevista implicitamente e perciò automaticamente installata.
 
 ## Installazione
+
+Si può installare il software per lo più tramite i vari package manager delle distribuzioni.
 
 ### Debian e Ubuntu
 
@@ -63,17 +70,32 @@ pacman -S scrcpy
 
 ### Windows
 
-L'installazione Windows può essere sia manuale ([pagina delle release](https://github.com/Genymobile/scrcpy/releases/latest)) oppure effettuata via Winget, Chocolatey o Scoop:
+L'installazione Windows può essere sia manuale ([pagina delle release](https://github.com/Genymobile/scrcpy/releases/latest)).
+
+Altri metodi per installarlo possono essere quello di [Winget](https://learn.microsoft.com/it-it/windows/package-manager/winget/):
 
 ```bash
 winget install scrcpy
+```
+
+Oppure di [Chocolately](https://chocolatey.org):
+
+```bash
 choco install adb scrcpy
+```
+
+Oppure [scoop](https://scoop.sh):
+```bash
 scoop install adb scrcpy
 ```
 
 Maggiori informazioni sulla [pagina GitHub](https://github.com/Genymobile/scrcpy/blob/master/doc/windows.md).
 
+Winget, Chocolately e Scoop son tre package manager disponibili per windows, solo il primo è ufficiale.
+
 ### MacOS
+
+Si può installare su MacOS tramite brew:
 
 ```bash
 brew install android-platform-tools scrcpy
@@ -85,12 +107,11 @@ Maggiori informazioni sulla [pagina GitHub](https://github.com/Genymobile/scrcpy
 
 Consultare la [pagina GitHub](https://github.com/Genymobile/scrcpy/blob/master/doc/linux.md) dedicata.
 
-
 ## Come trasferire l'audio in uscita
 
 > Nota: funziona su Android 11 e a partire da Scrcpy 2.
 
-Per far sì che l'audio passi dallo smartphone al computer via ADB, è necessario che lo schermo sia acceso nel momento in cui viene invocato Scrcpy.
+Per far sì che l'audio sia trasferito dallo smartphone al computer via ADB, è necessario che lo schermo sia acceso nel momento in cui viene invocato Scrcpy.
 
 Solitamente è sufficiente invocare `scrcpy`:
 
@@ -98,7 +119,7 @@ Solitamente è sufficiente invocare `scrcpy`:
 scrcpy
 ```
 
-Qualora lo schermo fosse spento o non fosse possibile connettere il flusso audio, Scrcpy fallirà silenziosamente.
+Qualora lo schermo fosse spento o non fosse possibile connettere il flusso audio, Scrcpy fallirà silenziosamente.  
 Per forzare Scrcpy a non partire senza il trasferimento audio, bisogna ricorrere alla flag `--require-audio`.
 
 ```bash
@@ -141,7 +162,6 @@ Siccome lo schermo viene condiviso su un'altro schermo, potrebbe essere utile sp
 scrcpy --turn-screen-off --stay-awake
 ```
 
-
 ## Come registrare lo schermo
 
 Il principio di funzionamento di Scrcpy lo rende particolarmente adatto nel caso sia necessario registrare schermate che sarebbero troppo dispendiose per l'accoppiata processore e memoria interna.
@@ -166,7 +186,7 @@ Una volta terminata la configurazione di v4l2loopback, va istruito Scrcpy a tras
 scrcpy --v4l2-sink=/dev/videoN
 ```
 
-La finestra di playback può essere disattivata con la flag `--no-video-playback`: qualora si scelga di disattivarla si tenga presente che, se proprio necessario, è sempre possibile controllare cosa stia trasmettendo la propia videocamera utilizzando ffplay, VLC o MPV:
+La finestra di playback può essere disattivata con la flag `--no-video-playback`: qualora si scelga di disattivarla si tenga presente che, se proprio necessario, è sempre possibile controllare cosa stia trasmettendo la propria videocamera utilizzando ffplay, VLC o MPV:
 
 ```bash
 ffplay -i /dev/videoN
@@ -182,7 +202,6 @@ Di default, Scrcpy consente già la sincronizzazione della clipboard tra compute
 Qualora la clipboard non venga sincronizzata (da computer ad Android), potrebbe essere necessario ricorrere al metodo basato su key events, attivabile con la flag `--legacy-clipboard`.
 
 Al contrario, la flag `--no-clipboard-autosync` disabilita questo comportamento, che di default non è sempre desiderabile per motivi di privacy e sicurezza.
-
 
 ## ADB via tunnel SSH
 
