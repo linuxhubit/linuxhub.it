@@ -5,8 +5,8 @@ date: 2023-10-27 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: Michael Messaggi 
+coauthor_github: MichaelMessaggi
 published: false
 tags:
 - ubuntu
@@ -16,19 +16,20 @@ tags:
 - rss
 ---
 
-Linux/hub ha i feed rss. Lo sapevate? Ora lo sapete. Detto questo, leggere i feed dalla propria distribuzione Linux preferita non è assolutamente un problema. Ci sono infatti diverse applicazioni che consentono di utilizzare i feed RSS dai propri siti preferiti.
+linux/hub ha i feed rss. Lo sapevate? Ora lo sapete. 
+Detto questo, leggere i feed dalla propria distribuzione Linux preferita non è assolutamente un problema.
+Ci sono infatti diverse applicazioni che consentono di utilizzare i feed RSS dai propri siti preferiti.
+Ad esempio, TermFeed.
 
-Ad esempio Termfeed.
+## TermFeed
 
-## Termfeed
+TermFeed è un progetto open source scritto in Python. Il codice è reperibile su [Github](https://github.com/iamaziz/TermFeed) anche se, gli ultimi aggiornamenti, risalgono ormai al lontano 2015.
 
-Termfeed è un progetto open source scritto in python. Il codice è reperibile su [Github](https://github.com/iamaziz/TermFeed) anche se, gli ultimi aggiornamenti, risalgono ormai al lontano 2015.
-
-Termfeed è reperibile come pacchetto PIP.
+TermFeed è reperibile come pacchetto PIP.
 
 ## PIP
 
-PIP è un installatore di pacchetti python, installare un pacchetto tramite questo sistema è molto semplice ma necessita che sia installato.
+PIP è un installatore di pacchetti Python, installare un pacchetto tramite questo sistema è molto semplice ma necessita che sia installato.
 
 ### Installazione su Ubuntu e derivate
 
@@ -46,15 +47,15 @@ Per installare PIP su Fedora basta digitare:
 dnf install python3-pip
 ```
 
-### Installazione su Archlinux
+### Installazione su ArchLinux
 
-Per installare PIP su Archlinux o sistemi che utilizzano pacman basta digitare: 
+Per installare PIP su ArchLinux o sistemi che utilizzano pacman basta digitare: 
 
 ```bash
 pacman -S python-pipx
 ```
 
-### Installazione di Termfeed
+### Installazione di TermFeed
 
 Una volta installato pip basta scrivere: 
 
@@ -82,7 +83,7 @@ Per aggiungere un nuovo feed:
 feed -a SITO CATEGORIA
 ```
 
-Ad esempio si può aggiungere il sito di Linux/hub alla categoria (da creare) Linux:
+Ad esempio si può aggiungere il sito di linux/hub alla categoria (da creare) Linux:
 
 ```bash
 feed -a https://linuxhub.it/feed.xml Linux
@@ -96,7 +97,7 @@ Si possono consultare le categorie scrivendo:
 feed -t
 ```
 
-Molte categorie sono già create dall'inserimento di alcuni siti inseriti a tempo di installazione
+Molte categorie sono già create dall'inserimento di alcuni siti inseriti a tempo di installazione.
 
 È possibile consultare la lista dei siti per categoria scrivendo in coda al comando la categoria stessa, ad esempio per la categoria "Linux":
 
@@ -122,7 +123,9 @@ I feed si possono navigare per categoria scrivendo:
 feed -b
 ```
 
-Selezionare la categoria e quindi il feed da aprire. Una volta aperto un feed è possibile aprire nel browser predefinito il link dell'articolo che punta premendo `y`.
+Selezionare la categoria e quindi il feed da aprire. 
+
+Una volta aperto un feed è possibile aprire nel browser predefinito il link dell'articolo che punta premendo `y`.
 
 ### Navigare i feed per URL
 
@@ -132,7 +135,7 @@ Per navigare i feed dato un URL digitare `feed` seguito dall'url:
 feed https://linuxhub.it/feed.xml
 ```
 
-Selezionare il feed da aprire. Una volta aperto un feed è possibile aprire nel browser predefinito il link dell'articolo che punta premendo `y`.
+Selezionare il feed da aprire; una volta aperto un feed è possibile aprire nel browser predefinito il link dell'articolo che punta premendo `y`.
 
 ### Rimuovere un URL
 
@@ -148,7 +151,7 @@ Ad esempio:
 feed -d https://linuxhub.it/feed.xml
 ```
 
-Per eliminare il feed di linuxhub.
+Per eliminare il feed di linux/hub.
 
 ### Help
 
@@ -160,13 +163,13 @@ feed -h
 
 ## Disinstallare tramite PIP
 
-Per disinstallare termfeed tramite PIP scrivere: 
+Per disinstallare TermFeed tramite PIP scrivere: 
 
 ```bash
 pip uninstall termfeed
 ```
 
-Su archlinux:
+Su ArchLinux:
 
 ```bash
 pipx uninstall termfeed
@@ -174,4 +177,4 @@ pipx uninstall termfeed
 
 ## Conclusioni
 
-Conoscete altri feed reader? segnalateli sul nostro gruppo Telegram e magari, nel prossimo futuro, sarà oggetto di un nostro prossimo articolo!
+Conoscete altri feed reader? segnalateli sul nostro gruppo Telegram e magari, nel prossimo futuro, saranno oggetto di un nostro prossimo articolo!
