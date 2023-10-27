@@ -7,7 +7,7 @@ author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: Michael Messaggi 
 coauthor_github: MichaelMessaggi
-published: false
+published: true
 tags:
 - ubuntu
 - fedora
@@ -16,8 +16,8 @@ tags:
 - rss
 ---
 
-linux/hub ha i feed rss. Lo sapevate? Ora lo sapete. 
-Detto questo, leggere i feed dalla propria distribuzione Linux preferita non è assolutamente un problema.
+Linux/hub ha i feed rss. Lo sapevate? Ora lo sapete.  
+Detto questo, leggere i feed dalla propria distribuzione Linux preferita non è assolutamente un problema.  
 Ci sono infatti diverse applicazioni che consentono di utilizzare i feed RSS dai propri siti preferiti.
 Ad esempio, TermFeed.
 
@@ -123,13 +123,13 @@ I feed si possono navigare per categoria scrivendo:
 feed -b
 ```
 
-Selezionare la categoria e quindi il feed da aprire. 
+Selezionare la categoria e quindi il feed da aprire.
 
 Una volta aperto un feed è possibile aprire nel browser predefinito il link dell'articolo che punta premendo `y`.
 
 ### Navigare i feed per URL
 
-Per navigare i feed dato un URL digitare `feed` seguito dall'url: 
+Per navigare i feed dato un URL digitare `feed` seguito dall'url:
 
 ```bash
 feed https://linuxhub.it/feed.xml
@@ -145,13 +145,13 @@ Per rimuovere un URL dai feed scrivere:
 feed -d URL
 ```
 
-Ad esempio: 
+Ad esempio:
 
 ```bash
 feed -d https://linuxhub.it/feed.xml
 ```
 
-Per eliminare il feed di linux/hub.
+Per eliminare il feed di Linux/hub.
 
 ### Help
 
