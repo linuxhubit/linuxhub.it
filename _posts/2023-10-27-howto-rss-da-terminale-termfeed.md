@@ -69,6 +69,16 @@ Tranne su Archlinux dove si dovrebbe utilizzare il tool `pipx`:
 pipx install termfeed
 ```
 
+### Fix "termfeed.db"
+
+In alcuni sistemi potrebbe non riuscire a creare il db nella home. Dare il comando:
+
+```bash
+touch $HOME/.termfeed.db
+```
+
+Per sistemare il problema
+
 ## Utilizzo
 
 I feed sono divisi per Categoria, per cui ogni aggiunta va indicato il sito e la categoria.
