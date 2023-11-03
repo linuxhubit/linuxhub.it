@@ -32,13 +32,64 @@ Funziona senza permessi di root, essendo uno strumento che si affida ad [ADB](ht
 
 ## Prerequisiti
 
-Per utilizzare Scrcpy è fondamentale abilitare sia le opzioni sviluppatore che il debug USB.
+Per utilizzare Scrcpy è fondamentale:
+- su computer, installare ADB;
+- su Android, abilitare sia le opzioni sviluppatore che il debug USB (o Wireless).
 
-I pochi passaggi necessari dipendono non solo dal dispositivo e dalla versione, a tal proposito [la pagina dedicata su android.com](https://developer.android.com/studio/debug/dev-options?hl=it) spiega come attivare entrambe.
+### ADB
 
-Per altri dispositivi, è solitamente sufficiente effettuare una ricerca in rete.
+`ADB` in ambienti Linux è una dipendenza già prevista implicitamente e perciò automaticamente installata, solitamente.
 
-L'altro requisito fondamentale è `ADB`, che in ambienti Linux è solitamente una dipendenza già prevista implicitamente e perciò automaticamente installata.
+Le istruzioni per la sua installazione, lì dove l'installazione manuale sia necessaria, verranno trattate congiuntamente all'installazione di Scrcpy nei prossimi paragrafi.
+
+### Opzioni sviluppatore
+
+I passaggi necessari sono pochi e semplici ma dipendono sia dal dispositivo che dalla versione del sistema operativo.
+
+In genere, per abilitare le impostazioni sviluppatore è sufficiente recarsi nelle impostazioni del dispositivo, raggiungere la schermata sulle informazioni del dispositivo, e individuare la dicitura "Numero build" (o simili) su cui bisogna cliccare sette volte.
+
+La [pagina dedicata](https://developer.android.com/studio/debug/dev-options?hl=it) su [android.com] spiega come attivare le opzioni sviluppatore per alcuni dispositivi.
+
+Essendo un'operazione ordinaria, per conoscere l'esatta procedura per altri dispositivi è sufficiente effettuare una ricerca in rete.
+
+Una volta sbloccata la sezione delle opzioni sviluppatore, bisogna recarvisi per preparare il dispositivo ad essere controllato da un dispositivo terzo.
+
+### Debug USB
+
+Qualora si desideri una connessione via cavo (ideale per raggiungere il massimo delle prestazioni) bisogna abilitare il debug USB (impostazioni sviluppatore).
+
+Sebbene non sia un'operazione necessaria, è possibile verificare che tutto sia andato a buon fine lanciando ADB da terminale:
+
+```bash
+adb devices
+```
+
+In caso di esito positivo, apparirà una sequenza di caratteri esadecimali (composta da cifre 0-9 e lettere a-f) seguita dall'identificativo del proprio dispositivo quando ve ne sono due o più (altrimenti apparirà un generico "device").
+
+### Debug Wireless
+
+Una connessione senza cavo implica necessariamente un peggioramento delle prestazioni, eppure potrebbe essere più indicata in determinate circostanze (cavi difettosi, necessità di allontanare i dispositivi tra loro, e così via).
+
+Sempre dalle impostazioni sviluppatore, va attivato il debug Wireless.
+
+Si noti che l'opzione wireless è disponibile solo su versioni di Android più recenti (e spesso sui firmware custom), mentre su versioni Android meno recenti (senza root) è obbligatorio collegarsi prima via USB e poi spostarsi su una connessione Wireless (ogni singola volta).
+
+Va chiarito fin da subito che non è compito di ADB crittografare le comunicazioni, pertanto **il traffico è in chiaro** e chiunque sia collegato alla rete può intercettarlo.
+
+Nel caso si voglia proseguire comunque con una connessione wireless non sicura, bisogna inserire dapprima `adb tcpip 5555` (dove `5555` è proprio la porta convenzionalmente usata da ADB in modalità wireless) e poi `adb connect ADDRESS`, dove `ADDRESS` è l'indirizzo del proprio dispositivo.
+
+Qualora non funzionasse, sarà necessario eseguire `adb connect ADDRESS:PORT`, dove `ADDRESS` e `PORT` sono forniti dal dispositivo Android stesso nella schermata di abilitazione del debug wireless.
+
+Se la crittografia è proprio imprescindibile, non si deve necessariamente rinunciare al wireless: lo spiega il prossimo paragrafo.
+
+### ADB via tunnel SSH
+
+Su reti ritenute non sicure, è possibile avviare il server ADB dietro tunnel SSH ([che cos'è?](https://linuxhub.it/articles/howto-ssh-controllo-remoto-del-desktop-da-mobile/#title0)) così da arginare il problema.
+
+Questa soluzione si applica ad esempio nei casi in cui ci si voglia connettere a un dispositivo via Internet, o più semplicemente se ci si vuole accertare che nessun dispositivo avente accesso alla propria LAN possa intercettare tutto il traffico in chiaro.
+
+Istruzioni e maggiori informazioni sono disponibili su [GitHub](https://github.com/Genymobile/scrcpy/blob/master/doc/tunnels.md#ssh-tunnel).
+
 
 ## Installazione
 
@@ -70,32 +121,32 @@ pacman -S scrcpy
 
 ### Windows
 
-L'installazione Windows può essere sia manuale ([pagina delle release](https://github.com/Genymobile/scrcpy/releases/latest)).
+L'installazione Windows può essere manuale: qui la [pagina delle release](https://github.com/Genymobile/scrcpy/releases/latest).
 
-Altri metodi per installarlo possono essere quello di [Winget](https://learn.microsoft.com/it-it/windows/package-manager/winget/):
+In alternativa, Winget, Chocolately e Scoop sono tre package manager disponibili per Windows (sebbene solo il primo sia ufficiale).
+
+Per installare Scrcpy usando [Winget](https://learn.microsoft.com/it-it/windows/package-manager/winget/):
 
 ```bash
 winget install scrcpy
 ```
 
-Oppure di [Chocolately](https://chocolatey.org):
+Oppure, con [Chocolately](https://chocolatey.org):
 
 ```bash
 choco install adb scrcpy
 ```
 
-Oppure [scoop](https://scoop.sh):
+Oppure, con [Scoop](https://scoop.sh):
 ```bash
 scoop install adb scrcpy
 ```
 
 Maggiori informazioni sulla [pagina GitHub](https://github.com/Genymobile/scrcpy/blob/master/doc/windows.md).
 
-Winget, Chocolately e Scoop son tre package manager disponibili per windows, solo il primo è ufficiale.
-
 ### MacOS
 
-Si può installare su MacOS tramite brew:
+Si può installare su MacOS tramite Brew:
 
 ```bash
 brew install android-platform-tools scrcpy
@@ -107,34 +158,9 @@ Maggiori informazioni sulla [pagina GitHub](https://github.com/Genymobile/scrcpy
 
 Consultare la [pagina GitHub](https://github.com/Genymobile/scrcpy/blob/master/doc/linux.md) dedicata.
 
-## Come trasferire l'audio in uscita
+## Come usare Scrcpy
 
-> Nota: funziona su Android 11 e a partire da Scrcpy 2.
-
-Per far sì che l'audio sia trasferito dallo smartphone al computer via ADB, è necessario che lo schermo sia acceso nel momento in cui viene invocato Scrcpy.
-
-Solitamente è sufficiente invocare `scrcpy`:
-
-```bash
-scrcpy
-```
-
-Qualora lo schermo fosse spento o non fosse possibile connettere il flusso audio, Scrcpy fallirà silenziosamente.  
-Per forzare Scrcpy a non partire senza il trasferimento audio, bisogna ricorrere alla flag `--require-audio`.
-
-```bash
-scrcpy --require-audio
-```
-
-
-## Come inviare file via drag & drop
-
-Scrcpy consente il trasferimento di file sul dispositivo semplicemente trascinando e rilasciando (drag & drop) i file sulla finestra di Scrcpy.
-
-Scrcpy, di default, salva i file nella cartella dei download, ossia `/sdcard/Download/`. La cartella di destinazione si può modificare grazie al parametro `--push-target` seguita dal percorso della cartella sul dispositivo.
-
-In particolare, quando viene trascinato un file APK, Scrcpy tenterà di installarlo come applicazione.
-
+Nei paragrafi seguenti sono presentati i più frequenti casi di utilizzo di Scrcpy: ad ognuno di essi è stata creata.
 
 ## Come condividere lo schermo
 
@@ -144,7 +170,7 @@ In particolare, quando viene trascinato un file APK, Scrcpy tenterà di installa
 scrcpy
 ```
 
-In caso di problemi, specie su versioni obsolete di Scrcpy, può essere utile limitare la lunghezza del lato maggiore utilizzando il parametro `-m`:
+In caso di problemi, specie su versioni obsolete di Scrcpy, può essere utile limitare la lunghezza del lato maggiore della risoluzione utilizzando il parametro `-m`:
 
 ```bash
 scrcpy -m 1920
@@ -160,6 +186,104 @@ Siccome lo schermo viene condiviso su un'altro schermo, potrebbe essere utile sp
 
 ```bash
 scrcpy --turn-screen-off --stay-awake
+```
+
+Scrcpy offre un parametro apposito anche per limitare i frame per secondo (sebbene potrebbe funzionare solo da Android 10 in su):
+
+```bash
+scrcpy --max-fps=60
+```
+
+Anche il bitrate (la velocità di trasferimento, misurata in bit al secondo) può essere limitato.
+
+Scrcpy consente di agire separatamente sul video e sull'audio (`--video-bit-rate` e `--audio-bit-rate`), e sono supportati i suffissi `K` (1000, mille) e `M` (1000000, un milione):
+
+```bash
+scrcpy --audio-bit-rate=16K --video-bit-rate=2M
+```
+
+Se si conosce in anticipo quale dovrà essere l’orientamento dello schermo iniziale, questo può essere cambiato:
+
+```bash
+scrcpy --lock-video-orientation     # orientamento corrente (default)
+scrcpy --lock-video-orientation=0   # orientamento base (verticale)
+scrcpy --lock-video-orientation=1   # 90°  (orizzontale)
+scrcpy --lock-video-orientation=2   # 180° (verticale, al contrario)
+scrcpy --lock-video-orientation=3   # 270° (orizzontale)
+```
+
+Per guadagnare un po'di spazio, la barra superiore della finestra può essere rimossa:
+
+```bash
+scrcpy --window-borderless
+```
+
+Per partire direttamente a schermo intero:
+
+```bash
+scrcpy --fullscreen
+```
+
+## Scorciatoie da tastiera
+
+Quando la finestra di Scrcpy è in focus, alcune combinazioni di tasti permettono di eseguire determinate azioni.
+
+Di seguito una tabella repilogativa, dove con il tasto `MOD` si intendono sia l'`Alt` sinistro che il tasto Super (solitamente `Windows`) sinistro (si possono usare a propria preferenza: funzionano entrambi e possono essere cambiati con `--shortcut-mod`):
+
+| Azione                                        | Descrizione                                                                        |
+|-----------------------------------------------|------------------------------------------------------------------------------------|
+| `MOD` + `h` / tasto centrale                  | Tasto Home                                                                         |
+| `MOD` + `b` / `MOD` + cancella / tasto destro | tasto Back                                                                         |
+| `MOD` + `s`                                   | Tasto App Switch                                                                   |
+| `MOD` + `m`                                   | Tasto Menu                                                                         |
+| `MOD` + `f`                                   | Entra ed esci dalla modalità a schermo intero                                      |
+| `MOD` + `←`                                   | Ruota lo schermo in senso antiorario                                               |
+| `MOD` + `→`                                   | Ruota lo schermo in senso orario                                                   |
+| `MOD` + `↑`                                   | Alza il volume                                                                     |
+| `MOD` + `↓`                                   | Abbassa il volume                                                                  |
+| `MOD` + `p`                                   | Accendi e spegni lo schermo (tasto Power)                                          |
+| Tasto destro (a schermo spento)               | Accendi lo schermo (tasto Power)                                                   |
+| `MOD` + `n`                                   | Abbassa la tendina delle notifiche                                                 |
+| `MOD` + `SHIFT` + `n`                         | Alza la tendina delle notifiche                                                    |
+| `MOD` + `c`                                   | Copia da Android a computer                                                        |
+| `MOD` + `x`                                   | Taglia da Android a computer                                                       |
+| `MOD` + `v`                                   | Incolla da computer ad Android                                                     |
+| `MOD` + `o`                                   | "Spegni" lo schermo ma preserva la condivisione (risparmia batteria) o riaccendilo |
+| `MOD` + `SHIFT` + `o`                         | Riaccendi lo schermo, se precedentemente "spento"                                  |
+| `CTRL` + tasto sinistro                       | Fai zoom in o zoom out                                                             |
+
+## Come trasferire l'audio in uscita
+
+> Nota: funziona solo a partire da Scrcpy 2, su Android 11 e superiori.
+
+Per far sì che l'audio sia trasferito dallo smartphone al computer via ADB, a causa delle limitazioni di Android è necessario che lo schermo sia acceso nel momento in cui viene invocato Scrcpy.
+
+Solitamente è sufficiente lanciare `scrcpy` senza alcun altro parametro:
+
+```bash
+scrcpy
+```
+
+Qualora lo schermo fosse spento o non fosse possibile connettere il flusso audio, Scrcpy fallirà silenziosamente, trasmettendo solo il video.
+
+Per forzare Scrcpy a non partire senza il trasferimento audio, bisogna ricorrere alla flag `--require-audio`:
+
+```bash
+scrcpy --require-audio
+```
+
+## Come inviare file via drag & drop
+
+Scrcpy consente il trasferimento di file sul dispositivo semplicemente trascinando e rilasciando (drag & drop) i file sulla finestra di Scrcpy.
+
+Scrcpy, di default, salva i file nella cartella dei download, ossia `/sdcard/Download/`. La cartella di destinazione si può modificare grazie al parametro `--push-target` seguita dal percorso della cartella sul dispositivo.
+
+In particolare, quando viene trascinato un file APK, Scrcpy tenterà di installarlo come applicazione.
+
+Qualora questo comportamento non sia desiderato, Scrcpy consente di disabilitarlo (incluso ogni altro tipo di interattività, come quello di mouse e tastiera):
+
+```bash
+scrcpy --no-control
 ```
 
 ## Come registrare lo schermo
@@ -180,7 +304,7 @@ Grazie ai driver V4L, è possibile creare un dispositivi virtuali, come videocam
 
 Per maggiori informazioni su come iniziare il setup di `v4l2loopback`, un modulo per il kernel Linux necessario per creare una videocamera virtuale, è possibile consultare [questa pagina GitHub](https://github.com/Genymobile/scrcpy/blob/master/doc/v4l2.md).
 
-Una volta terminata la configurazione di v4l2loopback, va istruito Scrcpy a trasmettere il flusso video a `/dev/videoN`, dove `N` è in genere un numero piccolo (solitamente 1 o 2):
+Una volta terminata la configurazione di v4l2loopback, va istruito Scrcpy a trasmettere il flusso video a `/dev/videoN`, dove `N` è in genere un numero piccolo, solitamente 1 o 2 (consultare `ls /dev/video*`, spesso N è il maggiore tra di essi):
 
 ```bash
 scrcpy --v4l2-sink=/dev/videoN
@@ -194,23 +318,13 @@ vlc v4l2:///dev/videoN
 mpv v4l2:///dev/videoN
 ```
 
-
 ## Come condividere la clipboard (copia-incolla)
 
 Di default, Scrcpy consente già la sincronizzazione della clipboard tra computer e Android.
 
-Qualora la clipboard non venga sincronizzata (da computer ad Android), potrebbe essere necessario ricorrere al metodo basato su key events, attivabile con la flag `--legacy-clipboard`.
+Qualora la clipboard non venga sincronizzata (da computer ad Android), potrebbe essere necessario ricorrere al metodo basato su key events, attivabile con la flag `--legacy-clipboard`, oppure utilizzare le scorciatoie da tastiera.
 
 Al contrario, la flag `--no-clipboard-autosync` disabilita questo comportamento, che di default non è sempre desiderabile per motivi di privacy e sicurezza.
-
-## ADB via tunnel SSH
-
-Su reti non sicure è possibile avviare il server ADB dietro tunnel SSH.
-
-Questa soluzione si applica ad esempio nei casi in cui ci si voglia connettere a un dispositivo via Internet.
-
-Istruzioni e maggiori informazioni sono disponibili su [GitHub](https://github.com/Genymobile/scrcpy/blob/master/doc/tunnels.md).
-
 
 ## Maggiori informazioni
 
