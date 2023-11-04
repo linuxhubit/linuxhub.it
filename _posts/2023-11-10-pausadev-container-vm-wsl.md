@@ -23,28 +23,29 @@ Quindi oggi volevo proporre un articolo leggero che spiegasse le maggiori differ
 
 ## La macchina virtuale
 
-Quando si pensa alla macchina virtuale probabilmente le prime cose che vengono in mente sono VMWare e Virtual Box, i due colossi di questa tecnologia. Ma cosa sono?
+Quando si pensa alla macchina virtuale probabilmente le prime cose che vengono in mente sono VMWare e VirtualBox, due dei principali software di "virtualizzazione". Ma cosa sono?
 
-Sono software che attraverso un processo di virtualizzazione delle risorse crea una ambiente isolato che offre le stesse funzioni di un calcolatore fisico.  
-Questo ovviamente significa che su una macchina virtuale va installato un sistema operativo completo, ci si può avviare dei programmi come su ogni altro computer reale e consuma le risorse che un pc consumerebbe.
+Sono software che attraverso un processo di, appunto, "virtualizzazione" delle risorse, crea una ambiente isolato che offre le stesse funzioni di un calcolatore fisico.
+Questo ovviamente significa che su una macchina virtuale è possibile installare un sistema operativo completo, sul quale eseguire dei programmi come su ogni altro computer reale, consumando le risorse che un pc fisico consumerebbe.
 
 ### Vantaggi VM
 
-La virtualizzazione porta diversi vantaggi:
+La virtualizzazione porta diversi vantaggi, di cui:
 
 - Un completo isolamento del sistema operativo virtualizzato rispetto a quello ospitante. Il sistema operativo virtualizzato non è in grado di comunicare, a meno di particolari casi, con il sistema operativo ospitante. Le eventuali eccezioni devono comunque essere "autorizzate" da parte della macchina ospitante.
-- Per una singola macchina è possibile (se abbastanza potente) ospitare più macchine ospitanti.
+- Per una singola macchina è possibile, se abbastanza potente, ospitare più macchine virtualizzate.
 - Si può installare un sistema operativo totalmente diverso da quello ospitante.
-- Tutta la macchina virtuale è generalmente contenuta dentro uno o comunque pochi files, raggruppati generalmente in una cartella. La sua rimozione non lascia traccia ne sporcizia
-- etc...
+- Tutta la macchina virtuale è generalmente contenuta dentro uno o comunque pochi files, raggruppati generalmente in una cartella. La sua rimozione non lascia tracce sul sistema ospitante.
 
 ### Svantaggi VM
 
-La virtualizzazione ha anche diversi punti critici:
+La virtualizzazione ha anche diversi punti critici, di cui:
 
-- È un processo molto pesante che occupa diverse risorse. Delle macchine fisiche poco potenti potrebbero riuscire ad istanziare una sola macchina virtuale o peggio, nessuna.
-- Le prestazioni virtuali sono comunque in genere inferiori a quelle fisiche.
+- Utilizzo delle risorse. Delle macchine fisiche poco potenti potrebbero riuscire ad istanziare una sola macchina virtuale o peggio, faticare o presentare instabilità anche una singola istanza.
+- Le prestazioni di sistemi virtualizzati sono generalmente peggiori di sistemi fisici.
 - Bisogna dedicare una parte delle risorse hardware al processo, questo può causare instabilità nel sistema ospitante e perdita di prestazioni.
+
+#SEGNALIBRO
 
 ### Definizioni VM
 
