@@ -1,13 +1,13 @@
 ---
 class: post
 title: "#pausadev - Virtual Machine, container e sottosistemi"
-date: 2023-11-10 07:00
+date: 2023-11-10 06:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: Michael Messaggi
 coauthor_github: MichaelMessaggi
-published: false
+published: true
 tags:
 - container
 - docker
