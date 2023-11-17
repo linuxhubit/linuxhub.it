@@ -5,9 +5,9 @@ date: 2023-11-17 07:00
 layout: post
 author: Midblyte
 author_github: Midblyte
-coauthor: 
-coauthor_github: 
-published: false 
+coauthor: Davide Galati (in arte PsykeDady)
+coauthor_github: PsykeDady
+published: true 
 tags:
 - ubuntu
 - fedora
@@ -19,14 +19,15 @@ tags:
 
 Gli script per terminale crescono velocemente di complessità: chiunque ne abbia creato almeno uno lo sa bene.
 
-Presto arriva il momento di ri-creare da capo funzionalità non esattamente banali, come ad esempio rendere uno script interattivo.
+Spesso si ha necessità di creare funzionalità non esattamente banali, come ad esempio rendere uno script interattivo.
 
-Proprio l'interattività è uno dei momenti in cui si perdono più tempo e pazienza, soprattutto quando ci si preoccupa di rendere lo script compatibile con più shell.
+Ed è in queste operazioni che si perdono più tempo e pazienza, soprattutto quando ci si preoccupa di rendere lo script compatibile con più shell.
 
 `Gum` è un tool che si propone di ribaltare in positivo quest'esperienza, mostrandosi graficamente piacevole e funzionalmente appagante.
 
-
 ## Installazione
+
+È ovviamente disponibile su diverse distribuzioni.
 
 ### Debian/Ubuntu
 
@@ -55,6 +56,8 @@ sudo yum install gum
 
 ### Arch Linux
 
+Per installarlo su ArchLinux basta utilizzare il package manager.
+
 ```bash
 pacman -S gum
 ```
@@ -69,7 +72,6 @@ go install github.com/charmbracelet/gum@latest
 
 La lista completa di sistemi operativi supportati nativamente e le istruzioni per l'installazione sono disponibili su [GitHub](https://github.com/charmbracelet/gum#installation).
 
-
 ## Utilizzo
 
 `gum` non fornisce tanti eseguibili per ciascuna funzionalità, bensì un solo ed unico eseguibile, e infatti la sintassi è la seguente
@@ -78,10 +80,9 @@ La lista completa di sistemi operativi supportati nativamente e le istruzioni pe
 gum SOTTOCOMANDO [OPZIONI]
 ```
 
-In altre parole, `gum` richiede che come primo parametro sia fornito il sottocomando e poi eventuali opzioni.
+In altre parole, `gum` richiede che come primo parametro sia fornito il sotto-comando e poi eventuali opzioni.
 
-In rassegna, i principali sottocomandi e alcuni esempi su come utilizzarli.
-
+In rassegna, i principali sotto-comandi e alcuni esempi su come utilizzarli.
 
 ## Choose, per scegliere da un elenco
 
@@ -94,10 +95,10 @@ gum choose Debian Fedora "Arch Linux" | xargs -I % echo "Hai scelto %."
 ```bash
 gum choose --limit 2
 ```
+
 Anche se di default è possibile scegliere una sola opzione, `--limit N` consente di innalzare il limite a N (oppure, è possibile toglierlo via `--no-limit`).
 
 In questa modalità, il tasto spazio permette di selezionare e deselezionare ciascuna opzione, mentre il tasto invio conferma.
-
 
 ## Confirm, per convalidare una scelta
 
@@ -117,7 +118,6 @@ La scelta sulla destra, l'opzione negativa che di default appare come "No", impl
 
 Il timeout (completamente opzionale) è di tre secondi: contrariamente a quanto si potrebbe pensare, però, l'opzione di default è quella affermativa e non quella negativa.
 
-
 ## File, per selezionare file sul disco
 
 ```bash
@@ -133,7 +133,6 @@ Di default è possibile selezionare solo file ma non cartelle, quindi il paramet
 File e cartelle nascosti (convenzionalmente, lo sono se il loro nome inizia per punto `.`) non vengono mostrati per questioni di navigabilità: `--all` fa sì che nessun file venga omesso dall'elenco.
 
 I tasti `q` ed `ESC` chiudono il menu di selezione (con un return code di 130).
-
 
 ## Filter, per filtrare su di un elenco
 
@@ -151,7 +150,6 @@ Sebbene sia un'ottima alternativa al già visto `gum file`, nel caso di molte ca
 
 `gum filter`, usato in pipe, permette di operare su un gruppo di righe quando si vuole che l'utente scelga tra una (o più) di esse: si comporta così come un `gum choose` con filtro.
 
-
 ## Input, per chiedere di inserire una riga di testo
 
 ```bash
@@ -161,7 +159,6 @@ gum input --placeholder="Hai una riga per scrivere tutto ciò che desideri"
 Il parametro `--placeholder` "suggerisce" all'utente cosa andrebbe scritto nella textbox e non fa parte del testo iniziale, impostabile invece attraverso `--value="Testo iniziale"`.
 
 Il limite massimo di caratteri inseribili è 400, di default: `--char-limit` permette di cambiarlo (0 ha un significato speciale, ossia "nessun limite").
-
 
 ## Spin
 
@@ -176,7 +173,6 @@ L'icona dinamica di caricamento, di default sulla sinistra (ma modificabile via 
 Lo spinner si può modificare via parametro `--spinner`, seguito da uno tra le seguenti opzioni: dot (default), line, minidot, jump, pulse, points, globe, moon, monkey, meter, hamburger.
 
 Se l'output del comando è importante (magari perché salvato in una variabile, o magari perché passato via pipe ad un altro comando), allora non bisogna dimenticare di specificare `--show-output`.
-
 
 ## Format
 
@@ -196,7 +192,6 @@ Anche se di default `gum format` si aspetta in input un sorgente in Markdown, è
 gum format -t emoji ":penguin: Linux"
 ```
 
-
 ## Pager
 
 ```bash
@@ -206,7 +201,6 @@ gum pager < README.md
 `gum pager` è il più semplice tra i sottocomandi: è un'interfaccia analoga a `less` ma di molto semplificata.
 
 Supporta solamente lo spostamento in alto e in basso nonché la ricerca testuale.
-
 
 ## Write
 
@@ -219,7 +213,6 @@ gum write --placeholder="Scrivi un messaggio lungo diverse righe"
 Per confermare l'input bisogna ricorrere alla combinazione di tasti `CTRL` + `d`.
 
 Anche qui, `--placeholder` indica il "suggerimento" iniziale da mostrare all'utente prima che cominci a scrivere, e il limite di caratteri `--char-limit` è fissato a 400 di default.
-
 
 ## Personalizzazione: un punto di forza di Gum
 
@@ -234,7 +227,6 @@ export GUM_CHOOSE_CURSOR_FOREGROUND=14
 
 gum choose 1 2 3
 ```
-
 
 ## Maggiori informazioni
 
