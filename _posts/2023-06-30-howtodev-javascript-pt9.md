@@ -14,6 +14,8 @@ tags:
 ---
 
 [&larr; Articolo precedente: Parametri opzionali e di default](https://linuxhub.it/articles/howtodev-javascript-pt8)
+[&rarr; Articolo successivo: Puntamenti in memoria](https://linuxhub.it/articles/howtodev-javascript-pt10)  
+
 
 Molto odiato, almeno quanto è usato, JavaScript è alla base dello sviluppo web e di molte applicazioni lato desktop.  
 
