@@ -72,6 +72,202 @@ Si può dire che il vero valore di un oggetto complesso sia il **puntatore**, ov
 
 ## I puntatori in JavaScript
 
+Negli articoli precedenti si è potuto notare che, se si prova a far stampare in console un oggetto concatenato ad una stringa che non implementa il metodo `toString()`, così:
+
+```javascript
+class Punto {
+        x;
+        y;
+}
+
+p = new Punto();
+
+console.log(""+p)
+```
+
+Il risultato è questo:.
+
+```javascript
+[object Object]
+```
+
+La console identifica che p non è un oggetto primitivo e stampa quindi a schermo non il suo valore ma la sua natura.In altri linguaggi la stampa a schermo mostrerebbe anche l'indirizzo in memoria, purtroppo in JavaScript non è possibile.
+
+Il concetto è comunque presente e ci si può sperimentare. Ad esempio con **i confronti**, si provi a creare due oggetti diversi ma con lo stesso contenuto: 
+
+```javascript
+class Punto {
+        x;
+        y;
+}
+
+p = new Punto();
+p.x=1; p.y=0;
+
+c = new Punto(); 
+c.x=1; c.y=0;
+```
+
+A questo punto è possibile utilizzare l'if per confrontarli:
+
+```javascript
+if(c===p){
+  console.log("uguali!")
+} else {
+  console.log("diversi!")
+}
+```
+
+Visto che il contenuto è lo stesso ci si aspetterebbe che la stampa si a`uguali!`, invece ciò che apparirà sarà `diversi!`. Questo perché javascript non sa come confrontare questi due oggetti, quindi utilizza il puntatore per farlo e scopre che son due oggetti diversi.
+
+Si può fare un altro esperimento:
+
+```javascript
+class Punto {
+        x;
+        y;
+}
+
+p = new Punto();
+p.x=1; p.y=0;
+
+c = p;
+
+if(c===p){
+  console.log("uguali!")
+} else {
+  console.log("diversi!")
+}
+```
+
+In questo caso il risultato sarà `uguali`, infatti assegnando esplicitamente un oggetto ad una variabile, in realtà stiamo assegnando il suo puntatore in memoria.
+
+### Lavorare con i puntatori
+
+Quali sono le conseguenze di aver assegnato un puntatore? Quali le differenze ad assegnare semplicemente un oggetto con gli stessi valori?
+
+Per rispondere a queste domande si possono fare dei piccoli esempi. Riprendendo l'esempio di cui sopra:
+
+```javascript
+class Punto {
+        x;
+        y;
+}
+
+p = new Punto();
+p.x=1; p.y=0;
+
+c = p;
+```
+
+Adesso proviamo a stampare a schermo i valori di `p`, cambiare il valore degli attributi di `c` e ristampare i valori di `p`:
+
+```javascript
+console.log(`Il punto p ha coordinate {x=${p.x},y=${p.y}}`)
+
+c.x=10; c.y=-2;
+
+console.log(`Il punto p ha coordinate {x=${p.x},y=${p.y}}`)
+```
+
+Sorprendentemente (per alcuni quanto meno) il risultato sarà:
+
+```plain
+Il punto p ha coordinate {x=1,y=0}
+Il punto p ha coordinate {x=10,y=-2}
+```
+
+Il motivo è presto detto, ripercorrendo step-by-step tutte le fasi dovrebbe essere chiaro:
+
+- Si è creato un oggetto in memoria di tipo punto
+- Il suo puntatore è stato assegnato a p
+- A c è stato assegnato poi p, che lo stesso identico puntatore del punto creato precedentemente
+- È stato usato c per accedere al punto e cambiare le sue coordinate
+
+![](https://mermaid.ink/img/pako:eNpNjr0KwzAMhF_FaE5ewEOnPEChHb2ottwE_Icj0YaQd6-Dh_SmjzuJux1sdgQafMgfO2Nl9ZxMUk2rvN4Vy6zukjh379T3wq0jJWdSx6LG8fb_YS8DBohUIy6u9e1nbIBnimRAN3TkUQIbMOlopyicH1uyoLkKDSDFIdO0YBsVQXsMKx0_b007Vw?type=png)
+
+Questo concetto in programmazione è chiamato anche **aliasing**, ovvero lo stesso oggetto in memoria è puntato da più *nomi* o *alias*.
+
+### Un altro paio di note sull'aliasing
+
+Il concetto dell'aliasing in generale è un po' ostico per quelli che si avvicinano alla programmazione per le prime volte.
+
+Uno dei casi che confonde di più è il seguente:
+
+```javascript
+class Punto {
+        x;
+        y;
+}
+
+p = new Punto();
+p.x=1; p.y=0;
+
+c = p;
+p = new Punto()
+p.x=1; p.y=0;
+
+c.x=10; c.y=-2;
+
+console.log(`Il punto p ha coordinate {x=${p.x},y=${p.y}}`)
+console.log(`Il punto p ha coordinate {x=${c.x},y=${c.y}}`)
+```
+
+Alla fine di tutto che valore hanno i due punti?
+
+```plain
+Il punto p ha coordinate {x=1,y=0}
+Il punto p ha coordinate {x=10,y=-2}
+```
+
+Ripercorriamo step-by-step:
+
+- È stato creato un punto in memoria
+- Il suo puntatore è stato assegnato a p
+- p è stato poi assegnato a c, hanno quindi condiviso il puntatore del punto in memoria
+- È stato creato un nuovo punto in memoria
+- Il suo puntatore è stato assegnato a p
+- Il valore degli attributi del nuovo puntatore è stato cambiato attraverso p
+
+Nel momento in cui a `p` è stato assegnato il nuovo puntatore, la sua "vita" è stata separata da `c`, il concetto di aliasing è scomparso. Ci son due oggetti e per ognuno di loro un etichetta.
+
 ## Confronti Shallow e confronti Deep
+
+Quando di mezzo ci sono i puntatori si può parlare di due tipi di confronti:
+
+- Il confronto "superficiale" o **shallow**, che confronta i due puntatori degli oggetti.
+- Il confronto "profondo" o **deep**, che confronta i singoli attributi di classe.
+
+Precedentemente si è visto il confronto "*shallow*", quello *deep* purtroppo non è una procedura standard.
+
+Un primo approccio può essere quella del confronto manuale, definendo magari un metodo all'interno della classe da confrontare
+
+```javascript
+class Punto {
+        x=0; //meglio creare gli attributi con un loro valore di default
+        y=0;
+
+        deepEquals(p){
+                if ( p==null || ! (p instanceof Punto)) return false; //verifica che p sia diverso da null e che sia anche p un Punto
+                
+                return this.x===p.x && this.y===p.y;
+        }
+}
+
+p = new Punto();
+c = new Punto()
+
+if(p.deepEquals(c)){
+        console.log("uguali!");
+} else {
+        console.log("diversi");
+}
+
+```
+
+Il risultato sarà:
+
+```plain
+```
 
 ## Sfruttare il puntatore
