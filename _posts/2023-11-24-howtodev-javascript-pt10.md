@@ -240,6 +240,8 @@ Quando di mezzo ci sono i puntatori si può parlare di due tipi di confronti:
 
 Precedentemente si è visto il confronto "*shallow*", quello *deep* purtroppo non è una procedura standard.
 
+### Confronti Deep manuali
+
 Un primo approccio può essere quella del confronto manuale, definendo magari un metodo all'interno della classe da confrontare
 
 ```javascript
@@ -268,6 +270,82 @@ if(p.deepEquals(c)){
 Il risultato sarà:
 
 ```plain
+uguali!
 ```
 
-## Sfruttare il puntatore
+### Confronti deep tramite JSON
+
+Il formato JSON (JavaScript Object Notation) è un formato testuale in cui ogni oggetto viene racchiuso tra parentesi graffe, al suo interno ogni nome di attributo viene messo tra virgolette e seguito dal carattere `:` e quindi dal valore, ogni attributo viene separato da un altro con una virgola. 
+Se un attributo è a sua volta un oggetto si può creare un altro JSON al suo interno, se è una lista (o array) va rinchiuso tra parentesi quadre.
+
+Se si considera l'oggetto Punto siffatto: 
+
+```javascript
+class Punto {
+        x;
+        y;
+}
+
+p = new Punto();
+p.x=1; p.y=0;
+```
+
+Il suo JSON sarà: 
+
+```json
+{
+	x:1, 
+	y:0
+}
+```
+
+In JavaScript il JSON si può utilizzare per i confronti tra oggetti. Per trasformare un oggetto in JSON basta utilizzare la direttiva `JSON.stringify(nomevariabile)`: 
+
+```javascript
+class Punto {
+        x;
+        y;
+}
+
+p = new Punto();
+p.x=1; p.y=0;
+
+console.log(JSON.stringify(p))
+```
+
+Risultato:
+
+```json
+{"x":1,"y":0}
+```
+
+Per confrontare due oggetti attraverso il JSON si può semplicemente paragonare la stringa che viene prodotta:
+
+```javascript
+class Punto {
+        x;
+        y;
+}
+
+let p = new Punto();
+p.x=1; p.y=0;
+
+let c = new Punto(); 
+c.x=1; c.y=0;
+
+let jsonP=JSON.stringify(p)
+let jsonC=JSON.stringify(c)
+
+if(jsonP === jsonC){
+	console.log("uguali!")
+}
+else {
+	console.log ("diversi!")
+}
+```
+
+Risultato:
+
+```plain
+uguali!
+```
