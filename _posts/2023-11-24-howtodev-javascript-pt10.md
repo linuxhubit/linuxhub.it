@@ -5,8 +5,8 @@ date: 2023-11-24 08:00
 layout: post 
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: false
 tags: 
 - javascript
@@ -25,7 +25,7 @@ Lista degli obiettivi che a fine articolo il lettore consegue:
 
 - Comprensione del concetto di "puntamento in memoria" o "puntatore".
 - Come si sfrutta il puntamento in memoria in JavaScript.
-- Deep equals vs Shallow equals
+- Deep equals vs Shallow equals.
 
 ## Prerequisiti
 
@@ -38,20 +38,21 @@ Si consiglia comunque una lettura di tutte le lezioni.
 
 ## Variabili primitive, complesse, classi e rappresentazione in memoria
 
-Nel percorso affrontato fin ora si è visto come instanziare ed utilizzare vari tipi di dato in JavaScript, variabili primitive e non, oggetti e classi. Ma se per un essere umano leggere questo genere di dati è intuitivo (a patto di saper leggere e scrivere) risulta valida la domanda: "come fa una macchina a comprendere questi dati? Come li conserva e come li legge?". La risposta non è semplice e si passerà per alcune "*semplificazioni*" allo scopo di non appesantire troppo la lettura.
+Nel percorso affrontato fin ora si è visto come instanziare ed utilizzare vari tipi di dato in JavaScript, variabili primitive e non, oggetti e classi; se per un essere umano leggere questo genere di dati è intuitivo (a patto di saper leggere e scrivere) risulta valida la domanda: "come fa una macchina a comprendere questi dati? Come li conserva e come li legge?". 
+La risposta non è semplice e si ricorrerà ad alcune "*semplificazioni*" allo scopo di non appesantire troppo la lettura.
 
 ### Rappresentazione binaria e celle di memoria
 
-Il calcolatore memorizza tutti i dati utilizzando ovviamente la notazione binaria e son raggruppati in sequenze da 8 bit (un **byte**).
+Il calcolatore memorizza tutti i dati utilizzando ovviamente la notazione binaria e sono raggruppati in sequenze da 8 bit (un **byte**).
 
-A queste sequenze di numeri vengono poi dati dei significati: 
+A queste sequenze di numeri vengono poi dati dei significati secondo questo schema: 
 
-- Un singolo carattere è decodificato, in JavaScript, con coppie di byte (2 byte=16 bit), [come specificato nella documentazione di Mozilla](https://developer.mozilla.org/en-US/docs/Glossary/Code_unit). Questo perché JavaScript utilizza la codifica UTF-16.
-  - Il concetto di codifica è complesso e non verrà trattato, si può pensare a UTF-16 come una lista di numeri a 16 bit a cui ognuno è stato associato un simbolo. [Qui si può trovare la lista](https://www.fileformat.info/info/charset/UTF-16/list.htm).
+- Un singolo carattere è decodificato, in JavaScript, con coppie di byte (2 byte=16 bit), [come specificato nella documentazione di Mozilla](https://developer.mozilla.org/en-US/docs/Glossary/Code_unit). Questo perché JavaScript utilizza la codifica UTF-16; il concetto di codifica è complesso e non verrà trattato, si può pensare a UTF-16 come una lista di numeri a 16 bit a cui ognuno è stato associato un simbolo. [Qui si può trovare la lista](https://www.fileformat.info/info/charset/UTF-16/list.htm).
 - Un booleano è associato ad un 1 bit. Se 0 è false, se 1 è true.
 - I numeri interi sono associati a vettori di 64bit, sia quelli interi che quelli con virgola mobile.
 
-Un dato complesso è dato da un raggruppamento di quelli visti qua sopra. Ad esempio la Stringa è una sequenza di caratteri. Un oggetto di Javascript è rappresentato da un blocco di dati che non è omogeneo, ogni dato viene rappresentato internamente da un nome. Ma questi dati dove vengono memorizzati?
+Un dato complesso è dato da un raggruppamento di quelli visti qua sopra. Ad esempio la Stringa è una sequenza di caratteri.
+Un oggetto di Javascript è rappresentato da un blocco di dati che non è omogeneo, ogni dato viene rappresentato internamente da un nome. Ma questi dati dove vengono memorizzati?
 
 ### RAM, Heap e Stack
 
@@ -62,12 +63,13 @@ Nello specifico, ad ogni programma il sistema operativo riserva uno spazio in ra
 
 Ma non è tutto: la ram è "virtualmente" divisa in due parti:
 
-- Lo Stack, o memoria a pila, che cresce in modo ordinato dal basso verso l'alto (un po' come una pila di piatti).
-- L'heap, o memoria libera, in cui non vi è un ordine preciso.
+- Stack, o memoria a pila, che cresce in modo ordinato dal basso verso l'alto (un po' come una pila di piatti).
+- Heap, o memoria libera, in cui non vi è un ordine preciso.
 
 ## Riferimenti in memoria
 
-Una variabile primitiva è generalmente conservata nello stack, per gli oggetti complessi invece il discorso è **diverso**. Nello stack viene memorizzato l'indirizzo in memoria che risiede nell'HEAP, questo indirizzo è chiamato **puntatore**.  
+Una variabile primitiva è generalmente conservata nello stack, per gli oggetti complessi invece il discorso è **diverso**. 
+Nello Stack viene memorizzato l'indirizzo in memoria che risiede nell'HEAP, questo indirizzo è chiamato **puntatore**.
 Si può dire che il vero valore di un oggetto complesso sia il **puntatore**, ovvero un numero, che dice dove si possono trovare i suoi dati.
 
 ## I puntatori in JavaScript
@@ -91,7 +93,8 @@ Il risultato è questo:.
 [object Object]
 ```
 
-La console identifica che p non è un oggetto primitivo e stampa quindi a schermo non il suo valore ma la sua natura.In altri linguaggi la stampa a schermo mostrerebbe anche l'indirizzo in memoria, purtroppo in JavaScript non è possibile.
+La console identifica che `p` non è un oggetto primitivo e stampa quindi a schermo non il suo valore ma la sua natura.
+In altri linguaggi la stampa a schermo mostrerebbe anche l'indirizzo in memoria, purtroppo in JavaScript non è possibile.
 
 Il concetto è comunque presente e ci si può sperimentare. Ad esempio con **i confronti**, si provi a creare due oggetti diversi ma con lo stesso contenuto: 
 
@@ -118,7 +121,8 @@ if(c===p){
 }
 ```
 
-Visto che il contenuto è lo stesso ci si aspetterebbe che la stampa si a`uguali!`, invece ciò che apparirà sarà `diversi!`. Questo perché javascript non sa come confrontare questi due oggetti, quindi utilizza il puntatore per farlo e scopre che son due oggetti diversi.
+Visto che il contenuto è lo stesso ci si aspetterebbe che la stampa sia `uguali!`, invece ciò che apparirà sarà `diversi!`.
+Questo perché JavaScript non sa come confrontare questi due oggetti, quindi utilizza il puntatore per farlo e scopre che sono due oggetti diversi.
 
 Si può fare un altro esperimento:
 
@@ -144,7 +148,8 @@ In questo caso il risultato sarà `uguali`, infatti assegnando esplicitamente un
 
 ### Lavorare con i puntatori
 
-Quali sono le conseguenze di aver assegnato un puntatore? Quali le differenze ad assegnare semplicemente un oggetto con gli stessi valori?
+Quali sono le conseguenze di aver assegnato un puntatore? 
+Quali le differenze ad assegnare semplicemente un oggetto con gli stessi valori?
 
 Per rispondere a queste domande si possono fare dei piccoli esempi. Riprendendo l'esempio di cui sopra:
 
@@ -180,9 +185,9 @@ Il punto p ha coordinate {x=10,y=-2}
 Il motivo è presto detto, ripercorrendo step-by-step tutte le fasi dovrebbe essere chiaro:
 
 - Si è creato un oggetto in memoria di tipo punto
-- Il suo puntatore è stato assegnato a p
-- A c è stato assegnato poi p, che lo stesso identico puntatore del punto creato precedentemente
-- È stato usato c per accedere al punto e cambiare le sue coordinate
+- Il suo puntatore è stato assegnato a `p`
+- A `c` è stato assegnato poi `p`, che lo stesso identico puntatore del punto creato precedentemente
+- È stato usato `c` per accedere al punto e cambiare le sue coordinate
 
 ![](https://mermaid.ink/img/pako:eNpNjr0KwzAMhF_FaE5ewEOnPEChHb2ottwE_Icj0YaQd6-Dh_SmjzuJux1sdgQafMgfO2Nl9ZxMUk2rvN4Vy6zukjh379T3wq0jJWdSx6LG8fb_YS8DBohUIy6u9e1nbIBnimRAN3TkUQIbMOlopyicH1uyoLkKDSDFIdO0YBsVQXsMKx0_b007Vw?type=png)
 
@@ -190,7 +195,7 @@ Questo concetto in programmazione è chiamato anche **aliasing**, ovvero lo stes
 
 ### Un altro paio di note sull'aliasing
 
-Il concetto dell'aliasing in generale è un po' ostico per quelli che si avvicinano alla programmazione per le prime volte.
+Il concetto dell'aliasing in generale è un po' ostico per quanti si avvicinano alla programmazione per le prime volte.
 
 Uno dei casi che confonde di più è il seguente:
 
@@ -223,11 +228,11 @@ Il punto p ha coordinate {x=10,y=-2}
 Ripercorriamo step-by-step:
 
 - È stato creato un punto in memoria
-- Il suo puntatore è stato assegnato a p
-- p è stato poi assegnato a c, hanno quindi condiviso il puntatore del punto in memoria
+- Il suo puntatore è stato assegnato a `p`
+- `p` è stato poi assegnato a `c`, hanno quindi condiviso il puntatore del punto in memoria
 - È stato creato un nuovo punto in memoria
-- Il suo puntatore è stato assegnato a p
-- Il valore degli attributi del nuovo puntatore è stato cambiato attraverso p
+- Il suo puntatore è stato assegnato a `p`
+- Il valore degli attributi del nuovo puntatore è stato cambiato attraverso `p`
 
 Nel momento in cui a `p` è stato assegnato il nuovo puntatore, la sua "vita" è stata separata da `c`, il concetto di aliasing è scomparso. Ci son due oggetti e per ognuno di loro un etichetta.
 
@@ -242,7 +247,7 @@ Precedentemente si è visto il confronto "*shallow*", quello *deep* purtroppo no
 
 ### Confronti Deep manuali
 
-Un primo approccio può essere quella del confronto manuale, definendo magari un metodo all'interno della classe da confrontare
+Un primo approccio può essere quella del confronto manuale, definendo magari un metodo all'interno della classe da confrontare:
 
 ```javascript
 class Punto {
@@ -299,7 +304,8 @@ Il suo JSON sarà:
 }
 ```
 
-In JavaScript il JSON si può utilizzare per i confronti tra oggetti. Per trasformare un oggetto in JSON basta utilizzare la direttiva `JSON.stringify(nomevariabile)`: 
+In JavaScript il JSON si può utilizzare per i confronti tra oggetti.
+Per trasformare un oggetto in JSON basta utilizzare la direttiva `JSON.stringify(nomevariabile)`: 
 
 ```javascript
 class Punto {
