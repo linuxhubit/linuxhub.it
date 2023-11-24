@@ -13,7 +13,7 @@ tags:
 - nodejs
 ---
 
-[&larr; Articolo precedente: Parametri opzionali e di default](https://linuxhub.it/articles/howtodev-javascript-pt8)
+[&larr; Articolo precedente: Parametri opzionali e di default](https://linuxhub.it/articles/howtodev-javascript-pt8)  
 [&rarr; Articolo successivo: Puntamenti in memoria](https://linuxhub.it/articles/howtodev-javascript-pt10)  
 
 
