@@ -119,7 +119,7 @@ sending SIGTERM when mem <= 10.00% and swap <= 10.00%,
 
 ### Configurazioni di earlyoom
 
-Per personalizzare il livello delle soglie basta scrivere nel file `/etc/defaul/earlyoom`. Questo file dovrebbe già contenere degli esempi di configurazione opportunamente commentati e una linea di configurazione non commentata. Per aggiungere o modificare le opzioni di avvio basta modificare quindi quell'opzione decommentata.
+Per personalizzare il livello delle soglie basta scrivere nel file `/etc/default/earlyoom`. Questo file dovrebbe già contenere degli esempi di configurazione opportunamente commentati e una linea di configurazione non commentata. Per aggiungere o modificare le opzioni di avvio basta modificare quindi quell'opzione decommentata.
 
 ```bash
 EARLYOOM_ARGS="-r 3600 -n --avoid '(^|/)(init|systemd|Xorg|sshd)$'"
