@@ -5,8 +5,8 @@ date: 2024-01-05 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: false
 tags:
 - ubuntu
@@ -17,32 +17,41 @@ tags:
 - earlyoom
 ---
 
-Siamo entrati in quell'era in cui, é necessario dirlo, ma anche 8GB di RAM iniziano ad essere pochi. Le soluzioni per utilizzare un sistema poco performanti sono tante, come kernel piú efficienti, swap, gestione compressa di RAM, D.E. piú leggeri... ma si potrebbe anche iniziare dalla gestione dei processi attivi, prevenendo la propria macchina dall'apertura di applicazioni se il quantitativo di RAM residua é bassa. É ora di scoprire come funzionano gli OOMD.
+Siamo in un'era in cui, é necessario dirlo, anche 8GB di RAM iniziano ad essere pochi.
+Alcune delle soluzioni per utilizzare un sistema poco performante, o magari non "aggiornabile" sono tante, come kernel piú efficienti, memoria virtuale, gestione compressa della RAM, ambienti grafici piú leggeri...
+Un'altro approccio potrebbe anche iniziare dalla gestione dei processi attivi, agendo preventivamente con un "demone" che liberi la RAM e la memoria virtuale, la SWAP, quando queste sono quasi completamente occupate.
+É ora di scoprire come funzionano gli "OOMD".
 
 ## Cos'é un OOMD
 
-**Out Of Memory** Daemon, ovvero quel componente che interviene a liberare la RAM quando si presenta un errore del tipo **Out Of Memory**. Per chi fosse poco avvezzo al termine, gli errori di questo tipo si presentano quando l'ammontare di RAM richiesto supera il quantitativo di RAM disponibile sul sistema.
+**Out Of Memory** Daemon, ovvero quel componente che interviene a liberare la RAM e la SWAP quando si stanno per riempire, evitando che si presenti un errore del tipo **Out Of Memory**.
+Per chi fosse poco avvezzo al termine, gli errori di questo tipo si presentano quando vi sono dei tentativi di accesso in memoria volatile che supera il quantitativo di RAM e SWAP disponibile sul sistema.
 
-Su sistemi GNU/Linux normalmente *non c'è un OOMD attivo* per opzione predefinita (tranne in alcune distribuzioni come *Fedora*), tuttavia ce ne sono diversi che si possono configurare. In questo articolo sarà spiegato come usarne uno: earlyoom.
+Sui sistemi GNU/Linux normalmente *non c'è un OOMD attivo* per opzione predefinita (tranne in alcune distribuzioni come *Fedora*), tuttavia ce ne sono diversi che si possono configurare.
+In questo articolo sarà spiegato come usarne uno: [earlyoom](https://github.com/rfjakob/earlyoom).
 
 ### Una raccomandazione sulla SWAP
 
-Anche avere una RAM capiente non deve essere sinonimo di mancanza di SWAP. La presenza di un' area di swap è necessaria al sistema per una gestione della memoria efficiente, non solo in condizioni di mancanza di memoria ma anzi, proprio per evitare situazioni in cui la RAM si possa saturare facilmente. Vorrei lasciare qui a disposizione dei lettori un articolo proprio [sull' importanza di avere un area di swap attiva sul proprio sistema](https://chrisdown.name/2018/01/02/in-defence-of-swap.html).
+Anche avere una RAM capiente non è una scusa per non avere della SWAP sul sistema.
+La presenza di un'area di SWAP è necessaria per una gestione della memoria efficiente, non solo in condizioni di mancanza di memoria ma anzi, proprio per evitare che la RAM si possa saturare facilmente.
+Vorrei lasciare qui a disposizione dei lettori un articolo proprio [sull' importanza di avere un area di swap attiva sul proprio sistema](https://chrisdown.name/2018/01/02/in-defence-of-swap.html).
 
-Alcuni degli OOMD sotto elencati necessitano che si abbia un area di swap attiva per il corretto funzionamento.
+Alcuni degli OOMD sotto elencati necessitano che si abbia un area di SWAP attiva per il corretto funzionamento.
 
 ### ATTENZIONE: Cosa succede se uso un OOMD
 
-Un oomd controlla costantemente il consumo di ram, se questo aumenta fino ad eccedere un certo limite, decide (in base ad alcuni parametri interni che variano da software a software) di terminare uno o più software per riportare la situazione sotto quella che viene considerata la norma. Prima di avventurarsi nell' uso di uno di questi strumenti vorrei sottolineare che con il loro utilizzo alcuni software potrebbero terminare in modo improvviso e si potrebbero anche perdere dati importanti (sarebbe magari il caso di utilizzare software che hanno il salvataggio automatico integrato per evitare problemi).
+Un OOMD controlla costantemente il consumo di RAM, se questo aumenta fino ad eccedere le soglie configurate, decide (in base ad alcuni parametri interni che variano da software a software) di terminare uno o più processi per riportare la situazione sotto la soglia.
+Prima di avventurarsi nell'uso di uno di questi strumenti vorrei sottolineare che con il loro utilizzo alcuni processi potrebbero essere terminati in modo improvviso, pertanto è possibile che si verifichino perdite di dati importanti.
+Per evitare che ciò accada vi consigliamodi utilizzare software che integrino funzioni di salvataggio automatico e di tenere sott'occhio l'occupazione della RAM e della SWAP mentre lavorate.
 
 ### Simulare un memory leak per testare il proprio OOMD
 
 Allo scopo di testare questi software ci si può adoperare in due modi diversi:
 
-- Iniziare ad aprire quanti più software pesanti contemporaneamente (browser, telegram, macchine virtuali, etc...)
+- Iniziare ad aprire più software pesanti contemporaneamente (browser, macchine virtuali, etc...)
 - Simulare un memory leak
 
-Per la seconda strada basta digitare:
+Per la seconda opzione, basta digitare:
 
 ```bash
 tail /dev/zero
@@ -50,7 +59,8 @@ tail /dev/zero
 
 ## earlyoom
 
-Questo progetto é nato per sopperire a varie mancanze e coprire alcuni malfunzionamenti di quelli che erano i tradizionali oom che utilizzavano le direttive del kernel per uccidere i processi che esulavano dalla memoria. Tutti i dettagli del progetto si possono trovare [al repository ufficiale su Github](https://github.com/rfjakob/earlyoom).
+Questo progetto è nato per sopperire a varie mancanze e coprire alcuni malfunzionamenti di quelli che erano i tradizionali OOMD che utilizzavano le direttive del kernel per terminare i processi che esulavano dalla memoria. 
+Tutti i dettagli del progetto si possono trovare [al repository ufficiale su Github](https://github.com/rfjakob/earlyoom).
 
 ### Installare earlyoom su Ubuntu
 
@@ -78,7 +88,8 @@ pacman -S earlyoom
 
 ### Installare earlyoom a mano
 
-Se la distribuzione che si sta utilizzando non fornisce di default il pacchetto lo si può sempre installare a mano. Per farlo basta scaricare il repository ed avviare gli script con make. Si digiti:
+Se la distribuzione che si sta utilizzando non fornisce di default il pacchetto lo si può sempre installare a mano.
+Per farlo basta scaricare il repository ed avviare gli script con make. Si digiti:
 
 ```bash
 git clone https://github.com/rfjakob/earlyoom.git
@@ -110,7 +121,9 @@ journalctl -f earlyoom
 
 Apparirà un messaggio ogni 3600 secondi (ogni ora).  
 
-Normalmente il software decide di mandare dei SIGTERM (ovvero segnali gentili di chiusura) se la memoria disponibile é al di sotto del 10% e se la swap disponibile é anch'essa al di sotto del 10%. Inizia invece un comportamento più aggressivo inviando SIGKILL (chiusura forzata) se entrambe scendono al di sotto del 5%. Queste impostazioni possono essere anche verificate dopo aver dato il comando `journalctl -f earlyoom`, appariranno subito dopo l'avvio:
+Normalmente il software decide di mandare dei SIGTERM (ovvero segnali gentili di chiusura) se la memoria disponibile é al di sotto del 10% e se la swap disponibile é anch'essa al di sotto del 10%.
+Inizia invece un comportamento più aggressivo inviando SIGKILL (chiusura forzata) se entrambe scendono al di sotto del 5%.
+Queste impostazioni possono essere anche verificate dopo aver dato il comando `journalctl -f earlyoom`, appariranno subito dopo l'avvio:
 
 ```plain
 sending SIGTERM when mem <= 10.00% and swap <= 10.00%,
@@ -119,19 +132,21 @@ sending SIGTERM when mem <= 10.00% and swap <= 10.00%,
 
 ### Configurazioni di earlyoom
 
-Per personalizzare il livello delle soglie basta scrivere nel file `/etc/default/earlyoom`. Questo file dovrebbe già contenere degli esempi di configurazione opportunamente commentati e una linea di configurazione non commentata. Per aggiungere o modificare le opzioni di avvio basta modificare quindi quell'opzione decommentata.
+Per personalizzare il livello delle soglie basta scrivere nel file `/etc/default/earlyoom`.
+Questo file dovrebbe già contenere degli esempi di configurazione opportunamente commentati e una linea di configurazione non commentata.
+Per aggiungere o modificare le opzioni di avvio basta modificare quindi quell'opzione decommentata.
 
 ```bash
 EARLYOOM_ARGS="-r 3600 -n --avoid '(^|/)(init|systemd|Xorg|sshd)$'"
 ```
 
-Per personalizzare le soglie aggiungere le opzioni `-m` per la soglia di ram e `-s` per la soglia di swap, utilizzando questa sintassi:
+Per personalizzare le soglie aggiungere le opzioni `-m` per la soglia di RAM e `-s` per la soglia di SWAP, utilizzando questa sintassi:
 
 ```properties
 -m x,y -s w,z
 ```
 
-la posto di `x` inserire la soglia di *RAM* disponibile *minima raggiungibile* prima di mandare un **SIGTERM**, al posto di `y` la soglia di *RAM* disponibile *minima raggiungibile* prima di mandare un **SIGKILL**.
+AL posto di `x` inserire la soglia di *RAM disponibile minima* prima di mandare un **SIGTERM**, al posto di `y` la soglia di *RAM disponibile minima* prima di mandare un **SIGKILL**.
 
 Ad esempio per impostare le soglie al 5% per il SIGTERM ed al 2% per il SIGKILL, le due opzioni diventano:
 
@@ -145,7 +160,7 @@ Aggiungendole al file di configurazione diventa:
 EARLYOOM_ARGS="-r 3600 -n --avoid '(^|/)(init|systemd|Xorg|sshd)$' -m 5,2 -s 5,2"
 ```
 
-Dopo la modifica si può riavviare il demone systemd:
+Dopo la modifica si può riavviare il demone Systemd:
 
 ```bash
 systemctl restart earlyoom
@@ -164,7 +179,7 @@ sending SIGTERM when mem <=  5.00% and swap <=  5.00%,
         SIGKILL when mem <=  2.00% and swap <=  2.00%
 ```
 
-Per sapere tutte le opzioni modificabili basta consultare la lista dei flag attraverso il comando:
+Per sapere tutte le opzioni modificabili è possibile consultare la lista dei flag attraverso il comando:
 
 ```bash
 earlyoom -h
@@ -178,7 +193,7 @@ Dopo aver dato `earlyoom` per controllare il flusso del software si puó aprire 
 tail /dev/zero
 ```
 
-come spiegato in precedenza. Si dovrebbe iniziare a vedere la memoria disponibile scendere e quindi ad un certo punto un messaggio di questo tipo:
+Si dovrebbe iniziare a vedere la memoria disponibile scendere e quindi ad un certo punto un messaggio di questo tipo:
 
 ```plain
 mem avail:   972 of  7935 MiB (12.25%), swap free:    0 of    0 MiB ( 0.00%)
@@ -193,9 +208,10 @@ Il programma `tail` dovrebbe quindi essere stato tempestivamente terminato.
 
 ## Note di fine articolo: systemd-oomd
 
-Le distribuzioni con preinstallato **systemd** dovrebbero poter nativamente accedere (anche se per opzione predefinita disattivato in tutte le distruzioni eccetto che Fedora) a systemd-oomd. Perché nell'articolo non ve né menzione alcuna?  
-
-La risposta é presto detta, infatti ho trovato caotica e poco alla mano la documentazione, che non presenta nemmeno una propria e vera guida unica ma sembra essere divisa in piú pagine della documentazione ufficiale di Systemd alcune non correllate direttamente tra di loro. Lascio di seguito alcune documentazioni nel caso in cui, il lettore, volesse cimentarsi da solo nell' impresa di configurarselo:
+Le distribuzioni con preinstallato **systemd** dovrebbero poter nativamente accedere (anche se per opzione predefinita disattivato in tutte le distruzioni eccetto che Fedora) a systemd-oomd.
+Perché nell'articolo non viene menzionato?
+La risposta é presto detta, infatti ho trovato caotica e poco alla mano la documentazione, che non presenta nemmeno una propria e vera guida unica ma sembra essere divisa in piú pagine della documentazione ufficiale di Systemd, di cui alcune non correlate direttamente tra di loro.
+Lascio di seguito le documentazioni che ho trovato nel caso in cui il lettore volesse cimentarsi da solo nell'impresa di configurarlo, se ci provate raccontateci com'è andata sul gruppo Telegram:
 
 - [Manuale ufficiale di systemd-oomd](https://www.freedesktop.org/software/systemd/man/latest/systemd-oomd.service.html)
 - [Manuale ufficiale per oomd.conf, il file di configurazione di systemd-oomd](https://www.freedesktop.org/software/systemd/man/latest/oomd.conf.html)
