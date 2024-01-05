@@ -7,7 +7,7 @@ author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: Michael Messaggi
 coauthor_github: MichaelMessaggi
-published: false
+published: true
 tags:
 - ubuntu
 - fedora
@@ -18,8 +18,8 @@ tags:
 ---
 
 Siamo in un'era in cui, é necessario dirlo, anche 8GB di RAM iniziano ad essere pochi.
-Alcune delle soluzioni per utilizzare un sistema poco performante, o magari non "aggiornabile" sono tante, come kernel piú efficienti, memoria virtuale, gestione compressa della RAM, ambienti grafici piú leggeri...
-Un'altro approccio potrebbe anche iniziare dalla gestione dei processi attivi, agendo preventivamente con un "demone" che liberi la RAM e la memoria virtuale, la SWAP, quando queste sono quasi completamente occupate.
+Alcune delle soluzioni per utilizzare un sistema poco performante, o magari non "aggiornabile" sono: kernel piú efficienti, memoria virtuale, gestione compressa della RAM, ambienti grafici piú leggeri...
+L' approccio affrontato in questo articolo invece è la gestione dei processi attivi: o meglio agire preventivamente con un "demone" che liberi la RAM e la memoria virtuale, la SWAP, quando queste sono quasi completamente occupate.
 É ora di scoprire come funzionano gli "OOMD".
 
 ## Cos'é un OOMD
@@ -42,7 +42,7 @@ Alcuni degli OOMD sotto elencati necessitano che si abbia un area di SWAP attiva
 
 Un OOMD controlla costantemente il consumo di RAM, se questo aumenta fino ad eccedere le soglie configurate, decide (in base ad alcuni parametri interni che variano da software a software) di terminare uno o più processi per riportare la situazione sotto la soglia.
 Prima di avventurarsi nell'uso di uno di questi strumenti vorrei sottolineare che con il loro utilizzo alcuni processi potrebbero essere terminati in modo improvviso, pertanto è possibile che si verifichino perdite di dati importanti.
-Per evitare che ciò accada vi consigliamodi utilizzare software che integrino funzioni di salvataggio automatico e di tenere sott'occhio l'occupazione della RAM e della SWAP mentre lavorate.
+Per evitare che ciò accada vi consigliamo di utilizzare software che integrino funzioni di salvataggio automatico e di tenere sott'occhio l'occupazione della RAM e della SWAP mentre lavorate.
 
 ### Simulare un memory leak per testare il proprio OOMD
 
@@ -122,6 +122,7 @@ journalctl -f earlyoom
 Apparirà un messaggio ogni 3600 secondi (ogni ora).  
 
 Normalmente il software decide di mandare dei SIGTERM (ovvero segnali gentili di chiusura) se la memoria disponibile é al di sotto del 10% e se la swap disponibile é anch'essa al di sotto del 10%.
+
 Inizia invece un comportamento più aggressivo inviando SIGKILL (chiusura forzata) se entrambe scendono al di sotto del 5%.
 Queste impostazioni possono essere anche verificate dopo aver dato il comando `journalctl -f earlyoom`, appariranno subito dopo l'avvio:
 
@@ -146,7 +147,7 @@ Per personalizzare le soglie aggiungere le opzioni `-m` per la soglia di RAM e `
 -m x,y -s w,z
 ```
 
-AL posto di `x` inserire la soglia di *RAM disponibile minima* prima di mandare un **SIGTERM**, al posto di `y` la soglia di *RAM disponibile minima* prima di mandare un **SIGKILL**.
+Al posto di `x` inserire la soglia di *RAM disponibile minima* prima di mandare un **SIGTERM**, al posto di `y` la soglia di *RAM disponibile minima* prima di mandare un **SIGKILL**.
 
 Ad esempio per impostare le soglie al 5% per il SIGTERM ed al 2% per il SIGKILL, le due opzioni diventano:
 
@@ -210,7 +211,8 @@ Il programma `tail` dovrebbe quindi essere stato tempestivamente terminato.
 
 Le distribuzioni con preinstallato **systemd** dovrebbero poter nativamente accedere (anche se per opzione predefinita disattivato in tutte le distruzioni eccetto che Fedora) a systemd-oomd.
 Perché nell'articolo non viene menzionato?
-La risposta é presto detta, infatti ho trovato caotica e poco alla mano la documentazione, che non presenta nemmeno una propria e vera guida unica ma sembra essere divisa in piú pagine della documentazione ufficiale di Systemd, di cui alcune non correlate direttamente tra di loro.
+
+La risposta é presto detta, infatti ho trovato caotica e poco alla mano la documentazione, che non presenta nemmeno una propria e vera guida unica ma sembra essere divisa in piú pagine della documentazione ufficiale di Systemd, di cui alcune non correlate direttamente tra di loro.  
 Lascio di seguito le documentazioni che ho trovato nel caso in cui il lettore volesse cimentarsi da solo nell'impresa di configurarlo, se ci provate raccontateci com'è andata sul gruppo Telegram:
 
 - [Manuale ufficiale di systemd-oomd](https://www.freedesktop.org/software/systemd/man/latest/systemd-oomd.service.html)
