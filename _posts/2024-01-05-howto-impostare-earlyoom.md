@@ -17,14 +17,14 @@ tags:
 - earlyoom
 ---
 
-Siamo in un'era in cui, é necessario dirlo, anche 8GB di RAM iniziano ad essere pochi.
+Siamo in un'era in cui, è necessario dirlo, anche 8GB di RAM iniziano ad essere pochi.
 Alcune delle soluzioni per utilizzare un sistema poco performante, o magari non "aggiornabile" sono: kernel piú efficienti, memoria virtuale, gestione compressa della RAM, ambienti grafici piú leggeri...
-L' approccio affrontato in questo articolo invece è la gestione dei processi attivi: o meglio agire preventivamente con un "demone" che liberi la RAM e la memoria virtuale, la SWAP, quando queste sono quasi completamente occupate.
-É ora di scoprire come funzionano gli "OOMD".
+L'approccio affrontato in questo articolo invece è la gestione dei processi attivi: o meglio agire preventivamente con un "demone" che liberi la RAM e la memoria virtuale, la SWAP, quando queste sono quasi completamente occupate.
+È ora di scoprire come funzionano gli "OOMD".
 
 ## Cos'é un OOMD
 
-**Out Of Memory** Daemon, ovvero quel componente che interviene a liberare la RAM e la SWAP quando si stanno per riempire, evitando che si presenti un errore del tipo **Out Of Memory**.
+**Out Of Memory Daemon**, ovvero quel componente che interviene a liberare la RAM e la SWAP quando si stanno per riempire, evitando che si presenti un errore del tipo **Out Of Memory**.
 Per chi fosse poco avvezzo al termine, gli errori di questo tipo si presentano quando vi sono dei tentativi di accesso in memoria volatile che supera il quantitativo di RAM e SWAP disponibile sul sistema.
 
 Sui sistemi GNU/Linux normalmente *non c'è un OOMD attivo* per opzione predefinita (tranne in alcune distribuzioni come *Fedora*), tuttavia ce ne sono diversi che si possono configurare.
@@ -33,7 +33,7 @@ In questo articolo sarà spiegato come usarne uno: [earlyoom](https://github.com
 ### Una raccomandazione sulla SWAP
 
 Anche avere una RAM capiente non è una scusa per non avere della SWAP sul sistema.
-La presenza di un'area di SWAP è necessaria per una gestione della memoria efficiente, non solo in condizioni di mancanza di memoria ma anzi, proprio per evitare che la RAM si possa saturare facilmente.
+La presenza di un'area di SWAP è necessaria per una gestione della memoria efficiente, non solo in condizioni di mancanza di memoria, ma anzi, proprio per evitare che la RAM si possa saturare facilmente.
 Vorrei lasciare qui a disposizione dei lettori un articolo proprio [sull' importanza di avere un area di swap attiva sul proprio sistema](https://chrisdown.name/2018/01/02/in-defence-of-swap.html).
 
 Alcuni degli OOMD sotto elencati necessitano che si abbia un area di SWAP attiva per il corretto funzionamento.
@@ -119,9 +119,9 @@ Si può monitornarne l'utilizzo scrivendo sul terminale:
 journalctl -f earlyoom
 ```
 
-Apparirà un messaggio ogni 3600 secondi (ogni ora).  
+Apparirà un messaggio ogni 3600 secondi (ogni ora).
 
-Normalmente il software decide di mandare dei SIGTERM (ovvero segnali gentili di chiusura) se la memoria disponibile é al di sotto del 10% e se la swap disponibile é anch'essa al di sotto del 10%.
+Normalmente il software decide di mandare dei SIGTERM (ovvero segnali gentili di chiusura) se la memoria disponibile è al di sotto del 10% e se la swap disponibile è anch'essa al di sotto del 10%.
 
 Inizia invece un comportamento più aggressivo inviando SIGKILL (chiusura forzata) se entrambe scendono al di sotto del 5%.
 Queste impostazioni possono essere anche verificate dopo aver dato il comando `journalctl -f earlyoom`, appariranno subito dopo l'avvio:
@@ -210,9 +210,11 @@ Il programma `tail` dovrebbe quindi essere stato tempestivamente terminato.
 ## Note di fine articolo: systemd-oomd
 
 Le distribuzioni con preinstallato **systemd** dovrebbero poter nativamente accedere (anche se per opzione predefinita disattivato in tutte le distruzioni eccetto che Fedora) a systemd-oomd.
-Perché nell'articolo non viene menzionato?
 
-La risposta é presto detta, infatti ho trovato caotica e poco alla mano la documentazione, che non presenta nemmeno una propria e vera guida unica ma sembra essere divisa in piú pagine della documentazione ufficiale di Systemd, di cui alcune non correlate direttamente tra di loro.  
+Perché non viene quindi menzionato in questa guida?
+
+La risposta è presto detta, ho trovato la documentazione caotica e poco alla mano, che non offre nemmeno una vera e propria guida unificata ma sembra essere divisa in piú pagine della documentazione ufficiale di Systemd, di cui alcune non correlate direttamente tra di loro.
+
 Lascio di seguito le documentazioni che ho trovato nel caso in cui il lettore volesse cimentarsi da solo nell'impresa di configurarlo, se ci provate raccontateci com'è andata sul gruppo Telegram:
 
 - [Manuale ufficiale di systemd-oomd](https://www.freedesktop.org/software/systemd/man/latest/systemd-oomd.service.html)
