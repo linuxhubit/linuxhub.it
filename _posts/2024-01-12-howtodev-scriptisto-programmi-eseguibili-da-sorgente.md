@@ -5,29 +5,30 @@ date: 2024-01-12 07:00
 layout: post
 author: Midblyte
 author_github: Midblyte
-coauthor:
-coauthor_github:
+coauthor: Davide Galati (in arte PsykeDady)
+coauthor_github: PsykeDady
 published: false
 tags:
 - ubuntu
 - fedora
 - archlinux
+- shebang
 ---
 
-Bash non è solamente il nome della shell più conosciuta e utilizzata, ma anche il nome del linguaggio in cui molti script sono scritti.
+Bash non è solamente il nome della shell più conosciuta e utilizzata, ma anche il nome del linguaggio in cui molti script sono scritti.  
+Uno dei vantaggi fondamentali forniti da Bash è quello della portabilità: salvo alcune eccezioni, lo si ritrova installato su ogni moderno sistema Linux.  
 
-Uno dei vantaggi fondamentali forniti da Bash è quello della portabilità: salvo alcune eccezioni, lo si ritrova installato su ogni moderno sistema Linux.
+Tuttavia, la portabilità a volte arriva con un costo non indifferente: la comodità di sviluppare in quel linguaggio, una più frequente complessità e la difficoltà a scrivere codice per compiere operazioni spesso molto banali in altri linguaggi di programmazione.
 
-Tuttavia, la portabilità a volte arriva con un costo non indifferente: la comodità di sviluppare in quel linguaggio, la complessità che si raggiunge ben presto, e la difficoltà a scrivere codice per compiere operazioni magari anche molto banali in altri linguaggi di programmazione.
-
-Ad esempio? L'aritmetica dei numeri decimali (nativamente non supportata), mancanza di supporto per strutture dati complesse (array multidimensionali propriamente detti, struct, classi, interfacce), performance (escluso per i comandi "builtin", ogni comando viene eseguito in un nuovo processo, aumentando sensibilmente il consumo di risorse), mancanza di una sufficientemente ampia libreria standard (bisogna ricorrere a strumenti, spesso altrettanto comuni, ma comunque esterni a Bash per eseguire determinate operazioni: ad esempio, nel caso di ricerca e ordinamento è il caso di `grep` e `sort` rispettivamente).
-
-> Leggi anche: [#howto - Fare calcoli con Linux: Bash e non solo](https://linuxhub.it/articles/howto-fare-calcoli-con-linux/).
+Per fornire qualche esempio si pensi all'aritmetica dei numeri decimali (nativamente non supportata), alla mancanza di supporto per strutture dati complesse e così via.
 
 Questa situazione rende Bash idoneo per script molto semplici, ma non così tanto per software più complessi o che tendono velocemente a evolvere.
 
 Esiste un'alternativa?
 
+> Nota bene:
+>  
+> Per una panoramica su come fare calcoli in bash leggi anche: [#howto - Fare calcoli con Linux: Bash e non solo](https://linuxhub.it/articles/howto-fare-calcoli-con-linux/).
 
 ## Una breve premessa
 
@@ -96,6 +97,7 @@ Questo implica che ogni cambiamento "al volo" nel sorgente non si rispecchi nell
 In più, l'**overhead** è minimo (circa 1 ms riportato sugli script eseguiti senza apportare cambiamenti), quindi l'uso extra di risorse è praticamente nullo.
 
 Tra i vantaggi:
+
 - **Facile distribuzione**, siccome tutto è incluso in un unico file e all'utente non è richiesto di seguire nessun procedimento per la compilazione;
 - **Risoluzione delle dipendenze**, siccome Scriptisto è capace di tenerne automaticamente traccia (il che è un bonus anche per i linguaggi interpretati);
 - **Rapida prototipazione**, nel caso in cui si voglia testare rapidamente senza perdere tempo nella configurazione di un nuovo progetto;
@@ -107,12 +109,11 @@ Scriptisto specifica all'interno del file sorgente stesso le dipendenze richiest
 
 Sebbene parte del problema si possa aggirare facilmente solo utilizzando commenti specifici del linguaggio che si intende usare (più informazioni in seguito), resta il problema dello Shebang (che alcuni editor potrebbero automaticamente rilevare e ignorare, ma non sempre è scontato) e delle dipendenze (Scriptisto sa se i sorgenti dipendono da codice esterno, mentre gli editor e gli IDE no).
 
-
 ## Installazione
 
 ### Eseguibile standalone
 
-Si tratta di un eseguibile che richiede i soli `bash` ed `env`, supportato perciò su virtualmente ogni distro.
+Si tratta di un eseguibile che richiede i soli `bash` ed `env`, supportato perciò su virtualmente ogni distribuzione.
 
 Il download si trova sulla [pagina dei rilasci](https://github.com/igor-petruk/scriptisto/releases/latest), nello specifico si tratta del file `.bz2` (uno per Linux, l'altro per MacOS).
 
@@ -125,7 +126,6 @@ tar xjvf scriptisto*.bz2
 Fatto ciò, è possibile eseguire Scriptisto con `./scriptisto`.
 
 > È consigliato spostare l'eseguibile in una delle cartelle del `$PATH` così che anche solo "scriptisto" funzioni, anziché dover specificare ogni volta il percorso relativo o assoluto dell'eseguibile.
-
 
 ### Via Crates.io
 
@@ -153,6 +153,16 @@ Analogamente, sulla [pagina dei rilasci](https://github.com/igor-petruk/scriptis
 rpm -i scriptisto*.rpm
 ```
 
+## Archlinux
+
+Si può invece trovare scriptisto su AUR per quanto riguarda archlinux : 
+
+```bash
+git clone https://aur.archlinux.org/scriptisto.git
+cd scriptisto
+makepkg -si
+```
+
 ### Installazione da sorgente
 
 Per compilare da sorgente il software bisogna scaricare da GitHub i file e compilarli con Cargo:
@@ -167,7 +177,6 @@ cargo install --path .
 
 Consultare la pagina per le [installazioni](https://github.com/igor-petruk/scriptisto/wiki/Installation).
 
-
 ## Utilizzo
 
 Prima di creare un nuovo progetto con Scriptisto bisogna consultare i linguaggi supportati:
@@ -181,6 +190,7 @@ In base al template scelto, Scriptisto si occuperà di creare una base quasi min
 In altre parole, le righe `scriptisto-start` e `scriptisto-end` (che indicano inizio e fine della configurazione) avranno prefisso `//` sui linguaggi C-like, così che gli editor di testo possano ignorare senza problemi la parte estranea al codice sorgente.
 
 Nel caso del linguaggio di programmazione `C`, ad esempio:
+
 ```bash
 scriptisto new c | tee ./hello-world-in-C
 ```
@@ -196,7 +206,6 @@ Non rimane altro che eseguire lo script:
 ```bash
 ./hello-world-in-C
 ```
-
 
 ## Maggiori informazioni
 
