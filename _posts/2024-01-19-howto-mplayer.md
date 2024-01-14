@@ -37,10 +37,16 @@ apt install mplayer
 
 ### Fedora
 
-Per installarlo su Fedora digitare dal terminale: 
+Per installarlo su Fedora, bisogna attivare prima i repository fusion:
 
 ```bash
-dnf install mplayer
+dnf install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
+
+Quindi digitare dal terminale:
+
+```bash
+dnf install mplayer mencoder
 ```
 
 ### ArchLinux
@@ -51,5 +57,6 @@ Per installarlo su ArchLinux digitare dal terminale:
 pacman -S mplayer
 ```
 
-
 ## Utilizzo
+
+Un utilizzo di base è semplicemente quello di avviarlo passando come parametro il nome del file da avviare: 
