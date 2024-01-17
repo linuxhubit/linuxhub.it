@@ -96,29 +96,63 @@ mplayer *mp3
 
 ## Utilizzo avanzato
 
-Mplayer è tanto "semplice" quanto potente, il suo utilizzo è scontato ed intuitivo se si vuole utilizzare in maniera scontata ed intuitiva, tuttavia possiede anche opzioni che permettono di sfruttarne altre funzionalità. Sono diverse le sue opzioni a riga di comando:
+Mplayer è tanto "semplice" quanto potente, il suo utilizzo è scontato ed intuitivo se si vuole utilizzare in maniera scontata ed intuitiva, tuttavia possiede anche opzioni che permettono di sfruttarne altre funzionalità. Sono diverse le sue opzioni a riga di comando, eccone alcune:
 
-- **vo <drv>** seleziona il driver di output video ('-vo help' per una lista)
-- **ao <drv>** seleziona il driver di output audio ('-ao help' per una lista)
-- **cd://<trackno>** riproduce la traccia (S)VCD (Super Video CD) (dispositivo raw, senza montare)
-- **vd://<titleno>** riproduce il titolo DVD dal dispositivo invece che da un semplice file
-- **alang/-slang** seleziona la lingua dell'audio/sottotitoli del DVD (utilizzando il codice a due caratteri del paese)
-- **ss <position>** va alla posizione specificata (in secondi o hh:mm:ss)
-- **nosound** non riproduce l'audio
-- **fs** riproduzione a schermo intero (o -vm, -zoom, dettagli nella pagina di manuale)
-- **x <x> -y <y>** imposta la risoluzione dello schermo (da utilizzare con -vm o -zoom)
-- **sub <file>** specifica il file dei sottotitoli da utilizzare (vedi anche -subfps, -subdelay)
-- **playlist <file>** specifica il file della playlist
-- **vid x -aid y** seleziona il flusso video (x) e audio (y) da riprodurre
-- **fps x -srate y** cambia la frequenza video (x fps) e audio (y Hz)
-- **pp <quality>** abilita il filtro di post-elaborazione (dettagli nella pagina di manuale)
-- **framedrop** abilita la caduta di frame (per computer lenti)
+- **-vo driver** seleziona il driver di output video ('-vo help' per una lista)
+- **-ao driver** seleziona il driver di output audio ('-ao help' per una lista)
+- **-alang/-slang** seleziona la lingua dell'audio/sottotitoli del DVD (utilizzando il codice a due caratteri del paese)
+- **-ss numero** va alla posizione specificata (in secondi o "hh:mm:ss")
+- **-nosound** non riproduce l'audio
+- **-fs** riproduzione a schermo intero 
+- **-x numero -y numero** imposta la risoluzione dello schermo, quest'opzione scala anche il video quindi assicuratevi di mettere la giusta proporzione 
+- **-sub file** specifica il file dei sottotitoli da utilizzare (vedi anche -subfps, -subdelay)
+- **-playlist file** specifica il file della playlist
+- **-vid x -aid y** seleziona il flusso video (x) e audio (y) da riprodurre
+- **-fps x -srate y** cambia la frequenza video (x fps) e audio (y Hz)
+- **-pp quality** abilita il filtro di post-elaborazione (dettagli nella pagina di manuale)
+- **-framedrop** abilita la caduta di frame (per computer lenti)
+- **-cache numero** utile per riproduzioni in streaming, imposta una cache in Kb
+- **-cache-min numero** imposta la dimensione minima della cache (in percentuale) prima di riprodurre il file
 
-## Mplayer e Wayland
+In ogni caso è possibile sempre richiamare l'help con: 
 
-Per avere perfettamente funzionamente mplayer in un ambiente con wayland bisogna avere: 
+```bash
+mplayer --help
+```
 
-- pipewire
-- pipewire-alsa
-- pipewire-jack
-- xwayland
+Oppure in maniera più completa il manuale:
+
+```bash
+man mplayer
+```
+
+Che contiene tutte le opzioni.
+
+### Qualche esempio
+
+Ecco qualche esempio di utilizzo:
+
+Per far partire un file da 1 minuto e 30 secondi dall'inizio scriviamo: 
+
+```bash
+mplayer -ss "00:01:30" percorso/file
+```
+
+Oppure:
+
+```bash
+mplayer -ss 90 percorso/file
+```
+
+Per far partire un video in 1080p scrivere:
+
+```bash
+mplayer -x 1920 -y 1080 percorso/video
+```
+
+Per riprodurre la radio "Radio freccia" usando massimo 16Mb la cache:
+
+```bash
+mplayer http://shoutcast.rtl.it:3060/ -cache 16384 -cache-min 10
+```
+
