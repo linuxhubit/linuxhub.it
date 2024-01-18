@@ -1,12 +1,12 @@
 ---
 class: post
-title: "#howtodev - usare mplayer: un media tool a linea di comando"
+title: "#howtodev - usare MPlayer: un media tool a linea di comando"
 date: 2024-01-19 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: false
 tags:
 - ubuntu
@@ -15,11 +15,13 @@ tags:
 - media
 ---
 
-Se pur vero che oggi giorno la nostra musica è su Spotify ed i nostri video sono su Netflix, è anche vero però che alcuni nostalgici continueranno sempre ad ascoltare le canzoni dal proprio pc e guardare video e film sul proprio schermo. Uno degli strumenti per farlo è sicuramente mplayer.
+Se pur vero che oggi giorno la nostra raccolta musicale è su Spotify ed la cineteca è su Netflix, è anche vero che alcuni, più nostalgici, continuano ad ascoltare le canzoni, guardare video e film in locale, dal proprio pc.
+Uno degli strumenti per farlo è sicuramente MPlayer.
 
 ## Definizione
 
-Mplayer è uno dei più famosi progetti open source nato per l'esecuzione di video (dallo stesso nome "**Movie Player**"), ha una discreta compatibilità di base che comunque può essere facilmente estesa con codecs esterni. Legge sia flussi audio che video.
+MPlayer è uno dei più famosi progetti open source nato per l'esecuzione di video (dallo stesso nome "**Movie Player**"), ha una discreta compatibilità di base che comunque può essere facilmente estesa con codecs esterni.
+Permette di riprodurre sia flussi audio che video.
 
 Si può trovare [la pagina del progetto su Github](https://github.com/philipl/mplayer).
 
@@ -37,7 +39,7 @@ apt install mplayer
 
 ### Fedora
 
-Per installarlo su Fedora, bisogna attivare prima i repository fusion:
+Per installarlo su Fedora, bisogna attivare prima i repository RPMFusion:
 
 ```bash
 dnf install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
@@ -75,8 +77,8 @@ Quindi si può controllare il flusso tramite vari comandi:
 - I tasti **q** e **ESC** servono a fermare il software (ed anche la riproduzione).
 - I tasti **&plus;** e **&minus;** aumentano e diminuiscono il volume.
 - Il tasto **m** mette il muto (o riprende il volume)
-- Il tasti **o**                cycle OSD mode:  none / seekbar / seekbar + timer
-- I tasti **&#x2a;** e **&#x2a;**           increase e decrease PCM volume
+- Il tasti **o** cycle OSD mode: none / seekbar / seekbar + timer
+- I tasti **&#x2a;** e **&#x2a;** increase e decrease PCM volume
 - I tasti **x** e **z** slitta di 0.1 secondi i sottotitoli, per i file video associati a file sottotitoli
 - I tasti **r** e **t** sposta in alto ed in basso i sottotitoli, per i file video associati a file sottotitoli
 
@@ -96,7 +98,7 @@ mplayer *mp3
 
 ## Utilizzo avanzato
 
-Mplayer è tanto "semplice" quanto potente, il suo utilizzo è scontato ed intuitivo se si vuole utilizzare in maniera scontata ed intuitiva, tuttavia possiede anche opzioni che permettono di sfruttarne altre funzionalità. Sono diverse le sue opzioni a riga di comando, eccone alcune:
+MPlayer è tanto "semplice" quanto potente, il suo utilizzo è scontato ed intuitivo se si vuole utilizzare in maniera scontata ed intuitiva, tuttavia possiede anche opzioni che permettono di sfruttarne altre funzionalità. Sono diverse le sue opzioni a riga di comando, eccone alcune:
 
 - **-vo driver** seleziona il driver di output video ('-vo help' per una lista)
 - **-ao driver** seleziona il driver di output audio ('-ao help' per una lista)
