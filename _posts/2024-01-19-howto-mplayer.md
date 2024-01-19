@@ -7,7 +7,7 @@ author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: Michael Messaggi
 coauthor_github: MichaelMessaggi
-published: false
+published: true
 tags:
 - ubuntu
 - fedora
@@ -15,7 +15,7 @@ tags:
 - media
 ---
 
-Se pur vero che oggi giorno la nostra raccolta musicale è su Spotify ed la cineteca è su Netflix, è anche vero che alcuni, più nostalgici, continuano ad ascoltare le canzoni, guardare video e film in locale, dal proprio pc.
+Se pur vero che oggi giorno la nostra raccolta musicale è su Spotify e la cineteca è su Netflix, è anche vero che alcuni, più nostalgici, continuano ad ascoltare le canzoni, guardare video e film in locale, dal proprio pc.
 Uno degli strumenti per farlo è sicuramente MPlayer.
 
 ## Definizione
