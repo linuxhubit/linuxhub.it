@@ -1,6 +1,6 @@
 ---
 class: post
-title: "#howtodev - usare MPlayer: un media tool a linea di comando"
+title: "#howto - usare MPlayer: un media tool a linea di comando"
 date: 2024-01-19 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
