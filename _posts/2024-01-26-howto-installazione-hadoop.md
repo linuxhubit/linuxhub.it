@@ -22,6 +22,10 @@ Ultimamente per lavoro mi è capitato di dover mettere su una Scala, Spark e Had
 Per chi non fosse sicuro di cosa sta andando a leggere, Hadoop è un framework open source progettato da Apache per gestire grandi quantità di dati in modo distribuito su cluster di computer. È scritto per lo più in linguaggio Java e si può trovare il [codice sorgente su Github](https://github.com/apache/hadoop).  
 Insieme ad Hadoop in genere viene installato il driver HDFS, ovvero il driver per Hadoop File System, il sistema di archiviazione distribuito di Hadoop.
 
+## Prerequisiti
+
+Si presuppone che, il lettore, abbia gia scala e apache spark (o python e pyspark). Inoltre deve avere Java installato e la variabile JAVA_HOME impostata con il path dell'installazione di Java.
+
 ## Installazione
 
 I vari package manager non danno la possibilità di installare in maniera automatizzata, per gli utenti di ArchLinux si può trovare in teoria [il pacchetto su AUR](https://aur.archlinux.org/packages/hadoop), pronto per essere installato tramite:
@@ -67,20 +71,49 @@ cp -r hadoop* /opt/hadoop
 
 È quindi arrivato il momento di aggiornare le variabili d'ambiente. Per aggiornarle è necessario modificare uno dei [file di avvio della nostra shell](https://linuxhub.it/articles/2023-09-08-howto-file-avvio-shell).
 
-Ad esempio se si utilizza bash, si può pensare di modificare il file **$HOME/.bashrc**.
+Ad esempio se si utilizza bash, si può pensare di modificare il file **$HOME/.bashrc**:
 
+```bash
+export HADOOP_HOME=/opt/hadoop
+export PATH="$PATH:$HADOOP_HOME/bin"
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+export LD_LIBRARY_PATH=$HADOOP_HOME/lib/native
+```
 
+*Oppure*, al posto degli ultimi export, è possibile copiare le librerie nella cartella apposita:
 
+```bash
+ln -sf $PWD/libhadoop.a  /usr/lib/libhadoop.a
+ln -sf $PWD/libhadooppipes.a  /usr/lib/libhadooppipes.a
+ln -sf $PWD/libhadooputils.a  /usr/lib/libhadooputils.a
+ln -sf $PWD/libhdfs.a  /usr/lib/libhdfs.a
+ln -sf $PWD/libhdfs.so.0.0.0  /usr/lib/libhdfs.so
+ln -sf $PWD/libhdfspp.a  /usr/lib/libhdfspp.a
+ln -sf $PWD/libhdfspp.so.0.1.0  /usr/lib/libhdfspp.so
+ln -sf $PWD/libnativetask.a  /usr/lib/libnativetask.a
+ln -sf $PWD/libnativetask.so.1.0.0  /usr/lib/libnativetask.so
+```
 
+Ma è una pratica **che non consiglio**.
 
-export HADOOP_OPTS="$HADOOP_OPTS -Djava.library.path=$HADOOP_HOME/lib/native"
+## Test e avvio di spark shell
 
-sudo ln -sf $PWD/libhadoop.a  /usr/lib/libhadoop.a
-sudo ln -sf $PWD/libhadooppipes.a  /usr/lib/libhadooppipes.a
-sudo ln -sf $PWD/libhadooputils.a  /usr/lib/libhadooputils.a
-sudo ln -sf $PWD/libhdfs.a  /usr/lib/libhdfs.a
-sudo ln -sf $PWD/libhdfs.so.0.0.0  /usr/lib/libhdfs.so
-sudo ln -sf $PWD/libhdfspp.a  /usr/lib/libhdfspp.a
-sudo ln -sf $PWD/libhdfspp.so.0.1.0  /usr/lib/libhdfspp.so
-sudo ln -sf $PWD/libnativetask.a  /usr/lib/libnativetask.a
-sudo ln -sf $PWD/libnativetask.so.1.0.0  /usr/lib/libnativetask.so
+Per testare che tutto funzioni correttamente, aprire il terminale e quindi: 
+
+```bash
+spark-shell
+```
+
+Se appare: 
+
+```
+WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+```
+
+Allora **qualcosa è andato storto**, riprovare i vari step. Inoltre digitare:
+
+```bash
+hadoop version 
+```
+
+Per verificare che la versione corrisponda.
