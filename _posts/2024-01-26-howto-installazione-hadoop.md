@@ -7,7 +7,7 @@ author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: linuxhubit
 coauthor_github: linuxhubit
-published: false
+published: true
 tags:
 - ubuntu
 - fedora
@@ -15,12 +15,12 @@ tags:
 - hadoop
 ---
 
-Ultimamente per lavoro mi è capitato di dover mettere su una Scala, Spark e Hadoop. Se per i primi due la cosa è stata piuttosto automatica, l'ultima non troppo...
+Ultimamente per lavoro mi è capitato di dover utilizzare Scala, Spark e Hadoop. Se per configurare le prime due tecnologie il processo è stato abbastanza automatico, l'ultimo processo ha invece dato qualche rogna...
 
 ## Hadoop e HDFS
 
 Per chi non fosse sicuro di cosa sta andando a leggere, Hadoop è un framework open source progettato da Apache per gestire grandi quantità di dati in modo distribuito su cluster di computer. È scritto per lo più in linguaggio Java e si può trovare il [codice sorgente su Github](https://github.com/apache/hadoop).  
-Insieme ad Hadoop in genere viene installato il driver HDFS, ovvero il driver per Hadoop File System, il sistema di archiviazione distribuito di Hadoop.
+Insieme ad Hadoop viene installato il driver HDFS, ovvero il driver per Hadoop File System, il sistema di archiviazione distribuito di Hadoop.
 
 ## Prerequisiti
 
@@ -104,9 +104,9 @@ Per testare che tutto funzioni correttamente, aprire il terminale e quindi:
 spark-shell
 ```
 
-Se appare: 
+Se appare:
 
-```
+```plain
 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 ```
 
