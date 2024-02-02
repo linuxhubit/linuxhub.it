@@ -136,7 +136,7 @@ systemctl enable getty@ttyN.service
 E modificare quindi il file che si è creato:
 
 ```bash
-nano /etc/systemd/system/getty.target.wants/getty@ttyN.service
+systemctl edit getty@ttyN.service
 ```
 
 Si proceda per la modifica della stringa di esecuzione aggiungendo i parametri desiderati (la riga che inizia con `ExecStart`):
