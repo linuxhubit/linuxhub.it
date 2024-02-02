@@ -127,25 +127,23 @@ systemctl enable getty@ttyN.service
 
 ### Modificare i parametri di avvio
 
-Per modificare i parametri di avvio si può creare un servizio systemd per un particolare getty: 
+Per modificare i parametri di avvio si può creare un servizio systemd per un particolare getty:
+
+Creare una cartella nel sistema con il nome del getty da modificare: 
 
 ```bash
-systemctl enable getty@ttyN.service
+mkdir /etc/systemd/system/getty@ttyNUMERO.service.d/
 ```
 
-E modificare quindi il file che si è creato:
-
-```bash
-systemctl edit getty@ttyN.service
-```
-
-Si proceda per la modifica della stringa di esecuzione aggiungendo i parametri desiderati (la riga che inizia con `ExecStart`):
+Creare un file `autologin.conf`, con la modifica della stringa di esecuzione aggiungendo i parametri desiderati (nell'ultima riga):
 
 ```properties
+[Service]
+ExecStart=
 ExecStart=-/sbin/agetty -o '-p -- \\u' --noclear - $TERM
 ```
 
-Sulla wiki di arch si hanno diversi [esempi tra i più ricerati in genere](https://wiki.archlinux.org/title/Getty#Prompt_only_the_password_for_a_default_user_in_virtual_console_login).
+Sulla wiki di arch si hanno diversi [esempi tra i più ricercati in genere](https://wiki.archlinux.org/title/Getty#Prompt_only_the_password_for_a_default_user_in_virtual_console_login).
 
 Consiglio di provare le modifiche su tty a numerazione alta (TTY7 ad esempio) non gestiti dalla login.conf, e di provarli subito dopo scrivendo: 
 
