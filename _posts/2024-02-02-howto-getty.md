@@ -148,11 +148,11 @@ Sulla wiki di arch si hanno diversi [esempi tra i più ricercati in genere](http
 Consiglio di provare le modifiche su tty a numerazione alta (TTY7 ad esempio) non gestiti dalla login.conf, e di provarli subito dopo scrivendo: 
 
 ```bash
-systemctl stop getty@tty7.service
+systemctl stop getty@ttyNUMERO.service
 
 systemctl daemon-reload
 
-systemctl start getty@tty.service
+systemctl start getty@ttyNUMERO.service
 ```
 
 ## Configurazioni font e tastiera
