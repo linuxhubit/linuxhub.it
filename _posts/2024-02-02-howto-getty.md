@@ -5,8 +5,8 @@ date: 2024-02-02 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: true
 tags:
 - ubuntu
@@ -15,7 +15,8 @@ tags:
 - getty
 ---
 
-Qualche giorno fa, per la prima volta in 10 anni, mi si è rotta ArchLinux durante un aggiornamento. Nello specifico non partivano i terminali TTY: cosa sono? come si avviano? Ecco un infarinatura di base sui getty service.
+Qualche giorno fa, per la prima volta in 10 anni, mi si è rotta ArchLinux durante un aggiornamento.
+Nello specifico, non partivano i terminali TTY: cosa sono? come si avviano? Ecco un infarinatura di base sui getty service.
 
 ## Definizione
 
@@ -34,11 +35,15 @@ Tuttavia questi non sono numeri standard né vere e proprie convenzioni, quindi 
 
 ### Switch di tty dentro un tty
 
-Tramite DM e DE si viene automaticamente autenticati in un tty piuttosto che un altro. Ma tramite la combinazione di tasti: `CTRL+ALT+FXX` come già detto si può cambiare tty. Tuttavia mentre si è già in un terminale virtuali senza GUI, su alcuni sistemi la shortcut si accorcia in `ALT+FX` o addirittura `ALT+freccie direzionali`. Questo tuttavia disabilita alcune combinazioni di tasti che normalmente si possono usare su linea di comando.
+Tramite DM e DE si viene automaticamente autenticati in un tty piuttosto che un altro. Ma tramite la combinazione di tasti: `CTRL+ALT+FXX` come già detto si può cambiare tty.
+Tuttavia, mentre si è già in un terminale virtuale senza GUI, su alcuni sistemi la shortcut si accorcia in `ALT+FX` o addirittura `ALT+freccie direzionali`.
+Questo disabilita alcune combinazioni di tasti che normalmente si possono usare su linea di comando.
 
 ## I vari Getty
 
-Come già detto, per getty si intende una famiglia di software con le caratteristiche sopra citate in comune. Questo ovviamente significa che ci son più software diversi utilizzati tra le varie distro. Le più comuni alternative di getty sono:
+Come già detto, per getty si intende una famiglia di software con le caratteristiche sopra citate in comune.
+Questo ovviamente significa che ci son più software diversi utilizzati tra le varie distro.
+Le più comuni alternative di getty sono:
 
 - [agetty](https://github.com/util-linux/util-linux/blob/master/term-utils/agetty.c)
 - [mingetty](https://sourceforge.net/projects/mingetty/)
@@ -64,7 +69,7 @@ Dunque:
 - `--noclear` consente di evitare che venga cancellata la console al login ogni volta che si deve inserire il nome utente.
 - `--autologin` seguito da un username, permette di effettuare la login automaticamente senza chiedere né password né username (non usare se si ha `ecryptfs` sulla home).
 
-## Getty e Systemd
+## Getty e SystemD
 
 In generale per ogni console virtuale presente nel sistema esiste un getty separato.
 
@@ -75,9 +80,9 @@ In generale per ogni console virtuale presente nel sistema esiste un getty separ
 
 Per cambiare il numero di console si deve modificare nel file di configurazione `/etc/systemd/logind.conf` il parametro `NAutoVTs`, il numero di default è 6.
 
-### Servizio Systemd
+### Servizio SystemD
 
-I servizi systemd legati a getty hanno nomi simili tra di loro e differiscono in genere per un numero:
+I servizi SystemD legati a getty hanno nomi simili tra di loro e differiscono in genere per un numero:
 
 ```bash
 getty@ttyX.service
@@ -103,7 +108,8 @@ systemctl start getty@tty7.service
 
 ### Abilitare/disabilitare servizi getty
 
-Come già specificato in precedenze, il file `login.conf` si occupa già di prelevare un certo numero di tty. Se tuttavia si dovessero creare situazioni in cui non si ha più accesso alle console, si potrebbe provare con disabilitare/abilitare manualmente delle sessioni tty alla login.
+Come già specificato in precedenze, il file `login.conf` si occupa già di prelevare un certo numero di tty.
+Se tuttavia si dovessero creare situazioni in cui non si ha più accesso alle console, si potrebbe provare con disabilitare/abilitare manualmente delle sessioni tty alla login.
 
 Innanzitutto per verificare quali servizi vengono automaticamente creati alla login da systemd senza passare per il file di login si può digitare:
 
