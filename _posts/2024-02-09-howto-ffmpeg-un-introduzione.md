@@ -147,7 +147,7 @@ In un file multimediale, il suo contenitore si occupa di contenere i vari [forma
 
 ### Formato
 
-Un **formato** è un flusso (stream) che rappresenta ciascuna delle singole parti che compongono il [#contenitore] di un file multimediale.
+Un **formato** è un flusso (stream) che rappresenta ciascuna delle singole parti che compongono il (contenitore)[#Contenitore] di un file multimediale.
 
 Sono tre i tipi di formati principali da ricordare: **audio**, **video** e **sottotitoli**.
 
@@ -187,7 +187,7 @@ Esistono due tipi di codec: software e hardware. Solitamente i codec hardware, i
 
 ### Muxer e demuxer, encoder e decoder
 
-!(https://telegra.ph/file/6823ca2995aa60924d442.png)[ffmpeg transcoding demux-decode-encode-mux]
+![ffmpeg transcoding demux-decode-encode-mux](https://telegra.ph/file/6823ca2995aa60924d442.png)
 
 In breve, **muxer** e **demuxer** lavorano sul contenitore, combinando o estraendo i singoli flussi.
 
@@ -272,7 +272,7 @@ ffmpeg -i audio.ogg -filter:a volume=2 audio_v2.ogg
 ## Parametri più usati
 
 | Parametro | Descrizione                                                |
-|------------------------------------------------------------------------|
+|-----------|------------------------------------------------------------|
 | `-i`      | Considera un URL di input (come un file o un collegamento) |
 | `-ss`     | Indica il punto in cui la riproduzione deve iniziare e può essere usato sia come parametro di input che di output (con qualche piccola ma [importante differenza](#Inizio_e_fine)) |
 | `-to`     | Indica il punto in cui la riproduzione deve terminare; è un'alternativa a `-t` |
