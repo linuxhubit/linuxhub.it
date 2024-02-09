@@ -5,9 +5,9 @@ date: 2024-02-09 07:00
 layout: post
 author: Midblyte
 author_github: Midblyte
-coauthor:
-coauthor_github:
-published: false
+coauthor: Davide Galati (in arte PsykeDady)
+coauthor_github: PsykeDady
+published: true
 tags:
 - ubuntu
 - fedora
@@ -53,7 +53,7 @@ make install
 
 In caso di problemi, potrebbe essere necessario disabilitare alcune funzionalità o, in alternativa, installare i pacchetti di dipendenze mancanti.
 
-A tal proposito, sulla wiki di FFmpeg è possibile trovare sia la [guida ufficiale generica](https://trac.ffmpeg.org/wiki/CompilationGuide/Generic) che le guide specifiche per le distro basate [su Ubuntu](https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu) o appartenenti alla famiglia di [Red Hat](https://trac.ffmpeg.org/wiki/CompilationGuide/Centos).
+A tal proposito, sulla wiki di FFmpeg è possibile trovare sia la [guida ufficiale generica](https://trac.ffmpeg.org/wiki/CompilationGuide/Generic) che le guide specifiche per le distribuzioni basate [su Ubuntu](https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu) o appartenenti alla famiglia di [Red Hat](https://trac.ffmpeg.org/wiki/CompilationGuide/Centos).
 
 ### Ubuntu
 
@@ -70,22 +70,22 @@ L'installazione su Fedora richiede un passaggio in più, siccome di base `ffmpeg
 Dunque, bisogna prima abilitare i repository [RPM Fusion](https://rpmfusion.org/Configuration) (nello specifico, la repository "free"):
 
 ```bash
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 ```
 
 A questo punto, non resta che aggiornare l'elenco dei repository e installare `ffmpeg`.
 
 ```bash
-sudo dnf update
+dnf update
 
-sudo dnf install ffmpeg
+dnf install ffmpeg
 ```
 
 Nota: nel caso di Fedora Silverblue, le istruzioni sono identiche una volta sostituito il comando `dnf` con `rpm-ostree` (in più, è necessario riavviare).
 
 ### Arch Linux
 
-Esistono tre diverse opzioni nel caso di Arch Linux: `ffmpeg` (dalle repository uffiiali), `ffmpeg-git` (da AUR, sincronizzato con la repository Git di FFmpeg) e `ffmpeg-full` (anche qui da AUR, che include anche encoder e decoder solitamente lasciati fuori da altri pacchetti).
+Esistono tre diverse opzioni nel caso di Arch Linux: `ffmpeg` (dalle repository ufficiali), `ffmpeg-git` (da AUR, sincronizzato con la repository Git di FFmpeg) e `ffmpeg-full` (anche qui da AUR, che include anche encoder e decoder solitamente lasciati fuori da altri pacchetti).
 
 Solitamente, installare il pacchetto `ffmpeg` è sufficiente:
 
@@ -147,14 +147,13 @@ In un file multimediale, il suo contenitore si occupa di contenere i vari [forma
 
 ### Formato
 
-Un **formato** è un flusso (stream) che rappresenta ciascuna delle singole parti che compongono il (contenitore)[#Contenitore] di un file multimediale.
+Un **formato** è un flusso (stream) che rappresenta ciascuna delle singole parti che compongono il [contenitore](#Contenitore) di un file multimediale.
 
 Sono tre i tipi di formati principali da ricordare: **audio**, **video** e **sottotitoli**.
 
 > H264 (o AVC) è il formato video più diffuso in assoluto al momento di scrittura dell'articolo.
 >
 > Analogamente, AAC è il formato audio che solitamente accompagna il formato video H264 nei contenitori MP4.
-
 > L'intera lista dei formati per la propria installazione di ffmpeg è disponibile digitando `ffmpeg -formats`
 
 ### Lossy e lossless
@@ -177,12 +176,11 @@ I formati lossless, invece, sono preferibili in caso di **archiviazione**.
 
 Un **codec** è spesso ed erroneamente confuso con quello che in realtà è un **formato**.
 
-Derivando dall'unione di en**co**der e **dec**oder, un **codec** non è altro che un'encoder o un decoder (o entrambe) a seconda che la sua funzionalità sia quella di codificare o decodificare un flusso in un dato [formato](#formato).
+Derivando dall'unione di en**co**der e **dec**oder, un **codec** fornisce entrambe le funzionalità per codificare o decodificare un flusso in un dato [formato](#formato).
 
-Esistono due tipi di codec: software e hardware. Solitamente i codec hardware, inclusi direttamente nei SoC, sono più rapidi ed efficienti delle controparti software.
+Esistono due tipi di codec: *software* e *hardware*. Solitamente i codec hardware, inclusi direttamente nei SoC, sono più rapidi ed efficienti delle controparti software.
 
 > Esempi di codec sono libx264, libmp3lame, libopus, libvpx, libdav1d
-
 > L'intera lista dei codec per la propria installazione di ffmpeg è disponibile digitando `ffmpeg -codecs`
 
 ### Muxer e demuxer, encoder e decoder
