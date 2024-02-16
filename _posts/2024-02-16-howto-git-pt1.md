@@ -5,8 +5,8 @@ date: 2024-02-16 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: AngeloP
+coauthor_github: angelo1995
 published: true
 tags:
   - bash
