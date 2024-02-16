@@ -13,7 +13,7 @@ tags:
   - git
 ---
 
-Quando si parla di *software di versioning*, `git` è sicuramente il primo programma che ci viene in mente. È l'alternativa più popolare a sistemi come `svn`, utilizzata anche in ambito enterprise.
+Quando si parla di *software di versioning*, `git` è sicuramente il primo programma che ci viene in mente. Rappresenta l'alternativa più diffusa a sistemi come `svn`, utilizzata anche in ambito enterprise.
 
 Rappresenta anche uno dei primi scogli che dipendenti alle prime armi affrontano in azienda.
 
