@@ -147,7 +147,7 @@ Giusto per essere chiari, possiamo identificare queste 3 aree anche all'interno 
 Il primo movimento dalla working area alla staging area è detto "*operazione di* **add**", mentre il secondo movimento da staging a repository è detto "*operazione di* **commit**". 
 
 Si veda, qua in basso, la differenza tra tre repository <u>prima della</u> **add**, dopo la **add** e dopo il **commit**:
-![la struttura delle directory git](/uploads/git/git_meld_add-commit-bakdiff.png)
+![la struttura delle directory git](/uploads/git/WorkVSStageVSRepo.png)
 
 Quando si punta ad un <u>*repository remoto*</u>, gli scambi di codici con quello locale son detti:
 
