@@ -41,7 +41,7 @@ Questo articolo affronterà i seguenti argomenti:
 Per i meno pratici, semplificando il più possibile, *un sistema di controllo versioni* è un software che gestisce **l'evoluzione di un progetto**, o più comunemente di una folder directory del nostro file system.  
 Ne confronta le varie versioni, tiene traccia dei cambiamenti per singoli file e per singola release.
 
-Questo approccio, particolarmente adottato nei progetti di programmazione, consente di tenere traccia degli autori delle modifiche, fare modifiche contemporaneamente a dei collaboratori senza gestendo in maniera intelligente i conflitti ed eventualmente di annullare delle modifiche specifiche.  
+Questo approccio, particolarmente adottato nei progetti di programmazione, consente di tenere traccia degli autori delle modifiche, fare modifiche contemporaneamente a dei collaboratori gestendo in maniera intelligente i conflitti ed eventualmente di annullare delle modifiche specifiche.  
 *Git è esattamente tutto questo*. Ma, soprattutto, è stato creato da **Linus Torvalds**. Sì, proprio lui, quello di Linux. *FUCK YOU NVIDIA!*
 
 ### Una questione di necessità
@@ -78,11 +78,7 @@ Il nome "git" è stato dato da Linus Torvalds quando ha scritto la prima version
 
 - è una combinazione facilmente pronunciabile di tre caratteri, non ancora utilizzato da nessun comando UNIX. Il fatto che sia una storpiatura di "get" può essere rilevante o meno.
 
-- stupido
-
-- spregevole
-
-- insopportabile 
+- stupido, spregevole, insopportabile. Scegline una dal dizionario dello slang. 
 
 - semplice 
 
@@ -97,9 +93,7 @@ In poche parole, git non ha un significato, ma in base alla situazione potete da
 
 GIT è facilmente installabile ovunque.
 
-Quanto riguarda le distribuzioni Linux è un pacchetto presente nei repository di base di ogni package manager.
-
-Quando altri sistemi operativi, son disponibili i binari o gli installer [sul sito ufficiale](https://git-scm.com).
+Per quanto riguarda le distribuzioni Linux è un pacchetto presente nei repository di base di ogni package manager.
 
 ### Installazione su Ubuntu e derivate
 
@@ -124,6 +118,9 @@ Per installare su ArchLinux scrivere su terminale:
 ```bash
 pacman -S git
 ```
+
+### Installazione su Windows e altri sistemi operativi
+Per altri sistemi operativi, sono disponibili i binari o gli installer [sul sito ufficiale](https://git-scm.com).
 
 ## Comprendere git
 
@@ -154,8 +151,8 @@ Si veda, qua in basso, la differenza tra tre repository <u>prima della</u> **add
 
 Quando si punta ad un <u>*repository remoto*</u>, gli scambi di codici con quello locale son detti:
 
-- <u>operazione di **pull**</u>, se in ingresso da remoto a locale.
-- <u>operazione di **push**</u>, se in uscita da locale a remoto.
+- <u>operazione di **pull**</u>, se in download da remoto a locale.
+- <u>operazione di **push**</u>, se in upload da locale a remoto.
 
 ### Remoto?
 
@@ -164,11 +161,11 @@ Quando si punta ad un <u>*repository remoto*</u>, gli scambi di codici con quell
 Tuttavia l'URL che si va ad inserire può essere tanto un indirizzo remoto quanto un'altra cartella del nostro file system.  
 Il senso di un'operazione del genere non è banale né solo didattica: ad esempio possiamo puntare una cartella del nostro file system che è poi sincronizzata con <u>una cloud dati</u>. Io utilizzo questo sistema per sincronizzare i miei progetti con **Dropbox** e **Mega**, ad esempio.
 
-I "*repository*" puntati hanno poi dei "nomi" (in genere <u>origin</u>). Tramite questa capacità di poter associare un URL ad un nome, si da la possibilità all'utilizzatore di poter gestire anche più di un repository alla volta, decidendo in base al caso dove effettuare *pull* e *push*. Si tratta di una tecnica utile quando si ha a che fare con progetti di lavoro dove <u>non si hanno i permessi di creare branch nuovi</u> o nel caso in cui si gestisce un fork di un progetto.
+I "*repository*" puntati hanno poi dei "nomi" (in genere <u>origin</u>). Tramite questa capacità di poter associare un URL ad un nome, si dà la possibilità all'utilizzatore di poter gestire anche più di un repository alla volta, decidendo in base al caso dove effettuare *pull* e *push*. Si tratta di una tecnica utile quando si ha a che fare con progetti di lavoro dove <u>non si hanno i permessi di creare branch nuovi</u> o nel caso in cui si gestisce un fork di un progetto.
 
 ## Creare un repository
 
-Iniziamo, quindi, dalle basi, creando un repository `git` nella nostra cartella di progetto. Con il terminale creiamo e ci spostiamo nella cartella creata:
+Iniziamo, quindi, dalle basi, creiamo un repository git nella nostra cartella di progetto: con il terminale creiamo una cartella e ci spostiamo in essa:
 
 ```bash
 mkdir nomeprogetto
@@ -208,7 +205,7 @@ Supponendo di voler mettere a confronto il contenuto di *un repository normale e
 
 A sinistra si può vedere il vero file del progetto, in un repository normale.
 
-Mentre a sinistra il contenuto di un repository bare, ovvero una serie di cartelle e file gestiti da GIT per il versionamento, ma non il file di per sé.
+Mentre a destra il contenuto di un repository bare, ovvero una serie di cartelle e file gestiti da GIT per il versionamento, ma non il file di per sé.
 
 ### Un repository minimale in ogni progetto
 
