@@ -1,6 +1,6 @@
 ---
 class: post
-title: "#howto -  Guida all'utilizzo di git (new Edit), parte 1"
+title: "#howto -  Guida all'utilizzo di git (2024 Edit), parte 1"
 date: 2024-02-16 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
