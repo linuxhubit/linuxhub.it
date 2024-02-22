@@ -1,6 +1,6 @@
 ---
 class: post
-title: "#howto -  Guida all'utilizzo di git (2024 Edit), parte 1"
+title: "#howto -  Guida all'utilizzo di git (2024 Edit), parte 1: Introduzione"
 date: 2024-02-16 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
@@ -183,6 +183,18 @@ git init
 ```
 
 A questo punto verrà creato un repository git vuoto.
+
+### Specificare il nome del branch alla init
+
+Recentemente, per questioni legate al politically correct, il nome del branch iniziale dei progetti è stato cambiato da `master` a `main`. Tuttavia alcuni client di terminali per opzione predefinita ancora utilizzano la vecchia nomenclatura.
+
+Per creare un repository git nel quale il nome del branch è main si può scrivere:
+
+```bash
+git init --initial-branch=main
+```
+
+ovviamente si può sostituire "main" con qualunque altro nome
 
 ### Un repository minimale
 
