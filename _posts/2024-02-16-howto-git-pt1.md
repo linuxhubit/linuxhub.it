@@ -13,6 +13,8 @@ tags:
   - git
 ---
 
+[&rarr; Articolo successivo, parte 2: operazioni base](https://linuxhub.it/articles/howto-git-pt2/)  
+
 Quando si parla di *software di versioning*, `git` è sicuramente il primo programma che ci viene in mente. Rappresenta l'alternativa più diffusa a sistemi come `svn`, utilizzata anche in ambito enterprise.
 
 Rappresenta anche uno dei primi scogli che dipendenti alle prime armi affrontano in azienda.

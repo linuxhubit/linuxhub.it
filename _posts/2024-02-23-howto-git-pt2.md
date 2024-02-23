@@ -1,23 +1,25 @@
 ---
 class: post
-title: "#howto -  Guida all'utilizzo di git, parte 2: prime operazioni"
+title: "#howto -  Guida all'utilizzo di git, parte 2: operazioni base"
 date: 2024-02-23 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: linuxhubit
 coauthor_github: linuxhubit
-published: false
+published: true
 tags:
   - bash
   - git
 ---
 
+[&rarr; Articolo precedente, parte 1: introduzione](https://linuxhub.it/articles/howto-git-pt1/)
+
 Quando si parla di *software di versioning*, `git` è sicuramente il primo programma che ci viene in mente. Rappresenta l'alternativa più diffusa a sistemi come `svn`, utilizzata anche in ambito enterprise.
 
 Rappresenta anche uno dei primi scogli che dipendenti alle prime armi affrontano in azienda.
 
-Ecco quindi una guida passo passo a git, parte 2: prime operazioni.
+Ecco quindi una guida passo passo a git, parte 2: operazioni base.
 
 ## Obiettivi
 
