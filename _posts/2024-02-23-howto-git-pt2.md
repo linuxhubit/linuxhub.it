@@ -5,8 +5,8 @@ date: 2024-02-23 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: true
 tags:
   - bash
@@ -17,9 +17,9 @@ tags:
 
 Quando si parla di *software di versioning*, `git` è sicuramente il primo programma che ci viene in mente. Rappresenta l'alternativa più diffusa a sistemi come `svn`, utilizzata anche in ambito enterprise.
 
-Rappresenta anche uno dei primi scogli che dipendenti alle prime armi affrontano in azienda.
+È anche uno dei primi scogli che dipendenti alle prime armi affrontano in azienda.
 
-Ecco quindi una guida passo passo a git, parte 2: operazioni base.
+Ecco quindi una guida passo passo a GIT, parte 2: operazioni base.
 
 ## Obiettivi
 
@@ -37,9 +37,11 @@ Questo articolo affronterà i seguenti argomenti:
 
 ## Configurazione utente
 
-GIT obbliga l'utente a "identificarsi" prima di memorizzare le modifiche. Il motivo è intuitivo, dovendo ricostruire la storia delle modifiche ad un progetto è lapalissiano che debba anche sapere chi e quando ha fatto una modifica.
+GIT obbliga l'utente a "identificarsi" prima di memorizzare le modifiche.
 
-Le configurazioni dell'utente possono essere globali o localizzate progetto per progetto, per cambiare *globalmente* il nome utente su git scrivere: 
+Il motivo è intuitivo, dovendo ricostruire la storia delle modifiche ad un progetto è lapalissiano che debba anche sapere chi e quando ha fatto una modifica.
+
+Le configurazioni dell'utente possono essere globali o localizzate progetto per progetto, per cambiare *globalmente* il nome utente su GIT scrivere: 
 
 ```bash
 git config --global user.name "Nome Utente"
@@ -53,7 +55,9 @@ git config --global user.email "indirizzo@email.com"
 
 > **NOTA BENE**:
 >
-> Le configurazioni utente di git non hanno nulla a che fare con gli account dei provider online di git (GITHUB, GITLAB, Bitbucket...), servono solo ad identificare chi ha fatto un commit. Configurazioni utente e account online possono essere differenti senza alcun problema
+  > Le configurazioni utente di git non hanno nulla a che fare con gli account dei provider online di GIT (GITHUB, GITLAB, Bitbucket...), servono solo ad identificare chi ha fatto un commit.
+
+Configurazioni utente e account online possono essere differenti senza alcun problema
 
 Per verificare che il nome sia stato impostato in modo corretto si può scrivere:
 
@@ -72,7 +76,9 @@ git config --global user.email
 
 Come spiegato in precedenza, le configurazioni **global** si riferiscono all'utente su qualunque progetto, e risiedono, in genere, nelle cartelle di configurazione del sistema (ad esempio `/etc/gitconfig`, oppure `~/.gitconfig`, nel caso di sistemi Linux).
 
-Si possono però specificare anche singolarmente, per ogni progetto. Per farlo, dai comandi precedenti, basta rimuovere il parametro `--global`:
+Si possono però specificare anche singolarmente, per ogni progetto.
+
+Per farlo, dai comandi precedenti, basta rimuovere il parametro `--global`:
 
 ```bash
 # Per il nome
@@ -88,13 +94,17 @@ Questa differenza può essere utile se si vuole distinguere la firma (intesa com
 
 Potrebbe essere necessario impostare altri due parametri per ottenere una configurazione che non darà noie, cioè *l'editor di testo* e un *merge tool* esterno:
 
-- **Editor di testo**: alcune operazioni, come la realizzazione di un messaggio di commit, necessitano la scrittura di testi più o meno lunghi, a questo scopo, verrà aperto l'editor predefinito di sistema. Tuttavia questa scelta si può personalizzare nel seguente modo:
+- **Editor di testo**: alcune operazioni, come la realizzazione di un messaggio di commit, necessitano la scrittura di testi più o meno lunghi, a questo scopo, verrà aperto l'editor predefinito di sistema.
+
+Tuttavia, questa scelta si può personalizzare nel seguente modo:
 
 ```bash
 git config --global core.editor [comando che avvia l'editor]
 ```
 
-- **Merge tool**: quando in un team si lavora sugli stessi file è inevitabile che qualche modifica possa "entrare in conflitto", perciò, in questi casi, si possono utilizzare degli strumenti di "fusione" (merge), che servono ad attuare un'unione "controllata" delle modifiche in conflitto. Spesso si richiede che questo intervento venga eseguito manualmente da parte di `git`, quindi è bene tenersi uno strumento preferito (consiglio **meld**), specificandolo con il comando:
+- **Merge tool**: quando in un team si lavora sugli stessi file è inevitabile che qualche modifica possa "entrare in conflitto", perciò, in questi casi, si possono utilizzare degli strumenti di "fusione" (merge), che servono ad attuare un'unione "controllata" delle modifiche in conflitto.
+
+Spesso si richiede che questo intervento venga eseguito manualmente da parte di `git`, quindi è bene tenersi uno strumento preferito (consiglio **meld**), specificandolo con il comando:
 
 ```bash
 git config --global merge.tool [comando che avvia lo strumento di merge]
@@ -162,7 +172,7 @@ Per evitare di selezionare tutti i file o tutte le cartelle singolarmente, si pu
 git add .
 ```
 
-posizionandosi nella root del progetto, questo aggiungerà in un colpo solo tutti i file modificati.
+Posizionandosi nella root del progetto, questo aggiungerà in un colpo solo tutti i file modificati.
 
 ### Situazione inversa: dalla staging area alla working area
 
@@ -188,7 +198,7 @@ Per creare un commit la struttura del comando deve essere simile alla seguente:
 git commit -m "messaggio di commit"
 ```
 
-Si può fare il commit di alcuni files piuttosto che altri, scrivendoli uno dopo l'altro separati da spazio nel comando: 
+Si può fare il commit di alcuni files piuttosto che altri, scrivendoli uno dopo l'altro separati da uno spazio nel comando: 
 
 ```bash
 git commit -m "messaggio di commit" file1 percorso/file2 cartella2 ...etc...
