@@ -1,13 +1,13 @@
 ---
 class: post
-title: "#howto -  Guida all'utilizzo di git, parte 3: remote"
+title: "#howto -  Guida all'utilizzo di git, parte 3: remote e branch"
 date: 2024-03-01 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: linuxhubit
 coauthor_github: linuxhubit
-published: false
+published: true
 tags:
   - bash
   - git
@@ -30,6 +30,7 @@ Questo articolo affronterà i seguenti argomenti:
 - pull
 - push
 - Lavorare con più repository
+- Concetto di branch
 
 ## Il concetto alla base dei repository esterni
 
@@ -156,10 +157,26 @@ Per modificare il tracking si può utilizzare anche la seguente operazione:
 git branch --set-upstream-to=NOMEREPOSITORY/NOMEBRANCH
 ```
 
+### Lavorare con più repository esterni
+
+Si può lavorare impostando più repository esterni alla volta. Per farlo basta evitare di utilizzare lo stesso nome per i repository:
+
+```bash
+git remote add origin https://github.com/NOMEUSER/NOMEREPOSITORY
+
+git remote add locale /percorso/a/Repo/locale
+```
+
+Ovviamente ci si aspetta che i progetti siano coerenti da una sorgente ad un altra. Perché però utilizzare questa funzione? 
+
+Uno dei casi più comuni è quello di creare una copia (anche detta **fork** su alcune piattaforme) di un progetto di qualcun'altro per apportare delle proprie modifiche personali. In questo modo si può controllare lo stato del progetto originale, eventualmente aggiornare di pari passo alle sue modifiche, ma mantenere una certa divergenza rispetto le proprie esigenze.
+
+Un altro caso comune è quello della mancanza di permessi su un certo progetto: in ambito business spesso le piattaforme non consentono la creazione di nuovi branch o la merge a tutti gli utenti, quindi ci si può creare un proprio repository personale locale dove poter utilizzare tutte le features in totale tranquillità e poi mandare il codice al progetto sorgente solo quando si saranno ottenuti tutti i permessi
+
 ## Branch
 
 Si è vista più volte la terminologia "branch" ma ancora probabilmente non è chiaro il concetto che c'è dietro. Cos'è un branch?  
-Un branch in Git è una sorta di ramificazione del progetto principale, che consente agli sviluppatori di lavorare su diverse funzionalità o correzioni di bug in modo isolato. Puoi pensare ad un branch come una copia separata del progetto, dove le modifiche possono essere apportate senza influenzare il ramo principale o gli altri rami. Questo approccio permette agli sviluppatori di sperimentare e lavorare in modo collaborativo in modo sicuro, senza compromettere la stabilità del codice principale oppure entrare in conflitto con modifiche concorrenti del progetto.
+Un branch in Git è una ramificazione del progetto principale, che consente agli sviluppatori di lavorare su diverse funzionalità o correzioni di bug in modo isolato. Puoi pensare ad un branch come una copia separata del progetto, dove le modifiche possono essere apportate senza influenzare il ramo principale o gli altri rami. Questo approccio permette agli sviluppatori di sperimentare e lavorare in modo collaborativo in modo sicuro, senza compromettere la stabilità del codice principale oppure entrare in conflitto con modifiche concorrenti del progetto.
 
 Se ne può creare uno facilmente scrivendo:
 
@@ -183,12 +200,9 @@ git checkout -b NOMEBRANCH NOMEREPOSITORY/NOMEBRANCH
 >
 > Quando stacchi un branch viene creata una copia del progetto a partire dal punto in cui lo si è staccato. Ad esempio creando un branch "develop" da **main** creiamo una copia del progetto di quel branch. Dopo aver apportato delle modifiche, Il branch *develop* diverge, se si stacca un nuovo branch la nuova copia avverrà a partire da develop se ci si trova su quel branch ancora.
 
-
-
-
 ## Controllo aggiornamenti, modifiche e stato
 
-È sempre importante controllare lo stato delle modifiche e la differenza tra vari codici con il repository.
+È sempre importante controllare lo stato delle modifiche e la differenza tra vari codici con il repository esterno.
 
 L'operazione di check più semplice da fare è sicuramente:
 
@@ -198,10 +212,10 @@ git status
 
 che mostra le informazioni basilari sui vari cambiamenti.
 
-Per avere informazioni complete anche per quanto riguarda i repository, è meglio dare, <u>prima di controllare lo stato</u>, una **fetch** sulla repository:
+Per avere informazioni complete anche per quanto riguarda i repository, è meglio dare, *prima di controllare lo stato*, una **fetch**:
 
 ```bash
-git fetch [nomerepository]
+git fetch NOMEREPOSITORY
 ```
 
 Lo status prende diverse parametri che possono essere più o meno utili, eccone alcuni:
@@ -209,4 +223,5 @@ Lo status prende diverse parametri che possono essere più o meno utili, eccone 
 - `-b nomebranch`: visualizza informazioni su quel branch
 - `--short`: visualizza giusto i file con il tipo di modifica (+ per aggiunto, m per modificato ...)
 - `--ignored`: visualizza i file ignorati
+
 
