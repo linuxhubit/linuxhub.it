@@ -14,6 +14,7 @@ tags:
 ---
 
 [&larr; Articolo precedente, parte 2: operazioni base](https://linuxhub.it/articles/howto-git-pt2/)  
+[&rarr; Articolo precedente, parte 4: Approfondimento branch](https://linuxhub.it/articles/howto-git-pt2/)  
 
 Quando si parla di *software di versioning*, `Git` è sicuramente il primo programma che ci viene in mente. Rappresenta l'alternativa più diffusa a sistemi come `svn`, utilizzata anche in ambito enterprise.
 
@@ -184,13 +185,25 @@ Un branch in Git è una ramificazione del progetto principale, che consente agli
 Si può pensare ad un branch come una copia separata del progetto, dove le modifiche possono essere apportate senza influenzare il ramo principale o gli altri rami.
 Questo approccio permette agli sviluppatori di sperimentare e lavorare in modo collaborativo in modo sicuro, senza compromettere la stabilità del codice principale oppure entrare in conflitto con modifiche concorrenti del progetto.
 
-Se ne può creare uno facilmente scrivendo:
+Per crearne uno basta digitare:
 
 ```bash
-git checkout -b NOMEBRANCH
+git branch NOMEBRANCH NOMEREMOTE/NOMEBRANCH
 ```
 
-E si può ritornare su un branch già esistente scrivendo: 
+Poi per passare a quel branch:
+
+```bash
+git checkout NOMEBRANCH
+```
+
+È anche possibile passare ad un nuovo branch e crearlo in un colpo solo:
+
+```bash
+git checkout -b NOMEBRANCH NOMEREMOTE/NOMEBRANCH
+```
+
+E si può ritornare su un branch già esistente scrivendo:
 
 ```bash
 git checkout NOMEBRANCH
@@ -199,7 +212,7 @@ git checkout NOMEBRANCH
 Se un branch è presente in un repository esterno si può **scaricare** ed impostare il *tracking* in maniera automatica scrivendo:
 
 ```bash
-git checkout -b NOMEBRANCH NOMEREPOSITORY/NOMEBRANCH
+git checkout -b NOMEBRANCH NOMEREMOTE/NOMEBRANCH
 ```
 
 > **NOTA BENE**:
