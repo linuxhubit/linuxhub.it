@@ -14,7 +14,7 @@ tags:
 ---
 
 [&larr; Articolo precedente, parte 3: remote e branch](https://linuxhub.it/articles/howto-git-pt3/)  
-[&rarr; Articolo precedente, parte 5: remote e branch](https://linuxhub.it/articles/howto-git-pt5/)  
+[&rarr; Articolo successivo, parte 5: remote e branch](https://linuxhub.it/articles/howto-git-pt5/)  
 
 Quando si parla di *software di versioning*, `Git` è sicuramente il primo programma che ci viene in mente. Rappresenta l'alternativa più diffusa a sistemi come `svn`, utilizzata anche in ambito enterprise.
 
