@@ -7,7 +7,7 @@ author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: linuhubit
 coauthor_github: linuhubit
-published: false
+published: true
 tags:
   - bash
   - git
