@@ -1,7 +1,7 @@
 ---
 class: post
 title: "#howto -  Guida all'utilizzo di GIT, parte 5: ignorare"
-date: 2024-03-08 07:00
+date: 2024-03-15 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
