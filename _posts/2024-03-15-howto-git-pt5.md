@@ -5,8 +5,8 @@ date: 2024-03-15 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuhubit
-coauthor_github: linuhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: true
 tags:
   - bash
@@ -26,7 +26,7 @@ Ecco quindi una guida passo passo a Git, parte 5: ignorare.
 Questo articolo affronterà i seguenti argomenti:
 
 - gitignore
-- throubleshoot
+- troubleshoot
 - caratteri jolly
 - gitignore.io
 
@@ -123,7 +123,7 @@ buildNumber.properties
 
 Un altro progetto molto interessante è git-ignore, un utility da terminale che si può [trovare a questo link Github](https://github.com/janniks/git-ignore).
 
-Questo progettino scritto in rust amplia le funzionalità di git generando da linea di comando il gitignore.  
+Questo progettino scritto in rust amplia le funzionalità di Git generando da linea di comando il gitignore.  
 
 Per utilizzarlo innanzitutto bisogna avere **Rust**, si proceda con l'installazione.
 
@@ -197,7 +197,7 @@ Il software si scaricherà i template dal sito (bisogna avere una connessione at
 > 
 > La ricerca si aggiorna in tempo reale, alla pressione dei tasti appariranno i risultati, con un invio si selezionerà il template sotto cursore. Per terminare, dare un invio senza scrivere nulla.
 
-## Throubleshoot: Rimuovere un file precedentemente ignorato
+## Troubleshoot: Rimuovere un file precedentemente ignorato
 
 Spesso mi è capitato di vedere la seguente scena: un progetto iniziato, alcuni file da ignorare committati e solo dopo un file .gitignore con quei file. I file però non si cancellano dal remote, e chiunque scarica il progetto se li ritroverà. Come fare?
 
