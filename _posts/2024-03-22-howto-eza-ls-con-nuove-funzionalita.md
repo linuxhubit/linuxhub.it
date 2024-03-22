@@ -5,9 +5,9 @@ date: 2024-03-22 07:00
 layout: post
 author: Midblyte
 author_github: Midblyte
-coauthor:
-coauthor_github:
-published: false
+coauthor: Davide Galati (in arte PsykeDady)
+coauthor_github: PsykeDady
+published: true
 tags:
 - ubuntu
 - fedora
@@ -19,7 +19,7 @@ tags:
 
 **Eza** è una delle numerose alternative per elencare i file nelle cartelle, configurandosi perciò come alternativa al classico `ls`.
 
-Eza si classifica come il più valido successore del progetto di cui è un fork, Eza - già sommariamente trattato in un [articolo precedente](https://linuxhub.it/articles/howto-utilizzare-tool-cli-alternativi-scritti-in-rust/) - ma che, ormai, non viene più aggiornato.
+Eza si classifica come il più valido successore di Exa, progetto di cui è un fork. Già sommariamente trattato in un [articolo precedente](https://linuxhub.it/articles/howto-utilizzare-tool-cli-alternativi-scritti-in-rust/) - ma che, ormai, non viene più aggiornato.
 
 ## Installazione
 
@@ -33,26 +33,26 @@ Per questo motivo, l'installazione può essere effettuata solo dopo aver aggiunt
 
 Innanzitutto, è necessario assicurarsi dell'esistenza della cartella "keyrings" in cui sono conservate le chiavi crittografiche (necessarie a garantire che il software che scaricato sia quello della fonte, e cioè che non sia stato manomesso durante il transito).
 ```bash
-sudo mkdir -p /etc/apt/keyrings
+mkdir -p /etc/apt/keyrings
 ```
 
 Dopodiché è necessario scaricare la chiave crittografica e configurare Apt in modo da riconoscere la nuova repository (nota: è necessario predisporre del pacchetto "gpg"):
 ```bash
 wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
 echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
-sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
 ```
 
 Infine, bisogna solo aggiornare l'elenco delle repository (in modo che Apt riconosca da dove scaricare l'eseguibile) e installare Eza:
 ```bash
-sudo apt update
-sudo apt install -y eza
+apt update
+apt install -y eza
 ```
 
 ### Fedora
 
 ```bash
-sudo dnf install rust-eza
+dnf install rust-eza
 ```
 
 ### Arch Linux
@@ -129,13 +129,13 @@ Gli **hyperlink** si possono attivare con il parametro `--hyperlink` e consenton
 
 Il loro funzionamento dipende dal terminale (che potrebbe non supportare affatto la suddetta funzionalità).
 
-Nel caso di Konsole e GNOME Terminal, due dei terminali più usati, gli hyperlink sono supportati ma potrebbe essere necessario attivarli esplicitamente dalle impostazioni.
+Nel caso di **Konsole** e **GNOME Terminal**, due dei terminali più usati, gli hyperlink sono supportati ma potrebbe essere necessario attivarli esplicitamente dalle impostazioni.
 
 ### Esclusione automatica file
 
 In ambienti di sviluppo software, una funzione utile di `eza` è quella di trascurare tutti i file contenuti nel file `.gitignore` (in cui sono elencati, uno per uno, i file di cui Git non deve tener traccia).
 
-Bata dare `eza --git-ignore` e per `Eza` sembrerà che non esistano.
+Basta dare `eza --git-ignore` e per `Eza` sembrerà che non esistano.
 
 ### Rappresentazione ad albero
 
@@ -160,4 +160,5 @@ Per il resto, rispetto ad Exa, Eza risolve una serie di problematiche presenti n
 In quanto alle novità, Eza aggiunge il supporto a terminali con sfondo chiaro, date relative (ovvero, viene indicato quanti minuti / ore / giorni fa un file è stato modificato), e a funzionalità di nicchia come il supporto a SeLinux e supporto alle repository Git.
 
 ## Ulteriori informazioni
+
 La pagina del progetto è [eza.rocks](https://eza.rocks) e la [repository ufficiale](https://github.com/eza-community/eza) si trova su GitHub.
