@@ -19,7 +19,7 @@ tags:
 
 **Eza** è una delle numerose alternative per elencare i file nelle cartelle, configurandosi perciò come alternativa al classico `ls`.
 
-Eza si classifica come il più valido successore di Exa, progetto di cui è un fork. Già sommariamente trattato in un [articolo precedente](https://linuxhub.it/articles/howto-utilizzare-tool-cli-alternativi-scritti-in-rust/) - ma che, ormai, non viene più aggiornato.
+Si classifica come il più valido successore di Exa, progetto di cui è un fork già sommariamente trattato in un [articolo precedente](https://linuxhub.it/articles/howto-utilizzare-tool-cli-alternativi-scritti-in-rust/), che ormai non viene più aggiornato.
 
 ## Installazione
 
