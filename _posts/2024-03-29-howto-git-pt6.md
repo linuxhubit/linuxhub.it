@@ -45,7 +45,7 @@ git update-index --assume-unchanged /percorso/file
 Se dovesse servire il procedimento inverso basta scrivere:
 
 ```bash
-git update-index --assume-unchanged /percorso/file
+git update-index --no-assume-unchanged /percorso/file
 ```
 
 ### Unable to mark
