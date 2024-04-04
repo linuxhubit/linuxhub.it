@@ -7,7 +7,7 @@ author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: linuhubit
 coauthor_github: linuhubit
-published: false
+published: true
 tags:
   - bash
   - git
@@ -46,7 +46,7 @@ git update-index --assume-unchanged /percorso/file
 Se dovesse servire il procedimento inverso basta scrivere:
 
 ```bash
-git update-index --assume-unchanged /percorso/file
+git update-index --no-assume-unchanged /percorso/file
 ```
 
 ### Unable to mark
