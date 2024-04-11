@@ -5,8 +5,8 @@ date: 2024-04-12 07:00
 layout: post
 author: Midblyte
 author_github: Midblyte
-coauthor:
-coauthor_github:
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: false
 tags:
 - ubuntu
@@ -19,7 +19,7 @@ tags:
 
 Per effettuare una registrazione del proprio terminale, salvando input e output che compaiono a schermo man mano che passa il tempo, normalmente si può ricorrere a un qualsiasi video recorder.
 
-Tuttavia, la registrazione video di un terminale comprenderebbe unicamente dei caratteri e molto più di rado altri elementi grafici (di complessità tale da beneficiare di una registrazione video).
+Tuttavia, la registrazione video di un terminale comprenderebbe unicamente dei caratteri e molto più di rado altri elementi grafici (di complessità tale da giustificare una registrazione video).
 
 **Asciinema** è uno strumento che permette di semplificare e migliorare la registrazione della sessione di terminale attualmente aperta:
 
