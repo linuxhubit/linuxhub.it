@@ -7,7 +7,7 @@ author: Midblyte
 author_github: Midblyte
 coauthor: Michael Messaggi
 coauthor_github: MichaelMessaggi
-published: false
+published: true
 tags:
 - ubuntu
 - fedora
@@ -64,6 +64,7 @@ pkg i asciinema
 [Pipx](https://pipx.pypa.io/stable/) è un'installer di programmi Python pensati per essere utilizzati via riga di comando.
 
 Usare il ben più noto `pip` funzionerebbe ugualmente, ma con qualche svantaggio:
+
 - i vari pacchetti non sarebbero isolati gli uni dagli altri e si rischierebbe di avere versioni multiple delle stesse dipendenze;
 - si ingombrerebbe la lista dei pacchetti manualmente installati con quelli delle loro relative dipendenze, installate automaticamente;
 - la disinstallazione sarebbe difficoltosa a causa dei pacchetti residui che resterebbero (e che andrebbero eliminati manualmente).
@@ -152,6 +153,6 @@ Le registrazioni caricate in rete hanno una durata limitata a una settimana, dop
 
 Per evitare che le registrazioni vengano rimosse, è necessario [registrare un account](https://asciinema.org/login/new) sul sito ufficiale oppure, in alternativa, [hostare un proprio server](https://docs.asciinema.org/manual/server/).
 
-
 ## Ulteriori informazioni
+
 La pagina del progetto è [asciinema.org](https://asciinema.org) e la [repository ufficiale](https://github.com/asciinema/asciinema) si trova su GitHub.
