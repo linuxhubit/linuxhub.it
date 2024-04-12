@@ -17,9 +17,12 @@ tags:
 ---
 
 
-Per effettuare una registrazione del proprio terminale, salvando input e output che compaiono a schermo man mano che passa il tempo, normalmente si può ricorrere a un qualsiasi video recorder.
+Per effettuare una registrazione del proprio terminale, salvando input e output che compaiono a schermo man mano che passa il tempo, normalmente si può ricorrere a un qualsiasi video recorder.  
+Tuttavia, la registrazione video di un terminale comprenderebbe unicamente dei caratteri e molto più di rado altri elementi grafici (di complessità tale da giustificare una registrazione video).  
 
-Tuttavia, la registrazione video di un terminale comprenderebbe unicamente dei caratteri e molto più di rado altri elementi grafici (di complessità tale da giustificare una registrazione video).
+Un buon modo per registrare il terminale nel modo più semplice possibile è utilizzando Asciicinema.
+
+## Definizione
 
 **Asciinema** è uno strumento che permette di semplificare e migliorare la registrazione della sessione di terminale attualmente aperta:
 
