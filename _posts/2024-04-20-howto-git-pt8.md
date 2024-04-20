@@ -101,7 +101,7 @@ git diff --cached
 
 ## Export e apply path
 
-Sicuramente il concetto di patch non è una cosa "ignota" nel campo della programmazione, significa letteralmente "cerotto" e nel campo dello sviluppo indica in genere una correzione o un aggiornamento che risolve dei programi.
+Sicuramente il concetto di patch non è una cosa "ignota" nel campo della programmazione, significa letteralmente "cerotto" ed indica in genere una correzione o un aggiornamento che risolve dei malfunzionamenti in un software.
 
 Quando si parla di repository git, si può affermare senza troppi problemi che la patch è **una "diff"**.
 
