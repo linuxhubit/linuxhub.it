@@ -5,8 +5,8 @@ date: 2024-04-20 14:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuhubit
-coauthor_github: linuhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: true
 tags:
   - bash
@@ -32,7 +32,7 @@ Questo articolo affronterà i seguenti argomenti:
 
 Prima di mandare le modifiche sul repository remoto è sempre un bene controllare che tutti i file modificati abbiano solo le differenze che ci si aspetta.
 
-Più spesso di quanto si pensi capita di aver modificato involontariamente dei file o ci si dimentica di avere alcune configurazioni che non devono essere inviate in remoto.
+Più spesso di quanto si pensi capita di aver modificato involontariamente dei file o di dimenticare all'interno alcune configurazioni che non devono essere inviate in remoto.
 
 In tal caso, meglio controllare usando il comando `diff`:
 
