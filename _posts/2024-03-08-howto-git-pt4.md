@@ -1,6 +1,6 @@
 ---
 class: post
-title: "#howto -  Guida all'utilizzo di GIT, parte 4: Approfondimento branch"
+title: "#howto - Guida all'utilizzo di GIT, parte 4: Approfondimento branch"
 date: 2024-03-08 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)

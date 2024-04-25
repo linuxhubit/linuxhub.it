@@ -1,6 +1,6 @@
 ---
 class: post
-title: "#howto -  Guida all'utilizzo di GIT, parte 6: stash, gitkeep e assume-unchanged"
+title: "#howto - Guida all'utilizzo di GIT, parte 6: stash, gitkeep e assume-unchanged"
 date: 2024-03-29 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)

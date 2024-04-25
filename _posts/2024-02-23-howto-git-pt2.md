@@ -1,6 +1,6 @@
 ---
 class: post
-title: "#howto -  Guida all'utilizzo di git, parte 2: operazioni base"
+title: "#howto - Guida all'utilizzo di git, parte 2: operazioni base"
 date: 2024-02-23 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)

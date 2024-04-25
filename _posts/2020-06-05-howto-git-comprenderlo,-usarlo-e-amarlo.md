@@ -1,6 +1,6 @@
 ---
 class: post
-title: "#howto -  Guida all'utilizzo di git"
+title: "#howto - Guida all'utilizzo di git"
 date: 2020-06-05 11:00
 layout: post
 author: Davide Galati (in arte PsykeDady)

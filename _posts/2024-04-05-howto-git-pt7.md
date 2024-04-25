@@ -1,6 +1,6 @@
 ---
 class: post
-title: "#howto -  Guida all'utilizzo di GIT, parte 7: cherry-pick e squash."
+title: "#howto - Guida all'utilizzo di GIT, parte 7: cherry-pick e squash."
 date: 2024-04-05 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)

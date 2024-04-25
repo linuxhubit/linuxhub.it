@@ -1,6 +1,6 @@
 ---
 class: post
-title: "#howto -  Guida all'utilizzo di GIT, parte 3: remote e branch"
+title: "#howto - Guida all'utilizzo di GIT, parte 3: remote e branch"
 date: 2024-03-01 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
