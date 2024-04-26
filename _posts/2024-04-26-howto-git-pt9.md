@@ -1,13 +1,13 @@
 ---
 class: post
 title: "#howto - Guida all'utilizzo di git, parte 9: studiare la storia delle modifiche."
-date: 2024-04-26 08:00
+date: 2024-04-26 06:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: Michael Messaggi
 coauthor_github: MichaelMessaggi
-published: false
+published: true
 tags:
   - bash
   - git
@@ -123,10 +123,10 @@ Dopo averlo eseguito si otterranno diverse informazioni come:
 git show SHACOMMIT --output /percorso/file/log
 ```
 
-??? Oppure salvarlo sotto forma di `Path` (stile `format-patch`):
+Oppure salvarlo sotto forma di **patch** (stile `format-patch`):
 
 ```bash
-git show SHACOMMIT --patch 
+git show SHACOMMIT --patch --output /percorso/file.patch
 ```
 
 ### Mostra terminale vuoto con --output

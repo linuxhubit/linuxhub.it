@@ -1,6 +1,6 @@
 ---
 class: post
-title: "#howto -  Guida all'utilizzo di GIT, parte 8: diff e patch."
+title: "#howto - Guida all'utilizzo di GIT, parte 8: diff e patch."
 date: 2024-04-20 14:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
@@ -14,6 +14,7 @@ tags:
 ---
 
 [&larr; Articolo precedente, parte 7: cherry-pick e squash](https://linuxhub.it/articles/howto-git-pt7/)  
+[&rarr; Articolo precedente, parte 9: studiare la storia delle modifiche.](https://linuxhub.it/articles/howto-git-pt9/)  
 
 Quando si parla di *software di versioning*, `Git` è sicuramente il primo programma che ci viene in mente. Rappresenta l'alternativa più diffusa a sistemi come `svn`, utilizzata anche in ambito enterprise.
 
