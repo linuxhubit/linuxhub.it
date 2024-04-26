@@ -1,7 +1,7 @@
 ---
 class: post
 title: "#howto - Guida all'utilizzo di git, parte 9: studiare la storia delle modifiche."
-date: 2024-04-26 06:00
+date: 2024-04-26 05:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
