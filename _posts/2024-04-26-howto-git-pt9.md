@@ -1,12 +1,12 @@
 ---
 class: post
-title: "#howto - Guida all'utilizzo di GIT, parte 9: studiare la storia delle modifiche."
+title: "#howto - Guida all'utilizzo di git, parte 9: studiare la storia delle modifiche."
 date: 2024-04-26 08:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuhubit
-coauthor_github: linuhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: false
 tags:
   - bash
@@ -15,11 +15,11 @@ tags:
 
 [&larr; Articolo precedente, parte 8: diff e patch](https://linuxhub.it/articles/howto-git-pt8/)  
 
-Quando si parla di *software di versioning*, `Git` è sicuramente il primo programma che ci viene in mente. Rappresenta l'alternativa più diffusa a sistemi come `svn`, utilizzata anche in ambito enterprise.
+Quando si parla di *software di versioning*, `git` è sicuramente il primo programma che ci viene in mente. Rappresenta l'alternativa più diffusa a sistemi come `svn`, utilizzata anche in ambito enterprise.
 
 Rappresenta anche uno dei primi scogli che dipendenti alle prime armi affrontano in azienda.
 
-Ecco quindi una guida passo passo a Git, parte 9: studiare la storia delle modifiche.
+Ecco quindi una guida passo passo a git, parte 9: studiare la storia delle modifiche.
 
 ## Obiettivi
 
@@ -33,14 +33,14 @@ Questo articolo affronterà i seguenti argomenti:
 
 ## log
 
-Git log rappresenta la storia dei commit del progetto. Ad ogni commit viene associato un codice SHA univoco che si può poi verificare tramite questo comando, inoltre viene mostrato:
+`git log` rappresenta la storia dei commit del progetto. Ad ogni commit viene associato un codice SHA univoco che si può poi verificare tramite questo comando, inoltre viene mostrato:
 
-- username ed email dell'utente che ha fatto il commit
+- Username ed email dell'utente che ha fatto il commit
 - Data
 - Messaggio
 - Branch (non in tutte le declinazioni di git log)
 
-Nei vari articoli si son visti alcuni esempi d'uso:
+Nei vari articoli si sono visti alcuni esempi d'uso:
 
 - Il log completo: `git log`.
 - Una versione in cui ogni log occupa una linea e gli SHA sono abbreviati (ma comunque sempre unici) `git log --oneline`
@@ -48,21 +48,21 @@ Nei vari articoli si son visti alcuni esempi d'uso:
 
 Si analizzino meglio le varie opzioni:
 
-- `--oneline` visualizza i commit in una sola riga mostrando SHA abbreviato, prima riga del messaggio, branch.
+- `--oneline` Visualizza i commit in una sola riga mostrando SHA abbreviato, prima riga del messaggio, branch.
 - `--graph` Mostra i commit utilizzando un grafo che evidenzia eventuali merge.
-- `--decorate` mostra alcune informazioni aggiuntive come il branch e l'url di riferimento.
-- `--all` mostra i commit da tutti i branch/origin
-- `--color` un output colorato
-- `--follow` non è stata vista in articoli precedenti. Questa opzione, se messa prima del nome di un file, mostra la storia dei commit per quello specifico file. A differenza di `git log nomefile` segue la storia di quel file anche se viene rinominato o spostato
+- `--decorate` Mostra alcune informazioni aggiuntive come il branch e l'url di riferimento.
+- `--all` Mostra i commit da tutti i branch/origin
+- `--color` Un output colorato
+- `--follow` Non è stata vista in articoli precedenti. Questa opzione, se messa prima del nome di un file, mostra la storia dei commit per quello specifico file. A differenza di `git log nomefile` segue la storia di quel file anche se viene rinominato o spostato
 
 ## Blame
 
 Letteralmente "*colpa*", questo comando serve per mostrare, riga per riga, l'ultimo commit che ha modificato o creato quella riga. Insieme al commit son visualizzate informazioni su: 
 
-- nome utente
-- nome del file (se cambiato nel tempo)
+- Nome utente
+- Nome del file (se cambiato nel tempo)
 - Data della modifica
-- numero di riga
+- Numero di riga
 
 È molto utile per scoprire l'autore di alcune modifiche in modo da rintracciarlo e ~~bruciargli il computer~~ chiedere delucidazioni magari o chiarimenti.
 
@@ -74,7 +74,7 @@ Tralasciando le battute sulle sorti di chi sporca il codice o introduce bug, ho 
 
 ## reflog
 
-Il reflog, o ref-log, è un log generico per il repository che tiene traccia delle sue modifiche strutturali (a livello di branch, merge, checkout, reset etc...)
+Il `reflog`, o `ref-log`, è un log generico per il repository che tiene traccia delle sue modifiche strutturali (a livello di branch, merge, checkout, reset etc...)
 
 Si usa semplicemente scrivendo: 
 
@@ -85,7 +85,7 @@ Si può omettere sia il nome del remote (si prende il repository locale) che il 
 
 ## grep
 
-Questo comando ha la stessa funzione del classico grep UNIX, ovvero quello di cercare le corrispondenze di una determinata stringa di ricerca tra i vari file del progetto. Si usa semplicemente scrivendo: 
+Questo comando ha la stessa funzione del classico `grep` UNIX, ovvero quello di cercare le corrispondenze di una determinata stringa di ricerca tra i vari file del progetto. Si usa semplicemente scrivendo: 
 
 ```bash
 git grep "termine di ricerca"
@@ -94,26 +94,26 @@ Normalmente `git grep` opera all'interno del proprio albero di working directory
 
 Ci sono diverse opzioni utili, alcune di queste sono: 
 
-- `-n` per mostrare i numeri di riga
-- `-G` per utilizzare la sintassi delle regex
-- `-E` per utilizzare la sintassi estesa delle regex 
-- `-o` mostra solo le parole che hanno un match
-- `-i` ignora il case sensitive
-- `-v` inverte il match (cerca le cose che non son richieste)
-- `--untracked` mostra i risultati anche nei file non tracciati
-- `--recurse-submodules` cerca nei sottomoduli git (ovvero progetti git innestati).
+- `-n` Per mostrare i numeri di riga
+- `-G` Per utilizzare la sintassi delle regex
+- `-E` Per utilizzare la sintassi estesa delle regex 
+- `-o` Mostra solo le parole che hanno un match
+- `-i` Ignora il case sensitive
+- `-v` Unverte il match (cerca le cose che non son richieste)
+- `--untracked` Mostra i risultati anche nei file non tracciati
+- `--recurse-submodules` Cerca nei sottomoduli git (ovvero progetti git innestati).
 
 ## show
 
-Il comando show serve a mostrare le tutte le informazioni riguardanti un commit. La sintassi è:
+Il comando `show` serve a mostrare tutte le informazioni riguardanti un commit. La sintassi è:
 
 ```bash
 git show SHACOMMMIT
 ```
 
-Dopo averlo eseguito ci si ritroverà diverse informazioni come: 
+Dopo averlo eseguito si otterranno diverse informazioni come: 
 
-- dati dell'utente che ha effettuato il commit, con la data ed il branch
+- Dati dell'utente che ha effettuato il commit, con la data ed il branch
 - Messaggio di commit 
 - Il diff del commit
 
@@ -123,7 +123,7 @@ Dopo averlo eseguito ci si ritroverà diverse informazioni come:
 git show SHACOMMIT --output /percorso/file/log
 ```
 
-Oppure salvarlo sotto forma di Path (stile `format-patch`):
+??? Oppure salvarlo sotto forma di `Path` (stile `format-patch`):
 
 ```bash
 git show SHACOMMIT --patch 
