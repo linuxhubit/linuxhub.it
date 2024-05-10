@@ -14,7 +14,7 @@ tags:
 ---
 
 [&larr; Articolo precedente, parte 8: diff e patch](https://linuxhub.it/articles/howto-git-pt8/)  
-[&rarr; Articolo precedente, parte 10: bisect](https://linuxhub.it/articles/howto-git-pt10/)  
+[&rarr; Articolo successivo, parte 10: bisect](https://linuxhub.it/articles/howto-git-pt10/)  
 
 Quando si parla di *software di versioning*, `git` è sicuramente il primo programma che ci viene in mente. Rappresenta l'alternativa più diffusa a sistemi come `svn`, utilizzata anche in ambito enterprise.
 

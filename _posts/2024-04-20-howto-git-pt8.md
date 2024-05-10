@@ -14,7 +14,7 @@ tags:
 ---
 
 [&larr; Articolo precedente, parte 7: cherry-pick e squash](https://linuxhub.it/articles/howto-git-pt7/)  
-[&rarr; Articolo precedente, parte 9: studiare la storia delle modifiche.](https://linuxhub.it/articles/howto-git-pt9/)  
+[&rarr; Articolo successivo, parte 9: studiare la storia delle modifiche.](https://linuxhub.it/articles/howto-git-pt9/)  
 
 Quando si parla di *software di versioning*, `Git` è sicuramente il primo programma che ci viene in mente. Rappresenta l'alternativa più diffusa a sistemi come `svn`, utilizzata anche in ambito enterprise.
 
