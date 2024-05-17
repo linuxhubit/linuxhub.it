@@ -5,9 +5,9 @@ date: 2024-05-17 07:00
 layout: post
 author: Midblyte
 author_github: Midblyte
-coauthor:
-coauthor_github:
-published: false
+coauthor: Davide Galati (in arte PsykeDady)
+coauthor_github: PsykeDady
+published: true
 tags:
 - ubuntu
 - fedora
@@ -17,14 +17,13 @@ tags:
 - android
 ---
 
-Nel corso degli anni, il formato Markdown è diventato sempre più apprezzato e oggigiorno viene usato per scrivere di tutto, dalle documentazioni agli articoli (compreso il presente).
+Nel corso degli anni, il formato Markdown è diventato sempre più apprezzato e oggigiorno viene usato per scrivere di tutto, dalle documentazioni agli articoli (compreso questo).
 
 Leggere un file Markdown (come ad esempio il README.md di un progetto) in un terminale via `nano` o `vim`, però, non sempre è un'esperienza piacevole.
 
 Infatti, siccome è facile distrarsi per la presenza dei simboli di formattazione, la lettura può talvolta essere molto difficile.
 
 `Glow` è uno strumento a riga di comando che risolve il problema formattando i testi in Markdown e mostrandoli sul terminale.
-
 
 ## Installazione
 
@@ -36,11 +35,24 @@ Di seguito sono riportate le istruzioni per i sistemi più comuni.
 
 Su Ubuntu e derivate l'installazione richiede prima di aggiungere una repository, siccome di base `glow` non è disponibile nei repository ufficiali.
 
+Creare, se non esiste, la seguente directory `/etc/apt/keyrings`:
+
 ```bash
-sudo mkdir -p /etc/apt/keyrings
+mkdir -p /etc/apt/keyrings
+```
+
+Quindi:
+
+```bash
 curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
 echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
-sudo apt update && sudo apt install glow
+```
+
+Aggiornare ed installare `glow`:
+
+```bash
+apt update
+apt install glow
 ```
 
 ### Fedora
@@ -54,7 +66,12 @@ baseurl=https://repo.charm.sh/yum/
 enabled=1
 gpgcheck=1
 gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
-sudo yum install glow
+```
+
+Quindi installare glow:
+
+```bash
+yum install glow
 ```
 
 ### Arch Linux
@@ -131,7 +148,6 @@ Ecco come leggere il README della repository GitHub di LinuxHub, via pager (`-p`
 glow -w ${COLUMNS:-80} -p https://github.com/linuxhubit/linuxhub.it
 ```
 
-
 ## TUI
 
 Avviare `glow` senza alcun parametro avvia un'interfaccia in cui sono mostrati tutti i file Markdown (.md) trovati nella cartella (e relative sottocartelle) in cui Glow è stato avviato.
@@ -164,7 +180,6 @@ glow config
 
 Ciò consente di modificare alcune opzioni (come il supporto al mouse o la linea a capo automatica, fissata a 80 caratteri) e di abilitare alcune impostazioni di default, come il **pager** (così che Glow si comporti sempre come `less`),
 
-
 ## Stash
 
 Si può pensare alla `modalità Stash` come una sorta di "preferiti".
@@ -178,7 +193,6 @@ glow stash --memo "Prossima pubblicazione" articolo.md
 ```
 
 Per rimuovere un file dallo stash, è necessario entrare in modalità TUI (eseguendo `glow` o `glow stash`), selezionare il file e premere `x`.
-
 
 ## Leggere LinuxHub da terminale
 
@@ -194,11 +208,10 @@ cd linuxhub.it/_posts
 
 Dopodiché, basta digitare `glow` (per scegliere interattivamente il post da leggere) oppure `glow -p *howto-glow*.md` per leggere proprio quest'articolo nello specifico.
 
-
 ## Maggiori informazioni
 
 La repository dei sorgenti si trova su [GitHub](https://github.com/charmbracelet/glow).
 
 Glow è uno strumento creato e sviluppato da [Charmbracelet, Inc](https://github.com/charmbracelet/).
 
-Charmbracelet sviluppa anche altri strumenti, tra cui il ben più noto [Gum](https://linuxhub.it/articles/howto-gum-per-script-piu-soddisfacenti/).
+**Charmbracelet** sviluppa anche altri strumenti, tra cui il ben più noto [Gum](https://linuxhub.it/articles/howto-gum-per-script-piu-soddisfacenti/).
