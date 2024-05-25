@@ -215,12 +215,97 @@ Il risultato finale è:
 >
 > Ci son vari modi per configurare in maniera corretta il file xml, fare sempre riferimento alle documentazioni del proprio progetto.
 
-
 ### web.xml
+
+Il file web.xml è uno dei file fondamentali per l'esecuzione degli applicativi, fornisce informazioni sui punti di ingresso dell'applicazione, la filter chain di sicurezza, i listener e servizi di back-office.
+
+Un esempio potrebbe essere: 
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <!-- Definizione del servlet -->
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>com.example.HelloServlet</servlet-class>
+    </servlet>
+    
+    <!-- Mappatura del servlet a un URL -->
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+    <!-- Definizione del filtro -->
+    <filter>
+        <filter-name>LoggingFilter</filter-name>
+        <filter-class>com.example.LoggingFilter</filter-class>
+    </filter>
+
+    <!-- Mappatura del filtro a tutte le richieste -->
+    <filter-mapping>
+        <filter-name>LoggingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Definizione del listener -->
+    <listener>
+        <listener-class>com.example.MyServletContextListener</listener-class>
+    </listener>
+
+    <!-- Parametri di contesto -->
+    <context-param>
+        <param-name>dbUrl</param-name>
+        <param-value>jdbc:mysql://localhost:3306/mydb</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbUser</param-name>
+        <param-value>username</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbPassword</param-name>
+        <param-value>password</param-value>
+    </context-param>
+
+    <!-- Riferimento a una risorsa -->
+    <resource-ref>
+        <description>My DataSource</description>
+        <res-ref-name>jdbc/MyDB</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+</web-app>
+```
 
 ## Installare un applicativo WAR
 
+A fine processo di build, maven compila un file chiamato "**war**", o *web archive*, che in realtà è un archivio con la stessa struttura del file zip.
+
+Questo file può essere messo sotto la cartella `webapps`, all'avvio tomcat lo estrarrà e creerà quindi una cartella.
+
+> Attenzione:
+>
+> Lasciando il file war sotto la cartella `webapps`, ad ogni avvio la cartella verrà sovrascritta. Questo normalmente non è un problema, non fosse che alcuni applicativi usano dei database detti **in-file** che memorizzano tutti i dati all'interno della cartella estratta. Evitare se possibile di lasciare i WAR all'interno della cartella webapps per evitare perdite di dati.
+
 ## Avviare tomcat
+
+Per avviare tomcat basta andare nella cartella `bin` del server e scrivere: 
+
+```bash
+./catalina.sh start
+```
+
+Su sistema operativo windows sarebbe: 
+
+```bash
+catalina.bat start
+```
+
+
 
 ### La cartella dei log
 
