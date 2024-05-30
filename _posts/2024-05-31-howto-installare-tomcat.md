@@ -1,7 +1,7 @@
 ---
 class: post
 title: "#howtodev - Avviare applicazione su tomcat"
-date: 2024-05-24 07:00
+date: 2024-05-31 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
@@ -128,7 +128,7 @@ Vediamo una panoramica:
 - `catalina.policy` permette di fare il mapping di permessi specifici di java, è un file avanzato di configurazione e necessita la conoscenza dei processi di sicurezza della JVM stessa.
 - `catalina.properties` gestisce varie configurazioni di tomcat come la lista dei jar da cui prelevare classi per il classpath generico.
 
-Alcuni files son più ricorrenti nelle configurazioni e meritano un approfondimento in più. 
+Alcuni files son più ricorrenti nelle configurazioni e meritano un approfondimento in più. Da considerare comunque che tutti i file al loro interno contengono vari esempi commentati e non.
 
 ### server.xml
 
@@ -293,24 +293,63 @@ Questo file può essere messo sotto la cartella `webapps`, all'avvio tomcat lo e
 
 ## Avviare tomcat
 
-Per avviare tomcat basta andare nella cartella `bin` del server e scrivere: 
+Per avviare tomcat basta andare nella cartella `bin` del server e scrivere:
 
 ```bash
 ./catalina.sh start
 ```
 
-Su sistema operativo windows sarebbe: 
+Su sistema operativo windows sarebbe:
 
 ```bash
 catalina.bat start
 ```
 
-
-
 ### La cartella dei log
+
+La cartella dei log di tomcat contiene i log giorno per giorno ed un file `catalina.out` con i log cumulativi. Una volta avviato il server ci si può mettere in tail sul log così (supponendo di essere sulla cartella padre):
+
+```bash
+tail -f logs/catalina.out
+```
+
+Consiglio però la modalità `less` che è più potente di `tail`:
+
+```bash
+less +F logs/catalina.out
+```
+
+Si può avviare il server e leggere i log in un colpo solo, mettendosi nella cartella padre, così:
+
+```bash
+./bin/catalina.sh start && less +F logs/catalina.out
+```
+
+Si noti però che se si è su sistema operativo **windows** dopo il comando di start del server, i log si mostrano da soli
 
 ### Fermare tomcat
 
+Per fermare il tomcat scrivere (a partire dalla root di tomcat):
+
+```bash
+./bin/catalina.sh stop
+```
+
 #### Assicurarsi che sia spento tramite ps
 
+Se si dovessero riscontrare problemi con lo stop si può forzare scrivendo:
+
+```bash
+for i in $(ps -aux | grep '[c]atalina'  | awk '{print $2}'); do kill -9 $i; done
+```
+
 ### Avviare tomcat in debug
+
+Per avviare tomcat in modalità debug bisogna attuare due passaggi, il primo è quello di impostare la variabile d'ambiente JPDA_OPTS:
+
+```bash
+export JPDA_OPTS="-agentlib:jdwp=transport=dt_socket,address=<PORTA>,server=y,suspend=<y o n>"
+```
+
+Al posto di `<PORTA>` ci si può mettere un numero qualunque sopra il `1024`, di default è `8000`. Quello rappresenta la porta di ascolto per la connessione in debug.  
+Al posto di `<y o n>` ci si può mettere `y` se si vuole che il server non parta fino a che un debugger non si attacca. Altrimenti `n` per un comportamento normale in cui il server resta aperto all'ascolto del debug ma nel frattempo opera tranquillamente anche senza un debugger attaccato.
