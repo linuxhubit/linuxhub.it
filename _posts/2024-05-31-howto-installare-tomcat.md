@@ -1,6 +1,6 @@
 ---
 class: post
-title: "#howtodev - Avviare applicazione su tomcat"
+title: "#howto - Installare Tomcat"
 date: 2024-05-31 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
