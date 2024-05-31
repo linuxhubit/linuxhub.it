@@ -5,8 +5,8 @@ date: 2024-05-31 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: true
 tags:
 - java
@@ -19,7 +19,7 @@ Ecco una breve guida introduttiva
 
 ## Cos'è un webserver Apache
 
-Apache Tomcat è un server web per applicazioni scritte in Java, più semplicemente è quel software che fa da tramite tra il web e l'applicativo avviato in background, ne tiene il ciclo di vita attivo, i log le proprietà di connessione e la gestione degli errori.
+Apache Tomcat è un server web per applicazioni scritte in Java, più semplicemente è quel software che fa da tramite tra il web e l'applicativo avviato in background, ne tiene il ciclo di vita attivo, i log, le proprietà di connessione e la gestione degli errori.
 
 ### WAR Java e Tomcat
 
@@ -27,13 +27,13 @@ Generalmente un applicazione Java gestita tramite un dependency manager genera i
 
 Il file WAR viene scompattato da Tomcat in una cartella (chiamata `webapps`) e avviata secondo le informazioni presenti nel manifesto, questo processo viene quindi tenuto in vita dal webserver.
 
-### Springboot
+### Spring Boot
 
-Alcuni framework, come `springboot`, scaricano autonomamente tomcat e installano di conseguenza i propri eseguibili in maniera indipendete.
+Alcuni framework, come `Spring Boot`, scaricano autonomamente Tomcat e installano di conseguenza i propri eseguibili in maniera indipendete.
 
 ## Installazione Tomcat
 
-Per installarlo bisogna innanzitutto avere ben chiara la versione di Java che si andrà ad utilizzare, in base ad essa infatti cambierà di conseguenza la versione di tomcat richiesta.
+Per installarlo bisogna innanzitutto avere ben chiara la versione di Java che si andrà ad utilizzare, in base ad essa infatti cambierà di conseguenza la versione di Tomcat richiesta.
 
 Nello specifico è presente una tabella riassuntiva [qui](https://tomcat.apache.org/whichversion.html).
 
@@ -55,7 +55,7 @@ tar -xvzf apache-tomcat-8.5.100.tar.gz
 
 > NOTA BENE:  
 >
-> La versione 8 di tomcat è ormai senza supporto (da Marzo 2024), e potrebbe avere delle vulnerabilità di sicurezza.
+> La versione 8 di Tomcat è ormai senza supporto (da Marzo 2024), e potrebbe avere delle vulnerabilità di sicurezza.
 
 ### Java11
 
@@ -85,18 +85,18 @@ wget 'https://archive.apache.org/dist/tomcat/tomcat-11/v11.0.0-M20/bin/apache-to
 tar -xvzf apache-tomcat-11.0.0-M20.tar.gz
 ```
 
-## Struttura files di tomcat
+## Struttura files di Tomcat
 
 Tomcat possiede diversi file di configurazione, la conoscenza di questi file è fondamentale per conoscere tutte le dinamiche che possono impedire un corretto funzionamento dell'applicativo o del server.
 
 Prima di tutto si può fare una panoramica sulle cartelle:
 
-- bin: contiene gli script per l'esecuzione e la configurazione dell'ambiente di tomcat tra cui `catalina.sh`.
-- conf: contiene le configurazioni principali per l'avvio e l'esecuzione di tomcat. Inclusi permessi degli utenti, datasources e punti di accesso dell'applicazione.
+- bin: contiene gli script per l'esecuzione e la configurazione dell'ambiente di Tomcat tra cui `catalina.sh`.
+- conf: contiene le configurazioni principali per l'avvio e l'esecuzione di Tomcat. Inclusi permessi degli utenti, datasources e punti di accesso dell'applicazione.
 - lib: Contiene le librerie che devono essere condivise tra le varie webapps.
 - logs: contiene i log dell'applicazione e la loro rotazione.
-- temp: File temporanei di catalina
-- webapps: La cartella cuore di tomcat, dove vengono memorizzate le varie applicazioni e la ROOT.
+- temp: File temporanei di Catalina
+- webapps: La cartella cuore di Tomcat, dove vengono memorizzate le varie applicazioni e la ROOT.
 - work: Una cartella dove possono essere depositati i vari file dell'applicativo
 
 ### Webapps
@@ -105,33 +105,33 @@ Ogni cartella all'interno di webapps rappresenta un *possibile endpoint* del ser
 
 Normalmente al suo interno si hanno le seguenti cartelle: 
 
-- docs: contiene la documentazione di apache.
+- docs: contiene la documentazione di Apache.
 - examples: Alcuni esempi per applicativi.
-- host-manager: un applicativo per la gestione degli utenti di tomcat (si accede tramite **/host-manager**)
-- manager: un applicativo per la gestione delle risorse e di altri applicativi di tomcat (si accede tramite **/manager**)
+- host-manager: un applicativo per la gestione degli utenti di Tomcat (si accede tramite **/host-manager**)
+- manager: un applicativo per la gestione delle risorse e di altri applicativi di Tomcat (si accede tramite **/manager**)
 - ROOT: l'applicazione mappata nel percorso **/**, il contenuto si può sovrascrivere per inserire l'applicazione che stiamo sviluppando.
 
 ### Files di configurazione
 
-Con la premessa che la suddivisione di alcuni files è più logica che netta, e che quindi questo comporta che più files possono gestire una stessa funzione, la struttura di tomcat è molto semplice ed in genere facilmente configurabile.
+Con la premessa che la suddivisione di alcuni files è più logica che netta, e che quindi questo comporta che più files possono gestire una stessa funzione, la struttura di Tomcat è molto semplice ed in genere facilmente configurabile.
 
 Ogni file di configurazione contiene già delle preconfigurazioni di base e delle zone opportunamente commentate per rendere più semplice una personalizzazione all'utente.
 
 Vediamo una panoramica:
 
--  `server.xml` è uno dei file principali della struttura di tomcat, definisce servizi, driver e configurazioni di connessione alla datasources, gli endpoint e così via...
+-  `server.xml` è uno dei file principali della struttura di Tomcat, definisce servizi, driver e configurazioni di connessione alla datasources, gli endpoint e così via...
 - `web.xml` Serve a speficiare l'entry point (ovvero i file da servire al punto di ingresso) delle appliazioni. Se configurato nella cartella `conf` è globale, tuttavia ogni applicazione può avere il proprio file *web.xml* nella cartella di *META-INF* per impostazioni specifiche.
 - `context.xml` definisce informazioni e configurazioni riguardanti le risorse che devono essere disponibili per un applicazione al suo avvio, come variabili e datasources. Alcune funzionalità si sovrappongono con `server.xml` e si ha la libera scelta nell'utilizzare uno o l'altra.
 - `tomcat-users.xml` è un file di sicurezza, definisce infatti quali pagine hanno l'accesso protetto, per quali utenti e con quali credenziali. È una configurazione statica (quindi non si aggiorna in autonomia) ma ottima se si vuole proteggere alcune pagine di configurazione del server.
 - `logging.properties` gestisce le configurazioni di logging.
 - `catalina.policy` permette di fare il mapping di permessi specifici di java, è un file avanzato di configurazione e necessita la conoscenza dei processi di sicurezza della JVM stessa.
-- `catalina.properties` gestisce varie configurazioni di tomcat come la lista dei jar da cui prelevare classi per il classpath generico.
+- `catalina.properties` gestisce varie configurazioni di Tomcat come la lista dei jar da cui prelevare classi per il classpath generico.
 
 Alcuni files son più ricorrenti nelle configurazioni e meritano un approfondimento in più. Da considerare comunque che tutti i file al loro interno contengono vari esempi commentati e non.
 
 ### server.xml
 
-Il file server.xml può gestire diversi aspetti dell'applicazione, dal percorso della cartella "root" del server, la porta di connessione di tomcat, ai connettori necessari all'avvio fino alle risorse per la gestione del database.
+Il file server.xml può gestire diversi aspetti dell'applicazione, dal percorso della cartella "root" del server, la porta di connessione di Tomcat, ai connettori necessari all'avvio fino alle risorse per la gestione del database.
 
 Supponendo di dover fare il mapping di una particolare cartella di **webapps** con la **ROOT** si può scrivere:
 
@@ -212,7 +212,7 @@ Il risultato finale è:
 
 > Attenzione:  
 >
-> Ci son vari modi per configurare in maniera corretta il file xml, fare sempre riferimento alle documentazioni del proprio progetto.
+> Ci sono vari modi per configurare in maniera corretta il file xml, fare sempre riferimento alle documentazioni del proprio progetto.
 
 ### web.xml
 
@@ -284,21 +284,21 @@ Un esempio potrebbe essere:
 
 A fine processo di build, maven compila un file chiamato "**war**", o *web archive*, che in realtà è un archivio con la stessa struttura del file zip.
 
-Questo file può essere messo sotto la cartella `webapps`, all'avvio tomcat lo estrarrà e creerà quindi una cartella.
+Questo file può essere messo sotto la cartella `webapps`, all'avvio Tomcat lo estrarrà e creerà quindi una cartella.
 
 > Attenzione:
 >
 > Lasciando il file war sotto la cartella `webapps`, ad ogni avvio la cartella verrà sovrascritta. Questo normalmente non è un problema, non fosse che alcuni applicativi usano dei database detti **in-file** che memorizzano tutti i dati all'interno della cartella estratta. Evitare se possibile di lasciare i WAR all'interno della cartella webapps per evitare perdite di dati.
 
-## Avviare tomcat
+## Avviare Tomcat
 
-Per avviare tomcat basta andare nella cartella `bin` del server e scrivere:
+Per avviare Tomcat basta andare nella cartella `bin` del server e scrivere:
 
 ```bash
 ./catalina.sh start
 ```
 
-Su sistema operativo windows sarebbe:
+Su sistema operativo Windows sarebbe:
 
 ```bash
 catalina.bat start
@@ -306,7 +306,7 @@ catalina.bat start
 
 ### La cartella dei log
 
-La cartella dei log di tomcat contiene i log giorno per giorno ed un file `catalina.out` con i log cumulativi. Una volta avviato il server ci si può mettere in tail sul log così (supponendo di essere sulla cartella padre):
+La cartella dei log di Tomcat contiene i log giorno per giorno ed un file `catalina.out` con i log cumulativi. Una volta avviato il server ci si può mettere in tail sul log così (supponendo di essere sulla cartella padre):
 
 ```bash
 tail -f logs/catalina.out
@@ -324,11 +324,11 @@ Si può avviare il server e leggere i log in un colpo solo, mettendosi nella car
 ./bin/catalina.sh start && less +F logs/catalina.out
 ```
 
-Si noti però che se si è su sistema operativo **windows** dopo il comando di start del server, i log si mostrano da soli
+Si noti però che se si è su sistema operativo **Windows** dopo il comando di start del server, i log vengono mostrati automaticamente.
 
-### Fermare tomcat
+### Fermare Tomcat
 
-Per fermare il tomcat scrivere (a partire dalla root di tomcat):
+Per fermare Tomcat scrivere (a partire dalla root di Tomcat):
 
 ```bash
 ./bin/catalina.sh stop
@@ -342,9 +342,9 @@ Se si dovessero riscontrare problemi con lo stop si può forzare scrivendo:
 for i in $(ps -aux | grep '[c]atalina'  | awk '{print $2}'); do kill -9 $i; done
 ```
 
-### Avviare tomcat in debug
+### Avviare Tomcat in debug
 
-Per avviare tomcat in modalità debug bisogna attuare due passaggi, il primo è quello di impostare la variabile d'ambiente JPDA_OPTS:
+Per avviare Tomcat in modalità debug bisogna attuare due passaggi, il primo è quello di impostare la variabile d'ambiente JPDA_OPTS:
 
 ```bash
 export JPDA_OPTS="-agentlib:jdwp=transport=dt_socket,address=<PORTA>,server=y,suspend=<y o n>"
