@@ -7,7 +7,7 @@ author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: linuxhubit
 coauthor_github: linuxhubit
-published: false
+published: true
 tags:
 - java
 - tomcat
@@ -19,7 +19,7 @@ Ecco una breve guida introduttiva
 
 ## Cos'è un webserver Apache
 
-Apache tomcat è un server web per applicazioni scritte in Java, più semplicemente è quel software che fa da tramite tra il web e l'applicativo avviato in background, ne tiene il ciclo di vita attivo, i log le proprietà di connessione e la gestione degli errori.
+Apache Tomcat è un server web per applicazioni scritte in Java, più semplicemente è quel software che fa da tramite tra il web e l'applicativo avviato in background, ne tiene il ciclo di vita attivo, i log le proprietà di connessione e la gestione degli errori.
 
 ### WAR Java e Tomcat
 
@@ -29,11 +29,11 @@ Il file WAR viene scompattato da Tomcat in una cartella (chiamata `webapps`) e a
 
 ### Springboot
 
-Alcuni framework, come springboot, scaricano autonomamente tomcat e installano di conseguenza i propri eseguibili in maniera indipendete.
+Alcuni framework, come `springboot`, scaricano autonomamente tomcat e installano di conseguenza i propri eseguibili in maniera indipendete.
 
-## Installazione tomcat
+## Installazione Tomcat
 
-Per installare tomcat bisogna innanzitutto avere ben chiara la versione di Java che si andrà ad utilizzare, in base ad essa infatti cambierà di conseguenza la versione di tomcat richiesta.
+Per installarlo bisogna innanzitutto avere ben chiara la versione di Java che si andrà ad utilizzare, in base ad essa infatti cambierà di conseguenza la versione di tomcat richiesta.
 
 Nello specifico è presente una tabella riassuntiva [qui](https://tomcat.apache.org/whichversion.html).
 
@@ -45,7 +45,7 @@ Nello specifico Tomcat8 può essere utilizzato con linguaggi che seguono le spec
 
 Tomcat9 invece utilizza JEE8, da utilizzare con versioni Java8 e superiori.
 
-Per installare ad esempio *Tomcat 8.5.99* (molto utilizzato in ambito business dai vecchi applicativi) scrivere:
+Per installare ad esempio *Tomcat 8.5.100* (molto utilizzato in ambito business dai vecchi applicativi) scrivere:
 
 ```bash
 wget 'https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.100/bin/apache-tomcat-8.5.100.tar.gz'
@@ -73,7 +73,6 @@ tar -xvzf apache-tomcat-10.1.24.tar.gz
 
 ### Java17
 
-
 Con Java 17 si possono utilizzare le versioni di [Tomcat successive alla 11](https://archive.apache.org/dist/tomcat/tomcat-11/).
 
 Si ricorda che comunque la versione 11 *è in versione alpha*.
@@ -90,7 +89,7 @@ tar -xvzf apache-tomcat-11.0.0-M20.tar.gz
 
 Tomcat possiede diversi file di configurazione, la conoscenza di questi file è fondamentale per conoscere tutte le dinamiche che possono impedire un corretto funzionamento dell'applicativo o del server.
 
-Prima di tutto si può fare una panoramica sulle cartelle: 
+Prima di tutto si può fare una panoramica sulle cartelle:
 
 - bin: contiene gli script per l'esecuzione e la configurazione dell'ambiente di tomcat tra cui `catalina.sh`.
 - conf: contiene le configurazioni principali per l'avvio e l'esecuzione di tomcat. Inclusi permessi degli utenti, datasources e punti di accesso dell'applicazione.
