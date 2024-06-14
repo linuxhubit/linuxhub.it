@@ -313,7 +313,7 @@ Oh, bravo Figaro!
 Bravo, bravissimo! Bravo!
 ```
 
-Cercherà tutte le frasi che contengono la parola giornissimo in mezzo.
+Cercherà tutte le frasi che contengono la parola `brav` o `Brav` in mezzo.
 
 ### Caso codice vuoto con un blocco condizionale
 

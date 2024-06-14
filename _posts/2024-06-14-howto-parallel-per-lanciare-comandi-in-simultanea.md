@@ -7,7 +7,7 @@ author: Midblyte
 author_github: Midblyte
 coauthor:
 coauthor_github:
-published: false
+published: true
 tags:
 - ubuntu
 - fedora
@@ -150,7 +150,7 @@ Verranno ordinatamente stampate in console otto righe, le quali sono: 000, 001, 
 
 ### Mazzo di carte francesi
 
-Immaginando di star usando Bash (o simili) per creare un gioco che fa uso delle carte francesi, è opportuno creare il mazzo.
+Supponendo di dover creare un gioco che fa uso delle carte francesi utilizzando solo lo scripting BASH (o UNIX in generale), è opportuno creare il mazzo.
 
 Anziché scrivere una ad una ciascuna delle 52 carte, oppure utilizzare due for innestati, GNU Parallel risolve il problema con un singolo (ed elegante) comando, di un'unica riga:
 
