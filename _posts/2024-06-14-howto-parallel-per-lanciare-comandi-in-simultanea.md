@@ -5,8 +5,8 @@ date: 2024-06-14 07:00
 layout: post
 author: Midblyte
 author_github: Midblyte
-coauthor:
-coauthor_github:
+coauthor: Davide Galati (in arte PsykeDady)
+coauthor_github: PsykeDady
 published: true
 tags:
 - ubuntu
