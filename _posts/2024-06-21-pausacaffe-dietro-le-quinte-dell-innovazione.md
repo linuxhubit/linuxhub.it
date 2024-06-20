@@ -2,10 +2,13 @@
 class: post
 title: '#pausacaffè - Dietro le quinte dell'innovazione'
 description: "Riflessioni sull'innovazione tecnologica e un invito a considerare le molteplici variabili che influenzano le decisioni, siano esse aziendali, ambientali, legali o sociali, andando oltre le semplificazioni e le apparenze. "
-date: 2024-06-19
+date: 2024-06-21 07:00
 layout: post
 author: Mirko B.
 author_github: mirkobrombin
+coauthor: Davide Galati (in arte PsykeDady)
+coauthor_github: PsykeDady
+published: false
 tags:
   - automazione
 ---
