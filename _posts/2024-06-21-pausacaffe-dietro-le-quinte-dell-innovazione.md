@@ -8,7 +8,7 @@ author: Mirko B.
 author_github: mirkobrombin
 coauthor: Davide Galati (in arte PsykeDady)
 coauthor_github: PsykeDady
-published: false
+published: true
 tags:
   - automazione
 ---
