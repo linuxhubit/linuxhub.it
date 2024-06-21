@@ -49,9 +49,7 @@ Questo potrebbe aprire un altro grande capitolo su come i consumatori percepisco
 
 ## Resistenza agli Standard
 
-L'articolo menziona anche l'opposizione delle aziende agli standard tecnologici, sebbene possa sembrare che si oppongano agli standard per mantenere il controllo del mercato, e in una certa misura è probabile che sia così, è importante riconoscere che ci sono rischi e costi significativi nell'adottare nuovi standard, soprattutto da parte di aziende i cui prodotti sono adottati da una grande porzione di utenti. Le aziende devono considerare attentamente quando e come adottare nuovi standard per garantire la compatibilità e la stabilità dei loro prodotti. Ad esempio, passare a un nuovo standard di connettività può richiedere costosi e complessi aggiornamenti hardware, una rivalutazione dei piani a lungo termine e molteplici fattori che variano
-
- da realtà a realtà e si posizionano non solo su un piano pratico, ma anche, spesso, politico.
+L'articolo menziona anche l'opposizione delle aziende agli standard tecnologici, sebbene possa sembrare che si oppongano agli standard per mantenere il controllo del mercato, e in una certa misura è probabile che sia così, è importante riconoscere che ci sono rischi e costi significativi nell'adottare nuovi standard, soprattutto da parte di aziende i cui prodotti sono adottati da una grande porzione di utenti. Le aziende devono considerare attentamente quando e come adottare nuovi standard per garantire la compatibilità e la stabilità dei loro prodotti. Ad esempio, passare a un nuovo standard di connettività può richiedere costosi e complessi aggiornamenti hardware, una rivalutazione dei piani a lungo termine e molteplici fattori che variano da realtà a realtà e si posizionano non solo su un piano pratico, ma anche, spesso, politico.
 
 ## Blockchain e Machine Learning
 
