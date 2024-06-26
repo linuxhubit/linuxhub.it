@@ -1,7 +1,7 @@
 ---
 class: post
 title: "#howtodev - Usare awk pt2: costrutti e for"
-date: 2024-06-07 07:00
+date: 2024-06-28 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
@@ -21,7 +21,7 @@ I tre autori (**A**ho, **W**einberger, **K**ernighan) hanno dato vita a questo p
 
 Parte 2: costrutti e for.
 
-## Variabili complessse
+## Variabili complesse
 
 Prima di entrare nell'argomento principale va esteso un concetto incontrato nell'articolo precedente: le variabili.
 
