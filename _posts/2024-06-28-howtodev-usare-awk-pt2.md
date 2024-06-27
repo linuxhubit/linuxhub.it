@@ -1,12 +1,12 @@
 ---
 class: post
-title: "#howtodev - Usare awk pt2: costrutti e for"
+title: "#howtodev - Usare AWK pt2: costrutti e for"
 date: 2024-06-28 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: false
 tags:
 - bash
@@ -25,7 +25,7 @@ Parte 2: costrutti e for.
 
 Prima di entrare nell'argomento principale va esteso un concetto incontrato nell'articolo precedente: le variabili.
 
-Che tipologie di variabili supporta awk? numeriche, stringhe ma anche **array** e **dizionari**. Come qualunque altra variabile, awk inizializza le variabili nello stesso momento in cui le si usa, e deduce il tipo dal contesto. Un esempio molto semplice potrebbe essere contare il numero di parole in ogni frase e stamparle alla fine:
+Che tipologie di variabili supporta AWK? numeriche, stringhe ma anche **array** e **dizionari**. Come qualunque altra variabile, AWK inizializza le variabili nello stesso momento in cui le si usa, e deduce il tipo dal contesto. Un esempio molto semplice potrebbe essere contare il numero di parole in ogni frase e stamparle alla fine:
 
 ```bash
 echo 'Oh, bravo Figaro!
@@ -54,11 +54,11 @@ I costrutti sono simili ad altri linguaggi, abbiamo quindi il `while`, il `for`,
 
 Per chi viene da altri linguaggi di programmazione il passaggio è assolutamente immediato. Per chiunque non fosse invece avvezzo:
 
-- Il costrutto "if" determina un blocco di istruzioni che viene eseguito solo ad una determinata condizione
-- Il costrutto "while" determina un blocco di istruzioni che viene eseguito fino a che una determinata condizione resta vera
+- Il costrutto "if" determina un blocco di istruzioni che viene eseguito solo ad una determinata condizione.
+- Il costrutto "while" determina un blocco di istruzioni che viene eseguito fino a che una determinata condizione resta vera.
 - Il costrutto "for" crea una variabile, esegue un blocco di istruzioni fino a che una determinata condizione resta vera ed ogni iterazione aggiorna la variabile creata.
 
-Un if ha una struttura similare a questa:
+Un "if" ha una struttura similare a questa:
 
 ```bash
 if(condizione){
@@ -66,7 +66,7 @@ if(condizione){
 }
 ```
 
-Un while:
+Un "while":
 
 ```bash
 while(condizione) {
@@ -74,7 +74,7 @@ while(condizione) {
 }
 ```
 
-Mentre un for a questa:
+Mentre un "for", a questa:
 
 ```bash
 for(inizializzazione;condizione;aggiornamento){
@@ -82,7 +82,7 @@ for(inizializzazione;condizione;aggiornamento){
 }
 ```
 
-### If esempi
+### IF esempi
 
 Ad esempio per stampare il numero di righe che contengono la parola "bravo" o "Bravo":
 
@@ -153,7 +153,7 @@ Ad esempio:
 split($0,chars,"")
 ```
 
-Divide l'intera riga in ingresso ad awk dentro il vettore chars.
+Divide l'intera riga in ingresso ad AWK dentro il vettore chars.
 
 Un esempio completo potrebbe essere quello di contare il numero di `a` in un file di testo, il comando sarebbe:
 
