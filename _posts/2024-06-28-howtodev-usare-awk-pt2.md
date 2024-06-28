@@ -1,13 +1,13 @@
 ---
 class: post
 title: "#howtodev - Usare AWK pt2: costrutti e for"
-date: 2024-06-28 07:00
+date: 2024-06-28 06:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: Michael Messaggi
 coauthor_github: MichaelMessaggi
-published: false
+published: true
 tags:
 - bash
 - awk

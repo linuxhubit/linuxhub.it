@@ -13,6 +13,8 @@ tags:
 - awk
 ---
 
+[&rarr; Articolo successivo, parte 2: costrutti e for](https://linuxhub.it/articles/howto-usare-awk-pt2/)  
+
 AWK è un **linguaggio di programmazione** nato dalla necessità di manipolare piccole porzioni di testo in diversi file con poche righe di codice, sfruttando direttamente l'interattività della console.
 
 I tre autori (**A**ho, **W**einberger, **K**ernighan) hanno dato vita a questo potente strumento negli anni 70, dandogli il nome in base alle loro iniziali, e migliorandolo con il tempo.
