@@ -1,6 +1,6 @@
 ---
 class: post
-title: "#howtodev - Usare AWK pt2: costrutti e for"
+title: "#howtodev - Usare AWK pt2: strutture di controllo"
 date: 2024-06-28 06:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
