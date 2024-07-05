@@ -7,7 +7,7 @@ author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: linuxhubit
 coauthor_github: linuxhubit
-published: false
+published: true
 tags:
   - vacanze
 ---
