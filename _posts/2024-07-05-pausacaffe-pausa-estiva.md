@@ -5,8 +5,8 @@ date: 2024-07-05 18:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
-coauthor: linuxhubit
-coauthor_github: linuxhubit
+coauthor: Michael Messaggi
+coauthor_github: MichaelMessaggi
 published: true
 tags:
   - vacanze
@@ -16,9 +16,9 @@ Eccoci arrivati al riepilogo estivo 2024 e di conseguenza, al nostro consueto pe
 
 ## A fatica, ma siamo arrivati
 
-Quest'anno è stato uno dei più difficili per la redazione di Linuxhub, ma il nostro impegno a portare avanti gli articoli si è comunque mantenuto nelle varie settimane senza mai lasciare i nostri lettori a corto di begli articoli da leggere sul mondo Linux, dello sviluppo e così via...
+Quest'anno è stato uno dei più difficili per la redazione di linuxhub, ma il nostro impegno a portare avanti gli articoli si è comunque mantenuto nelle varie settimane senza mai lasciare i nostri lettori a corto di begli articoli da leggere sul mondo Linux, dello sviluppo e così via...
 
-Nel ricordare che [chiunque può scrivere un articolo per noi](https://linuxhub.it/articles/howto-scrivere-un-articolo-per-linuxhub/)voglio anche sottolineare che quest'anno la redazione ha potuto contare solo su due editori regolari e un redattore.
+Nel ricordare che [chiunque può scrivere un articolo per noi](https://linuxhub.it/articles/howto-scrivere-un-articolo-per-linuxhub/) voglio anche sottolineare che quest'anno la redazione ha potuto contare solo su due editori regolari e un redattore.
 
 Un ringraziamento speciale va ai miei colleghi Michael Messaggi e Midblyte, sempre presenti e impegnati mese dopo mese nella scrittura e nella revisione dei vari articoli.
 
@@ -26,7 +26,7 @@ Ovviamente ringrazio anche Mirko Brombin, che oltre a tenere le redini di tutta 
 
 ## Un po' di numeri
 
-Come ogni articolo di questo tipo facciamo un po' di numeri. Non avendo un meccanismo di tracking sul sito di linuxhub, l'unico modo per tracciare le visite son le statistiche di **cloudflare**.
+Come ogni articolo di questo tipo facciamo un po' di numeri. Non avendo un meccanismo di tracking sul sito di linuxhub, l'unico modo per tracciare le visite son le statistiche di **CloudFlare**.
 
 ![](/uploads/luglio2024/30d.jpg)
 
@@ -36,9 +36,9 @@ Abbiamo un preciso target di persone che ci seguono, soprattutto da Telegram, ma
 
 ## Buon estate
 
-Con questo (caldo) vi auguriamo buon estate. Le pubblicazioni "**regolari**" ricominceranno a Settembre, fino a quel momento potrebbero non esserci pubblicazioni, potrebbero essere totalmente random oppure ancora *potreste essere voi* a voler pubblicare qualcosa. Chi lo sa!
+Con questo (caldo) vi auguriamo buon estate. Le pubblicazioni "**regolari**" ricominceranno a Settembre, fino a quel momento potrebbero non esserci pubblicazioni, potrebbero essere totalmente random oppure ancora *potreste essere voi* a pubblicare qualcosa. Chi lo sa!
 
-Nel frattempo vi lasciamo una serie di letture, vecchie e nuove, che magari non vi son sfuggite tra un articolo ed un altro.
+Nel frattempo vi lasciamo una serie di letture, vecchie e nuove, che magari vi sono sfuggite tra un articolo ed un altro.
 
 - [#howto - Gum: per script più soddisfacenti](https://linuxhub.it/articles/howto-gum-per-script-piu-soddisfacenti/)
 - [Gestione della memoria più efficiente con Earlyoom](https://linuxhub.it/articles/howto-impostare-earlyoom/)
