@@ -1,13 +1,13 @@
 ---
 class: post
 title: "#howto - Riavviare in emergenza con REISUB"
-date: 2024-09-06 07:00
+date: 2024-09-09 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
 author_github: PsykeDady
 coauthor: linuxhubit
 coauthor_github: linuxhubit
-published: false
+published: true
 tags:
 - emergenza
 - bloccato
