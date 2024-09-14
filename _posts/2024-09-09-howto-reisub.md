@@ -94,6 +94,10 @@ Si analizzino le combinazioni
 
 Quindi tenendo premuto `ALT+RSIST` e scrivendo in **lenta** successione R,E,I,S,U,B, si riavvierà il sistema (a prescindere dal suo stato).
 
+### G
+
+La lettera G cattura l'input nel caso sia trattenuto da qualche applicazione su X11, può essere usato per maggiore sicurezza prima della sequenza REISUB (che diventerebbe quindi GREISUB).
+
 
 ## Magic Sys Req in remoto
 
