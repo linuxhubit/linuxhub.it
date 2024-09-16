@@ -26,7 +26,7 @@ Tramite curl si possono interrogare alcuni siti per consultare il meteo, come **
 
 ### WTTR
 
-il metodo più semplice è sicuramente quello offerto dal sito wttr.it:
+il metodo più semplice è sicuramente quello offerto dal sito wttr.in:
 
 ```bash
 curl wttr.in
@@ -129,6 +129,16 @@ I risultati ottenuti son divisi in due json separati ognuno dei quali per città
 
 Si ottiene l'informazione che per la città di rende, in data `2024-09-14T00:00` si avrà una temperatura di 15.7 gradi, un umidità di 81 e probabilità di precipitazione di 3%.
 
+#### Latitudine e longitudine con le API di open-meteo
+
+Si può utilizzare OPEN-METEO per avere latitudine e longitudine, per farlo scrivere:
+
+```bash
+curl 'https://geocoding-api.open-meteo.com/v1/search?name=Cosenza&count=3&language=en&format=json' | jq
+```
+
+Sostituendo a "Cosenza" il nome della città. Se ci sono omonimie, verranno restituiti più risultati (Attualmente 3, modificare il numero dopo `count` per avere più o meno risultati).
+
 ## Metar
 
 Metar è un tool open source per la decodifica di dei dati di una stazione meteo. Il codice si può trovare [su questo repository](https://github.com/keesL/metar).
@@ -197,4 +207,50 @@ Dew Point: 53 F (12 C)
 Relative Humidity: 49%
 Pressure (altimeter): 29.88 in. Hg (1012 hPa)
 ob: LICA 141150Z AUTO 28017KT 9999 FEW045/// 23/12 Q1012
+```
+
+## Ansiweather
+
+Un altro strumento è **Ansiweather**, un tool molto più semplice a portata di tutti che permette di avere un output semplice e pulito, senza disegni o altro. È uno strumento open source ed il codice sorgente [può essere trovato su Github](https://github.com/fcambus/ansiweather).
+
+### Installare su Ubuntu e derivate
+
+Per installare il tool su Ubuntu e derivate scrivere:
+
+```bash
+apt-get install ansiweather
+```
+
+### Installare su Fedora
+
+Per fedora non esistono al momento metodi ufficiali per l'installazione.
+
+### Installare su ArchLinux
+
+Per installare su ArchLinux usare AUR:
+
+```bash
+git clone https://aur.archlinux.org/ansiweather.git
+cd ansiweather
+makepkg -si
+```
+
+### Utilizzo Ansiweather
+
+Per utilizzarlo basta scrivere:
+
+```bash
+ansiweather -l NOMECITTA,CODICENAZIONE -f NUMEROGIORNI
+```
+
+Ad esempio per avere una previsione della città di Catanzaro per i prossimi 3 giorni scrivere:
+
+```bash
+ansiweather -l Catanzaro,IT -f 3
+```
+
+L'output sarà:
+
+```plain
+Catanzaro forecast: lun set 16: 23/16 °C - mar set 17: 22/15 °C - mer set 18: 26/17 °C - gio set 19: 25/18 °C 
 ```
