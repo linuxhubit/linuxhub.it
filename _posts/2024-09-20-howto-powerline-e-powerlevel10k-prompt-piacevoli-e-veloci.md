@@ -1,5 +1,6 @@
 ---
-title: #howto - Powerline e Powerlevel10k: prompt piacevoli e veloci
+class: post
+title: "#howto - Powerline e Powerlevel10k: prompt piacevoli e veloci"
 date: 2024-09-20 09:00
 layout: post
 author: Midblyte
