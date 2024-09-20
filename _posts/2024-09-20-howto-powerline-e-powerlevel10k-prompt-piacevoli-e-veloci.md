@@ -5,9 +5,9 @@ date: 2024-09-20 09:00
 layout: post
 author: Midblyte
 author_github: Midblyte
-coauthor:
-coauthor_github:
-published: false
+coauthor: Davide Galati (in arte PsykeDady)
+coauthor_github: PsykeDady
+published: true
 tags:
 - ubuntu
 - fedora
@@ -20,12 +20,9 @@ Talvolta è un punto di forza (per minimalismo, densità di informazioni, minori
 
 Tuttavia, altre volte è una limitazione, a cui negli anni si è cercato di far fronte con soluzioni sempre diverse: è il caso di Powerline e simili (come Powerlevel10k, specifico per Zsh).
 
-
 ## Per iniziare
 
-### Cos'è Powerline?
-
-Noto plugin per Vim, anche se negli anni si è evoluto per supportare più piattaforme, Powerline fornisce **statusline** e **prompt** a vari software per terminale: sono supportati bash, zsh, fish, tmux, IPython, Awesome, i3 e Qtile.
+Powerline è Noto plugin per Vim, anche se negli anni si è evoluto per supportare più piattaforme, Powerline fornisce **statusline** e **prompt** a vari software per terminale: sono supportati bash, zsh, fish, tmux, IPython, Awesome, i3 e Qtile.
 
 ### Cos'è Powerlevel10k?
 
@@ -41,12 +38,11 @@ Powerline e Powerlevel10k possono modificare quest'ultima parte, aggiungendo nuo
 
 Solitamente un prompt occupa un'unica riga di terminale, ma esistono anche prompt multilinea.
 
-
-## Requisiti
-
-### Font
+## Requisiti Powerlevel
 
 Per beneficiare appieno di Powerline e software simili, è necessario l'utilizzo di alcuni font opportunamente modificati.
+
+### Font
 
 Per installare nuovi font da terminale, è necessario muovere i font scaricati (o la cartella che li comprende) in `~/.local/share/fonts` (per l'utente corrente) o `/usr/local/share/fonts` (per tutto il sistema).
 
@@ -61,24 +57,23 @@ fc-cache -vf /usr/local/share/fonts
 
 I **powerline fonts** sono varianti dei font più conosciuti, appositamente modificati, che aggiungono il supporto a caratteri non ufficialmente approvati dal consorzio Unicode: grazie ad essi, è possibile mostrare sul terminale alcune icone come se fossero caratteri.
 
-###### Consulta il [sito ufficiale](https://github.com/powerline/fonts) per maggiori informazioni e per il download.
+Consulta il [sito ufficiale](https://github.com/powerline/fonts) per maggiori informazioni e per il download.
 
 #### Nerdfonts (consigliati)
 
 I **nerdfonts** sono simili ai Powerline fonts, ma sono molto più completi: aggiungono il supporto a molti altri glifi non legati a Powerline (come le icone di Material Design, Font Awesome, e molte altre ancora).
 
-###### Consulta il (https://www.nerdfonts.com/)[sito ufficiale] per maggiori informazioni e per il download.
-
+Consulta il (https://www.nerdfonts.com/)[sito ufficiale] per maggiori informazioni e per il download.
 
 ## Powerlevel10k
 
 ![Un prompt, esagerato per l'utilizzo quotidiano, pensato per dimostrare le potenzialità di Powerlevel10k](https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/extravagant-style.png)
 
-Sebbene Powerline supporti Zsh, **Powerlevel10k** rimane l'opzione consigliata per shell Zsh per le prestazioni superiori, la maggiore personalizzazione e il migliore supporto (differentemente da Powerline, tutto il necessario è già incluso e non esistono requisiti "consigliati").
+Sebbene Powerline supporti Zsh, è invece consigliato **Powerlevel10k** che ha prestazioni superiori, maggiore personalizzazione e migliore supporto (differentemente da Powerline, tutto il necessario è già incluso e non esistono requisiti "consigliati").
 
-Come anticipato, Powerlevel10k non è supportato su shell diverse da Zsh.
+Come anticipato, Powerlevel10k non è supportato su shell diverse.
 
-### Installazione
+### Installazione Powerlevel
 
 L'installazione (maggiori informazioni [qui](https://github.com/romkatv/powerlevel10k#installation)) varia a seconda del framework utilizzato (nessuno, Oh-My-Zsh, Prezto, e così via).
 
@@ -110,7 +105,7 @@ Per gli utenti Prezto:
 echo 'zstyle :prezto:module:prompt theme powerlevel10k' >> ~/.zpreztorc
 ```
 
-### Personalizzazione
+### Personalizzazione Powerlevel
 
 Una volta installato Powerlevel10k, la maggior parte della configurazione può essere effettuata **interattivamente** con:
 
@@ -124,12 +119,11 @@ La configurazione può essere personalizzata ulteriormente modificando il file c
 
 Le linee guida si possono trovare sulla (https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#extremely-customizable)[pagina GitHub] del progetto.
 
-
 ## Powerline
 
 Per shell diverse da Zsh (in tal caso, è consigliata l'installazione di Powerlevel10k), va installato Powerline dopo aver soddisfatto alcuni requisiti:
 
-### Requisiti
+### Requisiti Powerline
 
 Python è l'unico requisito obbligatorio da soddisfare per utilizzare Powerline.
 
@@ -150,15 +144,21 @@ dnf install python3
 #### Arch linux
 
 ```bash
-pacman -S python
+pacman -S python-pipx
 ```
 
-### Installazione
+### Installazione Powerline
 
 Via pip:
 
 ```bash
 pip install powerline-status
+```
+
+Su archlinux pipx:
+
+```bash
+pipx install powerline-status
 ```
 
 Sul sito della documentazione c'è un'intera [pagina](https://powerline.readthedocs.io/en/latest/installation.html#pip-installation) dedicata a ulteriori requisiti opzionali, sia per migliorare le prestazioni che per abilitare il supporto a nuovi segmenti.
@@ -188,7 +188,7 @@ set fish_function_path $fish_function_path "{repository_root}/powerline/bindings
 powerline-setup
 ```
 
-### Personalizzazione
+### Personalizzazione Powerline
 
 Sfortunatamente, la personalizzazione dei segmenti del prompt è ben più macchinosa se confrontata con Powerlevel10k.
 
@@ -221,7 +221,6 @@ I colori di default sono definiti nei vari file di configurazione in `{repositor
 La pagina di aiuto per conoscere tutte le impostazioni di configurazione è disponibile sul [sito ReadTheDocs di Powerline](https://powerline.readthedocs.io/en/latest/configuration/reference.html).
 
 Esiste anche la pagina specifica per ottenere maggiori informazioni sui [segmenti](https://powerline.readthedocs.io/en/latest/configuration/segments.html), più tutte le informazioni necessarie per abilitarli e configurarli.
-
 
 ### Powerline come statusline
 
