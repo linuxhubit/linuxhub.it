@@ -172,7 +172,8 @@ flowchart LR
 	F-->B
 ```
 
-Il risultato sarà
+Il risultato sarà  
+
 [![](https://mermaid.ink/img/pako:eNo1kD1vgzAQhv-KdTNBYINteaiUD2VKl1ZdWne4YNMggZ1QW02K-O81qXLTc6fn3uGdoPHGgoK29z_NCcdADi_akTTrjzdHjv5KLhH76C7RfpLV6olstNNhk2i7wDbB7gHrBfYJkgMZDHYcsDMpfVoiNYSTHawGldDYFmMfNGg3JxVj8K8314AKY7QZxLPBYHcdfo04gGqx_07XM7p374eHlFZQE1xBMclzIUpRVpLKWvIMbqBKVudMFrSqSi4ErymfM_i9_xc5LyRnjHMuGK1qWmZgTRf8-Pxfx72V-Q9oUFaD?type=png)](https://mermaid.live/edit#pako:eNo1kD1vgzAQhv-KdTNBYINteaiUD2VKl1ZdWne4YNMggZ1QW02K-O81qXLTc6fn3uGdoPHGgoK29z_NCcdADi_akTTrjzdHjv5KLhH76C7RfpLV6olstNNhk2i7wDbB7gHrBfYJkgMZDHYcsDMpfVoiNYSTHawGldDYFmMfNGg3JxVj8K8314AKY7QZxLPBYHcdfo04gGqx_07XM7p374eHlFZQE1xBMclzIUpRVpLKWvIMbqBKVudMFrSqSi4ErymfM_i9_xc5LyRnjHMuGK1qWmZgTRf8-Pxfx72V-Q9oUFaD)
 
 Se manca lo spazio verticale (nel caso di diagrammi LR e RL) automaticamente i box vengono disposti su seconda riga.
