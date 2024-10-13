@@ -1,6 +1,6 @@
 ---
 class: post
-title: "#howtodev - Diagrammi con mermaidjs - Introduzione"
+title: "#howtodev - Diagrammi con mermaidjs - Introduzione e Flowcharts"
 date: 2024-09-29 07:00
 layout: post
 author: Davide Galati (in arte PsykeDady)
@@ -13,6 +13,9 @@ tags:
 - mermaidjs
 - uml
 ---
+
+
+[Articolo successivo: Sequence Diagrams &rarr;](https://linuxhub.it/articles/howtodev-mermaidjs-pt2)  
 
 MermaidJS è una libreria Javascript per la creazione di diagrammi tramite linguaggio di formattazione. È integrato in alcuni software ed è facile da utilizzare.
 
