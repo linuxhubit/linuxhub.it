@@ -5,9 +5,9 @@ date: 2024-10-18 09:00
 layout: post
 author: Midblyte
 author_github: Midblyte
-coauthor: 
-coauthor_github: 
-published: false
+coauthor: Davide Galati (in arte PsykeDady)
+coauthor_github: PsykeDady
+published: true
 tags:
 - ubuntu
 - fedora
@@ -17,7 +17,7 @@ tags:
 
 Chi lavora molto spesso sul terminale è conscio del fatto che alcuni comandi hanno un'importanza e un'utilità maggiore di altri.
 
-Solitamente è il caso delle *pipeline*, ovverosia la (lunga) concatenazione di comandi separati dall'operatore pipe **|**:
+Solitamente è il caso delle *pipeline*, ovvero la concatenazione di comandi separati dall'operatore pipe `|`:
 
 ```bash
 ps aux | awk '{print $3, $11}' | sort -nr -k 2 | tail -n +2 | head -5  # I 5 processi che stanno usando più CPU.
@@ -25,9 +25,7 @@ ps aux | awk '{print $3, $11}' | sort -nr -k 2 | tail -n +2 | head -5  # I 5 pro
 
 Navi consente di memorizzare (e addirittura **parametrizzare**) questi comandi in file speciali - chiamati *cheatsheets* - che in un secondo momento possono essere cercati ed eseguiti.
 
-Non solo: tra le molte altre funzionalità, Navi ingloba le principali funzioni di [tldr](https://linuxhub.it/articles/howto-tldr-esempi-pratici-per-i-comandi/) e [cheat.sh](https://linuxhub.it/articles/howto-guide-rapide-con-cheat-sh/), cioè mostrare esempi pratici di utilizzo dei comandi, annessi a brevi descrizioni.
-
-In sintesi, Navi è uno strumento che ha un alto potenziale di utilizzo nelle attività di tutti i giorni.
+Navi ingloba le principali funzioni di [tldr](https://linuxhub.it/articles/howto-tldr-esempi-pratici-per-i-comandi/) e [cheat.sh](https://linuxhub.it/articles/howto-guide-rapide-con-cheat-sh/).
 
 ## Requisiti
 
@@ -37,33 +35,33 @@ Sono entrambi tool che consentono di filtrare l'output di altri comandi in modal
 
 Nel caso di `fzf`, l'installazione per le principali piattaforme è la seguente:
 
-### Ubuntu
+### Installare Fzf su Ubuntu
 
 ```bash
 apt install fzf
 ```
 
-### Fedora
+### Installare Fzf su Fedora
 
 ```bash
 dnf install fzf
 ```
 
-### Arch Linux
+### Installare Fzf su Arch Linux
 
 ```bash
 pacman -S fzf
 ```
 
-### Mac OS
+### Installare Fzf su Mac OS
 
 ```bash
 brew install fzf
 ```
 
-## Installazione
+## Installazione Navi
 
-### Ubuntu
+### Installare navi su Ubuntu
 
 Nel caso di Ubuntu, non è disponibile alcun pacchetto pronto per l'installazione (tutt'al più esistono i [binari precompilati ufficiali](https://github.com/denisidoro/navi/releases) per le piattaforme più utilizzate).
 
@@ -83,25 +81,25 @@ In alternativa al semplice `make install`, è consigliato specificare anzitempo 
 make BIN_DIR=/usr/local/bin install
 ```
 
-### Fedora
+### Installare navi su Fedora
 
 ```bash
 dnf install navi
 ```
 
-### Arch Linux
+### Installare navi su Arch Linux
 
 ```bash
 pacman -S navi
 ```
 
-### via Cargo
+### Installare navi su via Cargo
 
 ```bash
 cargo install --locked navi
 ```
 
-### Mac OS
+### Installare navi su Mac OS
 
 ```bash
 brew install navi
@@ -115,13 +113,13 @@ Una volta installato `navi`, è possibile consultare cheatsheet semplicemente av
 
 Si aprirà un'interfaccia testuale (fornita da uno tra `fzf` o `skim`), in cui si può navigare usando le frecce direzionali e si può filtrare l'elenco a schermo digitando dei caratteri.
 
->>> La ricerca segue le [regole del fuzzy finding](https://github.com/junegunn/fzf#search-syntax), identica sia nel caso di `fzf` che di `skim`.
+> La ricerca segue le [regole del fuzzy finding](https://github.com/junegunn/fzf#search-syntax), identica sia nel caso di `fzf` che di `skim`.
 
 Premendo `Enter`, viene confermata la selezione attuale.
 
 Tuttavia, all'inizio non c'è un'ampia gamma di suggerimenti da consultare: è necessario scaricarne di nuovi.
 
->>> Avviare `navi` usando l'argomento --print consente una consultazione in modalità di "sola lettura", prevenendo eventuali esecuzioni accidentali.
+> Avviare `navi` usando l'argomento --print consente una consultazione in modalità di "sola lettura", prevenendo eventuali esecuzioni accidentali.
 
 ### Scaricare cheatsheet già pronti
 
@@ -131,7 +129,9 @@ Ci sono molti altri repository di cheatsheet installabili interattivamente da `n
 
 Per installare nuovi cheatsheet, che non sono in elenco ma che sono caricati su una repository git, è sufficiente usare `navi repo add <URL>`, dove URL può anche essere nel formato **utente/repository** nel caso specifico di una repository GitHub.
 
->>> Nota bene: i cheatsheet non vengono aggiornati automaticamente da Navi.
+> Nota bene:
+>
+> i cheatsheet non vengono aggiornati automaticamente da Navi.
 
 ### Creare un proprio cheatsheet
 
@@ -145,7 +145,7 @@ ps aux | awk '{print $3, $11}' | sort -nr -k 2 | tail -n +2 | head -5  # I 5 pro
 
 Questo comando può essere trasportato in Navi (ad esempio in `~/.local/share/navi/cheats/processi.cheat`), parametrizzandolo così che il numero di processi selezionati non sia 5, ma liberamente selezionabile (uno dei vantaggi di Navi rispetto a strumenti simili):
 
-```
+```plain
 ; Le righe che iniziano per punto e virgola (;) sono ignorate da Navi e corrispondono a dei commenti.
 
 ; Le righe che iniziano per percentuale (%) indicano le categorie (separate da virgola) del cheatsheet (Navi le mostra sulla sinistra).
@@ -196,8 +196,9 @@ La scorciatoia assegnata di default è `CTRL+G` e non può essere cambiata (se n
 Come precedentemente accennato, Navi può essere utilizzato anche come frontend per [tldr](https://linuxhub.it/articles/howto-tldr-esempi-pratici-per-i-comandi/) e [cheat.sh](https://linuxhub.it/articles/howto-guide-rapide-con-cheat-sh/), a cui abbiamo dedicato degli articoli in passato.
 
 Sia `tldr` che `cheat.sh` sono valide alternative e si completano a vincenda, con delle piccole ma importanti differenze:
-- `tldr`, che va installato, fa affidamento a un database locale che bisogna aggiornare periodicamente;
-- `cheat.sh` non va installato (perché le pagine di aiuto sono disponibili online su [cheat.sh](cheat.sh)); il chiaro svantaggio è che [cheat.sh](cheat.sh)) non è raggiungibile quando si è offline.
+
+- `tldr`, che va installato, fa affidamento a un database locale che bisogna aggiornare periodicamente.
+- `cheat.sh` è consultabile online su [cheat.sh](cheat.sh), con lo svantaggio di non poter essere consultato senza internet.
 
 Per usare `tldr` su `git` in Navi:
 
@@ -205,8 +206,10 @@ Per usare `tldr` su `git` in Navi:
 navi --tldr git
 ```
 
->>> Attenzione: non tutti i client di `tldr` supportano il parametro --markdown (che in alcuni casi è stato sostituito da --raw).
->>> Per questo motivo, Navi potrebbe non funzionare anche nel caso in cui `tldr` sia installato correttamente.
+> Attenzione:
+>
+> non tutti i client di `tldr` supportano il parametro --markdown (che in alcuni casi è stato sostituito da --raw).
+> Per questo motivo, Navi potrebbe non funzionare anche nel caso in cui `tldr` sia installato correttamente.
 
 Per usare `cheat.sh` su `git` in Navi:
 
