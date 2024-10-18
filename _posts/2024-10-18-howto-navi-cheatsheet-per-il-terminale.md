@@ -17,13 +17,7 @@ tags:
 
 Chi lavora molto spesso sul terminale è conscio del fatto che alcuni comandi hanno un'importanza e un'utilità maggiore di altri.
 
-Solitamente è il caso delle *pipeline*, ovvero la concatenazione di comandi separati dall'operatore pipe `|`:
-
-```bash
-ps aux | awk '{print $3, $11}' | sort -nr -k 2 | tail -n +2 | head -5  # I 5 processi che stanno usando più CPU.
-```
-
-Navi consente di memorizzare (e addirittura **parametrizzare**) questi comandi in file speciali - chiamati *cheatsheets* - che in un secondo momento possono essere cercati ed eseguiti.
+Navi consente di memorizzare (e addirittura **parametrizzare**) questi comandi in file speciali, chiamati *cheatsheets*, che in un secondo momento possono essere cercati ed eseguiti.
 
 Navi ingloba le principali funzioni di [tldr](https://linuxhub.it/articles/howto-tldr-esempi-pratici-per-i-comandi/) e [cheat.sh](https://linuxhub.it/articles/howto-guide-rapide-con-cheat-sh/).
 
