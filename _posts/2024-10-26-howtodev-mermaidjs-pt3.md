@@ -24,7 +24,7 @@ Utilizzo dei Class diagrams.
 
 L'articolo affronterà i seguenti argomenti:
 
-- Class diagrams su mermaid JS
+- Class diagrams su MermaidJS
 
 ## Prerequisiti
 
