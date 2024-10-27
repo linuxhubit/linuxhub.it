@@ -94,7 +94,7 @@ classDiagram
     class EsempioClasse
 ```
 
-Apprirà un riquadro in cui, attributi e metodi, sono vuoti (le sezioni sono comunque visibili, ma vuote). Non si può purtroppo creare un riquadro senza le due sezioni di attributi e metodi, si possono solo lasciare vuote.
+Apparirà un riquadro in cui, attributi e metodi, sono vuoti (le sezioni sono comunque visibili, ma vuote). Non si può purtroppo creare un riquadro senza le due sezioni di attributi e metodi, si possono solo lasciare vuote.
 
 Si può anche inserire un nome più lungo con spazi e caratteri non supportati normalmente usando le parentesi quadre: 
 
@@ -106,7 +106,7 @@ classDiagram
     class IDClasse["Esempio classe"]
 ```
 
-In questo caso quello che c'è prima delle parentesi graffe sarà usato come ID per la classe (utile per le relazioni ad esempio) mentre quello all'interno sarà l'etichetta (formattabile oltretutto in html).
+In questo caso quello che c'è prima delle parentesi graffe sarà usato come ID per la classe (utile per le relazioni ad esempio) mentre quello all'interno sarà l'etichetta (formattabile oltretutto in HTML).
 
 
 ### Attributi e metodi
