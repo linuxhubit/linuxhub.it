@@ -84,7 +84,7 @@ classDiagram
 
 ### Classi
 
-Per disegnare un riquadro scrivere `class` seguito dal nome:
+Per disegnare un riquadro scrivere `class` seguito dal nome della classe:
 
 ```yaml
 ---
