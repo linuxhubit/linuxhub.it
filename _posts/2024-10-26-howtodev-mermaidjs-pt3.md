@@ -24,7 +24,7 @@ Utilizzo dei Class diagrams.
 
 L'articolo affronterà i seguenti argomenti:
 
-- Class diagrams su mermaid JS
+- Class diagrams su MermaidJS
 
 ## Prerequisiti
 
@@ -34,7 +34,7 @@ Tutto il necessario è espresso nell'[articolo introduttivo a mermaidJS](https:/
 
 Il diagramma delle classi è forse il più conosciuto per chiunque si sia mai addentrato nel mondo dei diagrammi UML e nell'ingegneria del software, esprime la correlazione tra gli oggetti (classi) di un progetto ed è ottimo per rappresentare alcune strategie di sviluppo come i design patterns.
 
-### Paronamica generale sul diagramma delle classi
+### Panoramica generale sul diagramma delle classi
 
 Nel diagramma delle classi i vari blocchi possono riferirsi ad oggetti, classi implementate, astratte o interfacce. I collegamenti sono in realtà molto vari e possono indicare conoscenza, ereditarietà, inclusione e molto altro.
 
@@ -46,7 +46,7 @@ Ogni riquadro può essere suddiviso in tre sezioni:
 
 Mentre è ovviamente **necessario** avere un nome della classe, le altre due sezioni son del tutto opzionali: escluderle ovviamente non implica che quell'oggetto non abbia variabili o metodi, il diagramma UML deve fornire uno schema *ad alto livello* dell'architettura, quindi un assenza di queste sezioni può anche solo implicare che non sia necessario indicarle per capire la struttura del disegno architetturale.
 
-Si possono specificare gli indicatori di visibilità in variblili o metodi:
+Si possono specificare gli indicatori di visibilità in variabii o metodi:
 
 - Public, indicato con il simbolo `+`.
 - Private, Indicato con il simbolo `-`.
@@ -190,7 +190,7 @@ title: Concessionaria
 ---
 classDiagram
 	class Veicolo{
-        <<Abtract>>
+        <<Abstract>>
         +numeroRuote()
         +compra()
     }
