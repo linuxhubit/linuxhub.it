@@ -46,7 +46,7 @@ Ogni riquadro può essere suddiviso in tre sezioni:
 
 Mentre è ovviamente **necessario** avere un nome della classe, le altre due sezioni son del tutto opzionali: escluderle ovviamente non implica che quell'oggetto non abbia variabili o metodi, il diagramma UML deve fornire uno schema *ad alto livello* dell'architettura, quindi un assenza di queste sezioni può anche solo implicare che non sia necessario indicarle per capire la struttura del disegno architetturale.
 
-Si possono specificare gli indicatori di visibilità in variabii o metodi:
+Si possono specificare gli indicatori di visibilità in variabili o metodi:
 
 - Public, indicato con il simbolo `+`.
 - Private, Indicato con il simbolo `-`.
@@ -191,7 +191,8 @@ classDiagram
     }
 ```
 
-Per creare la classe astratta, nativamente non è possibile *farlo con il nome in corsivo*, quindi bisognerà adattarsi a scriverlo come annotazione:
+Per creare una classe astratta, nativamente non è possibile *farlo con il nome in corsivo*, quindi bisognerà adattarsi a scriverlo come annotazione:
+
 
 ```yaml
 ---
