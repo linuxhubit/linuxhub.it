@@ -74,7 +74,7 @@ puts n + 1 # Stamperà 3
 ### Metaprogrammazione
 Crystal mette a disposizione dell'utente potenti macro che consentono di fare di tutto, dalla classica generazione di codice all'esecuzione di codice Crystal in fase di compilazione e addirittura inserire Crystal in qualsiasi file di testo per preprocessarlo prima di incorporarlo nel binario.
 
-Per scrivere macro basta usare due paia di parentesi graffe `{{}}`
+Per scrivere macro basta usare due paia di parentesi graffe \'\{\{ \}\}\'.
 
 Scriviamo per esempio un programma il cui binario abbia in una variabile una lista di file all'interno di quella cartella in tempo di compilazione:
 
