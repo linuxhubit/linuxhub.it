@@ -1,13 +1,13 @@
 ---
 class: post
 title: '#howto - Rigenerazione Automatica delle Chiavi SSH per VM Debian/ubuntu Clonate'
-date: 2024-11-01 11:00
+date: 2024-11-02 07:00
 layout: post
 author: Luigi Smiraglio
 author_github: geegeek
 coauthor: Davide Galati (in arte PsykeDady)
 coauthor_github: PsykeDady
-published: false
+published: true
 tags:
 - linux
 - virtualizzazione
