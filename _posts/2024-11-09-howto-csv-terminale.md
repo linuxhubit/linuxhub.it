@@ -296,3 +296,32 @@ Utilizzabile poi scrivendo:
 ```bash
 xlsx2csv file_excel.xlsx > file_excel_convertito.csv
 ```
+
+## Considerazioni finali
+
+I file CSV sono talvolta piuttosto ostici da utilizzare, principalmente perché il formato presenta molte varianti.
+Per esempio, normalmente contengono un _header_ con i nomi delle colonne nella prima riga del file, oppure utilizzano i doppi apici - spesso opzionali - per raggruppare i caratteri di stringhe che contengono i delimitatori.
+Per esempio:
+
+```
+ID,Nome,Cognome,Indirizzo
+1,Paolo,Rossi,"via Paolo, 3"
+2,Marco,Bianchi,via Marco Polo
+```
+
+Queste casistiche si possono pensare di trattare con non banali combinazioni di comandi come `sort`, `head`, `tail` e `awk`, oltre a gestire il tutto con `python`.
+Per esempio, in casi semplici, il comando
+
+```bash
+head -n 1 file.csv
+```
+
+estrae la prima riga dal file `file.csv`, che potrebbe corrispondere all'header.
+Il condizionale è dovuto al fatto che l'header non è obbligatorio nei file CSV, e potrebbe non essere presente, come nei molti esempi presentati in questo articolo.
+
+Quando il formato di un file CSV si fa complicato, oppure le operazioni da svolgere sono non banali, come ad esempio l'unione di due file diversi utilizzando criteri opportuni, ci si può affidare - sempre dalla linea di comando - a strumenti specifici per i file CSV.
+Alduni esempi sono i seguenti:
+
+* [csvkit](https://github.com/wireservice/csvkit), una suite di comandi per convertire e manipolare i file CSV;
+* [csvtk](https://bioinf.shenwei.me/csvtk/), un singolo programma scritto in linguaggio Go, che mette a disposizione parecchi sotto-comandi per manipolare i file CSV;
+* [tabview](https://github.com/TabViewer/tabview), un programma in Python che usa la libreria `ncurses` per la visualizzazione di file CSV da terminale.
