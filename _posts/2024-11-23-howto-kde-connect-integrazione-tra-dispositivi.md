@@ -5,9 +5,9 @@ date: 2024-11-23 09:00
 layout: post
 author: Midblyte
 author_github: Midblyte
-coauthor: 
-coauthor_github: 
-published: false
+coauthor: Davide Galati (in arte PsykeDady)
+coauthor_github: PsykeDady
+published: true
 tags:
 - ubuntu
 - fedora
@@ -19,7 +19,7 @@ tags:
 
 KDE Connect è un software open-source che consente di comunicare da e verso altri dispositivi connessi alla stessa rete.
 
-Ad esempio, permette di:
+Alcune delle sue funzioni sono:
 
 - **scambiare file**;
 - ricevere **notifiche**;
@@ -29,9 +29,7 @@ Ad esempio, permette di:
 - inviare e ricevere **SMS**;
 - modificare il **volume**;
 - navigare il **file system** di un altro dispositivo;
-
-e molto altro ancora.
-
+- ed altro ancora ...
 
 ## Installazione
 
@@ -42,7 +40,7 @@ Di seguito le istruzioni specifiche per l'installazione su distribuzioni Linux (
 ### Ubuntu
 
 ```bash
-dnf install kdeconnect
+apt install kdeconnect
 ```
 
 ### Fedora
@@ -98,6 +96,7 @@ Plugin di questo tipo richiedono che siano attivati degli speciali **permessi di
 KDE Connect consente di fare il `mount` del file system di un altro dispositivo così da **accedere a file e cartelle** da remoto come se fossero quelli di una periferica esterna fisicamente connessa.
 
 Quest'integrazione richiede:
+
 - l'utilizzo del file manager di KDE, **Dolphin**;
 - il pacchetto `sshfs` (non sempre preinstallato);
 - che la comunicazione sulle porte **1714-1764** sia TCP che UDP non sia bloccata dai firewall.
