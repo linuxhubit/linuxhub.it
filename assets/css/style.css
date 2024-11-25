@@ -709,3 +709,11 @@ footer li {
 body.post footer {
     position: initial;
 }
+
+.searchbox.show .results ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 5px;
+    flex-direction: column;
+}
