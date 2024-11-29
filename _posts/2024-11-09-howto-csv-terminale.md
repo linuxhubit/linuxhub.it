@@ -14,7 +14,7 @@ tags:
 - terminale
 ---
 
-A lavoro mi capita di gestire sempre una certa quantità di CSV e similari, alle volte anche di una certa dimensione.
+A lavoro mi capita di gestire sempre una certa quantità di CSV e similari, talvolta anche di notevoli dimensioni.
 
 Spesso e volentieri, decido di farlo tramite terminale per automatizzare e velocizzare alcune operazioni.
 
@@ -57,7 +57,7 @@ Le principali opzioni di sort da conoscere per manipolare i CSV sono:
 - `-r` per ordinare al contrario (ordine decrescente).
 - `-u` elimina le occorrenze doppie, se usato in combo con `-k`, lo fa tenendo conto della cella selezionata
 
-Supponendo di avere un csv siffatto:
+Supponendo di avere un file CSV come il seguente::
 
 ```csv
 alberto,alberti, 32
@@ -158,13 +158,12 @@ Si avrà:
 
 ```plain
 alberto   alberti   32
-aldo      baglio    66
-davide    galati    33
-zurli     mago      150
-zio       pera      21
-giacomo   poretti   68
-giacomo   poretti   32
 giovanni  storti    67
+giacomo   poretti   68
+aldo      baglio    66
+zurli     mago      150
+davide    galati    33
+zio       pera      21
 pera      zio       21
 ```
 
@@ -217,12 +216,12 @@ END{
 }' nomicognomieta.csv
 ```
 
-Per trovare il più anzino: 
+Per trovare il più anziano: 
 
 ```bash
 awk -F ',' '       
 BEGIN {
-        max=-1
+        max=0
         maxname=""
 }
 {
@@ -237,7 +236,7 @@ END{
 }' nomicognomieta.csv
 ```
 
-## Extra: excel con gnumeric
+## Extra: Excel con gnumeric
 
 Purtroppo il formato più utilizzato per tabelle dati è diventato nel tempo quello proprietario di excel. Lo svantaggio di questa tipologia di dati è che oltre ad essere proprietario è anche binario, quindi non facilmente leggibile, questo induce a chiedersi come fare a leggere questi dati al di fuori di piattaforme Microsoft.
 
@@ -277,7 +276,7 @@ Per convertire un excel in csv scrivere:
 ssconvert file_excel.xlsx file_excel_convertito.csv
 ```
 
-## Extra: excel con python xlsx2csv
+## Extra: Excel con python xlsx2csv
 
 Un altro tool utilizzabile è **xlsx2csv**, scritto in python ed installabile tramite `pip`:
 
