@@ -153,7 +153,7 @@ apt install metar
   
 ### Installazione su Fedora
 
-Non c'è purtroppo un metodo ufficiale per installare `metar` su Fedora.
+Non esiste al momento un pacchetto ufficiale per Fedora. È possibile installarlo compilando il codice sorgente dal repository ufficiale o cercando eventuali pacchetti di terze parti.
   
 ### Installazione su ArchLinux
 
