@@ -141,7 +141,7 @@ Sostituendo a "Cosenza" il nome della città. Se ci sono omonimie, verranno rest
 
 ## Metar
 
-Metar è un tool open source per la decodifica di dei dati di una stazione meteo. Il codice si può trovare [su questo repository](https://github.com/keesL/metar).
+Metar è un tool open source per la decodifica dei dati di una stazione meteo. Il codice si può trovare [su questo repository](https://github.com/keesL/metar).
 
 ### Installazione su Ubuntu e derivate
 
