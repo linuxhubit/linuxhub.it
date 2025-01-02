@@ -15,6 +15,8 @@ tags:
 ---
 
 [Articolo precedente: Sequence Diagrams &larr;](https://linuxhub.it/articles/howtodev-mermaidjs-pt2)  
+[Articolo successivo: State Diagrams &rarr;](https://linuxhub.it/articles/howtodev-mermaidjs-pt4)  
+
 
 MermaidJS è una libreria Javascript per la creazione di diagrammi tramite linguaggio di formattazione. È integrato in alcuni software ed è facile da utilizzare.
 
